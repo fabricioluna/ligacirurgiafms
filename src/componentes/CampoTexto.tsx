@@ -190,9 +190,14 @@ export function CampoTexto({ abrirLista }: Props) {
             <div>
               <p className="m-0 font-semibold text-subotima">{retorno.mensagem}</p>
               <p className="m-0 mt-1 text-sm text-texto-2">O caso continua pela lista, sem depender da IA.</p>
-              <button type="button" className="botao botao-secundario mt-3" onClick={() => abrirLista(retorno.acao)}>
-                Usar a lista
-              </button>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button type="button" className="botao botao-secundario" onClick={() => abrirLista(retorno.acao)}>
+                  Usar a lista
+                </button>
+                <button type="button" className="botao botao-secundario" onClick={ctx.seguirSemIA}>
+                  Seguir sem IA neste caso
+                </button>
+              </div>
             </div>
           )}
 

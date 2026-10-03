@@ -36,6 +36,8 @@ interface ValorContexto {
   definirConduta: (selecionados: string[], textoDoAluno?: string) => void
   seguir: () => void
   salvarComentario: (c: ComentarioPreceptor) => void
+  // Contingência: a tentativa segue no simulador estático a partir daqui.
+  seguirSemIA: () => void
 }
 
 const Contexto = createContext<ValorContexto | null>(null)
@@ -82,6 +84,7 @@ export function ProvedorTentativa({ caso, children }: { caso: Caso; children: Re
     definirConduta: (sel, texto) => atualizar((t) => definirConduta(caso, t, sel, Date.now(), texto)),
     seguir: () => atualizar((t) => seguir(t)),
     salvarComentario: (c) => atualizar((t) => ({ ...t, comentario: c })),
+    seguirSemIA: () => atualizar((t) => ({ ...t, modo: 'estatico' })),
   }
   return <Contexto.Provider value={valor}>{children}</Contexto.Provider>
 }

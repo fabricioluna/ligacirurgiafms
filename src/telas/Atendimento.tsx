@@ -7,6 +7,7 @@ import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { PainelAcoes } from '../componentes/PainelAcoes'
 import { ProgressoSutura, type EstadoPonto } from '../componentes/ProgressoSutura'
 import { SinaisVitais } from '../componentes/SinaisVitais'
+import { BotaoVoz, useVozPaciente } from '../componentes/VozPaciente'
 import { codigoBase, ehDesfecho, momento, sinaisVitaisAtuais } from '../motor/caso'
 import type { Acao, Caso, Tentativa } from '../motor/tipos'
 import { useTentativa } from '../tentativa'
@@ -30,6 +31,7 @@ function pontosDoCaso(caso: Caso, t: Tentativa) {
 export function Atendimento() {
   const { caso, tentativa } = useTentativa()
   const [acao, setAcao] = useState<Acao | null>(null)
+  const voz = useVozPaciente(tentativa?.descobertas ?? [])
 
   const comIA = tentativa?.modo === 'ia'
 
@@ -63,7 +65,12 @@ export function Atendimento() {
     <div className="flex min-h-dvh flex-col">
       <Cabecalho>
         <div className="flex min-w-0 items-center gap-3">
-          <ProgressoSutura pontos={pontos} animarIndice={animar} className="shrink-0" />
+          <ProgressoSutura pontos={pontos} animarIndice={animar} className="min-w-0 shrink" />
+          {voz.suportado && (
+            <div className="ml-auto">
+              <BotaoVoz ligada={voz.ligada} alternar={voz.alternar} />
+            </div>
+          )}
         </div>
       </Cabecalho>
 
