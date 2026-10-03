@@ -3,9 +3,11 @@
 
 import type { Caso } from '../src/motor/tipos.js'
 import caso001 from '../casos/caso-001.json' with { type: 'json' }
+import caso002 from '../casos/caso-002.json' with { type: 'json' }
+import caso003 from '../casos/caso-003.json' with { type: 'json' }
 
 // Casos que vêm no projeto. Funcionam sempre, inclusive no modo sem internet.
-export const casosDoProjeto = [caso001].map((c) => c as unknown as Caso)
+export const casosDoProjeto = [caso001, caso002, caso003].map((c) => c as unknown as Caso)
 
 const doProjeto = (id: string) => casosDoProjeto.find((c) => c.id === id && c.publicado)
 

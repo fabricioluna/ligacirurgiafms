@@ -1,6 +1,6 @@
 {
   "id": "CASO-001",
-  "versao": "1.1",
+  "versao": "1.2",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -458,7 +458,8 @@
       "perguntaNaoListada": "Não sei dizer, doutor.",
       "laboratorioNaoListado": "Resultado dentro da normalidade.",
       "imagemNaoListada": "Exame não disponível neste serviço no momento.",
-      "parecerEspecialista": "O especialista avaliará depois, mas a conduta inicial é sua."
+      "parecerEspecialista": "O especialista avaliará depois, mas a conduta inicial é sua.",
+      "exameFisicoNaoListado": "Sem alterações nesse segmento."
     },
     "momentos": [
       {
@@ -498,7 +499,7 @@
         "codigo": "M3",
         "nome": "Reavaliação após 24 horas",
         "tempo": "24 horas após o início do tratamento conservador.",
-        "situacao": "A dor se tornou contínua, em 8/10, mais intensa no hipogástrio. O abdome está mais distendido, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa. A sonda drenou 1.400 mL em 24 horas e a diurese está em 0,4 mL/kg/h.",
+        "situacao": "A dor se tornou contínua, em 8/10, mais intensa no hipogástrio. O abdome está mais distendido, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa. A sonda nasogástrica, se mantida, drenou 1.400 mL em 24 horas e a diurese está em 0,4 mL/kg/h.",
         "sinaisVitais": [
           {
             "rotulo": "Pressão arterial",
@@ -725,8 +726,8 @@
         "codigo": "R9",
         "momento": "M4",
         "se": "Opta por controle de danos em paciente estável.",
-        "entao": "Reoperação programada desnecessária e internação mais longa.",
-        "vaiPara": "D1",
+        "entao": "Reoperação programada desnecessária e internação mais longa. O paciente segue para o pós-operatório.",
+        "vaiPara": "M5",
         "registrar": true,
         "disparadaPor": [
           "Optar por controle de danos em paciente estável."
@@ -755,6 +756,17 @@
           "Dar alta."
         ],
         "marcaDesfecho": "D4"
+      },
+      {
+        "codigo": "R12",
+        "momento": "M3-ALT",
+        "se": "Mantém tratamento clínico sem indicar cirurgia.",
+        "entao": "O choque piora e a cirurgia acontece com atraso.",
+        "vaiPara": "M4-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Manter tratamento clínico sem indicar cirurgia."
+        ]
       }
     ],
     "desfechos": [

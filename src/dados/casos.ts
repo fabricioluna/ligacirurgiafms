@@ -8,8 +8,10 @@ import { useSyncExternalStore } from 'react'
 import { gravar, ler } from '../armazenamento'
 import type { Caso } from '../motor/tipos'
 import caso001 from '../../casos/caso-001.json'
+import caso002 from '../../casos/caso-002.json'
+import caso003 from '../../casos/caso-003.json'
 
-export const casosDoProjeto: Caso[] = [caso001 as unknown as Caso].filter((c) => c.publicado)
+export const casosDoProjeto: Caso[] = [caso001, caso002, caso003].map((c) => c as unknown as Caso).filter((c) => c.publicado)
 
 export interface ConfigGeral {
   contingencia: boolean

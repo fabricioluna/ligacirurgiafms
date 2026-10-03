@@ -1,0 +1,1095 @@
+{
+  "id": "CASO-003",
+  "versao": "1.0",
+  "publicado": true,
+  "caso": {
+    "identificacao": {
+      "titulo": "Parada de eliminação de fezes e emagrecimento em paciente de 68 anos",
+      "tema": "Abdome agudo obstrutivo: obstrução do cólon esquerdo por neoplasia",
+      "publico": "Graduação e ligas acadêmicas",
+      "autor": "A definir",
+      "tempoEstimado": "15 a 20 minutos",
+      "referencias": [
+        "Pisano M, Zorcolo L, Merli C, et al. 2017 WSES guidelines on colon and rectal cancer emergencies: obstruction and perforation. World J Emerg Surg. 2018;13:36.",
+        "Sabiston Textbook of Surgery, edição mais recente, capítulo de cólon e reto."
+      ]
+    },
+    "apresentacaoInicial": {
+      "texto": "Pronto-socorro, 9 horas. Dona Maria, 68 anos, professora aposentada, procura atendimento com distensão abdominal progressiva há três dias, cólicas e parada de eliminação de fezes e gases há 48 horas. Conta que, nos últimos meses, o intestino mudou e que ela perdeu peso.",
+      "sinaisVitais": [
+        {
+          "rotulo": "Pressão arterial",
+          "valor": "122 x 76 mmHg"
+        },
+        {
+          "rotulo": "Frequência cardíaca",
+          "valor": "104 bpm",
+          "alterado": true
+        },
+        {
+          "rotulo": "Frequência respiratória",
+          "valor": "18 irpm"
+        },
+        {
+          "rotulo": "Temperatura axilar",
+          "valor": "37,2 °C"
+        },
+        {
+          "rotulo": "Saturação de oxigênio",
+          "valor": "97% em ar ambiente"
+        },
+        {
+          "rotulo": "Dor (0 a 10)",
+          "valor": "5"
+        }
+      ],
+      "pergunta": "Você é o médico de plantão. Como conduz o caso?"
+    },
+    "anamnese": [
+      {
+        "id": "AN-01",
+        "tema": "Início e evolução",
+        "resposta": "A barriga começou a inchar há três dias e foi piorando. Desde anteontem não sai nada, nem gases.",
+        "palavrasChave": [
+          "quando começou",
+          "início",
+          "há quanto tempo",
+          "evolução"
+        ]
+      },
+      {
+        "id": "AN-02",
+        "tema": "Característica da dor",
+        "resposta": "São cólicas que vêm e vão, no meio e do lado esquerdo da barriga. De ontem para hoje começou a doer também do lado direito, embaixo, e essa dor não passa.",
+        "palavrasChave": [
+          "dor",
+          "cólica",
+          "característica",
+          "onde dói",
+          "irradia"
+        ]
+      },
+      {
+        "id": "AN-03",
+        "tema": "Vômitos",
+        "resposta": "Vomitei uma vez hoje, um líquido amarelado.",
+        "palavrasChave": [
+          "vômito",
+          "vomitou",
+          "náusea",
+          "enjoo"
+        ]
+      },
+      {
+        "id": "AN-04",
+        "tema": "Gases e fezes",
+        "resposta": "Não evacuo nem solto gases há dois dias.",
+        "palavrasChave": [
+          "evacuou",
+          "fezes",
+          "gases",
+          "flatos"
+        ]
+      },
+      {
+        "id": "AN-05",
+        "tema": "Hábito intestinal",
+        "resposta": "Há uns seis meses o intestino ficou preso, alternando com diarreia. As fezes ficaram mais finas.",
+        "palavrasChave": [
+          "hábito intestinal",
+          "intestino",
+          "constipação",
+          "diarreia",
+          "fezes finas"
+        ]
+      },
+      {
+        "id": "AN-06",
+        "tema": "Sangramento",
+        "resposta": "Às vezes vejo sangue escuro misturado nas fezes.",
+        "palavrasChave": [
+          "sangue",
+          "sangramento",
+          "melena",
+          "hematoquezia"
+        ]
+      },
+      {
+        "id": "AN-07",
+        "tema": "Peso e apetite",
+        "resposta": "Perdi uns oito quilos em seis meses, sem fazer dieta. Ando muito cansada.",
+        "palavrasChave": [
+          "peso",
+          "emagreceu",
+          "emagrecimento",
+          "apetite",
+          "cansaço"
+        ]
+      },
+      {
+        "id": "AN-08",
+        "tema": "Cirurgias prévias",
+        "resposta": "Só fiz uma cesárea, há mais de trinta anos.",
+        "palavrasChave": [
+          "cirurgia",
+          "operada",
+          "cicatriz",
+          "cesárea"
+        ]
+      },
+      {
+        "id": "AN-09",
+        "tema": "Doenças",
+        "resposta": "Tenho diabetes, controlada com remédio.",
+        "palavrasChave": [
+          "doença",
+          "comorbidade",
+          "antecedente",
+          "diabetes"
+        ]
+      },
+      {
+        "id": "AN-10",
+        "tema": "Medicações",
+        "resposta": "Tomo metformina.",
+        "palavrasChave": [
+          "medicação",
+          "remédio",
+          "uso de"
+        ]
+      },
+      {
+        "id": "AN-11",
+        "tema": "Alergias",
+        "resposta": "Sou alérgica a dipirona.",
+        "palavrasChave": [
+          "alergia"
+        ]
+      },
+      {
+        "id": "AN-12",
+        "tema": "História familiar",
+        "resposta": "Meu pai teve câncer de intestino com uns setenta anos.",
+        "palavrasChave": [
+          "família",
+          "história familiar",
+          "câncer na família",
+          "pai",
+          "mãe"
+        ]
+      },
+      {
+        "id": "AN-13",
+        "tema": "Colonoscopia",
+        "resposta": "Nunca fiz esse exame.",
+        "palavrasChave": [
+          "colonoscopia",
+          "rastreio"
+        ]
+      },
+      {
+        "id": "AN-14",
+        "tema": "Febre",
+        "resposta": "Não tive febre.",
+        "palavrasChave": [
+          "febre",
+          "calafrio"
+        ]
+      },
+      {
+        "id": "AN-15",
+        "tema": "Urina",
+        "resposta": "Estou urinando menos que o normal.",
+        "palavrasChave": [
+          "urina",
+          "diurese",
+          "urinar"
+        ]
+      }
+    ],
+    "exameFisico": [
+      {
+        "id": "EF-01",
+        "segmento": "Estado geral",
+        "achado": "Regular, descorada (2+/4+), desidratada (2+/4+), anictérica, afebril.",
+        "palavrasChave": [
+          "estado geral",
+          "ectoscopia",
+          "hidratação",
+          "mucosas"
+        ]
+      },
+      {
+        "id": "EF-02",
+        "segmento": "Inspeção abdominal",
+        "achado": "Abdome distendido de forma simétrica, com cicatriz de Pfannenstiel.",
+        "palavrasChave": [
+          "inspeção",
+          "abdome",
+          "distensão",
+          "cicatriz"
+        ]
+      },
+      {
+        "id": "EF-03",
+        "segmento": "Ausculta abdominal",
+        "achado": "Ruídos hidroaéreos aumentados, de timbre metálico.",
+        "palavrasChave": [
+          "ausculta",
+          "ruídos",
+          "RHA",
+          "peristalse"
+        ]
+      },
+      {
+        "id": "EF-04",
+        "segmento": "Percussão",
+        "achado": "Timpanismo difuso, mais acentuado na fossa ilíaca direita.",
+        "palavrasChave": [
+          "percussão",
+          "timpanismo"
+        ]
+      },
+      {
+        "id": "EF-05",
+        "segmento": "Palpação",
+        "achado": "Abdome distendido, doloroso na fossa ilíaca direita, sem defesa e sem descompressão dolorosa. Sem massas palpáveis. Fígado não palpável.",
+        "palavrasChave": [
+          "palpação",
+          "defesa",
+          "blumberg",
+          "descompressão",
+          "massa",
+          "ceco",
+          "fossa ilíaca"
+        ]
+      },
+      {
+        "id": "EF-06",
+        "segmento": "Orifícios herniários",
+        "achado": "Regiões inguinais, femorais e umbilical livres.",
+        "palavrasChave": [
+          "hérnia",
+          "orifícios herniários",
+          "inguinal",
+          "femoral",
+          "umbilical"
+        ]
+      },
+      {
+        "id": "EF-07",
+        "segmento": "Toque retal",
+        "achado": "Ampola retal vazia, sem massas ao alcance do dedo, com resíduo de fezes escurecidas na luva.",
+        "palavrasChave": [
+          "toque retal",
+          "ampola",
+          "fecaloma"
+        ]
+      },
+      {
+        "id": "EF-08",
+        "segmento": "Cardiovascular e respiratório",
+        "achado": "Ritmo cardíaco regular, taquicárdico. Murmúrio vesicular presente e simétrico.",
+        "palavrasChave": [
+          "cardíaco",
+          "pulmonar",
+          "respiratório"
+        ]
+      },
+      {
+        "id": "EF-09",
+        "segmento": "Linfonodos",
+        "achado": "Sem linfonodomegalias palpáveis, inclusive na fossa supraclavicular esquerda.",
+        "palavrasChave": [
+          "linfonodos",
+          "gânglios",
+          "supraclavicular",
+          "virchow"
+        ]
+      }
+    ],
+    "exames": [
+      {
+        "id": "EX-01",
+        "nome": "Hemograma",
+        "resultado": "Hb 9,6 g/dL; VCM 74 fL; Ht 30%; leucócitos 12.400/mm³ sem desvio; plaquetas 410.000/mm³.",
+        "palavrasChave": [
+          "hemograma",
+          "hemoglobina",
+          "leucócitos",
+          "anemia"
+        ]
+      },
+      {
+        "id": "EX-02",
+        "nome": "Sódio, potássio e cloro",
+        "resultado": "Na 134 mEq/L; K 3,4 mEq/L; Cl 98 mEq/L.",
+        "palavrasChave": [
+          "eletrólitos",
+          "sódio",
+          "potássio",
+          "cloro"
+        ]
+      },
+      {
+        "id": "EX-03",
+        "nome": "Ureia e creatinina",
+        "resultado": "Ureia 64 mg/dL; creatinina 1,4 mg/dL.",
+        "palavrasChave": [
+          "ureia",
+          "creatinina",
+          "função renal"
+        ]
+      },
+      {
+        "id": "EX-04",
+        "nome": "Gasometria venosa",
+        "resultado": "pH 7,36; HCO3 22 mEq/L; BE -2.",
+        "palavrasChave": [
+          "gasometria",
+          "ph",
+          "bicarbonato"
+        ]
+      },
+      {
+        "id": "EX-05",
+        "nome": "Lactato",
+        "resultado": "1,9 mmol/L.",
+        "palavrasChave": [
+          "lactato"
+        ]
+      },
+      {
+        "id": "EX-06",
+        "nome": "Glicemia",
+        "resultado": "186 mg/dL.",
+        "palavrasChave": [
+          "glicemia",
+          "glicose",
+          "hgt"
+        ]
+      },
+      {
+        "id": "EX-07",
+        "nome": "Coagulograma",
+        "resultado": "Dentro da normalidade.",
+        "palavrasChave": [
+          "coagulograma",
+          "inr",
+          "ttpa"
+        ]
+      },
+      {
+        "id": "EX-08",
+        "nome": "CEA (antígeno carcinoembrionário)",
+        "resultado": "Coletado. O resultado sai em três dias.",
+        "palavrasChave": [
+          "cea",
+          "antígeno carcinoembrionário",
+          "marcador tumoral"
+        ]
+      },
+      {
+        "id": "EX-09",
+        "nome": "Tipagem sanguínea",
+        "resultado": "O positivo. Reserva disponível.",
+        "palavrasChave": [
+          "tipagem",
+          "reserva de sangue"
+        ]
+      },
+      {
+        "id": "EX-10",
+        "nome": "Radiografias de abdome (ortostase e decúbito) e de tórax",
+        "resultado": "Cólon distendido do ceco até o sigmoide, com ceco de cerca de 11 cm, e pouco gás no reto. Alças de delgado pouco distendidas. Sem pneumoperitônio.",
+        "imagem": {
+          "id": "IMG-003-A",
+          "arquivo": "img-003-a.jpg",
+          "legenda": "Radiografia de abdome com distensão do cólon e ceco aumentado",
+          "fonte": "A definir no Radiopaedia",
+          "licenca": "CC BY-NC-SA, citar autor e rID"
+        },
+        "palavrasChave": [
+          "radiografia",
+          "raio x",
+          "rx de abdome"
+        ]
+      },
+      {
+        "id": "EX-11",
+        "nome": "Tomografia de abdome e pelve com contraste venoso",
+        "resultado": "Lesão expansiva circunferencial e estenosante no sigmoide, com cerca de 5 cm de extensão, e ponto de transição nesse nível. Cólon proximal distendido, com ceco de 11,5 cm, parede preservada, sem pneumatose e sem pneumoperitônio. Válvula ileocecal competente, delgado pouco distendido. Linfonodos pericólicos de até 1 cm. Fígado sem lesões focais. Sem líquido livre.",
+        "imagem": {
+          "id": "IMG-003-B",
+          "arquivo": "img-003-b/",
+          "legenda": "Cortes axiais e reconstrução coronal com a lesão estenosante no sigmoide e o ceco distendido",
+          "fonte": "A definir no Radiopaedia",
+          "licenca": "CC BY-NC-SA, citar autor e rID"
+        },
+        "palavrasChave": [
+          "tomografia",
+          "tc",
+          "tc de abdome"
+        ]
+      },
+      {
+        "id": "EX-12",
+        "nome": "Tomografia de tórax",
+        "resultado": "Sem nódulos pulmonares. Sem derrame pleural.",
+        "palavrasChave": [
+          "tomografia de tórax",
+          "tc de tórax",
+          "estadiamento"
+        ]
+      },
+      {
+        "id": "EX-13",
+        "nome": "Eletrocardiograma",
+        "resultado": "Taquicardia sinusal, sem alterações agudas.",
+        "palavrasChave": [
+          "ecg",
+          "eletrocardiograma"
+        ]
+      }
+    ],
+    "respostaPadrao": {
+      "perguntaNaoListada": "Não sei dizer, doutor.",
+      "laboratorioNaoListado": "Resultado dentro da normalidade.",
+      "imagemNaoListada": "Exame não disponível neste serviço no momento.",
+      "parecerEspecialista": "O especialista avaliará depois, mas a conduta inicial é sua.",
+      "exameFisicoNaoListado": "Sem alterações nesse segmento."
+    },
+    "momentos": [
+      {
+        "codigo": "M1",
+        "nome": "Admissão no pronto-socorro",
+        "situacao": "Paciente recém-admitida, conforme a apresentação inicial.",
+        "pergunta": "Como conduz o caso?",
+        "proximo": "M2"
+      },
+      {
+        "codigo": "M2",
+        "nome": "Definição da conduta",
+        "tempo": "Cerca de 3 horas após a admissão.",
+        "situacao": "A paciente recebeu hidratação e segue com distensão importante e dor na fossa ilíaca direita, sem defesa.",
+        "sinaisVitais": [
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "126 x 78 mmHg"
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "98 bpm"
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "37,1 °C"
+          },
+          {
+            "rotulo": "Dor (0 a 10)",
+            "valor": "5"
+          }
+        ],
+        "pergunta": "Qual a conduta para a obstrução?",
+        "proximo": "M3"
+      },
+      {
+        "codigo": "M3",
+        "nome": "Intraoperatório",
+        "tempo": "No mesmo dia.",
+        "situacao": "Paciente estável na anestesia, sem vasopressor. Na laparotomia, há tumor estenosante no sigmoide, sem invasão de órgãos vizinhos, sem implantes peritoneais e sem lesões hepáticas visíveis. Cólon proximal muito distendido; o ceco tem serosa íntegra, sem áreas violáceas nem lacerações. Não há contaminação da cavidade.",
+        "pergunta": "Como conduz a cirurgia?",
+        "proximo": "M4",
+        "acoesDisponiveis": [
+          "conduta"
+        ]
+      },
+      {
+        "codigo": "M3-ALT",
+        "nome": "Perfuração do ceco",
+        "tempo": "Dezoito horas depois.",
+        "situacao": "A paciente apresenta dor abdominal difusa e intensa, abdome rígido e extremidades frias. Na laparotomia de urgência há perfuração do ceco, com peritonite fecal difusa.",
+        "sinaisVitais": [
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "84 x 50 mmHg",
+            "alterado": true
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "130 bpm",
+            "alterado": true
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "38,7 °C",
+            "alterado": true
+          }
+        ],
+        "atualizaExames": [
+          {
+            "id": "EX-01",
+            "resultado": "Hb 8,9 g/dL; leucócitos 22.300/mm³ com 15% de bastões."
+          },
+          {
+            "id": "EX-05",
+            "resultado": "5,6 mmol/L."
+          }
+        ],
+        "pergunta": "Como conduz a cirurgia?",
+        "proximo": "D3",
+        "acoesDisponiveis": [
+          "conduta"
+        ]
+      },
+      {
+        "codigo": "M4",
+        "nome": "Pós-operatório e plano de alta",
+        "tempo": "Do primeiro ao sexto dia de pós-operatório.",
+        "situacao": "Evolução sem intercorrências: eliminou flatos no segundo dia e aceita dieta. O anatomopatológico mostra adenocarcinoma de sigmoide com margens livres e 3 de 16 linfonodos acometidos.",
+        "atualizaExames": [
+          {
+            "id": "EX-08",
+            "resultado": "CEA 14 ng/mL."
+          }
+        ],
+        "pergunta": "Quais são os cuidados e o plano para a alta?",
+        "proximo": "D1",
+        "acoesDisponiveis": [
+          "exames",
+          "conduta"
+        ]
+      }
+    ],
+    "regras": [
+      {
+        "codigo": "R1",
+        "momento": "M1",
+        "se": "Dá alta ou prescreve laxante, sem investigar a obstrução.",
+        "entao": "A paciente retorna 18 horas depois, com dor intensa e peritonite.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta, ou prescrever laxante, sem investigar a obstrução."
+        ],
+        "marcaDesfecho": "D4"
+      },
+      {
+        "codigo": "R2",
+        "momento": "M1",
+        "se": "Prescreve preparo intestinal por via oral.",
+        "entao": "A distensão piora e o ceco perfura.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Prescrever preparo intestinal por via oral para colonoscopia."
+        ]
+      },
+      {
+        "codigo": "R3",
+        "momento": "M1",
+        "se": "Não solicita tomografia.",
+        "entao": "O caso segue sem os dados da tomografia.",
+        "vaiPara": "M2",
+        "registrar": true,
+        "quando": {
+          "naoRevelados": [
+            "EX-11"
+          ]
+        }
+      },
+      {
+        "codigo": "R4",
+        "momento": "M2",
+        "se": "Mantém tratamento clínico ou indica colonoscopia com preparo ou insuflação.",
+        "entao": "O ceco perfura.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Manter tratamento clínico, aguardando a resolução espontânea da obstrução.",
+          "Indicar colonoscopia com preparo intestinal ou insuflação de ar."
+        ]
+      },
+      {
+        "codigo": "R5",
+        "momento": "M2",
+        "se": "Dá alta.",
+        "entao": "A paciente retorna 18 horas depois, com peritonite.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta."
+        ],
+        "marcaDesfecho": "D4"
+      },
+      {
+        "codigo": "R6",
+        "momento": "M2",
+        "se": "Indica stent colônico como ponte para a cirurgia.",
+        "entao": "O stent é colocado e a obstrução se resolve. A paciente é operada de forma eletiva duas semanas depois.",
+        "vaiPara": "D2",
+        "registrar": true,
+        "disparadaPor": [
+          "Indicar stent colônico como ponte para a cirurgia, apesar da dor na fossa ilíaca direita."
+        ]
+      },
+      {
+        "codigo": "R7",
+        "momento": "M2",
+        "se": "Faz apenas colostomia em alça, sem ressecar o tumor.",
+        "entao": "A obstrução se resolve, mas o tumor continua no lugar e uma nova cirurgia é necessária.",
+        "vaiPara": "D5",
+        "registrar": true,
+        "disparadaPor": [
+          "Fazer apenas colostomia em alça, sem ressecar o tumor, em paciente com condição de ressecção."
+        ]
+      },
+      {
+        "codigo": "R8",
+        "momento": "M3",
+        "se": "Faz apenas colostomia em alça, deixando o tumor.",
+        "entao": "A obstrução se resolve, mas o tumor continua no lugar e uma nova cirurgia é necessária.",
+        "vaiPara": "D5",
+        "registrar": true,
+        "disparadaPor": [
+          "Fazer apenas colostomia em alça, deixando o tumor, numa paciente estável com tumor ressecável."
+        ]
+      },
+      {
+        "codigo": "R9",
+        "momento": "M4",
+        "se": "Dá alta sem encaminhar à oncologia.",
+        "entao": "A paciente só chega à oncologia quatro meses depois.",
+        "vaiPara": "D6",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta sem encaminhar à oncologia."
+        ]
+      }
+    ],
+    "desfechos": [
+      {
+        "codigo": "D1",
+        "texto": "Ressecção oncológica com boa evolução. Alta no sexto dia de pós-operatório, encaminhada à oncologia para discussão do tratamento adjuvante e seguimento.",
+        "qualidade": "otimo"
+      },
+      {
+        "codigo": "D2",
+        "texto": "Stent colocado com sucesso e cirurgia oncológica eletiva duas semanas depois, com boa evolução. O risco de perfuração naquele momento era alto.",
+        "qualidade": "bom"
+      },
+      {
+        "codigo": "D3",
+        "texto": "Perfuração do ceco com peritonite fecal. Colectomia subtotal com ileostomia de urgência, UTI e internação prolongada. Sobrevive, com atraso no tratamento oncológico.",
+        "qualidade": "ruim"
+      },
+      {
+        "codigo": "D4",
+        "texto": "Retorno com perfuração após alta indevida. Colectomia subtotal com ileostomia de urgência, UTI e internação prolongada. Sobrevive, com complicações e atraso no tratamento oncológico.",
+        "qualidade": "grave"
+      },
+      {
+        "codigo": "D5",
+        "texto": "Colostomia sem ressecção do tumor. Nova cirurgia semanas depois para a ressecção, com atraso no tratamento oncológico.",
+        "qualidade": "ruim"
+      },
+      {
+        "codigo": "D6",
+        "texto": "Boa recuperação cirúrgica, mas alta sem encaminhamento: a paciente só chega à oncologia quatro meses depois, com atraso no tratamento adjuvante.",
+        "qualidade": "ruim"
+      }
+    ]
+  },
+  "folhaResposta": {
+    "objetivos": [
+      "Reconhecer a obstrução do cólon e suspeitar de neoplasia pela história, pelo exame e pelos exames.",
+      "Entender a obstrução em alça fechada e o risco de perfuração do ceco.",
+      "Indicar a cirurgia de urgência e conhecer o lugar do stent como ponte.",
+      "Aplicar os princípios oncológicos mesmo na cirurgia de urgência e escolher a reconstrução conforme o risco.",
+      "Conduzir o pós-operatório e o encaminhamento oncológico."
+    ],
+    "momentos": [
+      {
+        "codigo": "M1",
+        "ideal": [
+          "Anamnese dirigida, incluindo mudança do hábito intestinal, sangramento, perda de peso e história familiar.",
+          "Exame físico completo, com palpação do abdome em busca de sinais de peritonite e de dor sobre o ceco, orifícios herniários e toque retal.",
+          "Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético.",
+          "Correção de distúrbios eletrolíticos e controle da glicemia.",
+          "Exames: hemograma, eletrólitos, função renal, gasometria, lactato e glicemia.",
+          "Radiografias de abdome e tórax e tomografia de abdome e pelve com contraste venoso.",
+          "Avaliação precoce pela equipe de cirurgia."
+        ],
+        "aceitaveis": [
+          "Ir direto para a tomografia sem radiografia prévia.",
+          "Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes.",
+          "Coletar CEA para o estadiamento."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Pedir enema opaco com bário.",
+            "custo": "Risco de perfuração e de impactação do bário acima do tumor; a tomografia é o exame de escolha."
+          },
+          {
+            "conduta": "Negar analgesia para não mascarar o quadro.",
+            "custo": "Sofrimento desnecessário, sem ganho diagnóstico."
+          }
+        ],
+        "errosCriticos": [
+          "Dar alta, ou prescrever laxante, sem investigar a obstrução.",
+          "Prescrever preparo intestinal por via oral para colonoscopia.",
+          "Liberar dieta oral.",
+          "Não palpar o abdome em busca de sinais de peritonite e de dor sobre o ceco."
+        ],
+        "pontosDeRaciocinio": [
+          "Distensão, cólica e parada de eliminação de fezes e gases, com alteração do hábito intestinal, sangramento, emagrecimento e anemia microcítica, sugerem obstrução do cólon por neoplasia.",
+          "Dor na fossa ilíaca direita numa obstrução do cólon faz pensar em sofrimento do ceco, o segmento que mais distende quando a válvula ileocecal é competente (obstrução em alça fechada).",
+          "A tomografia confirma o nível e a causa da obstrução, mede o ceco, procura perfuração e já inicia o estadiamento."
+        ],
+        "justificativa": [
+          "WSES 2017: a tomografia com contraste é o exame de escolha na suspeita de obstrução do cólon por câncer (Pisano et al., 2018)."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Anamnese dirigida, incluindo mudança do hábito intestinal, sangramento, perda de peso e história familiar.",
+              "quando": {
+                "revelados": [
+                  "AN-05",
+                  "AN-06",
+                  "AN-07",
+                  "AN-12"
+                ]
+              }
+            },
+            {
+              "item": "Exame físico completo, com palpação do abdome em busca de sinais de peritonite e de dor sobre o ceco, orifícios herniários e toque retal.",
+              "quando": {
+                "revelados": [
+                  "EF-05",
+                  "EF-06",
+                  "EF-07"
+                ]
+              }
+            },
+            {
+              "item": "Exames: hemograma, eletrólitos, função renal, gasometria, lactato e glicemia.",
+              "quando": {
+                "revelados": [
+                  "EX-01",
+                  "EX-02",
+                  "EX-03",
+                  "EX-04",
+                  "EX-05",
+                  "EX-06"
+                ]
+              }
+            },
+            {
+              "item": "Radiografias de abdome e tórax e tomografia de abdome e pelve com contraste venoso.",
+              "quando": {
+                "revelados": [
+                  "EX-10",
+                  "EX-11"
+                ]
+              }
+            },
+            {
+              "item": "Ir direto para a tomografia sem radiografia prévia.",
+              "quando": {
+                "revelados": [
+                  "EX-11"
+                ],
+                "naoRevelados": [
+                  "EX-10"
+                ]
+              }
+            },
+            {
+              "item": "Coletar CEA para o estadiamento.",
+              "quando": {
+                "revelados": [
+                  "EX-08"
+                ]
+              }
+            },
+            {
+              "item": "Negar analgesia para não mascarar o quadro.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético."
+                ]
+              }
+            },
+            {
+              "item": "Não palpar o abdome em busca de sinais de peritonite e de dor sobre o ceco.",
+              "quando": {
+                "naoRevelados": [
+                  "EF-05"
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Dar alta, ou prescrever laxante, sem investigar a obstrução.": "Prescrever laxante e dar alta.",
+            "Pedir enema opaco com bário.": "Pedir enema opaco com bário."
+          }
+        }
+      },
+      {
+        "codigo": "M2",
+        "ideal": [
+          "Indicar cirurgia de urgência, pelo risco de perfuração do ceco em obstrução em alça fechada com dor na fossa ilíaca direita.",
+          "Ressuscitação volêmica, antibiótico profilático e reserva de sangue.",
+          "Demarcar o local de um possível estoma e obter consentimento que inclua a possibilidade de colostomia ou ileostomia.",
+          "Planejar a ressecção do tumor com princípios oncológicos."
+        ],
+        "aceitaveis": [
+          "Tomografia de tórax para estadiamento, sem atrasar a cirurgia."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Indicar stent colônico como ponte para a cirurgia, apesar da dor na fossa ilíaca direita.",
+            "custo": "Com sinais de sofrimento do ceco, o stent arrisca perfuração e adia a resolução. Ele é opção para pacientes de alto risco cirúrgico, em centros com experiência."
+          },
+          {
+            "conduta": "Fazer apenas colostomia em alça, sem ressecar o tumor, em paciente com condição de ressecção.",
+            "custo": "Segunda cirurgia e atraso no tratamento oncológico."
+          }
+        ],
+        "errosCriticos": [
+          "Manter tratamento clínico, aguardando a resolução espontânea da obstrução.",
+          "Indicar colonoscopia com preparo intestinal ou insuflação de ar.",
+          "Dar alta."
+        ],
+        "pontosDeRaciocinio": [
+          "A válvula ileocecal competente transforma o cólon numa alça fechada: o ceco distende sem descomprimir para o delgado.",
+          "Ceco muito distendido, sobretudo com dor local, indica risco de perfuração e cirurgia sem demora.",
+          "O stent é uma ponte para a cirurgia em casos selecionados, e não o tratamento padrão de quem tem condição cirúrgica e sinais de sofrimento do ceco."
+        ],
+        "justificativa": [
+          "WSES 2017 (Pisano et al., 2018): na obstrução do cólon esquerdo por câncer, a ressecção é o tratamento de escolha; o stent como ponte é alternativa em pacientes selecionados."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Tomografia de tórax para estadiamento, sem atrasar a cirurgia.",
+              "quando": {
+                "revelados": [
+                  "EX-12"
+                ]
+              }
+            },
+            {
+              "item": "Manter tratamento clínico, aguardando a resolução espontânea da obstrução.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Indicar cirurgia de urgência, pelo risco de perfuração do ceco em obstrução em alça fechada com dor na fossa ilíaca direita.",
+                  "Indicar stent colônico como ponte para a cirurgia, apesar da dor na fossa ilíaca direita.",
+                  "Fazer apenas colostomia em alça, sem ressecar o tumor, em paciente com condição de ressecção."
+                ]
+              },
+              "tambemComoOpcao": true
+            }
+          ],
+          "rotulos": {
+            "Indicar cirurgia de urgência, pelo risco de perfuração do ceco em obstrução em alça fechada com dor na fossa ilíaca direita.": "Indicar cirurgia de urgência.",
+            "Indicar stent colônico como ponte para a cirurgia, apesar da dor na fossa ilíaca direita.": "Indicar stent colônico como ponte para a cirurgia.",
+            "Fazer apenas colostomia em alça, sem ressecar o tumor, em paciente com condição de ressecção.": "Indicar colostomia em alça, sem ressecar o tumor.",
+            "Manter tratamento clínico, aguardando a resolução espontânea da obstrução.": "Manter tratamento clínico e aguardar."
+          }
+        }
+      },
+      {
+        "codigo": "M3",
+        "ideal": [
+          "Sigmoidectomia oncológica, com ligadura vascular na origem, margens livres e linfadenectomia adequada.",
+          "Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco.",
+          "Escolher a reconstrução pela condição da paciente: anastomose primária, com ou sem ileostomia de proteção, se estável e sem contaminação; ou cirurgia de Hartmann, se o risco for alto."
+        ],
+        "aceitaveis": [
+          "Fazer cirurgia de Hartmann, considerando a distensão do cólon e o diabetes."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Ressecar o tumor sem princípios oncológicos, sem linfadenectomia.",
+            "custo": "Estadiamento incompleto e maior risco de recidiva."
+          },
+          {
+            "conduta": "Fazer colectomia subtotal sem indicação, com o ceco viável.",
+            "custo": "Cirurgia maior e mais diarreia no pós-operatório, sem benefício."
+          }
+        ],
+        "errosCriticos": [
+          "Não avaliar a viabilidade do ceco.",
+          "Fazer apenas colostomia em alça, deixando o tumor, numa paciente estável com tumor ressecável."
+        ],
+        "pontosDeRaciocinio": [
+          "Na urgência, a cirurgia também é oncológica: ligadura na origem dos vasos e pelo menos 12 linfonodos examinados.",
+          "A escolha entre anastomose e colostomia depende do estado da paciente, da contaminação e da condição do cólon."
+        ],
+        "justificativa": [
+          "WSES 2017 (Pisano et al., 2018): ressecção com princípios oncológicos; cirurgia de Hartmann ou anastomose primária, com ou sem estoma de proteção, conforme o risco."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Não avaliar a viabilidade do ceco.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Ressecar o tumor sem princípios oncológicos, sem linfadenectomia.": "Ressecar o segmento do tumor com margem mínima.",
+            "Fazer colectomia subtotal sem indicação, com o ceco viável.": "Fazer colectomia subtotal.",
+            "Fazer apenas colostomia em alça, deixando o tumor, numa paciente estável com tumor ressecável.": "Fazer colostomia em alça e fechar a cavidade.",
+            "Fazer cirurgia de Hartmann, considerando a distensão do cólon e o diabetes.": "Fazer cirurgia de Hartmann."
+          }
+        }
+      },
+      {
+        "codigo": "M3-ALT",
+        "ideal": [
+          "Ressuscitação, antibiótico de amplo espectro e vasopressor se necessário.",
+          "Colectomia subtotal com ileostomia terminal, ressecando o ceco perfurado e o tumor.",
+          "Lavar a cavidade e levar a paciente à UTI, considerando cirurgia abreviada se houver hipotermia, acidose e coagulopatia."
+        ],
+        "aceitaveis": [
+          "Cirurgia de controle de danos com fechamento temporário do abdome, se a paciente estiver instável."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Fazer apenas a sutura do ceco e uma colostomia, deixando o tumor.",
+            "custo": "Persistência da fonte de contaminação e do tumor, com alto risco de nova perfuração."
+          }
+        ],
+        "errosCriticos": [
+          "Fazer anastomose primária em paciente em choque com peritonite fecal."
+        ],
+        "pontosDeRaciocinio": [
+          "Perfuração do ceco com peritonite fecal e choque exige ressecção do ceco e do tumor, sem anastomose."
+        ],
+        "justificativa": [
+          "WSES 2017 (Pisano et al., 2018): na perfuração do ceco por obstrução distal, ressecção do segmento perfurado e do tumor, geralmente por colectomia subtotal, sem anastomose no paciente instável."
+        ],
+        "modoLista": {
+          "rotulos": {
+            "Fazer anastomose primária em paciente em choque com peritonite fecal.": "Ressecar e fazer anastomose primária.",
+            "Fazer apenas a sutura do ceco e uma colostomia, deixando o tumor.": "Suturar o ceco e fazer colostomia."
+          }
+        }
+      },
+      {
+        "codigo": "M4",
+        "ideal": [
+          "Pós-operatório com realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo e deambulação.",
+          "Controle da glicemia e vigilância de deiscência e infecção.",
+          "Encaminhar à oncologia e discutir o caso em reunião multidisciplinar, com o anatomopatológico e o estadiamento.",
+          "Programar colonoscopia completa do cólon remanescente em até seis meses, para afastar lesões sincrônicas.",
+          "Orientar colonoscopia de rastreio para os parentes de primeiro grau."
+        ],
+        "aceitaveis": [
+          "Completar o estadiamento com tomografia de tórax, se ainda não feita."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Não prescrever profilaxia de tromboembolismo.",
+            "custo": "Risco de trombose venosa e embolia pulmonar, maior em paciente oncológica operada."
+          },
+          {
+            "conduta": "Manter jejum prolongado sem motivo.",
+            "custo": "Catabolismo e recuperação mais lenta."
+          }
+        ],
+        "errosCriticos": [
+          "Dar alta sem encaminhar à oncologia."
+        ],
+        "pontosDeRaciocinio": [
+          "Linfonodos acometidos indicam estádio III, em que a quimioterapia adjuvante é discutida pela oncologia.",
+          "O CEA elevado serve de referência para o seguimento."
+        ],
+        "justificativa": [
+          "Princípios de seguimento do câncer colorretal: discussão multidisciplinar, colonoscopia do cólon remanescente e avaliação para tratamento adjuvante."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Não prescrever profilaxia de tromboembolismo.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Pós-operatório com realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo e deambulação."
+                ]
+              }
+            },
+            {
+              "item": "Dar alta sem encaminhar à oncologia.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Encaminhar à oncologia e discutir o caso em reunião multidisciplinar, com o anatomopatológico e o estadiamento."
+                ]
+              },
+              "tambemComoOpcao": true
+            }
+          ],
+          "rotulos": {
+            "Manter jejum prolongado sem motivo.": "Manter jejum prolongado.",
+            "Dar alta sem encaminhar à oncologia.": "Dar alta com retorno no ambulatório de cirurgia."
+          }
+        }
+      }
+    ],
+    "caminhoIdeal": "Reconhecer a obstrução do cólon com sinais de neoplasia, iniciar suporte e confirmar com tomografia a lesão estenosante no sigmoide e o ceco distendido com válvula ileocecal competente (M1). Indicar cirurgia de urgência pelo risco de perfuração do ceco, com ressuscitação, antibiótico, demarcação de estoma e consentimento (M2). Fazer a sigmoidectomia oncológica, avaliar o ceco e escolher a reconstrução conforme o risco (M3). Conduzir o pós-operatório e encaminhar à oncologia, com colonoscopia do cólon remanescente e rastreio familiar (M4), chegando ao desfecho D1.",
+    "pesos": {
+      "M1": 20,
+      "M2": 30,
+      "M3": 30,
+      "M4": 20
+    },
+    "escala": {
+      "ideal": 100,
+      "aceitavel": 80,
+      "subotima": 50,
+      "perigosa": 0,
+      "nao_prevista": null
+    },
+    "faixas": [
+      {
+        "de": 85,
+        "ate": 100,
+        "rotulo": "Excelente"
+      },
+      {
+        "de": 70,
+        "ate": 84,
+        "rotulo": "Adequado"
+      },
+      {
+        "de": 50,
+        "ate": 69,
+        "rotulo": "Precisa revisar o tema"
+      },
+      {
+        "de": 0,
+        "ate": 49,
+        "rotulo": "Refazer o caso após estudo"
+      }
+    ],
+    "mensagensChave": [
+      "Alteração do hábito intestinal, sangramento, anemia e emagrecimento antes de uma obstrução do cólon apontam para câncer.",
+      "Com a válvula ileocecal competente, o cólon vira uma alça fechada e o ceco é o ponto que perfura.",
+      "Dor sobre um ceco muito distendido indica cirurgia sem demora; o stent é ponte em casos selecionados.",
+      "Mesmo na urgência, a cirurgia do câncer de cólon segue princípios oncológicos.",
+      "A cirurgia não termina o tratamento: encaminhamento oncológico, colonoscopia de controle e rastreio da família."
+    ],
+    "orientacoesFeedback": [
+      "A cada decisão, informar a classificação e explicar em até três frases, sempre com base nesta folha resposta.",
+      "Reconhecer o que o aluno acertou antes de apontar o que faltou.",
+      "Quando a conduta for diferente da ideal mas aceitável, dizer isso com clareza e mostrar o que o caminho ideal acrescentaria.",
+      "Erros críticos aparecem sempre em destaque, com a explicação do risco para o paciente.",
+      "Nunca citar dados, condutas ou referências que não estejam neste arquivo."
+    ]
+  }
+}

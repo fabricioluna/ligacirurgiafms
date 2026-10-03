@@ -1,0 +1,1174 @@
+{
+  "id": "CASO-002",
+  "versao": "1.0",
+  "publicado": true,
+  "caso": {
+    "identificacao": {
+      "titulo": "Distensão abdominal volumosa em idoso com constipação crônica",
+      "tema": "Abdome agudo obstrutivo: volvo de sigmoide",
+      "publico": "Graduação e ligas acadêmicas",
+      "autor": "A definir",
+      "tempoEstimado": "15 a 20 minutos",
+      "referencias": [
+        "Alavi K, Poylin V, Davids JS, et al. The American Society of Colon and Rectal Surgeons Clinical Practice Guidelines for the Management of Colonic Volvulus and Acute Colonic Pseudo-Obstruction. Dis Colon Rectum. 2021;64(9):1046-1057.",
+        "Tian BWCA, Vigutto G, Tan E, et al. WSES consensus guidelines on sigmoid volvulus management. World J Emerg Surg. 2023;18:34.",
+        "Sabiston Textbook of Surgery, edição mais recente, capítulo de cólon e reto."
+      ]
+    },
+    "apresentacaoInicial": {
+      "texto": "Pronto-socorro, 15 horas. O Sr. José, 79 anos, mora com a esposa e tem doença de Parkinson. A filha conta que a barriga dele foi inchando muito nos últimos dois dias e que ele não evacua nem solta gases desde ontem. Ele sente cólica, mas diz que o pior é o estufamento.",
+      "sinaisVitais": [
+        {
+          "rotulo": "Pressão arterial",
+          "valor": "134 x 82 mmHg"
+        },
+        {
+          "rotulo": "Frequência cardíaca",
+          "valor": "96 bpm"
+        },
+        {
+          "rotulo": "Frequência respiratória",
+          "valor": "20 irpm"
+        },
+        {
+          "rotulo": "Temperatura axilar",
+          "valor": "36,7 °C"
+        },
+        {
+          "rotulo": "Saturação de oxigênio",
+          "valor": "95% em ar ambiente"
+        },
+        {
+          "rotulo": "Dor (0 a 10)",
+          "valor": "4"
+        }
+      ],
+      "pergunta": "Você é o médico de plantão. Como conduz o caso?"
+    },
+    "anamnese": [
+      {
+        "id": "AN-01",
+        "tema": "Início e evolução",
+        "resposta": "Faz uns dois dias que a barriga começou a crescer. Foi enchendo cada vez mais.",
+        "palavrasChave": [
+          "quando começou",
+          "início",
+          "há quanto tempo",
+          "evolução"
+        ]
+      },
+      {
+        "id": "AN-02",
+        "tema": "Característica da dor",
+        "resposta": "Dá umas cólicas, mas não é forte. O que incomoda é a barriga estufada, parece que vai estourar.",
+        "palavrasChave": [
+          "dor",
+          "cólica",
+          "característica",
+          "intensidade"
+        ]
+      },
+      {
+        "id": "AN-03",
+        "tema": "Vômitos",
+        "resposta": "Vomitei duas vezes hoje de manhã. Saiu comida.",
+        "palavrasChave": [
+          "vômito",
+          "vomitou",
+          "náusea",
+          "enjoo"
+        ]
+      },
+      {
+        "id": "AN-04",
+        "tema": "Gases e fezes",
+        "resposta": "Não faço cocô desde anteontem, e gases não solto desde ontem.",
+        "palavrasChave": [
+          "evacuou",
+          "fezes",
+          "gases",
+          "flatos"
+        ]
+      },
+      {
+        "id": "AN-05",
+        "tema": "Hábito intestinal",
+        "resposta": "Sempre fui preso. Fico quatro, cinco dias sem ir ao banheiro e tomo laxante quase todo dia.",
+        "palavrasChave": [
+          "hábito intestinal",
+          "constipação",
+          "intestino preso",
+          "laxante"
+        ]
+      },
+      {
+        "id": "AN-06",
+        "tema": "Episódios semelhantes",
+        "resposta": "Há uns oito meses a barriga inchou assim. Fui ao hospital, passaram uma sonda por trás e melhorou. Disseram que eu tinha que voltar para operar, mas não voltei.",
+        "palavrasChave": [
+          "antes",
+          "episódio",
+          "semelhante",
+          "já aconteceu"
+        ]
+      },
+      {
+        "id": "AN-07",
+        "tema": "Cirurgias prévias",
+        "resposta": "Nunca fui operado.",
+        "palavrasChave": [
+          "cirurgia",
+          "operado",
+          "cicatriz"
+        ]
+      },
+      {
+        "id": "AN-08",
+        "tema": "Doenças",
+        "resposta": "Tenho Parkinson há dez anos e pressão alta.",
+        "palavrasChave": [
+          "doença",
+          "comorbidade",
+          "antecedente",
+          "parkinson",
+          "hipertensão"
+        ]
+      },
+      {
+        "id": "AN-09",
+        "tema": "Medicações",
+        "resposta": "Tomo levodopa, losartana e o laxante.",
+        "palavrasChave": [
+          "medicação",
+          "remédio",
+          "uso de"
+        ]
+      },
+      {
+        "id": "AN-10",
+        "tema": "Alergias",
+        "resposta": "Não tenho alergia a remédio.",
+        "palavrasChave": [
+          "alergia"
+        ]
+      },
+      {
+        "id": "AN-11",
+        "tema": "Sangramento e peso",
+        "resposta": "Não vi sangue no cocô. Não emagreci.",
+        "palavrasChave": [
+          "sangue",
+          "peso",
+          "emagreceu",
+          "melena"
+        ]
+      },
+      {
+        "id": "AN-12",
+        "tema": "Colonoscopia",
+        "resposta": "Nunca fiz esse exame.",
+        "palavrasChave": [
+          "colonoscopia",
+          "rastreio"
+        ]
+      },
+      {
+        "id": "AN-13",
+        "tema": "Febre",
+        "resposta": "Não tive febre.",
+        "palavrasChave": [
+          "febre",
+          "calafrio"
+        ]
+      },
+      {
+        "id": "AN-14",
+        "tema": "Urina",
+        "resposta": "Estou urinando normal.",
+        "palavrasChave": [
+          "urina",
+          "diurese",
+          "urinar"
+        ]
+      }
+    ],
+    "exameFisico": [
+      {
+        "id": "EF-01",
+        "segmento": "Estado geral",
+        "achado": "Regular, emagrecido, levemente desidratado (1+/4+), corado, anictérico, afebril. Tremor de repouso e rigidez.",
+        "palavrasChave": [
+          "estado geral",
+          "ectoscopia",
+          "hidratação"
+        ]
+      },
+      {
+        "id": "EF-02",
+        "segmento": "Inspeção abdominal",
+        "achado": "Abdome muito distendido e assimétrico, mais abaulado à esquerda e no andar superior. Sem cicatrizes.",
+        "palavrasChave": [
+          "inspeção",
+          "abdome",
+          "distensão",
+          "assimetria"
+        ]
+      },
+      {
+        "id": "EF-03",
+        "segmento": "Ausculta abdominal",
+        "achado": "Ruídos hidroaéreos presentes, diminuídos.",
+        "palavrasChave": [
+          "ausculta",
+          "ruídos",
+          "RHA",
+          "peristalse"
+        ]
+      },
+      {
+        "id": "EF-04",
+        "segmento": "Percussão",
+        "achado": "Timpanismo acentuado em todo o abdome.",
+        "palavrasChave": [
+          "percussão",
+          "timpanismo"
+        ]
+      },
+      {
+        "id": "EF-05",
+        "segmento": "Palpação",
+        "achado": "Abdome tenso pela distensão, pouco doloroso, sem defesa, sem descompressão dolorosa, sem massas palpáveis.",
+        "palavrasChave": [
+          "palpação",
+          "defesa",
+          "blumberg",
+          "descompressão",
+          "peritonite",
+          "massa"
+        ]
+      },
+      {
+        "id": "EF-06",
+        "segmento": "Orifícios herniários",
+        "achado": "Regiões inguinais, femorais e umbilical livres.",
+        "palavrasChave": [
+          "hérnia",
+          "orifícios herniários",
+          "inguinal",
+          "femoral",
+          "umbilical"
+        ]
+      },
+      {
+        "id": "EF-07",
+        "segmento": "Toque retal",
+        "achado": "Ampola retal vazia, sem fecaloma, sem massas, sem sangue em dedo de luva.",
+        "palavrasChave": [
+          "toque retal",
+          "ampola",
+          "fecaloma"
+        ]
+      },
+      {
+        "id": "EF-08",
+        "segmento": "Cardiovascular e respiratório",
+        "achado": "Murmúrio vesicular presente e simétrico, discretamente reduzido nas bases pela distensão. Ritmo cardíaco regular.",
+        "palavrasChave": [
+          "cardíaco",
+          "pulmonar",
+          "respiratório"
+        ]
+      }
+    ],
+    "exames": [
+      {
+        "id": "EX-01",
+        "nome": "Hemograma",
+        "resultado": "Hb 13,4 g/dL; Ht 41%; leucócitos 10.900/mm³ sem desvio; plaquetas 240.000/mm³.",
+        "palavrasChave": [
+          "hemograma",
+          "hemoglobina",
+          "leucócitos"
+        ]
+      },
+      {
+        "id": "EX-02",
+        "nome": "Sódio, potássio e cloro",
+        "resultado": "Na 138 mEq/L; K 3,3 mEq/L; Cl 99 mEq/L.",
+        "palavrasChave": [
+          "eletrólitos",
+          "sódio",
+          "potássio",
+          "cloro"
+        ]
+      },
+      {
+        "id": "EX-03",
+        "nome": "Ureia e creatinina",
+        "resultado": "Ureia 52 mg/dL; creatinina 1,2 mg/dL.",
+        "palavrasChave": [
+          "ureia",
+          "creatinina",
+          "função renal"
+        ]
+      },
+      {
+        "id": "EX-04",
+        "nome": "Gasometria venosa",
+        "resultado": "pH 7,39; HCO3 25 mEq/L; BE +0,5.",
+        "palavrasChave": [
+          "gasometria",
+          "ph",
+          "bicarbonato"
+        ]
+      },
+      {
+        "id": "EX-05",
+        "nome": "Lactato",
+        "resultado": "1,4 mmol/L.",
+        "palavrasChave": [
+          "lactato"
+        ]
+      },
+      {
+        "id": "EX-06",
+        "nome": "Proteína C reativa",
+        "resultado": "18 mg/L.",
+        "palavrasChave": [
+          "pcr",
+          "proteína c reativa"
+        ]
+      },
+      {
+        "id": "EX-07",
+        "nome": "Coagulograma",
+        "resultado": "Dentro da normalidade.",
+        "palavrasChave": [
+          "coagulograma",
+          "inr",
+          "ttpa"
+        ]
+      },
+      {
+        "id": "EX-08",
+        "nome": "Eletrocardiograma",
+        "resultado": "Ritmo sinusal, sem alterações agudas.",
+        "palavrasChave": [
+          "ecg",
+          "eletrocardiograma"
+        ]
+      },
+      {
+        "id": "EX-09",
+        "nome": "Tipagem sanguínea",
+        "resultado": "A positivo. Reserva disponível.",
+        "palavrasChave": [
+          "tipagem",
+          "reserva de sangue"
+        ]
+      },
+      {
+        "id": "EX-10",
+        "nome": "Radiografias de abdome (ortostase e decúbito) e de tórax",
+        "resultado": "Alça de cólon muito distendida, em forma de U invertido, que sobe da pelve em direção ao quadrante superior direito (sinal do grão de café). Sem pneumoperitônio na radiografia de tórax.",
+        "imagem": {
+          "id": "IMG-002-A",
+          "arquivo": "img-002-a.jpg",
+          "legenda": "Radiografia de abdome com o sinal do grão de café",
+          "fonte": "A definir no Radiopaedia",
+          "licenca": "CC BY-NC-SA, citar autor e rID"
+        },
+        "palavrasChave": [
+          "radiografia",
+          "raio x",
+          "rx de abdome"
+        ]
+      },
+      {
+        "id": "EX-11",
+        "nome": "Tomografia de abdome com contraste venoso",
+        "resultado": "Sigmoide muito distendido, com torção do mesossigmoide (sinal do redemoinho) e afilamento em bico nas duas extremidades da alça. Cólon proximal moderadamente distendido. Parede da alça com realce preservado, sem pneumatose, sem gás no sistema porta, sem pneumoperitônio e sem líquido livre. Conclusão: volvo de sigmoide sem sinais tomográficos de isquemia.",
+        "imagem": {
+          "id": "IMG-002-B",
+          "arquivo": "img-002-b/",
+          "legenda": "Cortes axiais e reconstrução coronal mostrando o sinal do redemoinho",
+          "fonte": "A definir no Radiopaedia",
+          "licenca": "CC BY-NC-SA, citar autor e rID"
+        },
+        "palavrasChave": [
+          "tomografia",
+          "tc",
+          "tc de abdome"
+        ]
+      },
+      {
+        "id": "EX-12",
+        "nome": "Retossigmoidoscopia flexível com descompressão",
+        "resultado": "Disponível apenas após a descompressão endoscópica.",
+        "disponivelAPartirDe": "M3",
+        "imagem": {
+          "id": "IMG-002-C",
+          "arquivo": "img-002-c.jpg",
+          "legenda": "Mucosa do sigmoide no ponto de torção, após a descompressão",
+          "fonte": "A definir",
+          "licenca": "A definir"
+        },
+        "palavrasChave": [
+          "retossigmoidoscopia",
+          "endoscopia",
+          "colonoscopia",
+          "descompressão"
+        ]
+      },
+      {
+        "id": "EX-13",
+        "nome": "Radiografia de controle após a descompressão",
+        "resultado": "Disponível apenas após a descompressão endoscópica.",
+        "disponivelAPartirDe": "M3",
+        "palavrasChave": [
+          "radiografia de controle",
+          "rx de controle"
+        ]
+      }
+    ],
+    "respostaPadrao": {
+      "perguntaNaoListada": "Não sei dizer, doutor.",
+      "laboratorioNaoListado": "Resultado dentro da normalidade.",
+      "imagemNaoListada": "Exame não disponível neste serviço no momento.",
+      "parecerEspecialista": "O especialista avaliará depois, mas a conduta inicial é sua.",
+      "exameFisicoNaoListado": "Sem alterações nesse segmento."
+    },
+    "momentos": [
+      {
+        "codigo": "M1",
+        "nome": "Admissão no pronto-socorro",
+        "situacao": "Paciente recém-admitido, conforme a apresentação inicial.",
+        "pergunta": "Como conduz o caso?",
+        "proximo": "M2"
+      },
+      {
+        "codigo": "M2",
+        "nome": "Definição da conduta",
+        "tempo": "Cerca de 2 horas após a admissão.",
+        "situacao": "O paciente segue estável, com distensão importante e dor 4/10. A sonda nasogástrica, se passada, drenou 200 mL de conteúdo gástrico.",
+        "sinaisVitais": [
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "130 x 80 mmHg"
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "94 bpm"
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "36,8 °C"
+          },
+          {
+            "rotulo": "Dor (0 a 10)",
+            "valor": "4"
+          }
+        ],
+        "pergunta": "Qual a conduta para resolver a obstrução?",
+        "proximo": "M3"
+      },
+      {
+        "codigo": "M3",
+        "nome": "Após a descompressão",
+        "tempo": "No dia seguinte.",
+        "situacao": "Após a retossigmoidoscopia, o paciente eliminou grande quantidade de gases e fezes pela sonda retal. O abdome está flácido, pouco distendido e indolor. Aceita líquidos e está sem vômitos.",
+        "sinaisVitais": [
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "128 x 78 mmHg"
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "82 bpm"
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "36,6 °C"
+          },
+          {
+            "rotulo": "Dor (0 a 10)",
+            "valor": "1"
+          }
+        ],
+        "atualizaExames": [
+          {
+            "id": "EX-12",
+            "resultado": "Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose. Sonda retal deixada no sigmoide."
+          },
+          {
+            "id": "EX-13",
+            "resultado": "Redução importante da distensão do cólon, com a sonda retal bem posicionada. Sem pneumoperitônio."
+          },
+          {
+            "id": "EX-01",
+            "resultado": "Hb 12,9 g/dL; leucócitos 9.100/mm³ sem desvio; plaquetas 231.000/mm³."
+          },
+          {
+            "id": "EX-02",
+            "resultado": "Na 139 mEq/L; K 3,9 mEq/L; Cl 101 mEq/L."
+          }
+        ],
+        "atualizaExameFisico": [
+          {
+            "id": "EF-02",
+            "achado": "Abdome pouco distendido e simétrico."
+          },
+          {
+            "id": "EF-05",
+            "achado": "Abdome flácido e indolor, sem defesa, sem descompressão dolorosa."
+          }
+        ],
+        "pergunta": "Qual o plano a partir de agora?",
+        "proximo": "M4"
+      },
+      {
+        "codigo": "M3-ALT",
+        "nome": "Paciente com peritonite",
+        "tempo": "Doze horas depois.",
+        "situacao": "O paciente está com dor abdominal contínua e intensa, abdome rígido, com defesa difusa e descompressão dolorosa, e extremidades frias.",
+        "sinaisVitais": [
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "92 x 56 mmHg",
+            "alterado": true
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "122 bpm",
+            "alterado": true
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "38,4 °C",
+            "alterado": true
+          },
+          {
+            "rotulo": "Dor (0 a 10)",
+            "valor": "9",
+            "alterado": true
+          }
+        ],
+        "atualizaExames": [
+          {
+            "id": "EX-01",
+            "resultado": "Leucócitos 19.800/mm³ com 12% de bastões; Hb 12,6 g/dL."
+          },
+          {
+            "id": "EX-05",
+            "resultado": "4,1 mmol/L."
+          },
+          {
+            "id": "EX-11",
+            "resultado": "Sigmoide torcido com parede sem realce, pneumatose e gás livre na cavidade. Líquido livre na pelve.",
+            "imagem": {
+              "id": "IMG-002-D",
+              "arquivo": "img-002-d.jpg",
+              "legenda": "Tomografia com sigmoide sem realce, pneumatose e pneumoperitônio",
+              "fonte": "A definir no Radiopaedia",
+              "licenca": "CC BY-NC-SA, citar autor e rID"
+            }
+          }
+        ],
+        "atualizaExameFisico": [
+          {
+            "id": "EF-05",
+            "achado": "Abdome rígido, com defesa difusa e descompressão dolorosa."
+          }
+        ],
+        "pergunta": "Qual a sua conduta?",
+        "proximo": "M4-ALT"
+      },
+      {
+        "codigo": "M4",
+        "nome": "Cirurgia na mesma internação",
+        "tempo": "Quarto dia de internação, após otimização clínica.",
+        "situacao": "Paciente estável, avaliado pela clínica e pela anestesia, com risco cirúrgico aceitável e de acordo com a cirurgia. Na exploração, o sigmoide é longo e redundante, com mesossigmoide de base estreita e sem áreas de necrose. Cólon proximal e reto sem alterações.",
+        "pergunta": "Como conduz a cirurgia e o pós-operatório?",
+        "proximo": "D1",
+        "acoesDisponiveis": [
+          "conduta"
+        ]
+      },
+      {
+        "codigo": "M4-ALT",
+        "nome": "Laparotomia de urgência",
+        "situacao": "Na laparotomia há necrose de todo o sigmoide torcido, com perfuração e contaminação fecal na pelve. O paciente está em uso de noradrenalina, com lactato de 5,2 mmol/L.",
+        "pergunta": "Como conduz a cirurgia?",
+        "proximo": "D3",
+        "acoesDisponiveis": [
+          "conduta"
+        ]
+      }
+    ],
+    "regras": [
+      {
+        "codigo": "R1",
+        "momento": "M1",
+        "se": "Dá alta ou trata como constipação, sem investigar a obstrução.",
+        "entao": "O paciente retorna 12 horas depois, com peritonite.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta, ou tratar como constipação com laxante ou lavagem intestinal, sem investigar a obstrução."
+        ],
+        "marcaDesfecho": "D4"
+      },
+      {
+        "codigo": "R2",
+        "momento": "M1",
+        "se": "Não solicita tomografia.",
+        "entao": "O caso segue sem os dados da tomografia.",
+        "vaiPara": "M2",
+        "registrar": true,
+        "quando": {
+          "naoRevelados": [
+            "EX-11"
+          ]
+        }
+      },
+      {
+        "codigo": "R3",
+        "momento": "M1",
+        "se": "Prescreve neostigmina ou procinético.",
+        "entao": "A distensão piora e o paciente evolui com peritonite.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Prescrever neostigmina ou procinético diante de obstrução mecânica."
+        ]
+      },
+      {
+        "codigo": "R4",
+        "momento": "M2",
+        "se": "Indica cirurgia de urgência sem tentar a descompressão.",
+        "entao": "Na cirurgia, o sigmoide está viável. É feita a sigmoidectomia com colostomia terminal.",
+        "vaiPara": "D5",
+        "registrar": true,
+        "disparadaPor": [
+          "Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica."
+        ]
+      },
+      {
+        "codigo": "R5",
+        "momento": "M2",
+        "se": "Mantém observação ou tratamento clínico sem descompressão, ou tenta desfazer o volvo com neostigmina ou lavagem.",
+        "entao": "Doze horas depois, o paciente evolui com peritonite.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Manter observação ou tratamento clínico sem descompressão.",
+          "Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo."
+        ]
+      },
+      {
+        "codigo": "R6",
+        "momento": "M2",
+        "se": "Dá alta.",
+        "entao": "O paciente retorna 12 horas depois, com peritonite.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta."
+        ],
+        "marcaDesfecho": "D4"
+      },
+      {
+        "codigo": "R7",
+        "momento": "M3",
+        "se": "Dá alta sem programar a cirurgia definitiva.",
+        "entao": "Dois meses depois, novo volvo, desta vez com isquemia.",
+        "vaiPara": "D2",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta após a descompressão, sem programar a cirurgia definitiva.",
+          "Programar a cirurgia só depois de uma nova recidiva."
+        ]
+      },
+      {
+        "codigo": "R8",
+        "momento": "M4",
+        "se": "Faz detorção ou fixação sem ressecar o sigmoide.",
+        "entao": "Recidiva do volvo meses depois.",
+        "vaiPara": "D2",
+        "registrar": true,
+        "disparadaPor": [
+          "Fazer apenas a detorção ou a fixação do sigmoide (sigmoidopexia), sem ressecar."
+        ]
+      },
+      {
+        "codigo": "R9",
+        "momento": "M4",
+        "se": "Faz colostomia terminal em paciente estável e sem contaminação.",
+        "entao": "Boa evolução, mas com estoma e nova cirurgia para reconstrução do trânsito.",
+        "vaiPara": "D5",
+        "registrar": true,
+        "disparadaPor": [
+          "Fazer colostomia terminal (cirurgia de Hartmann) em paciente estável e sem contaminação."
+        ]
+      },
+      {
+        "codigo": "R10",
+        "momento": "M3-ALT",
+        "se": "Mantém tratamento clínico sem indicar cirurgia.",
+        "entao": "O choque piora e a cirurgia acontece com atraso.",
+        "vaiPara": "M4-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Manter tratamento clínico sem indicar cirurgia."
+        ]
+      }
+    ],
+    "desfechos": [
+      {
+        "codigo": "D1",
+        "texto": "Sigmoidectomia sem intercorrências. Alta no quinto dia de pós-operatório, aceitando dieta, sem recidiva do volvo no seguimento.",
+        "qualidade": "otimo"
+      },
+      {
+        "codigo": "D2",
+        "texto": "Alta sem tratamento definitivo. Dois meses depois, novo volvo com isquemia, cirurgia de urgência e colostomia.",
+        "qualidade": "ruim"
+      },
+      {
+        "codigo": "D3",
+        "texto": "Necrose e perfuração do sigmoide. Cirurgia de Hartmann de urgência, internação em UTI e colostomia. Sobrevive após internação prolongada.",
+        "qualidade": "ruim"
+      },
+      {
+        "codigo": "D4",
+        "texto": "Retorno com peritonite após alta indevida. Cirurgia de Hartmann de urgência, UTI e colostomia. Sobrevive, com complicações.",
+        "qualidade": "grave"
+      },
+      {
+        "codigo": "D5",
+        "texto": "Cirurgia de urgência que a descompressão provavelmente evitaria. Boa evolução, mas com colostomia e uma segunda cirurgia para reconstruir o trânsito.",
+        "qualidade": "bom"
+      }
+    ]
+  },
+  "folhaResposta": {
+    "objetivos": [
+      "Reconhecer a obstrução do cólon e suspeitar de volvo de sigmoide pela história e pelo exame.",
+      "Usar a tomografia para confirmar o volvo e procurar sinais de isquemia ou perfuração.",
+      "Indicar a descompressão endoscópica no paciente estável e sem isquemia, e saber quando ela é contraindicada.",
+      "Entender por que a sigmoidectomia deve ser feita na mesma internação após a descompressão.",
+      "Escolher entre anastomose primária e cirurgia de Hartmann conforme o estado do paciente."
+    ],
+    "momentos": [
+      {
+        "codigo": "M1",
+        "ideal": [
+          "Anamnese dirigida, incluindo hábito intestinal, episódios anteriores de distensão, eliminação de gases e fezes e vômitos.",
+          "Exame físico completo, com avaliação de sinais de peritonite, dos orifícios herniários e toque retal.",
+          "Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético.",
+          "Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese.",
+          "Exames: hemograma, eletrólitos, função renal, gasometria e lactato.",
+          "Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.",
+          "Avaliação precoce pela equipe de cirurgia."
+        ],
+        "aceitaveis": [
+          "Ir direto para a tomografia sem radiografia prévia.",
+          "Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Pedir enema opaco com bário para confirmar o diagnóstico.",
+            "custo": "Atraso diagnóstico e risco de perfuração com extravasamento de bário; a tomografia é o exame de escolha."
+          },
+          {
+            "conduta": "Não repor potássio.",
+            "custo": "A hipocalemia piora o íleo e aumenta o risco de arritmia."
+          }
+        ],
+        "errosCriticos": [
+          "Dar alta, ou tratar como constipação com laxante ou lavagem intestinal, sem investigar a obstrução.",
+          "Não examinar o abdome em busca de sinais de peritonite.",
+          "Prescrever neostigmina ou procinético diante de obstrução mecânica.",
+          "Liberar dieta oral."
+        ],
+        "pontosDeRaciocinio": [
+          "Distensão volumosa e assimétrica, parada de eliminação de gases e fezes, vômitos tardios e pouca dor em idoso com constipação crônica e doença neurológica sugerem obstrução do cólon, com o volvo de sigmoide como causa mais provável.",
+          "O episódio anterior resolvido com sonda retal sugere volvo recidivante.",
+          "A radiografia pode mostrar o sinal do grão de café, mas é a tomografia que confirma o volvo e procura sinais de isquemia ou perfuração.",
+          "Sem peritonite, sem sinais tomográficos de isquemia e com o paciente estável, a descompressão endoscópica é possível."
+        ],
+        "justificativa": [
+          "A tomografia de abdome é o exame de escolha para confirmar o volvo de sigmoide e procurar sinais de isquemia (ASCRS 2021; WSES 2023).",
+          "Peritonite ou sinais de isquemia na tomografia indicam cirurgia de urgência, sem tentativa de descompressão endoscópica (ASCRS 2021)."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Anamnese dirigida, incluindo hábito intestinal, episódios anteriores de distensão, eliminação de gases e fezes e vômitos.",
+              "quando": {
+                "revelados": [
+                  "AN-04",
+                  "AN-05",
+                  "AN-06"
+                ]
+              }
+            },
+            {
+              "item": "Exame físico completo, com avaliação de sinais de peritonite, dos orifícios herniários e toque retal.",
+              "quando": {
+                "revelados": [
+                  "EF-02",
+                  "EF-05",
+                  "EF-06",
+                  "EF-07"
+                ]
+              }
+            },
+            {
+              "item": "Exames: hemograma, eletrólitos, função renal, gasometria e lactato.",
+              "quando": {
+                "revelados": [
+                  "EX-01",
+                  "EX-02",
+                  "EX-03",
+                  "EX-04",
+                  "EX-05"
+                ]
+              }
+            },
+            {
+              "item": "Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.",
+              "quando": {
+                "revelados": [
+                  "EX-10",
+                  "EX-11"
+                ]
+              }
+            },
+            {
+              "item": "Ir direto para a tomografia sem radiografia prévia.",
+              "quando": {
+                "revelados": [
+                  "EX-11"
+                ],
+                "naoRevelados": [
+                  "EX-10"
+                ]
+              }
+            },
+            {
+              "item": "Não repor potássio.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese."
+                ]
+              }
+            },
+            {
+              "item": "Não examinar o abdome em busca de sinais de peritonite.",
+              "quando": {
+                "naoRevelados": [
+                  "EF-05"
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Dar alta, ou tratar como constipação com laxante ou lavagem intestinal, sem investigar a obstrução.": "Tratar como constipação, com laxante ou lavagem intestinal, e dar alta.",
+            "Prescrever neostigmina ou procinético diante de obstrução mecânica.": "Prescrever neostigmina ou procinético.",
+            "Pedir enema opaco com bário para confirmar o diagnóstico.": "Pedir enema opaco com bário."
+          }
+        }
+      },
+      {
+        "codigo": "M2",
+        "ideal": [
+          "Indicar a descompressão endoscópica, pela ausência de peritonite e de sinais tomográficos de isquemia.",
+          "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa.",
+          "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.",
+          "Manter hidratação, correção eletrolítica e reavaliação clínica seriada."
+        ],
+        "aceitaveis": [
+          "Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica.",
+            "custo": "Cirurgia de urgência com maior morbidade e maior chance de colostomia, quando a descompressão resolveria o quadro agudo."
+          },
+          {
+            "conduta": "Não deixar sonda retal após a descompressão.",
+            "custo": "Maior risco de recidiva precoce do volvo."
+          }
+        ],
+        "errosCriticos": [
+          "Manter observação ou tratamento clínico sem descompressão.",
+          "Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo.",
+          "Dar alta."
+        ],
+        "pontosDeRaciocinio": [
+          "Sem peritonite e sem isquemia na tomografia, a primeira escolha é a descompressão endoscópica, que resolve o quadro agudo na maioria dos pacientes.",
+          "A endoscopia também avalia a mucosa: mucosa escura, ulcerada ou necrótica indica cirurgia de urgência.",
+          "Neostigmina é usada na pseudo-obstrução colônica (síndrome de Ogilvie), e não na obstrução mecânica."
+        ],
+        "justificativa": [
+          "ASCRS 2021: descompressão endoscópica como tratamento inicial do volvo de sigmoide sem peritonite ou isquemia, com avaliação da viabilidade da mucosa durante o procedimento."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Não deixar sonda retal após a descompressão.",
+              "quando": {
+                "selecionados": [
+                  "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa."
+                ],
+                "nenhumSelecionado": [
+                  "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce."
+                ]
+              }
+            },
+            {
+              "item": "Manter observação ou tratamento clínico sem descompressão.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Indicar a descompressão endoscópica, pela ausência de peritonite e de sinais tomográficos de isquemia.",
+                  "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa.",
+                  "Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível.",
+                  "Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica."
+                ]
+              },
+              "tambemComoOpcao": true
+            }
+          ],
+          "rotulos": {
+            "Indicar a descompressão endoscópica, pela ausência de peritonite e de sinais tomográficos de isquemia.": "Indicar a descompressão endoscópica.",
+            "Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica.": "Indicar cirurgia de urgência.",
+            "Manter observação ou tratamento clínico sem descompressão.": "Manter observação e tratamento clínico.",
+            "Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo.": "Prescrever neostigmina ou fazer lavagem intestinal."
+          }
+        }
+      },
+      {
+        "codigo": "M3",
+        "ideal": [
+          "Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.",
+          "Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia.",
+          "Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família."
+        ],
+        "aceitaveis": [
+          "Colonoscopia do restante do cólon antes da cirurgia, para afastar outras lesões."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Dar alta após a descompressão, sem programar a cirurgia definitiva.",
+            "custo": "Recidiva do volvo em grande parte dos pacientes, muitas vezes já com isquemia e necessidade de cirurgia de urgência."
+          },
+          {
+            "conduta": "Programar a cirurgia só depois de uma nova recidiva.",
+            "custo": "Expõe o paciente a uma nova torção, com risco de isquemia."
+          }
+        ],
+        "errosCriticos": [],
+        "pontosDeRaciocinio": [
+          "A descompressão endoscópica resolve o episódio agudo, mas não o problema: a recidiva é frequente.",
+          "Em paciente com condição cirúrgica, a sigmoidectomia é indicada na mesma internação, depois da otimização clínica."
+        ],
+        "justificativa": [
+          "ASCRS 2021: sigmoidectomia na mesma internação após a descompressão bem-sucedida, pelo alto risco de recidiva."
+        ],
+        "modoLista": {
+          "rotulos": {
+            "Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.": "Indicar sigmoidectomia na mesma internação.",
+            "Dar alta após a descompressão, sem programar a cirurgia definitiva.": "Dar alta e acompanhar no ambulatório.",
+            "Programar a cirurgia só depois de uma nova recidiva.": "Operar só se houver nova recidiva."
+          }
+        }
+      },
+      {
+        "codigo": "M3-ALT",
+        "ideal": [
+          "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização.",
+          "Cirurgia de urgência, sem tentativa de descompressão endoscópica.",
+          "Antecipar a ressecção do sigmoide com colostomia terminal (cirurgia de Hartmann) e a necessidade de UTI."
+        ],
+        "aceitaveis": [
+          "Iniciar vasopressor se a hipotensão persistir após a reposição volêmica inicial."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Tentar a descompressão endoscópica em paciente com peritonite.",
+            "custo": "Atraso da cirurgia e risco de agravar a perfuração."
+          }
+        ],
+        "errosCriticos": [
+          "Manter tratamento clínico sem indicar cirurgia.",
+          "Não iniciar antibiótico."
+        ],
+        "pontosDeRaciocinio": [
+          "Peritonite, choque, lactato elevado e, na tomografia, pneumatose e gás livre indicam necrose e perfuração do sigmoide."
+        ],
+        "justificativa": [
+          "ASCRS 2021: peritonite ou sinais de isquemia indicam cirurgia de urgência, com ressecção do segmento acometido."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Manter tratamento clínico sem indicar cirurgia.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Cirurgia de urgência, sem tentativa de descompressão endoscópica."
+                ]
+              },
+              "tambemComoOpcao": true
+            },
+            {
+              "item": "Não iniciar antibiótico.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Manter tratamento clínico sem indicar cirurgia.": "Manter tratamento clínico.",
+            "Tentar a descompressão endoscópica em paciente com peritonite.": "Tentar a descompressão endoscópica."
+          }
+        }
+      },
+      {
+        "codigo": "M4",
+        "ideal": [
+          "Sigmoidectomia com ressecção de todo o segmento redundante.",
+          "Anastomose primária colorretal, já que o paciente está estável, preparado e sem contaminação.",
+          "Pós-operatório com realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo e deambulação precoce."
+        ],
+        "aceitaveis": [
+          "Via laparoscópica, conforme a experiência da equipe."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Fazer apenas a detorção ou a fixação do sigmoide (sigmoidopexia), sem ressecar.",
+            "custo": "Alto risco de recidiva do volvo."
+          },
+          {
+            "conduta": "Fazer colostomia terminal (cirurgia de Hartmann) em paciente estável e sem contaminação.",
+            "custo": "Estoma e segunda cirurgia para reconstrução, sem necessidade."
+          },
+          {
+            "conduta": "Não prescrever profilaxia de tromboembolismo.",
+            "custo": "Risco de trombose venosa e embolia pulmonar."
+          }
+        ],
+        "errosCriticos": [],
+        "pontosDeRaciocinio": [
+          "No paciente estável, preparado e sem contaminação, a ressecção com anastomose primária é segura e resolve o volvo."
+        ],
+        "justificativa": [
+          "ASCRS 2021: sigmoidectomia com anastomose primária é o tratamento definitivo de escolha; procedimentos sem ressecção têm recidiva alta."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Não prescrever profilaxia de tromboembolismo.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Pós-operatório com realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo e deambulação precoce."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Fazer apenas a detorção ou a fixação do sigmoide (sigmoidopexia), sem ressecar.": "Desfazer a torção e fixar o sigmoide, sem ressecar.",
+            "Fazer colostomia terminal (cirurgia de Hartmann) em paciente estável e sem contaminação.": "Fazer sigmoidectomia com colostomia terminal (Hartmann).",
+            "Anastomose primária colorretal, já que o paciente está estável, preparado e sem contaminação.": "Fazer anastomose primária colorretal."
+          }
+        }
+      },
+      {
+        "codigo": "M4-ALT",
+        "ideal": [
+          "Ressecar todo o sigmoide necrótico, controlar a contaminação e lavar a cavidade.",
+          "Fazer colostomia terminal com fechamento do coto retal (cirurgia de Hartmann), sem anastomose.",
+          "Levar o paciente à UTI, mantendo antibiótico e ressuscitação."
+        ],
+        "aceitaveis": [
+          "Cirurgia abreviada com fechamento temporário do abdome, se houver hipotermia, acidose e coagulopatia."
+        ],
+        "subotimas": [
+          {
+            "conduta": "Prolongar a cirurgia com ressecções ampliadas desnecessárias.",
+            "custo": "Piora do choque e da acidose."
+          }
+        ],
+        "errosCriticos": [
+          "Fazer anastomose primária em paciente em choque com contaminação fecal.",
+          "Fazer apenas a detorção, sem ressecar o segmento necrótico."
+        ],
+        "pontosDeRaciocinio": [
+          "No paciente em choque com peritonite fecal, o objetivo é controlar a fonte da contaminação e sobreviver; a reconstrução fica para depois."
+        ],
+        "justificativa": [
+          "Princípios de manejo da sepse de foco abdominal e da cirurgia de Hartmann na peritonite fecal."
+        ],
+        "modoLista": {
+          "rotulos": {
+            "Fazer anastomose primária em paciente em choque com contaminação fecal.": "Ressecar e fazer anastomose primária.",
+            "Fazer apenas a detorção, sem ressecar o segmento necrótico.": "Desfazer a torção e fechar a cavidade.",
+            "Prolongar a cirurgia com ressecções ampliadas desnecessárias.": "Ampliar a ressecção para resolver tudo em um só tempo."
+          }
+        }
+      }
+    ],
+    "caminhoIdeal": "Reconhecer a obstrução do cólon e suspeitar de volvo de sigmoide, iniciar suporte com jejum, hidratação e correção eletrolítica, e confirmar com tomografia contrastada a ausência de isquemia (M1). Fazer a descompressão endoscópica com retossigmoidoscopia flexível, avaliar a mucosa e deixar sonda retal (M2). Indicar a sigmoidectomia na mesma internação, após otimização clínica (M3). Fazer a sigmoidectomia com anastomose primária e conduzir o pós-operatório (M4), chegando ao desfecho D1.",
+    "pesos": {
+      "M1": 25,
+      "M2": 30,
+      "M3": 25,
+      "M4": 20
+    },
+    "escala": {
+      "ideal": 100,
+      "aceitavel": 80,
+      "subotima": 50,
+      "perigosa": 0,
+      "nao_prevista": null
+    },
+    "faixas": [
+      {
+        "de": 85,
+        "ate": 100,
+        "rotulo": "Excelente"
+      },
+      {
+        "de": 70,
+        "ate": 84,
+        "rotulo": "Adequado"
+      },
+      {
+        "de": 50,
+        "ate": 69,
+        "rotulo": "Precisa revisar o tema"
+      },
+      {
+        "de": 0,
+        "ate": 49,
+        "rotulo": "Refazer o caso após estudo"
+      }
+    ],
+    "mensagensChave": [
+      "Distensão volumosa em idoso com constipação crônica e episódio anterior sugere volvo de sigmoide.",
+      "A tomografia confirma o volvo e procura isquemia antes de qualquer tentativa de descompressão.",
+      "Sem peritonite e sem isquemia, a descompressão endoscópica é a primeira escolha.",
+      "Descomprimir resolve o episódio, não o problema: a sigmoidectomia deve ser feita na mesma internação.",
+      "Peritonite ou necrose indicam cirurgia de urgência, com Hartmann no paciente instável."
+    ],
+    "orientacoesFeedback": [
+      "A cada decisão, informar a classificação e explicar em até três frases, sempre com base nesta folha resposta.",
+      "Reconhecer o que o aluno acertou antes de apontar o que faltou.",
+      "Quando a conduta for diferente da ideal mas aceitável, dizer isso com clareza e mostrar o que o caminho ideal acrescentaria.",
+      "Erros críticos aparecem sempre em destaque, com a explicação do risco para o paciente.",
+      "Nunca citar dados, condutas ou referências que não estejam neste arquivo."
+    ]
+  }
+}

@@ -36,4 +36,4 @@ npm run build     # confere tipos e gera a versão de produção
 - `servidor/` e `api/`: funções da Vercel. Só aqui existe a chave do Gemini.
 - `firestore.rules`: regras de segurança do banco. `docs/CONFIGURAR-FIREBASE.md`: passo a passo do Firebase.
 - `docs/IMAGENS-PENDENTES.md`: lista das imagens que faltam. `npm run imagens` mostra o que já está no lugar.
-- `docs/REVISAO-CASO-001.md`: ajustes no caso 001 que aguardam a revisão do professor.
+- `docs/casos/`: documento de cada caso, com folha resposta, imagens e decisões pendentes de validação. Gerados por `npm run documentos`; não edite à mão.

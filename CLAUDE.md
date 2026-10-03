@@ -33,7 +33,7 @@ React + Vite + Tailwind, hospedagem na Vercel, funções serverless da Vercel em
 - Modo de lista: a avaliação usa `folhaResposta.momentos[].modoLista` (itens derivados do que o aluno descobriu, omissões e rótulos neutros) e os gatilhos `disparadaPor`/`quando` das regras. Itens são referenciados pelo texto exato da folha; os testes acusam qualquer texto que não bata.
 - Nota calculada só sobre os momentos jogados.
 - Tentativa salva no aparelho (localStorage); mudar a `versao` do caso descarta tentativas antigas.
-- Ajustes pendentes de validação clínica: `docs/REVISAO-CASO-001.md`.
+- Documentos dos casos (caso, folha resposta, imagens e decisões pendentes de validação) em `docs/casos/`, gerados por `npm run documentos` a partir de `casos/*.json`. As decisões pendentes ficam em `docs/casos/pendencias.json`.
 
 ## Decisões da Fase 2
 

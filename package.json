@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "imagens": "node scripts/imagens-pendentes.mjs",
     "test:regras": "npx -y firebase-tools@latest emulators:exec --only firestore --project demo-simulador \"vitest run --config vitest.regras.config.ts\"",
-    "adversarial": "node scripts/teste-adversarial.mjs"
+    "adversarial": "node scripts/teste-adversarial.mjs",
+    "documentos": "node scripts/gerar-documentos.mjs"
   },
   "dependencies": {
     "@fontsource/big-shoulders-display": "^5.3.0",

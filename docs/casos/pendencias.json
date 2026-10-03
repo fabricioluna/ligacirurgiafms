@@ -1,0 +1,36 @@
+{
+  "CASO-001": [
+    "Conduta sem erro, mas incompleta, vale 'aceitável' (80% do peso do momento). Confirmar, ou definir um mínimo de itens ideais.",
+    "O item 'Exame físico completo' só conta quando o aluno examina os 8 segmentos. Confirmar, ou reduzir para inspeção, orifícios herniários e toque retal.",
+    "Momentos não jogados (quando o caso termina cedo) ficam fora da nota. Confirmar, ou contá-los como zero.",
+    "Dar alta no M1, no M2 ou no M3 termina no desfecho D4. As regras R10 e R11 foram criadas para o M2 e o M3; o texto da R11 ('O paciente retorna em choque.') foi escrito pelo desenvolvimento.",
+    "R9 (controle de danos em paciente estável) agora segue para o pós-operatório (M5) em vez de terminar direto em D1.",
+    "R12 foi criada: no choque (M3-ALT), não indicar cirurgia leva ao intraoperatório com atraso, sem desfecho próprio. Avaliar se precisa de um desfecho pior.",
+    "M2 foi renomeado de 'Após a tomografia' para 'Definição do plano', porque o aluno pode chegar nele sem ter pedido a tomografia.",
+    "O texto do M3 passou a dizer 'a sonda, se mantida, drenou...', porque o aluno pode ter retirado a sonda no M2.",
+    "17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabela 'Textos mostrados na lista'). Conferir se descrevem a mesma conduta.",
+    "Resposta padrão para segmento do exame físico que não existe no caso: 'Sem alterações nesse segmento.' Confirmar.",
+    "Autor do caso: 'A definir'."
+  ],
+  "CASO-002": [
+    "Caso escrito pelo desenvolvimento a partir das diretrizes citadas. Todo o conteúdo clínico precisa de validação.",
+    "No M3, dar alta sem programar a sigmoidectomia foi classificado como subótimo (não como erro crítico), com desfecho de recidiva (D2). Confirmar a classificação.",
+    "Colonoscopia do restante do cólon antes da sigmoidectomia está como aceitável, e não como ideal. Confirmar.",
+    "Neostigmina ou procinético no M1 é erro crítico e leva à peritonite (R3). Confirmar se a evolução é plausível ou se deve apenas registrar o erro.",
+    "Cirurgia de urgência sem tentar a descompressão (R4) termina no desfecho D5, de qualidade 'bom'. Confirmar.",
+    "Os momentos M3 e M4 não têm erro crítico na folha resposta. Avaliar se algum deve ser incluído.",
+    "Conferir os dados das referências (autores, ano e número).",
+    "Autor do caso: 'A definir'."
+  ],
+  "CASO-003": [
+    "Caso escrito pelo desenvolvimento a partir das diretrizes citadas. Todo o conteúdo clínico precisa de validação.",
+    "O stent como ponte no M2 foi classificado como subótimo, por causa da dor na fossa ilíaca direita, e leva a um desfecho bom (D2), com o aviso de que o risco era alto. Confirmar a classificação e o desfecho.",
+    "Ceco de 11,5 cm com dor local foi usado como critério de cirurgia de urgência. Confirmar os valores.",
+    "Cirurgia de Hartmann está como aceitável e a anastomose primária com ou sem ileostomia de proteção está dentro do ideal, conforme o risco. Confirmar.",
+    "Preparo intestinal por via oral no M1 leva direto à perfuração do ceco (R2). Confirmar se a evolução é plausível ou se deve apenas registrar o erro.",
+    "Dar alta sem encaminhar à oncologia termina num desfecho próprio (D6). Confirmar.",
+    "A paciente é alérgica a dipirona. Hoje o simulador não avalia prescrição de medicamentos, então esse dado não pesa na nota. Avaliar se deve virar item da folha resposta.",
+    "Conferir os dados da referência (autores, ano e número).",
+    "Autor do caso: 'A definir'."
+  ]
+}
