@@ -303,7 +303,7 @@ Peso: 20 pontos.
 
 - WSES 2017: a tomografia com contraste é o exame de escolha na suspeita de obstrução do cólon por câncer (Pisano et al., 2018).
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -324,7 +324,7 @@ Peso: 20 pontos.
 - "Negar analgesia para não mascarar o quadro.": conta quando não marcou "Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético.".
 - "Não palpar o abdome em busca de sinais de peritonite e de dor sobre o ceco.": conta quando o aluno não descobriu EF-05 (Palpação).
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -369,7 +369,7 @@ Peso: 30 pontos.
 
 - WSES 2017 (Pisano et al., 2018): na obstrução do cólon esquerdo por câncer, a ressecção é o tratamento de escolha; o stent como ponte é alternativa em pacientes selecionados.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -382,7 +382,7 @@ Peso: 30 pontos.
 - "Tomografia de tórax para estadiamento, sem atrasar a cirurgia.": conta quando o aluno descobriu EX-12 (Tomografia de tórax).
 - "Manter tratamento clínico, aguardando a resolução espontânea da obstrução.": conta quando não marcou "Indicar cirurgia de urgência, pelo risco de perfuração do ceco em obstrução em alça fechada com dor na fossa ilíaca direita." nem "Indicar stent colônico como ponte para a cirurgia, apesar da dor na fossa ilíaca direita." nem "Fazer apenas colostomia em alça, sem ressecar o tumor, em paciente com condição de ressecção." (também aparece como opção).
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -426,7 +426,7 @@ Peso: 30 pontos.
 
 - WSES 2017 (Pisano et al., 2018): ressecção com princípios oncológicos; cirurgia de Hartmann ou anastomose primária, com ou sem estoma de proteção, conforme o risco.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -437,7 +437,7 @@ Peso: 30 pontos.
 
 - "Não avaliar a viabilidade do ceco.": conta quando não marcou "Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -478,7 +478,7 @@ Peso: 30 pontos (usa o peso do M3).
 
 - WSES 2017 (Pisano et al., 2018): na perfuração do ceco por obstrução distal, ressecção do segmento perfurado e do tumor, geralmente por colectomia subtotal, sem anastomose no paciente instável.
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -521,7 +521,7 @@ Peso: 20 pontos.
 
 - Princípios de seguimento do câncer colorretal: discussão multidisciplinar, colonoscopia do cólon remanescente e avaliação para tratamento adjuvante.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -534,7 +534,7 @@ Peso: 20 pontos.
 - "Não prescrever profilaxia de tromboembolismo.": conta quando não marcou "Pós-operatório com realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo e deambulação.".
 - "Dar alta sem encaminhar à oncologia.": conta quando não marcou "Encaminhar à oncologia e discutir o caso em reunião multidisciplinar, com o anatomopatológico e o estadiamento." (também aparece como opção).
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -592,5 +592,5 @@ Pasta: `public/imagens/casos/caso-003/`. Cada imagem precisa de fonte e licença
 - A paciente é alérgica a dipirona. Hoje o simulador não avalia prescrição de medicamentos, então esse dado não pesa na nota. Avaliar se deve virar item da folha resposta.
 - Conferir os dados da referência (autores, ano e número).
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
-- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.
+- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um nas tabelas 'O que acontece com o paciente na hora' da folha resposta.
 - Autor do caso: 'A definir'.

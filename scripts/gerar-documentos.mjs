@@ -215,7 +215,7 @@ function documento(caso) {
     const efeitos = Object.entries(f.efeitos ?? {})
     if (efeitos.length) {
       L.push(
-        '**O que acontece na hora quando o aluno faz a conduta**',
+        '**O que acontece com o paciente na hora, quando o aluno faz a conduta**',
         '',
         tabela(['Conduta', 'Efeito no paciente', 'Sinais vitais'], efeitos.map(([item, e]) => [item, e.texto, (e.sinaisVitais ?? []).map((s) => `${s.rotulo}: ${s.valor}`).join('; ')])),
         '',
@@ -227,7 +227,7 @@ function documento(caso) {
       L.push(lista(der.map((d) => `"${d.item}": conta quando ${descreverCondicao(caso, d.quando)}${d.tambemComoOpcao ? ' (também aparece como opção)' : ''}.`)), '')
     }
     const rot = Object.entries(f.modoLista?.rotulos ?? {})
-    if (rot.length) L.push('**Textos mostrados na lista** (para não entregar a resposta)', '', tabela(['Texto da folha', 'Texto na lista'], rot), '')
+    if (rot.length) L.push('**Textos mostrados na lista do simulador estático** (para não entregar a resposta)', '', tabela(['Texto da folha', 'Texto na lista'], rot), '')
   }
   L.push(
     '## Pontuação',

@@ -326,7 +326,7 @@ Peso: 25 pontos.
 - A tomografia de abdome é o exame de escolha para confirmar o volvo de sigmoide e procurar sinais de isquemia (ASCRS 2021; WSES 2023).
 - Peritonite ou sinais de isquemia na tomografia indicam cirurgia de urgência, sem tentativa de descompressão endoscópica (ASCRS 2021).
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -347,7 +347,7 @@ Peso: 25 pontos.
 - "Não repor potássio.": conta quando não marcou "Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese.".
 - "Não examinar o abdome em busca de sinais de peritonite.": conta quando o aluno não descobriu EF-05 (Palpação).
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -393,7 +393,7 @@ Peso: 30 pontos.
 
 - ASCRS 2021: descompressão endoscópica como tratamento inicial do volvo de sigmoide sem peritonite ou isquemia, com avaliação da viabilidade da mucosa durante o procedimento.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -408,7 +408,7 @@ Peso: 30 pontos.
 - "Não deixar sonda retal após a descompressão.": conta quando marcou "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa."; não marcou "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.".
 - "Manter observação ou tratamento clínico sem descompressão.": conta quando não marcou "Indicar a descompressão endoscópica, pela ausência de peritonite e de sinais tomográficos de isquemia." nem "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa." nem "Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível." nem "Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica." (também aparece como opção).
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -447,7 +447,7 @@ Peso: 25 pontos.
 
 - ASCRS 2021: sigmoidectomia na mesma internação após a descompressão bem-sucedida, pelo alto risco de recidiva.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -455,7 +455,7 @@ Peso: 25 pontos.
 | Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia. | Ele aceita bem a dieta líquida, sem distensão, e a sonda retal segue drenando. |  |
 | Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família. | A clínica e a anestesia avaliaram o risco cirúrgico como aceitável. Ele e a filha concordam com a cirurgia. |  |
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -496,7 +496,7 @@ Peso: 25 pontos (usa o peso do M3).
 
 - ASCRS 2021: peritonite ou sinais de isquemia indicam cirurgia de urgência, com ressecção do segmento acometido.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -507,7 +507,7 @@ Peso: 25 pontos (usa o peso do M3).
 - "Manter tratamento clínico sem indicar cirurgia.": conta quando não marcou "Cirurgia de urgência, sem tentativa de descompressão endoscópica." (também aparece como opção).
 - "Não iniciar antibiótico.": conta quando não marcou "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -548,7 +548,7 @@ Peso: 20 pontos.
 
 - "Não prescrever profilaxia de tromboembolismo.": conta quando não marcou "Pós-operatório com realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo e deambulação precoce.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -589,7 +589,7 @@ Peso: 20 pontos (usa o peso do M4).
 
 - Princípios de manejo da sepse de foco abdominal e da cirurgia de Hartmann na peritonite fecal.
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -650,5 +650,5 @@ Pasta: `public/imagens/casos/caso-002/`. Cada imagem precisa de fonte e licença
 - Os momentos M3 e M4 não têm erro crítico na folha resposta. Avaliar se algum deve ser incluído.
 - Conferir os dados das referências (autores, ano e número).
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
-- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.
+- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um nas tabelas 'O que acontece com o paciente na hora' da folha resposta.
 - Autor do caso: 'A definir'.

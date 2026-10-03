@@ -338,7 +338,7 @@ Peso: 20 pontos.
 - A tomografia com contraste venoso confirma a obstrução, localiza o ponto de transição, sugere a causa e mostra sinais de isquemia (Bologna 2017).
 - A descompressão com sonda e a correção hidroeletrolítica fazem parte do tratamento inicial de toda obstrução de delgado (Bologna 2017; Sabiston).
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Peso: 20 pontos.
 - "Negar analgesia para não mascarar o quadro.": conta quando não marcou "Controle de diurese, analgesia e antiemético.".
 - "Não examinar os orifícios herniários.": conta quando o aluno não descobriu EF-06 (Orifícios herniários).
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -410,7 +410,7 @@ Peso: 20 pontos.
 
 - Bologna 2017: tratamento não operatório na ausência de estrangulamento e peritonite; contraste hidrossolúvel com papel diagnóstico e terapêutico; tratamento conservador por até 72 horas.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -426,7 +426,7 @@ Peso: 20 pontos.
 - "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada.": conta quando marcou "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento."; não marcou "Reavaliar clinicamente de forma seriada, com exame abdominal e sinais vitais.".
 - "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada.": conta quando marcou "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento."; não marcou "Definir o prazo máximo do tratamento conservador, de 72 horas, e os critérios para indicar cirurgia a qualquer momento.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -472,7 +472,7 @@ Peso: 25 pontos.
 
 - Bologna 2017: sinais de estrangulamento, peritonite ou falha do tratamento conservador indicam cirurgia. O contraste que não chega ao cólon em até 24 horas prediz falha do tratamento conservador.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -486,7 +486,7 @@ Peso: 25 pontos.
 - "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.": conta quando não marcou "Indicar cirurgia de urgência, sem esperar completar 72 horas." nem "Escolher a via: laparotomia, pela distensão e suspeita de isquemia, ou laparoscopia com equipe experiente e limiar baixo para conversão." nem "Laparoscopia diagnóstica com conversão precoce se a visão ou a segurança forem prejudicadas." (também aparece como opção).
 - "Operar sem ressuscitação ou sem antibiótico.": conta quando marcou "Indicar cirurgia de urgência, sem esperar completar 72 horas."; não marcou "Ressuscitação volêmica, antibiótico, reserva de sangue e consentimento que inclua ressecção e possível estoma.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -527,7 +527,7 @@ Peso: 25 pontos (usa o peso do M3).
 
 - Princípios de manejo da sepse de foco abdominal e da cirurgia de controle de danos em emergência não traumática.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -539,7 +539,7 @@ Peso: 25 pontos (usa o peso do M3).
 - "Manter tratamento clínico sem indicar cirurgia.": conta quando não marcou "Cirurgia de urgência, sem atrasar com novos exames." (também aparece como opção).
 - "Não iniciar antibiótico.": conta quando não marcou "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -587,7 +587,7 @@ Peso: 25 pontos.
 
 - Bologna 2017: liberar apenas as aderências que causam a obstrução. Critérios clínicos de viabilidade intestinal conforme o Sabiston.
 
-**O que acontece na hora quando o aluno faz a conduta**
+**O que acontece com o paciente na hora, quando o aluno faz a conduta**
 
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
@@ -602,7 +602,7 @@ Peso: 25 pontos.
 - "Manter o segmento inviável sem ressecar.": conta quando não marcou "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa." nem "Anastomose manual ou mecânica." nem "Reoperação programada para nova avaliação, se a viabilidade ficar duvidosa." nem "Optar por controle de danos em paciente estável.".
 - "Não revisar o restante do delgado.": conta quando não marcou "Revisar todo o delgado, do ângulo de Treitz à válvula ileocecal.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -641,7 +641,7 @@ Peso: 25 pontos (usa o peso do M4).
 
 - Princípios do controle de danos em cirurgia de emergência não traumática.
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -689,7 +689,7 @@ Peso: 10 pontos.
 - "Não prescrever profilaxia de tromboembolismo.": conta quando não marcou "Profilaxia de tromboembolismo e deambulação precoce.".
 - "Ignorar sinais de deiscência de anastomose.": conta quando não marcou "Vigiar sinais de fístula e deiscência: febre, taquicardia, dor desproporcional ou saída de conteúdo entérico.".
 
-**Textos mostrados na lista** (para não entregar a resposta)
+**Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
 | --- | --- |
@@ -748,8 +748,8 @@ Pasta: `public/imagens/casos/caso-001/`. Cada imagem precisa de fonte e licença
 - R12 foi criada: no choque (M3-ALT), não indicar cirurgia leva ao intraoperatório com atraso, sem desfecho próprio. Avaliar se precisa de um desfecho pior.
 - M2 foi renomeado de 'Após a tomografia' para 'Definição do plano', porque o aluno pode chegar nele sem ter pedido a tomografia.
 - O texto do M3 passou a dizer 'a sonda, se mantida, drenou...', porque o aluno pode ter retirado a sonda no M2.
-- 17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabela 'Textos mostrados na lista'). Conferir se descrevem a mesma conduta.
+- 17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabelas 'Textos mostrados na lista do simulador estático' da folha resposta). Conferir se descrevem a mesma conduta.
 - Resposta padrão para segmento do exame físico que não existe no caso: 'Sem alterações nesse segmento.' Confirmar.
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
-- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.
+- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um nas tabelas 'O que acontece com o paciente na hora' da folha resposta.
 - Autor do caso: 'A definir'.

@@ -12,7 +12,8 @@
     "imagens": "node scripts/imagens-pendentes.mjs",
     "test:regras": "npx -y firebase-tools@latest emulators:exec --only firestore --project demo-simulador \"vitest run --config vitest.regras.config.ts\"",
     "adversarial": "node scripts/teste-adversarial.mjs",
-    "documentos": "node scripts/gerar-documentos.mjs"
+    "documentos": "node scripts/gerar-documentos.mjs",
+    "documentos:word": "node scripts/gerar-word.mjs"
   },
   "dependencies": {
     "@fontsource/big-shoulders-display": "^5.3.0",
@@ -32,6 +33,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "ajv": "^8.20.0",
+    "docx": "^9.8.1",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.3.2",
