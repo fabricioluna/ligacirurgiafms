@@ -7,7 +7,7 @@ import { definirConduta, idsRevelados, novaTentativa, revelar, seguir } from '..
 import { calcularNota } from '../src/motor/nota'
 import { exameDisponivel, examesAtuais, momentoFolha } from '../src/motor/caso'
 
-const caso = bruto as Caso
+const caso = bruto as unknown as Caso
 const folha = (c: string) => momentoFolha(caso, c)
 const sub = (c: string, i: number) => folha(c).subotimas![i].conduta
 

@@ -471,7 +471,7 @@
       },
       {
         "codigo": "M2",
-        "nome": "Uma hora após a admissão",
+        "nome": "Definição do plano",
         "tempo": "Cerca de 1 hora após a admissão.",
         "situacao": "A sonda nasogástrica, se passada, drenou 600 mL de conteúdo bilioso. A dor está em 4/10.",
         "sinaisVitais": [

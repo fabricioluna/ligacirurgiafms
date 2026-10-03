@@ -27,6 +27,14 @@ React + Vite + Tailwind, hospedagem na Vercel, funções serverless da Vercel em
 - `casos/caso-001.json`: caso real completo, usado como referência e como semente.
 - `assets/logoliga.jpg`: logo da liga.
 
+## Decisões da Fase 1
+
+- O motor do caso (`src/motor/`) é puro e testado (`npm test`). A IA da Fase 2 só preenche a classificação; quem muda o estado é sempre o motor.
+- Modo de lista: a avaliação usa `folhaResposta.momentos[].modoLista` (itens derivados do que o aluno descobriu, omissões e rótulos neutros) e os gatilhos `disparadaPor`/`quando` das regras. Itens são referenciados pelo texto exato da folha; os testes acusam qualquer texto que não bata.
+- Nota calculada só sobre os momentos jogados.
+- Tentativa salva no aparelho (localStorage); mudar a `versao` do caso descarta tentativas antigas.
+- Ajustes pendentes de revisão clínica: `docs/REVISAO-CASO-001.md`.
+
 ## Como trabalhar comigo
 
 Eu desenvolvo por vibe coding e não reviso linha por linha. Então:

@@ -7,7 +7,7 @@ import type { Caso, Condicao } from '../src/motor/tipos'
 import { categoriaDoItem, todosOsItens } from '../src/motor/avaliacao'
 import { ehDesfecho, momentoFolha } from '../src/motor/caso'
 
-const caso = bruto as Caso
+const caso = bruto as unknown as Caso
 
 describe('caso-001: estrutura', () => {
   it('segue o caso-schema.json', () => {

@@ -1,0 +1,216 @@
+@import 'tailwindcss';
+
+@import '@fontsource/big-shoulders-display/latin-600';
+@import '@fontsource/big-shoulders-display/latin-700';
+@import '@fontsource/ibm-plex-sans/latin-400';
+@import '@fontsource/ibm-plex-sans/latin-500';
+@import '@fontsource/ibm-plex-sans/latin-600';
+@import '@fontsource/ibm-plex-sans/latin-400-italic';
+
+/* Tema escuro é o padrão: é o da logo. Valores de IDENTIDADE-VISUAL.md. */
+:root {
+  color-scheme: dark;
+  --fundo: #0a0a0a;
+  --superficie: #161616;
+  --borda: #2b2b29;
+  --texto: #f2f2ec;
+  --texto-2: #9e9e95;
+  --verde: #9db017;
+  --verde-texto: #c3d82b;
+  --verde-suave: #1d2108;
+  --sobre-verde: #0a0a0a;
+  --c-ideal: #9db017;
+  --c-aceitavel: #7fa08c;
+  --c-subotima: #d2a32a;
+  --c-perigosa: #cf4436;
+  --c-nao-prevista: #9e9e95;
+  --textura: 0.08;
+}
+
+:root[data-theme='claro'] {
+  color-scheme: light;
+  --fundo: #f3f3ee;
+  --superficie: #ffffff;
+  --borda: #d8d8cf;
+  --texto: #111110;
+  --texto-2: #5c5c55;
+  --verde: #6e7d0c;
+  --verde-texto: #6e7d0c;
+  --verde-suave: #e8edc4;
+  --sobre-verde: #ffffff;
+  --c-ideal: #6e7d0c;
+  --c-aceitavel: #4c7360;
+  --c-subotima: #996e05;
+  --c-perigosa: #b02e20;
+  --c-nao-prevista: #5c5c55;
+  --textura: 0.06;
+}
+
+@theme inline {
+  --color-fundo: var(--fundo);
+  --color-superficie: var(--superficie);
+  --color-borda: var(--borda);
+  --color-texto: var(--texto);
+  --color-texto-2: var(--texto-2);
+  --color-verde: var(--verde);
+  --color-verde-texto: var(--verde-texto);
+  --color-verde-suave: var(--verde-suave);
+  --color-sobre-verde: var(--sobre-verde);
+  --color-ideal: var(--c-ideal);
+  --color-aceitavel: var(--c-aceitavel);
+  --color-subotima: var(--c-subotima);
+  --color-perigosa: var(--c-perigosa);
+  --color-nao-prevista: var(--c-nao-prevista);
+
+  --font-titulo: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+
+  /* Escala: 13, 15, 17, 20, 26, 34 e 46 px */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-2xl: 2.125rem;
+  --text-3xl: 2.875rem;
+
+  --radius-sm: 4px;
+}
+
+@layer base {
+  html {
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    min-height: 100dvh;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--verde-texto);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--verde);
+    color: var(--sobre-verde);
+  }
+}
+
+@layer components {
+  /* Trama de stencil: só na moldura, atrás de áreas sem texto corrido. */
+  .textura {
+    position: relative;
+    isolation: isolate;
+  }
+  .textura::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: var(--textura);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.6 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  :root[data-theme='claro'] .textura::before {
+    filter: invert(1);
+  }
+
+  .leitura {
+    max-width: 68ch;
+  }
+
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.25rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: background-color 120ms, border-color 120ms;
+  }
+  .botao-principal {
+    background: var(--verde);
+    color: var(--sobre-verde);
+  }
+  .botao-principal:hover {
+    background: var(--verde-texto);
+  }
+  :root[data-theme='claro'] .botao-principal:hover {
+    background: #5c690a;
+  }
+  .botao-principal:disabled {
+    background: var(--borda);
+    color: var(--texto-2);
+    cursor: not-allowed;
+  }
+  .botao-secundario {
+    border: 1px solid var(--borda);
+    color: var(--texto);
+    background: transparent;
+  }
+  .botao-secundario:hover {
+    border-color: var(--texto-2);
+  }
+
+  /* Fala do paciente: citação com filete verde, nunca balão de conversa. */
+  .fala {
+    border-left: 3px solid var(--verde);
+    padding: 0.125rem 0 0.125rem 1rem;
+    font-style: italic;
+  }
+
+  /* Laudo: canto reto, lembra impresso de laboratório. */
+  .laudo {
+    border: 1px solid var(--borda);
+    background: var(--superficie);
+    border-radius: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .numeros {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  :root, :root[data-theme='claro'] {
+    --fundo: #fff;
+    --superficie: #fff;
+    --borda: #ccc;
+    --texto: #000;
+    --texto-2: #444;
+    --verde: #6e7d0c;
+    --verde-texto: #6e7d0c;
+    --c-ideal: #6e7d0c;
+    --c-aceitavel: #4c7360;
+    --c-subotima: #996e05;
+    --c-perigosa: #b02e20;
+    --c-nao-prevista: #5c5c55;
+    --textura: 0;
+  }
+  .nao-imprimir {
+    display: none !important;
+  }
+}
