@@ -5,13 +5,13 @@ import { CampoTexto } from '../componentes/CampoTexto'
 import { Descoberta } from '../componentes/Descoberta'
 import { FalaConversa } from '../componentes/FalaConversa'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
-import { PainelAcoes } from '../componentes/PainelAcoes'
+import { PainelAcoes, type Painel } from '../componentes/PainelAcoes'
 import { ProgressoSutura, type EstadoPonto } from '../componentes/ProgressoSutura'
 import { SinaisVitais } from '../componentes/SinaisVitais'
 import { BotaoVoz, useVozPaciente } from '../componentes/VozPaciente'
 import { codigoBase, efeitosDe, ehDesfecho, momento, sinaisVitaisAtuais } from '../motor/caso'
 import { ordensDoMomento } from '../motor/tentativa'
-import type { Acao, Caso, Tentativa } from '../motor/tipos'
+import type { Caso, Tentativa } from '../motor/tipos'
 import { useTentativa } from '../tentativa'
 
 // Momentos do caminho principal (sem os ALT), um ponto de sutura para cada.
@@ -32,7 +32,7 @@ function pontosDoCaso(caso: Caso, t: Tentativa) {
 
 export function Atendimento() {
   const { caso, tentativa } = useTentativa()
-  const [acao, setAcao] = useState<Acao | null>(null)
+  const [acao, setAcao] = useState<Painel | null>(null)
   const voz = useVozPaciente(tentativa?.descobertas ?? [], tentativa?.conversa ?? [])
 
   const comIA = tentativa?.modo === 'ia'

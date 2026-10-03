@@ -5,7 +5,7 @@ import { embaralharEstavel } from '../motor/avaliacao'
 import { rotuloHipotese, todasAsHipoteses } from '../motor/diagnostico'
 import { useTentativa } from '../tentativa'
 
-export function HipoteseDiagnostica() {
+export function HipoteseDiagnostica({ aviso, aoRegistrar }: { aviso?: string; aoRegistrar?: () => void }) {
   const { caso, tentativa, registrarDiagnostico } = useTentativa()
   const opcoes = useMemo(() => embaralharEstavel(todasAsHipoteses(caso), `${tentativa!.id}:dx`), [caso, tentativa])
   const [escolhida, setEscolhida] = useState<string | null>(null)
@@ -13,7 +13,8 @@ export function HipoteseDiagnostica() {
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <p className="m-0 border-b border-borda px-4 py-3 text-sm">
-        <span className="font-semibold">Antes da conduta: qual a sua hipótese diagnóstica?</span>{' '}
+        {aviso && <span className="mb-1 block font-semibold text-subotima">{aviso}</span>}
+        <span className="font-semibold">Qual a sua hipótese diagnóstica?</span>{' '}
         <span className="text-texto-2">Ela vale parte da nota e não pode ser trocada depois.</span>
       </p>
       <div role="radiogroup" aria-label="Hipótese diagnóstica" className="min-h-0 flex-1 overflow-y-auto p-2">
@@ -25,8 +26,12 @@ export function HipoteseDiagnostica() {
         ))}
       </div>
       <div className="border-t border-borda p-3">
-        <button type="button" className="botao botao-principal w-full" disabled={!escolhida} onClick={() => escolhida && registrarDiagnostico(escolhida, rotuloHipotese(escolhida))}>
-          {escolhida ? 'Registrar a hipótese e seguir para a conduta' : 'Escolha uma hipótese'}
+        <button type="button" className="botao botao-principal w-full" disabled={!escolhida} onClick={() => {
+            if (!escolhida) return
+            registrarDiagnostico(escolhida, rotuloHipotese(escolhida))
+            aoRegistrar?.()
+          }}>
+          {escolhida ? (aviso ? 'Registrar a hipótese e confirmar a conduta' : 'Registrar a hipótese') : 'Escolha uma hipótese'}
         </button>
       </div>
     </div>

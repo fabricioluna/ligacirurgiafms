@@ -51,7 +51,7 @@ type Retorno =
   | { tipo: 'falha'; mensagem: string; acao: Acao }
 
 interface Props {
-  abrirLista: (a: Acao) => void
+  abrirLista: (a: Acao | 'hipotese') => void
 }
 
 export function CampoTexto({ abrirLista }: Props) {
@@ -238,7 +238,7 @@ export function CampoTexto({ abrirLista }: Props) {
                 <button type="button" className="botao botao-secundario" onClick={() => reescrever(retorno.texto)}>
                   Reescrever
                 </button>
-                <button type="button" className="botao botao-secundario" onClick={() => abrirLista('conduta')}>
+                <button type="button" className="botao botao-secundario" onClick={() => abrirLista('hipotese')}>
                   Escolher na lista
                 </button>
               </div>
@@ -344,7 +344,7 @@ export function CampoTexto({ abrirLista }: Props) {
           <p className="m-0 text-xs text-texto-2">{nome ? `Converse com ${nome} ou escolha um atalho` : 'Escreva com suas palavras ou escolha um atalho'}</p>
           <button
             type="button"
-            onClick={() => abrirLista(modoValido === 'hipotese' || !modoValido ? acoes[0] : modoValido)}
+            onClick={() => abrirLista(modoValido ?? acoes[0])}
             className="min-h-9 shrink-0 text-sm text-texto-2 underline underline-offset-4 hover:text-texto"
           >
             Ver lista

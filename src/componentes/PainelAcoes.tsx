@@ -11,29 +11,53 @@ import { Descoberta } from './Descoberta'
 import { HipoteseDiagnostica } from './HipoteseDiagnostica'
 import { precisaDiagnostico } from '../motor/diagnostico'
 
-export const NOME_ACAO: Record<Acao, string> = {
+// Painéis: as ações do momento e, quando o caso pede, a hipótese diagnóstica (sempre por último).
+export type Painel = Acao | 'hipotese'
+
+export const NOME_ACAO: Record<Painel, string> = {
   anamnese: 'Perguntar ao paciente',
   exameFisico: 'Examinar',
   exames: 'Pedir exame',
   conduta: 'Definir conduta',
+  hipotese: 'Hipótese diagnóstica',
 }
 
 // No computador o painel fica sempre aberto ao lado; no celular o atalho ativo fecha a folha.
 const ehComputador = () => window.matchMedia('(min-width: 1024px)').matches
 
 interface Props {
-  acao: Acao | null
-  setAcao: (a: Acao | null) => void
+  acao: Painel | null
+  setAcao: (a: Painel | null) => void
   // No simulador com IA, os atalhos ficam no campo de texto e o painel só mostra a lista.
   semBarra?: boolean
 }
 
 export function PainelAcoes({ acao, setAcao, semBarra = false }: Props) {
-  const { caso, tentativa } = useTentativa()
+  const { caso, tentativa, definirConduta } = useTentativa()
   const m = momento(caso, tentativa!.momentoAtual)
   const disponiveis = acoesDisponiveis(m)
-  const aberta = acao && disponiveis.includes(acao) ? acao : null
+  const pedeHipotese = precisaDiagnostico(caso, tentativa!)
+  const paineis: Painel[] = pedeHipotese ? [...disponiveis, 'hipotese'] : disponiveis
+  const aberta = acao && paineis.includes(acao) ? acao : null
   const painel = useRef<HTMLDivElement>(null)
+  // Conduta marcada antes da hipótese: confirma assim que a hipótese for registrada.
+  const [condutaPendente, setCondutaPendente] = useState<string[] | null>(null)
+
+  const confirmarConduta = (marcados: string[]) => {
+    if (pedeHipotese) {
+      setCondutaPendente(marcados)
+      setAcao('hipotese')
+      return
+    }
+    definirConduta(marcados)
+  }
+
+  const hipoteseRegistrada = () => {
+    if (condutaPendente) {
+      definirConduta(condutaPendente)
+      setCondutaPendente(null)
+    } else setAcao('conduta')
+  }
 
   useEffect(() => {
     if (!aberta) return
@@ -53,8 +77,8 @@ export function PainelAcoes({ acao, setAcao, semBarra = false }: Props) {
         aria-label="Ações"
         className="nao-imprimir fixed inset-x-0 bottom-0 z-30 border-t border-borda bg-fundo px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:static lg:z-auto lg:border-0 lg:bg-transparent lg:p-0"
       >
-        <div className="mx-auto grid max-w-xl grid-cols-4 gap-1.5 lg:max-w-none lg:grid-cols-2 lg:gap-2">
-          {disponiveis.map((a) => (
+        <div className={`mx-auto grid max-w-xl gap-1.5 lg:max-w-none lg:grid-cols-2 lg:gap-2 ${paineis.length === 5 ? 'grid-cols-5' : 'grid-cols-4'}`}>
+          {paineis.map((a) => (
             <BotaoAcao key={a} a={a} ativa={aberta === a} onClick={() => setAcao(aberta === a && !ehComputador() ? null : a)} />
           ))}
         </div>
@@ -82,9 +106,18 @@ export function PainelAcoes({ acao, setAcao, semBarra = false }: Props) {
           </div>
         )}
         {/* As listas ficam montadas: fechar o painel não perde o que o aluno já marcou. */}
-        {disponiveis.map((a) => (
+        {paineis.map((a) => (
           <div key={a + m.codigo} className={aberta === a ? 'flex min-h-0 flex-1 flex-col' : 'hidden'}>
-            {a === 'conduta' ? (precisaDiagnostico(caso, tentativa!) ? <HipoteseDiagnostica /> : <ListaConduta />) : <ListaDescoberta tipo={a} />}
+            {a === 'hipotese' ? (
+              <HipoteseDiagnostica
+                aviso={condutaPendente ? 'Para confirmar a conduta, registre antes a sua hipótese diagnóstica.' : undefined}
+                aoRegistrar={hipoteseRegistrada}
+              />
+            ) : a === 'conduta' ? (
+              <ListaConduta aoConfirmar={confirmarConduta} />
+            ) : (
+              <ListaDescoberta tipo={a} />
+            )}
           </div>
         ))}
       </div>
@@ -92,9 +125,9 @@ export function PainelAcoes({ acao, setAcao, semBarra = false }: Props) {
   )
 }
 
-function BotaoAcao({ a, ativa, onClick }: { a: Acao; ativa: boolean; onClick: () => void }) {
+function BotaoAcao({ a, ativa, onClick }: { a: Painel; ativa: boolean; onClick: () => void }) {
   const conduta = a === 'conduta'
-  const curto: Record<Acao, string> = { anamnese: 'Perguntar', exameFisico: 'Examinar', exames: 'Pedir exame', conduta: 'Conduta' }
+  const curto: Record<Painel, string> = { anamnese: 'Perguntar', exameFisico: 'Examinar', exames: 'Pedir exame', conduta: 'Conduta', hipotese: 'Hipótese' }
   return (
     <button
       type="button"
@@ -172,8 +205,8 @@ function ListaDescoberta({ tipo }: { tipo: 'anamnese' | 'exameFisico' | 'exames'
   )
 }
 
-function ListaConduta() {
-  const { caso, tentativa, definirConduta } = useTentativa()
+function ListaConduta({ aoConfirmar }: { aoConfirmar: (marcados: string[]) => void }) {
+  const { caso, tentativa } = useTentativa()
   const t = tentativa!
   const opcoes = useMemo(() => opcoesDoMomento(caso, t.momentoAtual, t.id), [caso, t.momentoAtual, t.id])
   const [marcados, setMarcados] = useState<string[]>([])
@@ -210,7 +243,7 @@ function ListaConduta() {
           type="button"
           className="botao botao-principal w-full"
           disabled={marcados.length === 0}
-          onClick={() => definirConduta(marcados)}
+          onClick={() => aoConfirmar(marcados)}
         >
           {marcados.length === 0
             ? 'Marque ao menos uma conduta'
