@@ -61,7 +61,8 @@ export function CampoTexto({ abrirLista }: Props) {
   const m = momento(caso, t.momentoAtual)
   const acoes = acoesDisponiveis(m)
   const pedeHipotese = precisaDiagnostico(caso, t)
-  const modos: Modo[] = pedeHipotese ? ['hipotese', ...acoes] : acoes
+  // A hipótese fica por último: primeiro o aluno conversa, examina e pede exames.
+  const modos: Modo[] = pedeHipotese ? [...acoes, 'hipotese'] : acoes
   const [modo, setModo] = useState<Modo | null>(acoes.length === 1 ? acoes[0] : null)
   const [texto, setTexto] = useState('')
   const [enviando, setEnviando] = useState(false)
@@ -365,9 +366,7 @@ export function CampoTexto({ abrirLista }: Props) {
                   ? a === 'conduta' || a === 'hipotese'
                     ? 'border-verde bg-verde text-sobre-verde'
                     : 'border-verde bg-verde-suave text-texto'
-                  : a === 'hipotese'
-                    ? 'border-verde text-verde-texto'
-                    : 'border-borda text-texto hover:border-texto-2'
+                  : 'border-borda text-texto hover:border-texto-2'
               }`}
             >
               {ROTULO[a]}
