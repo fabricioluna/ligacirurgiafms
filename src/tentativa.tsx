@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { apagar, gravar, ler } from './armazenamento'
 import { sincronizar } from './nuvem'
+import { ehPrevia } from './dados/casos'
 import {
   definirConduta,
   novaTentativa,
@@ -53,7 +54,8 @@ export function ProvedorTentativa({ caso, children }: { caso: Caso; children: Re
   // Pedidos ao paciente não disparam gravação.
   const enviadas = useRef<{ id: string; naoPrevistas: number; marca: string } | null>(null)
   useEffect(() => {
-    if (!tentativa) return
+    // Prévia do painel não vai para o banco.
+    if (!tentativa || ehPrevia(caso.id)) return
     const marca = `${tentativa.passos.length}|${tentativa.desfecho ?? ''}|${tentativa.naoPrevistas.length}`
     const atual = enviadas.current?.id === tentativa.id ? enviadas.current : { id: tentativa.id, naoPrevistas: 0, marca: '' }
     if (atual.marca === marca) return

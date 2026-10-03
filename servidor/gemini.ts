@@ -9,6 +9,9 @@ export type ChamarIA = (sistema: string, usuario: string, opcoes?: OpcoesIA) => 
 export interface OpcoesIA {
   tempoLimiteMs?: number
   temperatura?: number
+  // Quantas vezes tentar em erro temporário (padrão 2). A extração de caso usa 1: é longa demais para repetir.
+  tentativas?: number
+  modelo?: string
 }
 
 const MODELO_PADRAO = 'gemini-3.8-flash'
@@ -21,14 +24,15 @@ export const chamarGemini: ChamarIA = async (sistema, usuario, opcoes = {}) => {
   }
   const chave = process.env.GEMINI_API_KEY
   if (!chave) throw new ErroIA('GEMINI_API_KEY não configurada')
-  const modelo = process.env.GEMINI_MODELO || MODELO_PADRAO
+  const modelo = opcoes.modelo || process.env.GEMINI_MODELO || MODELO_PADRAO
+  const maxTentativas = opcoes.tentativas ?? 2
 
   // Uma nova tentativa automática quando o Gemini demora ou dá erro temporário (429, 5xx).
   // Erro de configuração (400, 403) não se repete.
   const limite = opcoes.tempoLimiteMs ?? TEMPO_LIMITE_MS
   let resposta: Response | null = null
   let ultimoErro = ''
-  for (let tentativa = 1; tentativa <= 2; tentativa++) {
+  for (let tentativa = 1; tentativa <= maxTentativas; tentativa++) {
     try {
       resposta = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
         method: 'POST',
@@ -48,7 +52,7 @@ export const chamarGemini: ChamarIA = async (sistema, usuario, opcoes = {}) => {
     if (resposta) ultimoErro = `Gemini respondeu ${resposta.status}`
     const temporario = !resposta || resposta.status === 429 || resposta.status >= 500
     console.error(`[ia] tentativa ${tentativa}: ${ultimoErro}`)
-    if (!temporario || tentativa === 2) throw new ErroIA(ultimoErro)
+    if (!temporario || tentativa === maxTentativas) throw new ErroIA(ultimoErro)
     await new Promise((ok) => setTimeout(ok, 400))
   }
   if (!resposta) throw new ErroIA(ultimoErro)

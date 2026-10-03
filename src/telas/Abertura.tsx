@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { contingenciaAtiva } from '../contingencia'
+import { ehPrevia, useCasos } from '../dados/casos'
 import type { ModoSimulador } from '../motor/tipos'
 import { useNavigate } from 'react-router'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
@@ -10,7 +11,10 @@ export function Abertura() {
   const { caso, tentativa, iniciar, descartar } = useTentativa()
   const navegar = useNavigate()
   const [nome, setNome] = useState(tentativa?.nomeInformado ?? '')
-  const [contingencia] = useState(contingenciaAtiva)
+  const { config } = useCasos()
+  const [contingenciaLocal] = useState(contingenciaAtiva)
+  // Prévia do painel: o caso ainda não está publicado, então a IA não o conhece.
+  const contingencia = contingenciaLocal || config.contingencia || ehPrevia(caso.id)
   const [modo, setModo] = useState<ModoSimulador>(contingencia ? 'estatico' : tentativa?.modo ?? 'ia')
   const { titulo, tema, tempoEstimado } = caso.caso.identificacao
   const base = `/caso/${caso.id}`
@@ -92,7 +96,11 @@ export function Abertura() {
                     />
                   </div>
                   {contingencia && (
-                    <p className="m-0 mt-3 text-sm text-texto-2">Modo de contingência ativo: só o simulador estático está disponível.</p>
+                    <p className="m-0 mt-3 text-sm text-texto-2">
+                      {ehPrevia(caso.id)
+                        ? 'Prévia do painel: o caso ainda não foi publicado, então só o simulador estático funciona.'
+                        : 'Modo sem IA ativo: só o simulador estático está disponível.'}
+                    </p>
                   )}
                 </fieldset>
                 <label htmlFor="nome" className="block font-medium">

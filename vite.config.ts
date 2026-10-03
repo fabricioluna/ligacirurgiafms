@@ -42,6 +42,7 @@ function apiLocal(): Plugin {
 export default defineConfig(({ mode }) => {
   // Só as variáveis do servidor; nada disso vai para o navegador (não usam o prefixo VITE_).
   const env = loadEnv(mode, process.cwd(), '')
-  for (const k of ['GEMINI_API_KEY', 'GEMINI_MODELO', 'IA_SIMULADA']) if (env[k]) process.env[k] = env[k]
+  const doServidor = ['GEMINI_API_KEY', 'GEMINI_MODELO', 'GEMINI_MODELO_EXTRACAO', 'IA_SIMULADA', 'FIREBASE_SERVICE_ACCOUNT', 'PAINEL_CODIGO']
+  for (const k of doServidor) if (env[k] && !process.env[k]) process.env[k] = env[k]
   return { plugins: [react(), tailwindcss(), apiLocal()] }
 })

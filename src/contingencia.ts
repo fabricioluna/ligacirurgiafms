@@ -1,8 +1,9 @@
 // Modo de contingência: só o simulador estático, sem chamar a IA.
 // Liga com ?contingencia=1 no endereço e fica lembrado no aparelho; desliga com ?contingencia=0.
-// Na Fase 3 o professor também liga e desliga pelo painel.
+// O professor também liga e desliga para todos pelo painel (config geral).
 
 import { apagar, gravar, ler } from './armazenamento'
+import { configGeral } from './dados/casos'
 
 const CHAVE = 'simulador:contingencia'
 
@@ -14,5 +15,5 @@ export function contingenciaAtiva(): boolean {
   } catch {
     // sem URL ou sem armazenamento: segue o que estiver salvo
   }
-  return ler<boolean>(CHAVE) === true
+  return ler<boolean>(CHAVE) === true || configGeral().contingencia
 }

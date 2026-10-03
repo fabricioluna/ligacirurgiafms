@@ -5,6 +5,7 @@
 import { acoesDisponiveis, exameDisponivel, examesAtuais, momento } from '../src/motor/caso.js'
 import type { Acao, Caso, TipoDescoberta } from '../src/motor/tipos.js'
 import { casoPublicado } from './casos.js'
+import { exigirIALigada } from './config.js'
 import type { ChamarIA } from './gemini.js'
 import { ErroIA } from './gemini.js'
 import { ErroPedido, listaDeCodigos, textoDoAluno } from './http.js'
@@ -111,8 +112,9 @@ export function interpretarPaciente(
 }
 
 export async function processarPaciente(corpo: Record<string, unknown>, ia: ChamarIA): Promise<RespostaPaciente> {
-  const caso = casoPublicado(corpo.casoId)
+  const caso = await casoPublicado(corpo.casoId)
   if (!caso) throw new ErroPedido('Caso não encontrado.', 404)
+  await exigirIALigada()
   const caminho = listaDeCodigos(corpo.caminho, 12)
   const codigos = new Set(caso.caso.momentos.map((m) => m.codigo))
   if (!caminho.length || caminho.some((c) => !codigos.has(c))) throw new ErroPedido('Momento inválido.')

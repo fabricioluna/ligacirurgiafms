@@ -68,6 +68,11 @@ export function Rodape() {
           Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão. Coordenador da liga: Dr. Rafael Lucena.
           Desenvolvimento: Fabrício Luna.
         </p>
+        <p className="nao-imprimir m-0 pt-2">
+          <Link to="/painel" className="underline underline-offset-4 hover:text-texto">
+            Painel do professor
+          </Link>
+        </p>
       </div>
     </footer>
   )

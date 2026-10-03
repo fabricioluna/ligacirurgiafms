@@ -5,6 +5,7 @@ import { categoriaDoItem, opcoesDoMomento } from '../src/motor/avaliacao.js'
 import { momentoFolha } from '../src/motor/caso.js'
 import type { Caso } from '../src/motor/tipos.js'
 import { casoPublicado } from './casos.js'
+import { exigirIALigada } from './config.js'
 import type { ChamarIA } from './gemini.js'
 import { ErroIA } from './gemini.js'
 import { ErroPedido, textoDoAluno } from './http.js'
@@ -67,8 +68,9 @@ export function interpretarAvaliar(caso: Caso, codigo: string, bruto: unknown): 
 }
 
 export async function processarAvaliar(corpo: Record<string, unknown>, ia: ChamarIA): Promise<RespostaAvaliar> {
-  const caso = casoPublicado(corpo.casoId)
+  const caso = await casoPublicado(corpo.casoId)
   if (!caso) throw new ErroPedido('Caso não encontrado.', 404)
+  await exigirIALigada()
   const codigo = corpo.momento
   if (typeof codigo !== 'string' || !caso.folhaResposta.momentos.some((m) => m.codigo === codigo)) {
     throw new ErroPedido('Momento inválido.')

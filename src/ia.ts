@@ -41,6 +41,9 @@ async function chamar<T>(rota: string, sessao: string, corpo: unknown, tempoLimi
     throw new FalhaIA('A IA demorou demais ou a conexão caiu.')
   }
   if (r.status === 429) throw new FalhaIA('Muitas mensagens em pouco tempo. Espere alguns minutos ou use a lista.', true)
+  if (r.status === 503 && (await r.clone().json().catch(() => null))?.erro === 'contingencia') {
+    throw new FalhaIA('O professor ligou o modo sem IA.')
+  }
   if (!r.ok) throw new FalhaIA('A IA não respondeu.')
   try {
     return (await r.json()) as T

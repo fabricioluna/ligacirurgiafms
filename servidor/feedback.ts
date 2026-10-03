@@ -7,6 +7,7 @@ import { calcularNota } from '../src/motor/nota.js'
 import type { Caso, Classificacao, Passo } from '../src/motor/tipos.js'
 import { categoriaDoItem } from '../src/motor/avaliacao.js'
 import { casoPublicado } from './casos.js'
+import { exigirIALigada } from './config.js'
 import type { ChamarIA } from './gemini.js'
 import { ErroIA } from './gemini.js'
 import { ErroPedido } from './http.js'
@@ -120,8 +121,9 @@ export function interpretarFeedback(bruto: unknown): ComentarioPreceptor {
 }
 
 export async function processarFeedback(corpo: Record<string, unknown>, ia: ChamarIA): Promise<ComentarioPreceptor> {
-  const caso = casoPublicado(corpo.casoId)
+  const caso = await casoPublicado(corpo.casoId)
   if (!caso) throw new ErroPedido('Caso não encontrado.', 404)
+  await exigirIALigada()
   const passos = passosValidados(caso, corpo.passos)
   const codigoDesfecho = corpo.desfecho
   if (typeof codigoDesfecho !== 'string' || !ehDesfecho(codigoDesfecho) || !caso.caso.desfechos.some((d) => d.codigo === codigoDesfecho)) {

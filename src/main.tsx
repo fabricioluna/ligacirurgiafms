@@ -1,8 +1,8 @@
-import { StrictMode } from 'react'
+import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Link, Outlet, Route, Routes, useParams } from 'react-router'
 import './estilos/index.css'
-import { buscarCaso } from './dados/casos'
+import { atualizarCasos, buscarCaso, useCasos } from './dados/casos'
 import { ProvedorTentativa } from './tentativa'
 import { Inicio } from './telas/Inicio'
 import { Abertura } from './telas/Abertura'
@@ -10,8 +10,12 @@ import { Atendimento } from './telas/Atendimento'
 import { Desfecho } from './telas/Desfecho'
 import { Relatorio } from './telas/Relatorio'
 
+// O painel do professor só carrega quando alguém abre /painel.
+const Painel = lazy(() => import('./painel/Painel'))
+
 function RotaCaso() {
   const { casoId = '' } = useParams()
+  useCasos() // redesenha quando chegam os casos publicados pelo painel
   const caso = buscarCaso(casoId)
   if (!caso) return <NaoEncontrado />
   return (
@@ -31,6 +35,8 @@ function NaoEncontrado() {
   )
 }
 
+atualizarCasos()
+
 createRoot(document.getElementById('raiz')!).render(
   <StrictMode>
     <BrowserRouter>
@@ -42,6 +48,14 @@ createRoot(document.getElementById('raiz')!).render(
           <Route path="desfecho" element={<Desfecho />} />
           <Route path="relatorio" element={<Relatorio />} />
         </Route>
+        <Route
+          path="/painel/*"
+          element={
+            <Suspense fallback={<p className="p-6 text-texto-2">Carregando o painel…</p>}>
+              <Painel />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<NaoEncontrado />} />
       </Routes>
     </BrowserRouter>

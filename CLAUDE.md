@@ -42,6 +42,15 @@ React + Vite + Tailwind, hospedagem na Vercel, funções serverless da Vercel em
 - Sem login. Firebase é opcional e silencioso (`src/nuvem.ts`), carregado depois da página. O navegador só grava (tentativas com id UUID e não previstas), nunca lê. O painel do professor (Fase 3) lê pelo servidor com código de acesso. Regras em `firestore.rules`, testadas com `npm run test:regras`.
 - Limite de chamadas à IA é aproximado (por instância). Proteção real de gasto: limite na conta do Google.
 
+## Decisões da Fase 3
+
+- Painel do professor em `/painel`, com código de acesso (`PAINEL_CODIGO`), sem login. O servidor emite uma senha temporária de 8 horas assinada com o código.
+- O servidor lê o Firestore com a conta de serviço (`FIREBASE_SERVICE_ACCOUNT`); o navegador continua sem ler nada.
+- Casos do projeto (`casos/*.json`) vêm com o site e funcionam offline. Casos do painel ficam em `casos/{id}` no Firestore e só aparecem publicados.
+- Cadastro: texto dos dois PDFs extraído no navegador (pdf.js), a IA monta o caso copiando os documentos, o servidor valida (`src/motor/validacao.ts` + schema), o professor joga a prévia e publica.
+- Interruptor "modo sem IA para todos" em `config/geral`: o servidor recusa chamadas de IA e a abertura do caso só oferece o estático.
+- Imagens ficam em `public/imagens/casos/<id>/`; o painel mostra quais faltam.
+
 ## Como trabalhar comigo
 
 Eu desenvolvo por vibe coding e não reviso linha por linha. Então:

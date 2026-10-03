@@ -1,10 +1,11 @@
 import { Link } from 'react-router'
 import logo from '../../assets/logoliga.jpg'
-import { casos } from '../dados/casos'
+import { useCasos } from '../dados/casos'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { tentativaSalva } from '../tentativa'
 
 export function Inicio() {
+  const { casos } = useCasos()
   return (
     <div className="flex min-h-dvh flex-col">
       <Cabecalho />

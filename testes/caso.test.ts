@@ -107,3 +107,23 @@ describe('caso-001: referências', () => {
     expect([...codigos].filter((c) => !alcancaveis.has(c))).toEqual([])
   })
 })
+
+describe('caso-001: validação do painel', () => {
+  it('não tem erro de integridade', async () => {
+    const { validarIntegridade } = await import('../src/motor/validacao')
+    const v = validarIntegridade(caso)
+    expect(v.erros).toEqual([])
+  })
+
+  it('acusa problemas num caso quebrado', async () => {
+    const { validarIntegridade } = await import('../src/motor/validacao')
+    const quebrado = structuredClone(caso)
+    quebrado.caso.momentos[0].proximo = 'M9'
+    quebrado.caso.regras[0].disparadaPor = ['Item que não existe']
+    quebrado.folhaResposta.pesos.M1 = 5
+    const v = validarIntegridade(quebrado)
+    expect(v.erros.join(' ')).toMatch(/M9/)
+    expect(v.erros.join(' ')).toMatch(/Item que não existe/)
+    expect(v.erros.join(' ')).toMatch(/somam 85/)
+  })
+})

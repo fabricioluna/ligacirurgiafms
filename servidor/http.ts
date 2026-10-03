@@ -34,7 +34,14 @@ function dentroDoLimite(chave: string, agora = Date.now()) {
 const json = (corpo: unknown, status = 200) =>
   new Response(JSON.stringify(corpo), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } })
 
-export function funcao(processar: (corpo: Record<string, unknown>) => Promise<unknown>, tamanhoMaximo = TAMANHO_MAXIMO) {
+export interface Contexto {
+  ip: string
+}
+
+export function funcao(
+  processar: (corpo: Record<string, unknown>, contexto: Contexto) => Promise<unknown>,
+  tamanhoMaximo = TAMANHO_MAXIMO,
+) {
   return {
     async fetch(request: Request): Promise<Response> {
       if (request.method !== 'POST') return json({ erro: 'Use POST.' }, 405)
@@ -53,7 +60,7 @@ export function funcao(processar: (corpo: Record<string, unknown>) => Promise<un
       if (!corpo || typeof corpo !== 'object' || Array.isArray(corpo)) return json({ erro: 'Corpo inválido.' }, 400)
 
       try {
-        return json(await processar(corpo as Record<string, unknown>))
+        return json(await processar(corpo as Record<string, unknown>, { ip }))
       } catch (e) {
         if (e instanceof ErroPedido) return json({ erro: e.message }, e.status)
         if (e instanceof ErroIA) {
