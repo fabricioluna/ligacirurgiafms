@@ -2,7 +2,7 @@
 
 App web de ensino da Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão. O aluno recebe um caso clínico, conduz o atendimento escrevendo em texto livre, e recebe avaliação e feedback ao final.
 
-Desenvolvimento: Fabrício Luna. Coordenação da liga e responsabilidade pelo conteúdo clínico: Dr. Rafael Lucena.
+Desenvolvimento: Fabrício Luna. Professor e coordenador da liga: Dr. Rafael Lucena. Nos créditos do app, ele aparece só com esse papel: não atribuir a ele revisão de casos nem outra responsabilidade.
 
 ## Regras que não mudam
 

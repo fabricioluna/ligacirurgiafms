@@ -63,5 +63,5 @@ Registre cada falha e o ajuste feito. Esse registro é um ótimo material para m
 - Modo de contingência testado com a internet desligada.
 - Vídeo de tela gravado como plano B.
 - QR code do endereço funcionando e impresso em tamanho grande.
-- Caso 1 revisado por Dr. Rafael Lucena.
+- Caso 1 conferido de ponta a ponta.
 - Limite de gasto configurado na conta da API.

@@ -82,6 +82,8 @@ describe('/api/avaliar', () => {
     const textos = itensComId(caso, 'M1').map((i) => i.texto)
     expect(textos).not.toContain(momentoFolha(caso, 'M1').ideal[0]) // anamnese dirigida
     expect(textos).toContain(momentoFolha(caso, 'M1').ideal[2]) // jejum, sonda...
+    expect(textos).toContain(momentoFolha(caso, 'M1').subotimas![1].conduta) // não repor potássio
+    expect(textos).toContain(momentoFolha(caso, 'M1').errosCriticos[1]) // não examinar orifícios
   })
 
   it('traduz ids para o texto exato da folha e ignora ids inventados', () => {

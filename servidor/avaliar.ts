@@ -1,7 +1,7 @@
 // /api/avaliar: relaciona a conduta escrita pelo aluno com os itens da folha resposta do momento.
 // A IA não classifica: quem classifica é o motor do caso, com as mesmas regras do simulador estático.
 
-import { opcoesDoMomento } from '../src/motor/avaliacao.js'
+import { categoriaDoItem, opcoesDoMomento } from '../src/motor/avaliacao.js'
 import { momentoFolha } from '../src/motor/caso.js'
 import type { Caso } from '../src/motor/tipos.js'
 import { casoPublicado } from './casos.js'
@@ -17,11 +17,16 @@ export interface RespostaAvaliar {
   naoReconhecidos: string[]
 }
 
-// Só entram os itens que também aparecem como opção no simulador estático.
-// Itens derivados (como "anamnese dirigida") dependem do que o aluno fez, não do que escreveu.
+// Entram os itens que aparecem como opção no simulador estático e as omissões
+// (subótimas e erros como "Não repor potássio"), que o aluno pode escrever de propósito.
+// Itens positivos derivados (como "anamnese dirigida") dependem do que o aluno fez, não do que escreveu.
 export function itensComId(caso: Caso, codigo: string) {
   const folha = momentoFolha(caso, codigo)
   const opcoes = new Set(opcoesDoMomento(caso, codigo, 'servidor').map((o) => o.item))
+  for (const d of folha.modoLista?.derivados ?? []) {
+    const cat = categoriaDoItem(folha, d.item)
+    if (cat === 'subotima' || cat === 'perigosa') opcoes.add(d.item)
+  }
   const grupos: [string, string[]][] = [
     ['I', folha.ideal],
     ['A', folha.aceitaveis ?? []],

@@ -65,8 +65,8 @@ export function Rodape() {
           Ferramenta educacional. Os casos são fictícios e não servem para decisão sobre paciente real.
         </p>
         <p className="m-0">
-          Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão. Desenvolvimento: Fabrício Luna. Conteúdo
-          clínico sob responsabilidade de Dr. Rafael Lucena.
+          Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão. Professor e coordenador da liga: Dr. Rafael
+          Lucena. Desenvolvimento: Fabrício Luna.
         </p>
       </div>
     </footer>

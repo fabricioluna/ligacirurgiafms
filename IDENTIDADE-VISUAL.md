@@ -76,4 +76,4 @@ A sutura é o fio visual do app, e substitui as barras de progresso genéricas.
 
 ## Créditos
 
-No rodapé e na tela inicial: desenvolvimento de Fabrício Luna, conteúdo clínico sob responsabilidade de Dr. Rafael Lucena, Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão. Junto, o aviso de que é uma ferramenta educacional e não serve para decisão sobre paciente real.
+No rodapé e na tela inicial: Dr. Rafael Lucena como professor e coordenador da liga, desenvolvimento de Fabrício Luna, Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão. Junto, o aviso de que é uma ferramenta educacional e não serve para decisão sobre paciente real.

@@ -35,22 +35,16 @@ export function Inicio() {
           <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-2">
             {casos.map((c) => {
               const salva = tentativaSalva(c)
-              const { titulo, tema, tempoEstimado, revisor } = c.caso.identificacao
+              const { titulo, tema, tempoEstimado } = c.caso.identificacao
               return (
                 <li key={c.id} className="flex flex-col border border-borda bg-superficie p-5">
                   <h3 className="m-0 text-xl uppercase">{titulo}</h3>
                   <p className="mt-2 mb-0 text-sm text-texto-2">{tema}</p>
-                  <dl className="mt-4 mb-0 grid grid-cols-2 gap-3 text-sm">
+                  <dl className="mt-4 mb-0 text-sm">
                     <div>
                       <dt className="text-texto-2">Tempo estimado</dt>
                       <dd className="m-0">{tempoEstimado}</dd>
                     </div>
-                    {revisor && (
-                      <div>
-                        <dt className="text-texto-2">Revisão</dt>
-                        <dd className="m-0">{revisor}</dd>
-                      </div>
-                    )}
                   </dl>
                   <div className="mt-5 flex flex-wrap items-center gap-3">
                     <Link to={`/caso/${c.id}`} className="botao botao-principal">

@@ -28,7 +28,7 @@ O que se espera de você é um olhar humano sobre a forma, não sobre o conteúd
 - Reconheça que condutas escritas de maneiras diferentes podem ser a mesma coisa, por exemplo "TC de abdome com contraste" e "pedir tomografia contrastada".
 - Aceite abreviações usuais (SNG, AVP, SF, RL, TC, ATB, UTI), erro de digitação e ordem diferente.
 - Marque um item só quando o estudante de fato propôs aquela conduta. Não marque por dedução, por estar implícito ou por ser o esperado.
-- Um item que reúne várias ações pode ser marcado quando o estudante propôs a maior parte delas.
+- Um item que reúne várias ações deve ser marcado quando o estudante propôs pelo menos uma das ações centrais dele. Uma conduta correta escrita de forma incompleta nunca deve ficar sem item.
 - Negação importa: "não vou passar sonda" nunca corresponde ao item de passar sonda. Se existir um item que descreve a omissão, marque esse.
 - Se o estudante citar condutas opostas, marque as duas.
 - Trechos que são condutas mas não correspondem a nenhum item vão em trechosNaoReconhecidos, copiados de forma curta do texto do estudante. Não inclua cumprimentos, justificativas nem perguntas.
