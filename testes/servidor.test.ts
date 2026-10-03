@@ -1,5 +1,5 @@
 // Funções do servidor com uma IA simulada: o que a IA devolve nunca vira informação inventada.
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import bruto from '../casos/caso-001.json'
 import type { Caso } from '../src/motor/tipos'
 import { momentoFolha } from '../src/motor/caso'
@@ -7,7 +7,7 @@ import { interpretarPaciente, mensagemPaciente, processarPaciente } from '../ser
 import { interpretarAvaliar, itensComId, mensagemAvaliar, processarAvaliar } from '../servidor/avaliar'
 import { funcao } from '../servidor/http'
 import { interpretarFeedback, mensagemFeedback, passosValidados, processarFeedback } from '../servidor/feedback'
-import { ErroIA } from '../servidor/gemini'
+import { ErroIA, chamarGemini } from '../servidor/gemini'
 
 const caso = bruto as unknown as Caso
 const rp = caso.caso.respostaPadrao
@@ -169,5 +169,38 @@ describe('/api/feedback', () => {
     expect(c.resumo).toBe('Você conduziu bem, mas atrasou.')
     expect(c.pontosFortes).toEqual(['a'])
     expect(c.errosCriticos).toEqual([])
+  })
+})
+
+describe('chamada ao Gemini', () => {
+  const resposta = (status: number, json: unknown = {}) =>
+    new Response(JSON.stringify(json), { status, headers: { 'Content-Type': 'application/json' } })
+  const ok = resposta(200, { candidates: [{ content: { parts: [{ text: '{"ids":[]}' }] } }] })
+
+  it('tenta de novo uma vez em erro temporário', async () => {
+    process.env.GEMINI_API_KEY = 'teste'
+    const fetchFalso = vi.fn().mockResolvedValueOnce(resposta(503)).mockResolvedValueOnce(ok)
+    vi.stubGlobal('fetch', fetchFalso)
+    await expect(chamarGemini('s', 'u')).resolves.toEqual({ ids: [] })
+    expect(fetchFalso).toHaveBeenCalledTimes(2)
+    vi.unstubAllGlobals()
+  })
+
+  it('não repete erro de configuração', async () => {
+    process.env.GEMINI_API_KEY = 'teste'
+    const fetchFalso = vi.fn().mockResolvedValue(resposta(403))
+    vi.stubGlobal('fetch', fetchFalso)
+    await expect(chamarGemini('s', 'u')).rejects.toThrow(ErroIA)
+    expect(fetchFalso).toHaveBeenCalledTimes(1)
+    vi.unstubAllGlobals()
+  })
+
+  it('desiste depois de duas falhas temporárias', async () => {
+    process.env.GEMINI_API_KEY = 'teste'
+    const fetchFalso = vi.fn().mockResolvedValue(resposta(500))
+    vi.stubGlobal('fetch', fetchFalso)
+    await expect(chamarGemini('s', 'u')).rejects.toThrow(ErroIA)
+    expect(fetchFalso).toHaveBeenCalledTimes(2)
+    vi.unstubAllGlobals()
   })
 })

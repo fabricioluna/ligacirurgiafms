@@ -12,7 +12,7 @@ export interface OpcoesIA {
 }
 
 const MODELO_PADRAO = 'gemini-3.8-flash'
-const TEMPO_LIMITE_MS = 9000
+const TEMPO_LIMITE_MS = 8000
 
 export const chamarGemini: ChamarIA = async (sistema, usuario, opcoes = {}) => {
   if (process.env.IA_SIMULADA === '1' && !process.env.VERCEL) {
@@ -23,22 +23,35 @@ export const chamarGemini: ChamarIA = async (sistema, usuario, opcoes = {}) => {
   if (!chave) throw new ErroIA('GEMINI_API_KEY não configurada')
   const modelo = process.env.GEMINI_MODELO || MODELO_PADRAO
 
-  let resposta: Response
-  try {
-    resposta = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': chave },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: sistema }] },
-        contents: [{ role: 'user', parts: [{ text: usuario }] }],
-        generationConfig: { temperature: opcoes.temperatura ?? 0.1, responseMimeType: 'application/json' },
-      }),
-      signal: AbortSignal.timeout(opcoes.tempoLimiteMs ?? TEMPO_LIMITE_MS),
-    })
-  } catch (e) {
-    throw new ErroIA(`Falha ao chamar o Gemini: ${(e as Error).name}`)
+  // Uma nova tentativa automática quando o Gemini demora ou dá erro temporário (429, 5xx).
+  // Erro de configuração (400, 403) não se repete.
+  const limite = opcoes.tempoLimiteMs ?? TEMPO_LIMITE_MS
+  let resposta: Response | null = null
+  let ultimoErro = ''
+  for (let tentativa = 1; tentativa <= 2; tentativa++) {
+    try {
+      resposta = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': chave },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: sistema }] },
+          contents: [{ role: 'user', parts: [{ text: usuario }] }],
+          generationConfig: { temperature: opcoes.temperatura ?? 0.1, responseMimeType: 'application/json' },
+        }),
+        signal: AbortSignal.timeout(limite),
+      })
+    } catch (e) {
+      resposta = null
+      ultimoErro = `falha de rede ou tempo esgotado (${(e as Error).name})`
+    }
+    if (resposta?.ok) break
+    if (resposta) ultimoErro = `Gemini respondeu ${resposta.status}`
+    const temporario = !resposta || resposta.status === 429 || resposta.status >= 500
+    console.error(`[ia] tentativa ${tentativa}: ${ultimoErro}`)
+    if (!temporario || tentativa === 2) throw new ErroIA(ultimoErro)
+    await new Promise((ok) => setTimeout(ok, 400))
   }
-  if (!resposta.ok) throw new ErroIA(`Gemini respondeu ${resposta.status}`)
+  if (!resposta) throw new ErroIA(ultimoErro)
 
   const corpo = (await resposta.json().catch(() => null)) as {
     candidates?: { content?: { parts?: { text?: string }[] } }[]

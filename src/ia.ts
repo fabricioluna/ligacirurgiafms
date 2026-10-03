@@ -24,7 +24,8 @@ export class FalhaIA extends Error {
   }
 }
 
-const TEMPO_LIMITE_MS = 12_000
+// O servidor pode tentar duas vezes (8 s cada) antes de desistir.
+const TEMPO_LIMITE_MS = 20_000
 
 async function chamar<T>(rota: string, sessao: string, corpo: unknown, tempoLimiteMs = TEMPO_LIMITE_MS): Promise<T> {
   if (typeof navigator !== 'undefined' && navigator.onLine === false) throw new FalhaIA('Sem conexão com a internet.')
@@ -74,5 +75,5 @@ export const escreverComentario = (
         regraAplicada: p.regraAplicada,
       })),
     },
-    30_000,
+    50_000,
   )
