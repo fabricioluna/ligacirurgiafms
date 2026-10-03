@@ -17,6 +17,7 @@ Para o simulador com IA funcionar no computador, crie um arquivo `.env.local` na
 
 ```
 npm test          # confere o caso e percorre todos os caminhos
+npm run test:regras  # testa as regras de segurança do Firebase no emulador (precisa de Java)
 npm run build     # confere tipos e gera a versão de produção
 ```
 
@@ -33,5 +34,6 @@ npm run build     # confere tipos e gera a versão de produção
 - `src/telas/` e `src/componentes/`: a interface.
 - `testes/`: testes automáticos do caso e do motor.
 - `servidor/` e `api/`: funções da Vercel. Só aqui existe a chave do Gemini.
+- `firestore.rules`: regras de segurança do banco. `docs/CONFIGURAR-FIREBASE.md`: passo a passo do Firebase.
 - `docs/IMAGENS-PENDENTES.md`: lista das imagens que faltam. `npm run imagens` mostra o que já está no lugar.
 - `docs/REVISAO-CASO-001.md`: ajustes no caso 001 que aguardam a revisão do professor.

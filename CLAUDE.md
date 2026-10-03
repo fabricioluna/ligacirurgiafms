@@ -33,7 +33,14 @@ React + Vite + Tailwind, hospedagem na Vercel, funções serverless da Vercel em
 - Modo de lista: a avaliação usa `folhaResposta.momentos[].modoLista` (itens derivados do que o aluno descobriu, omissões e rótulos neutros) e os gatilhos `disparadaPor`/`quando` das regras. Itens são referenciados pelo texto exato da folha; os testes acusam qualquer texto que não bata.
 - Nota calculada só sobre os momentos jogados.
 - Tentativa salva no aparelho (localStorage); mudar a `versao` do caso descarta tentativas antigas.
-- Ajustes pendentes de revisão clínica: `docs/REVISAO-CASO-001.md`.
+- Ajustes pendentes de validação clínica: `docs/REVISAO-CASO-001.md`.
+
+## Decisões da Fase 2
+
+- Dois simuladores: estático (listas, sem internet) e com IA. `?contingencia=1` deixa só o estático.
+- A IA só aponta ids do caso (paciente) e itens da folha (avaliador). Texto mostrado e classificação vêm do caso e do motor.
+- Firebase é opcional e silencioso (`src/nuvem.ts`), carregado depois da página. Regras em `firestore.rules`, testadas com `npm run test:regras`.
+- Limite de chamadas à IA é aproximado (por instância). Proteção real de gasto: limite na conta do Google.
 
 ## Como trabalhar comigo
 

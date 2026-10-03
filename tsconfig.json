@@ -15,5 +15,5 @@
     "noEmit": true,
     "types": ["vite/client", "node"]
   },
-  "include": ["src", "servidor", "api", "testes", "vite.config.ts", "vitest.config.ts"]
+  "include": ["src", "servidor", "api", "testes", "testes-regras", "vite.config.ts", "vitest.config.ts", "vitest.regras.config.ts"]
 }

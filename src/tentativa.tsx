@@ -1,7 +1,8 @@
 // Tentativa em andamento, compartilhada pelas telas do caso e salva no aparelho.
 
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { apagar, gravar, ler } from './armazenamento'
+import { sincronizar } from './nuvem'
 import {
   definirConduta,
   novaTentativa,
@@ -44,6 +45,24 @@ export function ProvedorTentativa({ caso, children }: { caso: Caso; children: Re
   useEffect(() => {
     if (tentativa) gravar(chave(caso.id), tentativa)
   }, [caso.id, tentativa])
+
+  // Nuvem: grava quando a tentativa começa, a cada conduta, no fim e a cada não prevista.
+  // Pedidos ao paciente não disparam gravação.
+  const enviadas = useRef<{ id: string; naoPrevistas: number; marca: string } | null>(null)
+  useEffect(() => {
+    if (!tentativa) return
+    const marca = `${tentativa.passos.length}|${tentativa.desfecho ?? ''}|${tentativa.naoPrevistas.length}`
+    const atual = enviadas.current?.id === tentativa.id ? enviadas.current : { id: tentativa.id, naoPrevistas: 0, marca: '' }
+    if (atual.marca === marca) return
+    const t = tentativa
+    const espera = setTimeout(() => {
+      enviadas.current = { ...atual, marca }
+      sincronizar(caso, t, atual.naoPrevistas).then((n) => {
+        if (enviadas.current?.id === t.id) enviadas.current = { ...enviadas.current, naoPrevistas: n }
+      })
+    }, 800)
+    return () => clearTimeout(espera)
+  }, [caso, tentativa])
 
   const atualizar = useCallback((f: (t: Tentativa) => Tentativa) => setTentativa((t) => (t ? f(t) : t)), [])
 

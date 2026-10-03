@@ -1,0 +1,82 @@
+rules_version = '2';
+
+// Regras do banco do simulador.
+// - O aluno entra sem cadastro (login anônimo) e só escreve na própria tentativa.
+// - Só o professor lê o conjunto de tentativas e as condutas não previstas.
+// - Professor é quem tem um documento em professores/{uid}, criado à mão no console do Firebase.
+// - Tudo o que não está liberado aqui é proibido.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function logado() {
+      return request.auth != null;
+    }
+
+    function ehProfessor() {
+      return logado() && exists(/databases/$(database)/documents/professores/$(request.auth.uid));
+    }
+
+    function texto(v, max) {
+      return v is string && v.size() <= max;
+    }
+
+    match /tentativas/{tentativaId} {
+      function valida(d) {
+        return d.keys().hasOnly([
+            'casoId', 'versaoCaso', 'modo', 'alunoUid', 'nomeInformado', 'iniciadaEm', 'finalizadaEm',
+            'caminho', 'passos', 'notaFinal', 'notaPorMomento', 'errosCriticos', 'desfecho',
+            'qtdNaoPrevistas', 'atualizadaEm'
+          ])
+          && d.alunoUid == request.auth.uid
+          && texto(d.casoId, 20)
+          && texto(d.versaoCaso, 20)
+          && d.modo in ['estatico', 'ia']
+          && texto(d.nomeInformado, 80)
+          && d.iniciadaEm is number
+          && d.caminho is list && d.caminho.size() <= 12
+          && d.passos is list && d.passos.size() <= 12
+          && d.atualizadaEm == request.time;
+      }
+
+      allow create: if logado() && valida(request.resource.data);
+      allow update: if logado()
+        && resource.data.alunoUid == request.auth.uid
+        && valida(request.resource.data)
+        && request.resource.data.casoId == resource.data.casoId
+        && request.resource.data.iniciadaEm == resource.data.iniciadaEm;
+      allow read: if logado() && (resource.data.alunoUid == request.auth.uid || ehProfessor());
+      allow delete: if false;
+    }
+
+    match /respostas_nao_previstas/{id} {
+      allow create: if logado()
+        && request.resource.data.keys().hasOnly(['casoId', 'momento', 'textoDoAluno', 'em', 'revisada', 'alunoUid', 'tentativaId'])
+        && request.resource.data.alunoUid == request.auth.uid
+        && texto(request.resource.data.casoId, 20)
+        && texto(request.resource.data.momento, 12)
+        && texto(request.resource.data.tentativaId, 40)
+        && texto(request.resource.data.textoDoAluno, 400)
+        && request.resource.data.textoDoAluno.size() > 0
+        && request.resource.data.revisada == false
+        && request.resource.data.em == request.time;
+      allow read: if ehProfessor();
+      // O professor só marca como revisada; o texto do aluno não muda.
+      allow update: if ehProfessor()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['revisada'])
+        && request.resource.data.revisada is bool;
+      allow delete: if false;
+    }
+
+    match /professores/{uid} {
+      allow read: if logado() && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    // Fase 3: casos cadastrados pelo professor.
+    match /casos/{casoId} {
+      allow read: if resource.data.publicado == true || ehProfessor();
+      allow write: if ehProfessor();
+    }
+  }
+}
