@@ -130,9 +130,7 @@ const md = [
     ? ['## Falhas em detalhe', '', ...falhas.flatMap((r) => [`- **${escapar(r.texto)}**`, `  - esperado: ${escapar(r.esperado)}`, `  - obtido: \`${escapar(r.obtido)}\``])]
     : ['Nenhuma falha.']),
   '',
-  '## Registro de ajustes',
-  '',
-  'Anote aqui cada falha encontrada e o ajuste feito. Esse registro serve de material para o relato de experiência.',
+  'Este arquivo é refeito a cada rodada. As falhas e os ajustes ficam anotados em `docs/REGISTRO-AJUSTES.md`.',
   '',
 ].join('\n')
 writeFileSync('docs/TESTE-ADVERSARIAL.md', md)
