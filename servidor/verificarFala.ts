@@ -34,8 +34,9 @@ const GRUPOS: string[][] = [
   ['apetit', 'fome'],
   ['amarel', 'esverde', 'verde'],
   ['tremor', 'treme'],
-  ['pior'],
-  ['aliv'],
+  // evolução: melhora e piora ficam em grupos separados, para a fala não inverter o que aconteceu
+  ['melhor', 'aliv', 'diminu', 'cai', 'caiu', 'tranquil', 'passou', 'aliviad'],
+  ['pior', 'aument', 'agrav'],
   ['escur', 'preto', 'preta'],
   // corpo
   ['umbig'],
@@ -84,13 +85,24 @@ const GRUPOS: string[][] = [
 ]
 
 const grupoDe = (p: string) => GRUPOS.find((g) => g.some((t) => p.startsWith(t)))
+const GRUPO_MELHORA = grupoDe('melhorou')
 
 export interface ResultadoFala {
   ok: boolean
   motivo?: string
 }
 
-export function verificarFala(fala: string, fontes: string[]): ResultadoFala {
+// Negar ou afirmar ter algo que o caso não registra também é inventar ("não sinto isso", "nunca tive").
+// Falar do próprio estado ("não tô bem", "não consigo", "não sei") é permitido.
+const NEGACAO_DE_FATO =
+  /\b(nao|nem)\s+(\w+\s+)?(sinto|senti|sente|sentiu|tenho|tive|tem|teve|uso|usei|tomo|tomei|fumo|fumei|bebo|bebi|reparei|notei|vi|percebi|lembro de ter)\b|\b(nunca|jamais|nenhum|nenhuma|nada disso)\b/
+
+export interface OpcoesFala {
+  // A pergunta não tem item no caso: a fala não pode afirmar nem negar fato nenhum.
+  semItem?: boolean
+}
+
+export function verificarFala(fala: string, fontes: string[], opcoes: OpcoesFala = {}): ResultadoFala {
   const texto = fala.trim()
   if (!texto) return { ok: false, motivo: 'vazia' }
   if (texto.length > 500) return { ok: false, motivo: 'longa demais' }
@@ -100,9 +112,14 @@ export function verificarFala(fala: string, fontes: string[]): ResultadoFala {
   for (const n of texto.match(/\d+([.,]\d+)?/g) ?? []) {
     if (!fonte.includes(n)) return { ok: false, motivo: `número ${n} fora das fontes` }
   }
-  for (const p of palavras(texto)) {
+  if (opcoes.semItem && NEGACAO_DE_FATO.test(normalizar(texto))) return { ok: false, motivo: 'nega ou afirma fato que o caso não registra' }
+  const lista = palavras(texto)
+  for (const [i, p] of lista.entries()) {
     const g = grupoDe(p)
-    if (g && !fontePalavras.some((f) => g.some((t) => f.startsWith(t)))) return { ok: false, motivo: `"${p}" fora das fontes` }
+    if (!g) continue
+    // "não melhorou" não afirma melhora: só falar de melhora exige que o caso registre melhora.
+    if (g === GRUPO_MELHORA && (lista[i - 1] === 'nao' || lista[i - 1] === 'nem')) continue
+    if (!fontePalavras.some((f) => g.some((t) => f.startsWith(t)))) return { ok: false, motivo: `"${p}" fora das fontes` }
   }
   return { ok: true }
 }

@@ -108,10 +108,17 @@ export interface MomentoFolha {
   errosCriticos: string[]
   pontosDeRaciocinio?: string[]
   justificativa: string[]
+  // O que acontece na hora quando o aluno faz a conduta (chave: texto exato do item).
+  efeitos?: Record<string, Efeito>
   modoLista?: {
     derivados?: { item: string; quando: Condicao; tambemComoOpcao?: boolean }[]
     rotulos?: Record<string, string>
   }
+}
+
+export interface Efeito {
+  texto: string
+  sinaisVitais?: SinalVital[]
 }
 
 export type Classificacao = 'ideal' | 'aceitavel' | 'subotima' | 'perigosa' | 'nao_prevista'
@@ -184,6 +191,8 @@ export interface Fala {
   aluno: string
   paciente: string
   ids: string[]
+  // A pergunta não estava no roteiro do caso: a tela avisa.
+  foraDoRoteiro?: boolean
   em: number
 }
 
@@ -225,6 +234,8 @@ export interface Tentativa {
   passos: Passo[]
   naoPrevistas: NaoPrevista[]
   conversa?: Fala[]
+  // Simulador com IA: ordens já feitas no momento atual, antes de concluí-lo.
+  emAndamento?: { momento: string; itens: string[]; textos: string[] }
   diagnostico?: { texto: string; item: string; classificacao: ClassificacaoDiagnostico; em: number }
   aguardandoConfirmacao: boolean
   marcaDesfecho?: string

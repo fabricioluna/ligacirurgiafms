@@ -13,6 +13,9 @@ export function FalaConversa({ f, nome }: { f: Fala; nome?: string }) {
         {nome && <span className="mb-0.5 block text-xs font-semibold not-italic text-texto-2">{nome}</span>}
         {f.paciente}
       </blockquote>
+      {f.foraDoRoteiro && (
+        <p className="m-0 mt-1 pl-4 text-xs text-texto-2">Fora do roteiro: o caso não traz essa informação.</p>
+      )}
     </div>
   )
 }

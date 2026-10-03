@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.1 |
+| Versão | 1.2 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -326,6 +326,17 @@ Peso: 25 pontos.
 - A tomografia de abdome é o exame de escolha para confirmar o volvo de sigmoide e procurar sinais de isquemia (ASCRS 2021; WSES 2023).
 - Peritonite ou sinais de isquemia na tomografia indicam cirurgia de urgência, sem tentativa de descompressão endoscópica (ASCRS 2021).
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético. | Depois da hidratação e da analgesia, a cólica diminui um pouco. | Dor (0 a 10): 3 |
+| Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese. | A reposição de potássio foi iniciada depois de confirmada a diurese. |  |
+| Avaliação precoce pela equipe de cirurgia. | A equipe de cirurgia foi chamada e vem avaliar o paciente. |  |
+| Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes. | A sonda nasogástrica drena cerca de 200 mL de conteúdo gástrico. |  |
+| Prescrever neostigmina ou procinético diante de obstrução mecânica. | A cólica fica mais forte e a distensão aumenta. | Dor (0 a 10): 7 |
+| Liberar dieta oral. | Ele bebe um pouco de água, fica enjoado e vomita. |  |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Anamnese dirigida, incluindo hábito intestinal, episódios anteriores de distensão, eliminação de gases e fezes e vômitos.": conta quando o aluno descobriu AN-04 (Gases e fezes), AN-05 (Hábito intestinal), AN-06 (Episódios semelhantes).
@@ -382,6 +393,16 @@ Peso: 30 pontos.
 
 - ASCRS 2021: descompressão endoscópica como tratamento inicial do volvo de sigmoide sem peritonite ou isquemia, com avaliação da viabilidade da mucosa durante o procedimento.
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa. | O aparelho passa o ponto de torção e sai uma grande quantidade de gás e fezes líquidas. A barriga murcha na hora. | Dor (0 a 10): 1 |
+| Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce. | Uma sonda retal ficou posicionada no sigmoide, drenando gases. |  |
+| Manter hidratação, correção eletrolítica e reavaliação clínica seriada. | A hidratação e a correção eletrolítica continuam, com reavaliação programada. |  |
+| Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível. | Pela retossigmoidoscopia rígida, a sonda retal passa o ponto de torção e sai muito gás. A distensão diminui. | Dor (0 a 10): 2 |
+| Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo. | A cólica fica muito mais forte, e a distensão não melhora. | Dor (0 a 10): 8 |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Não deixar sonda retal após a descompressão.": conta quando marcou "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa."; não marcou "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.".
@@ -426,6 +447,14 @@ Peso: 25 pontos.
 
 - ASCRS 2021: sigmoidectomia na mesma internação após a descompressão bem-sucedida, pelo alto risco de recidiva.
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada. | A sigmoidectomia foi marcada para esta internação. |  |
+| Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia. | Ele aceita bem a dieta líquida, sem distensão, e a sonda retal segue drenando. |  |
+| Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família. | A clínica e a anestesia avaliaram o risco cirúrgico como aceitável. Ele e a filha concordam com a cirurgia. |  |
+
 **Textos mostrados na lista** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
@@ -466,6 +495,12 @@ Peso: 25 pontos (usa o peso do M3).
 **Justificativa**
 
 - ASCRS 2021: peritonite ou sinais de isquemia indicam cirurgia de urgência, com ressecção do segmento acometido.
+
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização. | Depois do volume e do antibiótico, a pressão sobe para 100 x 62 mmHg, ainda com taquicardia. | Pressão arterial: 100 x 62 mmHg; Frequência cardíaca: 114 bpm |
 
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
@@ -615,4 +650,5 @@ Pasta: `public/imagens/casos/caso-002/`. Cada imagem precisa de fonte e licença
 - Os momentos M3 e M4 não têm erro crítico na folha resposta. Avaliar se algum deve ser incluído.
 - Conferir os dados das referências (autores, ano e número).
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
+- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.
 - Autor do caso: 'A definir'.

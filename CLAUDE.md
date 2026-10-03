@@ -50,6 +50,8 @@ React + Vite + Tailwind, hospedagem na Vercel, funções serverless da Vercel em
 - Cadastro: texto dos dois PDFs extraído no navegador (pdf.js), a IA monta o caso copiando os documentos, o servidor valida (`src/motor/validacao.ts` + schema), o professor joga a prévia e publica.
 - Interruptor "modo sem IA para todos" em `config/geral`: o servidor recusa chamadas de IA e a abertura do caso só oferece o estático.
 - Imagens ficam em `public/imagens/casos/<id>/`; o painel mostra quais faltam.
+- Paciente com IA: a fala é escrita pela IA no jeito do paciente (`caso.paciente`) e conferida por `servidor/verificarFala.ts` (grupos de termos clínicos, números e negação inventada). Fala barrada ganha uma segunda chance; se falhar de novo, vale o texto do caso. Pergunta fora do caso recebe o aviso "fora do roteiro".
+- Condutas no simulador com IA são ordens imediatas, com efeito escrito no caso (`folhaResposta.momentos[].efeitos`) que muda a situação e os sinais vitais. O momento só é avaliado ao concluir. A hipótese diagnóstica é pedida antes de concluir o momento indicado.
 - Nada antes do caso pode entregar a resposta: a abertura e a tela inicial mostram só a área geral do tema (antes dos dois-pontos, `temaParaAluno`); objetivos e diagnóstico só no relatório.
 
 ## Como trabalhar comigo

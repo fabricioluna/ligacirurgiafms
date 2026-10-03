@@ -1,12 +1,15 @@
 // Simulador com IA: o aluno conversa com o paciente com as próprias palavras.
 // O paciente responde no jeito dele, mas só com o que está no caso (o servidor confere a fala).
-// Exames e laudos são sempre o texto do caso. Antes da conduta do momento indicado no caso,
-// o aluno registra a hipótese diagnóstica. Se a IA falhar, as listas continuam a um toque.
+// Exames e laudos são sempre o texto do caso. Condutas são ordens que acontecem na hora, com o
+// efeito escrito no caso; o momento só é avaliado quando o aluno o conclui. Antes de concluir o
+// momento indicado no caso, o aluno registra a hipótese diagnóstica. Se a IA falhar, as listas
+// continuam a um toque.
 
 import { useMemo, useRef, useState } from 'react'
 import { FalhaIA, interpretarConduta, interpretarHipotese, perguntarPaciente } from '../ia'
 import { opcoesDoMomento } from '../motor/avaliacao'
-import { acoesDisponiveis, momento } from '../motor/caso'
+import { acoesDisponiveis, efeitosDe, momento } from '../motor/caso'
+import { ordensDoMomento } from '../motor/tentativa'
 import { melhorDiagnostico, precisaDiagnostico, rotuloHipotese } from '../motor/diagnostico'
 import type { Acao, Descoberta as TDescoberta, Fala } from '../motor/tipos'
 import { useTentativa } from '../tentativa'
@@ -42,6 +45,7 @@ type Retorno =
   | { tipo: 'interpretacao'; texto: string; itens: string[]; naoReconhecidos: string[] }
   | { tipo: 'naoPrevista'; texto: string }
   | { tipo: 'pedeHipotese' }
+  | { tipo: 'feito'; itens: string[] }
   | { tipo: 'hipotese'; texto: string; item: string }
   | { tipo: 'hipoteseNaoReconhecida'; texto: string }
   | { tipo: 'falha'; mensagem: string; acao: Acao }
@@ -62,6 +66,9 @@ export function CampoTexto({ abrirLista }: Props) {
   const [texto, setTexto] = useState('')
   const [enviando, setEnviando] = useState(false)
   const [retorno, setRetorno] = useState<Retorno | null>(null)
+  // O aluno tentou concluir o momento sem hipótese: conclui logo depois de registrá-la.
+  const [concluirDepois, setConcluirDepois] = useState(false)
+  const ordens = ordensDoMomento(t)
   const campo = useRef<HTMLTextAreaElement>(null)
   const nome = caso.caso.paciente?.nome
 
@@ -76,11 +83,6 @@ export function CampoTexto({ abrirLista }: Props) {
   const historico = (t.conversa ?? []).filter((f) => f.momento === t.momentoAtual).slice(-6).map((f) => ({ aluno: f.aluno, paciente: f.paciente }))
 
   async function avaliarConduta(escrito: string) {
-    if (pedeHipotese) {
-      setModo('hipotese')
-      setRetorno({ tipo: 'pedeHipotese' })
-      return false
-    }
     const r = await interpretarConduta(t.id, { casoId: caso.id, momento: t.momentoAtual, texto: escrito })
     if (r.itens.length === 0) {
       ctx.naoPrevista(escrito)
@@ -115,6 +117,7 @@ export function CampoTexto({ abrirLista }: Props) {
           caminho: t.caminho,
           texto: escrito,
           historico,
+          feitos: ordens,
           ...(modoValido ? { atalho: modoValido } : {}),
         })
         const anamnese = r.itens.filter((i) => i.tipo === 'anamnese')
@@ -130,7 +133,7 @@ export function CampoTexto({ abrirLista }: Props) {
           // Pergunta, conversa ou fora do caso: o paciente responde. Sem fala aprovada, vale o texto do caso.
           const doCaso = anamnese.map((i) => caso.caso.anamnese.find((a) => a.id === i.id)?.resposta ?? '').join(' ')
           const fala = r.fala ?? (doCaso || r.respostaPadrao || (r.intencao === 'conversa' ? RECONHECER : caso.caso.respostaPadrao.perguntaNaoListada))
-          ctx.registrarFala(escrito, fala, anamnese)
+          ctx.registrarFala(escrito, fala, anamnese, r.foraDoRoteiro)
           setRetorno({ tipo: 'conversa', desde: antes })
         }
       }
@@ -155,10 +158,23 @@ export function CampoTexto({ abrirLista }: Props) {
     return [...falas, ...laudos].sort((a, b) => a.em - b.em)
   }, [retorno, t.conversa, t.descobertas])
 
+  // A ordem acontece na hora; o momento continua até o aluno concluí-lo.
   const confirmar = () => {
     if (retorno?.tipo !== 'interpretacao') return
     for (const trecho of retorno.naoReconhecidos) ctx.naoPrevista(trecho)
-    ctx.definirConduta(retorno.itens, retorno.texto)
+    ctx.ordenar(retorno.itens, retorno.texto)
+    setRetorno({ tipo: 'feito', itens: retorno.itens })
+  }
+
+  const concluir = () => {
+    if (pedeHipotese) {
+      setModo('hipotese')
+      setConcluirDepois(true)
+      setRetorno({ tipo: 'pedeHipotese' })
+      campo.current?.focus()
+      return
+    }
+    ctx.concluirMomento()
     setRetorno(null)
   }
 
@@ -180,7 +196,7 @@ export function CampoTexto({ abrirLista }: Props) {
 
           {retorno.tipo === 'pedeHipotese' && (
             <div>
-              <p className="m-0 font-semibold">Antes da conduta, qual a sua hipótese diagnóstica?</p>
+              <p className="m-0 font-semibold">Antes de concluir o momento, qual a sua hipótese diagnóstica?</p>
               <p className="m-0 mt-1 text-sm text-texto-2">Escreva com as suas palavras. Ela vale parte da nota e não pode ser trocada depois.</p>
             </div>
           )}
@@ -198,6 +214,10 @@ export function CampoTexto({ abrirLista }: Props) {
                     ctx.registrarDiagnostico(retorno.item, retorno.texto)
                     setModo('conduta')
                     setRetorno(null)
+                    if (concluirDepois) {
+                      setConcluirDepois(false)
+                      ctx.concluirMomento()
+                    }
                   }}
                 >
                   Confirmar hipótese
@@ -224,6 +244,23 @@ export function CampoTexto({ abrirLista }: Props) {
             </div>
           )}
 
+          {retorno.tipo === 'feito' && (
+            <div>
+              <p className="m-0 font-semibold">Feito:</p>
+              <ul className="m-0 mt-1 space-y-1 pl-5">
+                {retorno.itens.map((i) => (
+                  <li key={i}>{rotulos.get(i) ?? i}</li>
+                ))}
+              </ul>
+              {efeitosDe(caso, t.momentoAtual, retorno.itens).map((e) => (
+                <p key={e.item} className="m-0 mt-3 border-l-2 border-verde pl-3">
+                  {e.texto}
+                </p>
+              ))}
+              <p className="m-0 mt-3 text-sm text-texto-2">Continue o atendimento ou conclua o momento quando terminar.</p>
+            </div>
+          )}
+
           {retorno.tipo === 'interpretacao' && (
             <div>
               <p className="m-0 font-semibold">Entendemos sua conduta assim:</p>
@@ -242,10 +279,10 @@ export function CampoTexto({ abrirLista }: Props) {
                   </ul>
                 </>
               )}
-              <p className="m-0 mt-3 text-sm text-texto-2">A conduta faz o caso avançar e não pode ser desfeita.</p>
+              <p className="m-0 mt-3 text-sm text-texto-2">A ordem é feita na hora e não pode ser desfeita.</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <button type="button" className="botao botao-principal" onClick={confirmar}>
-                  Confirmar conduta
+                  Fazer agora
                 </button>
                 <button type="button" className="botao botao-secundario" onClick={() => reescrever(retorno.texto)}>
                   Reescrever
@@ -257,11 +294,11 @@ export function CampoTexto({ abrirLista }: Props) {
           {retorno.tipo === 'naoPrevista' && (
             <div>
               <p className="m-0 flex items-center gap-2 font-semibold text-nao-prevista">
-                <span aria-hidden="true">?</span> Conduta não prevista
+                <span aria-hidden="true">?</span> Fora do roteiro
               </p>
               <p className="m-0 mt-1">
-                O que você escreveu não corresponde a nenhuma conduta prevista para este momento. Não conta ponto nem
-                penaliza, e fica registrado para o professor revisar.
+                Essa conduta não está prevista no roteiro deste momento, então não tem efeito no paciente. Não conta
+                ponto nem penaliza, e fica registrada para o professor revisar.
               </p>
               <p className="m-0 mt-2 text-sm text-texto-2">Reescreva com outras palavras ou escolha na lista.</p>
               <button type="button" className="botao botao-secundario mt-3" onClick={() => abrirLista('conduta')}>
@@ -292,6 +329,16 @@ export function CampoTexto({ abrirLista }: Props) {
       )}
 
       <div className="mx-auto max-w-xl px-2 pt-2 lg:max-w-none lg:px-0">
+        {ordens.length > 0 && (
+          <div className="mb-2 flex items-center gap-3 rounded-sm border border-verde bg-verde-suave px-3 py-2">
+            <p className="m-0 min-w-0 flex-1 text-sm">
+              <span className="font-semibold">{ordens.length === 1 ? '1 conduta feita' : `${ordens.length} condutas feitas`}</span> neste momento.
+            </p>
+            <button type="button" className="botao botao-principal min-h-11 shrink-0 px-3 text-sm" onClick={concluir}>
+              Concluir o momento
+            </button>
+          </div>
+        )}
         <div className="flex items-center justify-between gap-3 pb-1.5">
           <p className="m-0 text-xs text-texto-2">{nome ? `Converse com ${nome} ou escolha um atalho` : 'Escreva com suas palavras ou escolha um atalho'}</p>
           <button

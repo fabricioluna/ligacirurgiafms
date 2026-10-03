@@ -212,6 +212,15 @@ function documento(caso) {
     if (f.errosCriticos.length) L.push('**Erro crítico**', '', lista(f.errosCriticos), '')
     if (f.pontosDeRaciocinio?.length) L.push('**Pontos de raciocínio**', '', lista(f.pontosDeRaciocinio), '')
     L.push('**Justificativa**', '', lista(f.justificativa), '')
+    const efeitos = Object.entries(f.efeitos ?? {})
+    if (efeitos.length) {
+      L.push(
+        '**O que acontece na hora quando o aluno faz a conduta**',
+        '',
+        tabela(['Conduta', 'Efeito no paciente', 'Sinais vitais'], efeitos.map(([item, e]) => [item, e.texto, (e.sinaisVitais ?? []).map((s) => `${s.rotulo}: ${s.valor}`).join('; ')])),
+        '',
+      )
+    }
     const der = f.modoLista?.derivados ?? []
     if (der.length) {
       L.push('**Avaliado pelo que o aluno fez, e não por marcação na lista**', '')

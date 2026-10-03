@@ -1,6 +1,6 @@
 {
   "id": "CASO-001",
-  "versao": "1.3",
+  "versao": "1.4",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -899,6 +899,45 @@
           "A tomografia com contraste venoso confirma a obstrução, localiza o ponto de transição, sugere a causa e mostra sinais de isquemia (Bologna 2017).",
           "A descompressão com sonda e a correção hidroeletrolítica fazem parte do tratamento inicial de toda obstrução de delgado (Bologna 2017; Sabiston)."
         ],
+        "efeitos": {
+          "Jejum, sonda nasogástrica aberta para descompressão, acesso venoso e hidratação com cristaloide.": {
+            "texto": "A sonda nasogástrica drena cerca de 300 mL de líquido esverdeado, e o paciente diz que o enjoo melhorou. A hidratação venosa está correndo.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Frequência cardíaca",
+                "valor": "94 bpm"
+              }
+            ]
+          },
+          "Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese.": {
+            "texto": "A reposição de potássio foi iniciada depois de confirmada a diurese."
+          },
+          "Controle de diurese, analgesia e antiemético.": {
+            "texto": "Depois da analgesia e do antiemético, a dor cai para 3/10 e o paciente fica mais tranquilo.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "3"
+              }
+            ]
+          },
+          "Avaliação precoce pela equipe de cirurgia.": {
+            "texto": "A equipe de cirurgia foi chamada e vem avaliar o paciente."
+          },
+          "Prescrever laxante ou procinético diante de obstrução mecânica.": {
+            "texto": "Depois do laxante, as cólicas ficam mais fortes e ele vomita de novo.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "8",
+                "alterado": true
+              }
+            ]
+          },
+          "Liberar dieta oral.": {
+            "texto": "Ele toma alguns goles de água e vomita logo em seguida."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -1036,6 +1075,23 @@
         "justificativa": [
           "Bologna 2017: tratamento não operatório na ausência de estrangulamento e peritonite; contraste hidrossolúvel com papel diagnóstico e terapêutico; tratamento conservador por até 72 horas."
         ],
+        "efeitos": {
+          "Manter jejum, sonda, hidratação e correção eletrolítica.": {
+            "texto": "A sonda segue aberta, drenando conteúdo bilioso, e a hidratação continua."
+          },
+          "Administrar contraste hidrossolúvel pela sonda e fazer radiografia de controle em até 24 horas.": {
+            "texto": "O contraste hidrossolúvel foi dado pela sonda, que ficou fechada por algumas horas. A radiografia de controle está programada."
+          },
+          "Reavaliar clinicamente de forma seriada, com exame abdominal e sinais vitais.": {
+            "texto": "A reavaliação clínica seriada foi programada, com exame do abdome e sinais vitais."
+          },
+          "Definir o prazo máximo do tratamento conservador, de 72 horas, e os critérios para indicar cirurgia a qualquer momento.": {
+            "texto": "O plano ficou registrado: tratamento conservador por até 72 horas, com os critérios para indicar cirurgia a qualquer momento."
+          },
+          "Retirar a sonda e liberar dieta.": {
+            "texto": "Sem a sonda, a náusea volta e ele vomita depois de beber água."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -1115,6 +1171,27 @@
         "justificativa": [
           "Bologna 2017: sinais de estrangulamento, peritonite ou falha do tratamento conservador indicam cirurgia. O contraste que não chega ao cólon em até 24 horas prediz falha do tratamento conservador."
         ],
+        "efeitos": {
+          "Indicar cirurgia de urgência, sem esperar completar 72 horas.": {
+            "texto": "O centro cirúrgico foi avisado e a sala está sendo preparada."
+          },
+          "Ressuscitação volêmica, antibiótico, reserva de sangue e consentimento que inclua ressecção e possível estoma.": {
+            "texto": "A ressuscitação volêmica e o antibiótico foram iniciados, a reserva de sangue foi feita e o paciente assinou o consentimento.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Frequência cardíaca",
+                "valor": "106 bpm",
+                "alterado": true
+              }
+            ]
+          },
+          "Lembrar da indução em sequência rápida com a sonda aberta.": {
+            "texto": "A anestesia foi avisada: indução em sequência rápida, com a sonda aberta."
+          },
+          "Repetir o contraste e aguardar.": {
+            "texto": "Uma nova dose de contraste foi dada. A dor continua forte e contínua."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -1173,6 +1250,26 @@
         "justificativa": [
           "Princípios de manejo da sepse de foco abdominal e da cirurgia de controle de danos em emergência não traumática."
         ],
+        "efeitos": {
+          "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização.": {
+            "texto": "Depois do volume e do antibiótico, a pressão sobe para 98 x 60 mmHg, ainda com taquicardia.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Pressão arterial",
+                "valor": "98 x 60 mmHg",
+                "alterado": true
+              },
+              {
+                "rotulo": "Frequência cardíaca",
+                "valor": "118 bpm",
+                "alterado": true
+              }
+            ]
+          },
+          "Iniciar vasopressor se a hipotensão persistir após a reposição volêmica inicial.": {
+            "texto": "A noradrenalina foi iniciada em dose baixa."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -1242,6 +1339,20 @@
         "justificativa": [
           "Bologna 2017: liberar apenas as aderências que causam a obstrução. Critérios clínicos de viabilidade intestinal conforme o Sabiston."
         ],
+        "efeitos": {
+          "Identificar a brida e liberar somente as aderências que causam a obstrução.": {
+            "texto": "A brida foi seccionada; as alças proximais começam a se descomprimir."
+          },
+          "Fazer a pausa antes do passo irreversível: aquecer a alça com compressas mornas e reavaliar após 10 a 15 minutos.": {
+            "texto": "Depois de 15 minutos com compressas mornas, o segmento continua violáceo, sem brilho, sem peristaltismo e sem pulso no mesentério."
+          },
+          "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa.": {
+            "texto": "O segmento inviável foi ressecado com margens de aspecto viável, e a anastomose ficou sem tensão."
+          },
+          "Revisar todo o delgado, do ângulo de Treitz à válvula ileocecal.": {
+            "texto": "A revisão do delgado, do ângulo de Treitz à válvula ileocecal, não mostra outras lesões."
+          }
+        },
         "modoLista": {
           "derivados": [
             {

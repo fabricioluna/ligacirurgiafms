@@ -4,7 +4,7 @@
 // permitidas (verificarFala). Se a fala trouxer algo que não está nas fontes, ela é descartada
 // e o aluno vê o texto do próprio caso. Exames e laudos são sempre o texto do caso.
 
-import { acoesDisponiveis, exameDisponivel, examesAtuais, exameFisicoAtual, momento, sinaisVitaisAtuais } from '../src/motor/caso.js'
+import { acoesDisponiveis, efeitosDe, exameDisponivel, examesAtuais, exameFisicoAtual, momento, sinaisVitaisAtuais } from '../src/motor/caso.js'
 import type { Acao, Caso, TipoDescoberta } from '../src/motor/tipos.js'
 import { casoPublicado } from './casos.js'
 import { exigirIALigada } from './config.js'
@@ -22,6 +22,10 @@ export interface RespostaPaciente {
   respostaPadrao: string | null
   // Fala do paciente, já conferida. Ausente quando não há o que dizer ou quando a fala foi descartada.
   fala: string | null
+  // O que o aluno pediu não está no roteiro do caso: a tela avisa, sem o paciente inventar nada.
+  foraDoRoteiro: boolean
+  // Motivo do descarte da fala da IA, quando houve (o servidor usa para pedir outra fala).
+  descarte?: string
 }
 
 export interface Troca {
@@ -40,10 +44,13 @@ const TIPO_DA_INTENCAO: Partial<Record<Intencao, TipoDescoberta>> = {
 // Texto do sistema, não do caso: usado só quando o caso não define resposta para exame físico ausente.
 const SEGMENTO_AUSENTE = 'Esse segmento do exame físico não consta neste caso.'
 
-function situacaoAtual(caso: Caso, codigo: string, caminho: string[]) {
+// Situação de agora: a do momento mais o efeito do que o aluno já fez nele.
+function situacaoAtual(caso: Caso, codigo: string, caminho: string[], feitos: string[] = []) {
   const m = momento(caso, codigo)
-  const texto = caminho.length <= 1 ? caso.caso.apresentacaoInicial.texto : m.situacao
-  const vitais = sinaisVitaisAtuais(caso, caminho).map((s) => `${s.rotulo}: ${s.valor}`).join('; ')
+  const efeitos = efeitosDe(caso, codigo, feitos)
+  const base = caminho.length <= 1 ? caso.caso.apresentacaoInicial.texto : m.situacao
+  const texto = [base, ...efeitos.map((e) => e.texto)].join(' ')
+  const vitais = sinaisVitaisAtuais(caso, caminho, efeitos).map((s) => `${s.rotulo}: ${s.valor}`).join('; ')
   return { texto, vitais }
 }
 
@@ -52,10 +59,10 @@ function quemE(caso: Caso) {
   return p ? `${p.nome}, ${p.idade} anos. ${p.jeito}${p.acompanhante ? ` Está acompanhado de ${p.acompanhante}.` : ''}` : ''
 }
 
-export function mensagemPaciente(caso: Caso, codigo: string, caminho: string[], texto: string, historico: Troca[] = []) {
+export function mensagemPaciente(caso: Caso, codigo: string, caminho: string[], texto: string, historico: Troca[] = [], feitos: string[] = []) {
   const m = momento(caso, codigo)
   const acoes = acoesDisponiveis(m)
-  const sit = situacaoAtual(caso, codigo, caminho)
+  const sit = situacaoAtual(caso, codigo, caminho, feitos)
   const limpar = (s: string) => s.replace(/<\/?(aluno|historico)>/gi, '')
   const linhas = [
     `PACIENTE: ${quemE(caso) || 'Paciente do caso.'}`,
@@ -87,8 +94,8 @@ export function mensagemPaciente(caso: Caso, codigo: string, caminho: string[], 
 
 // Fontes que a fala pode usar: respostas dos itens apontados, situação atual, quem é o paciente,
 // resposta padrão e o que o paciente já disse. Para exame físico, os achados apontados.
-function fontesDaFala(caso: Caso, codigo: string, caminho: string[], itens: RespostaPaciente['itens'], historico: Troca[]) {
-  const sit = situacaoAtual(caso, codigo, caminho)
+function fontesDaFala(caso: Caso, codigo: string, caminho: string[], itens: RespostaPaciente['itens'], historico: Troca[], feitos: string[]) {
+  const sit = situacaoAtual(caso, codigo, caminho, feitos)
   const p = caso.caso.paciente
   const fontes = [sit.texto, sit.vitais, caso.caso.respostaPadrao.perguntaNaoListada, ...historico.map((h) => h.paciente)]
   if (p) fontes.push(`${p.nome} ${p.idade} anos ${p.jeito} ${p.acompanhante ?? ''}`)
@@ -109,6 +116,7 @@ export function interpretarPaciente(
   bruto: unknown,
   atalho?: Acao,
   historico: Troca[] = [],
+  feitos: string[] = [],
 ): RespostaPaciente {
   if (!bruto || typeof bruto !== 'object') throw new ErroIA('Saída da IA fora do formato')
   const s = bruto as { intencao?: unknown; ids?: unknown; tipoNaoListado?: unknown; fala?: unknown }
@@ -116,7 +124,8 @@ export function interpretarPaciente(
   if (s.ids !== undefined && !Array.isArray(s.ids)) throw new ErroIA('Ids inválidos')
 
   let intencao = s.intencao as Intencao
-  if (atalho && ATALHOS[atalho] && intencao !== 'conduta') intencao = ATALHOS[atalho]
+  // O atalho escolhido prevalece, exceto quando o texto é conduta ou conversa (cumprimento, "melhorou?").
+  if (atalho && ATALHOS[atalho] && intencao !== 'conduta' && intencao !== 'conversa') intencao = ATALHOS[atalho]
 
   const m = momento(caso, codigo)
   const acoes = acoesDisponiveis(m)
@@ -143,17 +152,21 @@ export function interpretarPaciente(
 
   // Fala do paciente: só no que ele mesmo diz. Em conduta não há fala; em pedido de exame,
   // só uma reação curta (o laudo é o texto do caso).
-  // Pergunta clínica sem item no caso: a fala da IA é ignorada, porque um "não tenho" seria
-  // informação inventada que o verificador de palavras não pega. Vale a resposta padrão do caso.
-  const semFonte = intencao === 'pergunta' && itens.length === 0
+  // Pergunta sem item no caso (ou conversa): a fala não pode afirmar nem negar fato nenhum,
+  // porque um "não tenho" seria informação inventada.
+  const semItem = (intencao === 'pergunta' || intencao === 'conversa' || intencao === 'fora_de_escopo') && itens.length === 0
   let fala: string | null = null
-  if (typeof s.fala === 'string' && s.fala.trim() && intencao !== 'conduta' && !semFonte && acoes.includes('anamnese')) {
-    const r = verificarFala(s.fala, fontesDaFala(caso, codigo, caminho, itens, historico))
+  let descarte: string | undefined
+  if (typeof s.fala === 'string' && s.fala.trim() && intencao !== 'conduta' && acoes.includes('anamnese')) {
+    const r = verificarFala(s.fala, fontesDaFala(caso, codigo, caminho, itens, historico, feitos), { semItem })
     if (r.ok) fala = s.fala.trim()
-    else console.warn(`[paciente] fala descartada: ${r.motivo}`)
+    else {
+      console.warn(`[paciente] fala descartada: ${r.motivo}`)
+      descarte = r.motivo
+    }
   }
 
-  if (intencao === 'conduta' || intencao === 'conversa' || itens.length) return { intencao, itens, respostaPadrao: null, fala }
+  if (intencao === 'conduta' || intencao === 'conversa' || itens.length) return { intencao, itens, respostaPadrao: null, fala, foraDoRoteiro: false, descarte }
 
   const rp = caso.caso.respostaPadrao as Caso['caso']['respostaPadrao'] & { exameFisicoNaoListado?: string }
   const tipoNL = s.tipoNaoListado
@@ -167,7 +180,7 @@ export function interpretarPaciente(
         : tipoNL === 'parecer' && rp.parecerEspecialista
           ? rp.parecerEspecialista
           : rp.perguntaNaoListada
-  return { intencao, itens, respostaPadrao, fala }
+  return { intencao, itens, respostaPadrao, fala, foraDoRoteiro: true, descarte }
 }
 
 function historicoValido(v: unknown): Troca[] {
@@ -189,8 +202,24 @@ export async function processarPaciente(corpo: Record<string, unknown>, ia: Cham
   const texto = textoDoAluno(corpo.texto)
   const atalho = typeof corpo.atalho === 'string' && corpo.atalho in ATALHOS ? (corpo.atalho as Acao) : undefined
   const historico = historicoValido(corpo.historico)
+  // Condutas já feitas no momento (texto exato da folha); o que não é item da folha não tem efeito.
+  const feitos = Array.isArray(corpo.feitos) ? corpo.feitos.filter((x): x is string => typeof x === 'string').slice(0, 30) : []
 
   const dica = atalho ? `\n\nO estudante marcou o atalho: ${ATALHOS[atalho]}.` : ''
-  const bruto = await ia(SISTEMA_PACIENTE, mensagemPaciente(caso, codigo, caminho, texto, historico) + dica, { temperatura: 0.4 })
-  return interpretarPaciente(caso, codigo, caminho, bruto, atalho, historico)
+  const mensagem = mensagemPaciente(caso, codigo, caminho, texto, historico, feitos) + dica
+  let r = interpretarPaciente(caso, codigo, caminho, await ia(SISTEMA_PACIENTE, mensagem, { temperatura: 0.4 }), atalho, historico, feitos)
+  // Fala descartada: uma segunda chance, dizendo à IA o que estava fora das fontes.
+  if (r.descarte) {
+    const aviso = `
+
+Sua fala anterior foi descartada (${r.descarte}). Escreva outra fala usando só o que está nas fontes, sem afirmar nem negar nada que não esteja escrito ali.`
+    try {
+      const segunda = interpretarPaciente(caso, codigo, caminho, await ia(SISTEMA_PACIENTE, mensagem + aviso, { temperatura: 0.2, tentativas: 1 }), atalho, historico, feitos)
+      if (segunda.fala) r = { ...r, fala: segunda.fala }
+    } catch {
+      // segunda tentativa falhou: vale a primeira resposta, sem fala
+    }
+  }
+  const { descarte: _d, ...resposta } = r
+  return resposta
 }

@@ -2,7 +2,7 @@
 // e o que acontece com o paciente. O aluno confirma para seguir.
 
 import { useEffect, useRef } from 'react'
-import { ehDesfecho, momento, momentoFolha } from '../motor/caso'
+import { efeitosDe, ehDesfecho, momento, momentoFolha } from '../motor/caso'
 import type { Passo } from '../motor/tipos'
 import { useTentativa } from '../tentativa'
 import { SeloClassificacao, corDaClassificacao } from './Classificacao'
@@ -106,6 +106,17 @@ export function AvaliacaoMomento({ passo }: { passo: Passo }) {
                 <Lista itens={passo.faltaram} />
               </section>
             )
+          )}
+
+          {efeitosDe(caso, passo.momento, passo.selecionados).length > 0 && (
+            <section>
+              <h3 className="m-0 mb-2 font-sans text-base font-semibold">O que aconteceu com as suas condutas</h3>
+              <ul className="m-0 space-y-1.5 pl-5">
+                {efeitosDe(caso, passo.momento, passo.selecionados).map((e) => (
+                  <li key={e.item}>{e.texto}</li>
+                ))}
+              </ul>
+            </section>
           )}
 
           <section className="border-l-2 border-borda pl-4">

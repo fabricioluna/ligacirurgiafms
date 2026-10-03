@@ -233,9 +233,22 @@ describe('fala do paciente', () => {
   })
 
   it('pergunta sobre o que não está no caso nunca recebe um não inventado', () => {
-    const r = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'pergunta', ids: [], fala: 'Não sinto isso não, doutor.' })
-    expect(r.fala).toBeNull()
-    expect(r.respostaPadrao).toBe(caso.caso.respostaPadrao.perguntaNaoListada)
+    for (const fala of ['Não sinto isso não, doutor.', 'Nunca tive isso.', 'Não tenho nada disso.', 'Nenhum problema assim.']) {
+      const r = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'pergunta', ids: [], fala })
+      expect(r.fala, fala).toBeNull()
+      expect(r).toMatchObject({ respostaPadrao: caso.caso.respostaPadrao.perguntaNaoListada, foraDoRoteiro: true })
+    }
+  })
+
+  it('fora do roteiro, o paciente pode dizer que não sabe com naturalidade', () => {
+    const r = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'pergunta', ids: [], fala: 'Ih, doutor, isso eu não sei dizer não.' })
+    expect(r).toMatchObject({ fala: 'Ih, doutor, isso eu não sei dizer não.', foraDoRoteiro: true })
+  })
+
+  it('"tudo bem?" recebe resposta pelo estado atual, sem ser fora do roteiro', () => {
+    const r = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'conversa', ids: [], fala: 'Bom dia, doutor. Não tô nada bem, essa dor na barriga não passa.' })
+    expect(r).toMatchObject({ foraDoRoteiro: false })
+    expect(r.fala).toContain('Não tô nada bem')
   })
 
   it('cumprimento vira conversa, sem item e sem resposta padrão', () => {
@@ -246,6 +259,26 @@ describe('fala do paciente', () => {
   it('no intraoperatório o paciente não fala', () => {
     const r = interpretarPaciente(caso, 'M4', ['M1', 'M2', 'M3', 'M4'], { intencao: 'conversa', ids: [], fala: 'Oi.' })
     expect(r.fala).toBeNull()
+  })
+
+  it('melhora pode ser dita com outras palavras; piora inventada não', () => {
+    const fontes = ['Depois da analgesia e do antiemético, a dor cai para 3/10 e o paciente fica mais tranquilo.']
+    expect(verificarFala('Tô mais aliviado, doutor, a dor melhorou bastante.', fontes).ok).toBe(true)
+    expect(verificarFala('Piorou, doutor.', fontes).ok).toBe(false)
+    expect(verificarFala('Não melhorou não, doutor, continua a mesma dor.', [caso.caso.apresentacaoInicial.texto]).ok).toBe(true)
+    expect(verificarFala('Melhorou bastante, doutor.', [caso.caso.apresentacaoInicial.texto]).ok).toBe(false)
+  })
+
+  it('"melhorou?" com o atalho Perguntar continua sendo conversa', () => {
+    const r = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'conversa', ids: [], fala: 'Bom dia.' }, 'anamnese')
+    expect(r).toMatchObject({ intencao: 'conversa', foraDoRoteiro: false })
+  })
+
+  it('depois da analgesia, o paciente pode dizer que a dor melhorou', () => {
+    const analgesia = momentoFolha(caso, 'M1').ideal[4]
+    const fala = 'Melhorou um pouco a dor, doutor.'
+    expect(interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'conversa', ids: [], fala }, undefined, [], [analgesia]).fala).toBe(fala)
+    expect(mensagemPaciente(caso, 'M1', ['M1'], 'e a dor?', [], [analgesia])).toContain('a dor cai para 3/10')
   })
 
   it('a IA recebe quem é o paciente, a situação atual e a conversa anterior', () => {

@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.3 |
+| Versão | 1.4 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -338,6 +338,17 @@ Peso: 20 pontos.
 - A tomografia com contraste venoso confirma a obstrução, localiza o ponto de transição, sugere a causa e mostra sinais de isquemia (Bologna 2017).
 - A descompressão com sonda e a correção hidroeletrolítica fazem parte do tratamento inicial de toda obstrução de delgado (Bologna 2017; Sabiston).
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Jejum, sonda nasogástrica aberta para descompressão, acesso venoso e hidratação com cristaloide. | A sonda nasogástrica drena cerca de 300 mL de líquido esverdeado, e o paciente diz que o enjoo melhorou. A hidratação venosa está correndo. | Frequência cardíaca: 94 bpm |
+| Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese. | A reposição de potássio foi iniciada depois de confirmada a diurese. |  |
+| Controle de diurese, analgesia e antiemético. | Depois da analgesia e do antiemético, a dor cai para 3/10 e o paciente fica mais tranquilo. | Dor (0 a 10): 3 |
+| Avaliação precoce pela equipe de cirurgia. | A equipe de cirurgia foi chamada e vem avaliar o paciente. |  |
+| Prescrever laxante ou procinético diante de obstrução mecânica. | Depois do laxante, as cólicas ficam mais fortes e ele vomita de novo. | Dor (0 a 10): 8 |
+| Liberar dieta oral. | Ele toma alguns goles de água e vomita logo em seguida. |  |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Anamnese dirigida, incluindo cirurgia abdominal prévia, eliminação de gases e fezes e características dos vômitos.": conta quando o aluno descobriu AN-03 (Vômitos), AN-04 (Gases e fezes), AN-05 (Cirurgias prévias).
@@ -399,6 +410,16 @@ Peso: 20 pontos.
 
 - Bologna 2017: tratamento não operatório na ausência de estrangulamento e peritonite; contraste hidrossolúvel com papel diagnóstico e terapêutico; tratamento conservador por até 72 horas.
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Manter jejum, sonda, hidratação e correção eletrolítica. | A sonda segue aberta, drenando conteúdo bilioso, e a hidratação continua. |  |
+| Administrar contraste hidrossolúvel pela sonda e fazer radiografia de controle em até 24 horas. | O contraste hidrossolúvel foi dado pela sonda, que ficou fechada por algumas horas. A radiografia de controle está programada. |  |
+| Reavaliar clinicamente de forma seriada, com exame abdominal e sinais vitais. | A reavaliação clínica seriada foi programada, com exame do abdome e sinais vitais. |  |
+| Definir o prazo máximo do tratamento conservador, de 72 horas, e os critérios para indicar cirurgia a qualquer momento. | O plano ficou registrado: tratamento conservador por até 72 horas, com os critérios para indicar cirurgia a qualquer momento. |  |
+| Retirar a sonda e liberar dieta. | Sem a sonda, a náusea volta e ele vomita depois de beber água. |  |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Tratamento conservador com reavaliação seriada e prazo definido, sem contraste hidrossolúvel.": conta quando marcou "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento." e "Reavaliar clinicamente de forma seriada, com exame abdominal e sinais vitais." e "Definir o prazo máximo do tratamento conservador, de 72 horas, e os critérios para indicar cirurgia a qualquer momento."; não marcou "Administrar contraste hidrossolúvel pela sonda e fazer radiografia de controle em até 24 horas.".
@@ -451,6 +472,15 @@ Peso: 25 pontos.
 
 - Bologna 2017: sinais de estrangulamento, peritonite ou falha do tratamento conservador indicam cirurgia. O contraste que não chega ao cólon em até 24 horas prediz falha do tratamento conservador.
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Indicar cirurgia de urgência, sem esperar completar 72 horas. | O centro cirúrgico foi avisado e a sala está sendo preparada. |  |
+| Ressuscitação volêmica, antibiótico, reserva de sangue e consentimento que inclua ressecção e possível estoma. | A ressuscitação volêmica e o antibiótico foram iniciados, a reserva de sangue foi feita e o paciente assinou o consentimento. | Frequência cardíaca: 106 bpm |
+| Lembrar da indução em sequência rápida com a sonda aberta. | A anestesia foi avisada: indução em sequência rápida, com a sonda aberta. |  |
+| Repetir o contraste e aguardar. | Uma nova dose de contraste foi dada. A dor continua forte e contínua. |  |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.": conta quando não marcou "Indicar cirurgia de urgência, sem esperar completar 72 horas." nem "Escolher a via: laparotomia, pela distensão e suspeita de isquemia, ou laparoscopia com equipe experiente e limiar baixo para conversão." nem "Laparoscopia diagnóstica com conversão precoce se a visão ou a segurança forem prejudicadas." (também aparece como opção).
@@ -496,6 +526,13 @@ Peso: 25 pontos (usa o peso do M3).
 **Justificativa**
 
 - Princípios de manejo da sepse de foco abdominal e da cirurgia de controle de danos em emergência não traumática.
+
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização. | Depois do volume e do antibiótico, a pressão sobe para 98 x 60 mmHg, ainda com taquicardia. | Pressão arterial: 98 x 60 mmHg; Frequência cardíaca: 118 bpm |
+| Iniciar vasopressor se a hipotensão persistir após a reposição volêmica inicial. | A noradrenalina foi iniciada em dose baixa. |  |
 
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
@@ -549,6 +586,15 @@ Peso: 25 pontos.
 **Justificativa**
 
 - Bologna 2017: liberar apenas as aderências que causam a obstrução. Critérios clínicos de viabilidade intestinal conforme o Sabiston.
+
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Identificar a brida e liberar somente as aderências que causam a obstrução. | A brida foi seccionada; as alças proximais começam a se descomprimir. |  |
+| Fazer a pausa antes do passo irreversível: aquecer a alça com compressas mornas e reavaliar após 10 a 15 minutos. | Depois de 15 minutos com compressas mornas, o segmento continua violáceo, sem brilho, sem peristaltismo e sem pulso no mesentério. |  |
+| Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa. | O segmento inviável foi ressecado com margens de aspecto viável, e a anastomose ficou sem tensão. |  |
+| Revisar todo o delgado, do ângulo de Treitz à válvula ileocecal. | A revisão do delgado, do ângulo de Treitz à válvula ileocecal, não mostra outras lesões. |  |
 
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
@@ -705,4 +751,5 @@ Pasta: `public/imagens/casos/caso-001/`. Cada imagem precisa de fonte e licença
 - 17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabela 'Textos mostrados na lista'). Conferir se descrevem a mesma conduta.
 - Resposta padrão para segmento do exame físico que não existe no caso: 'Sem alterações nesse segmento.' Confirmar.
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
+- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.
 - Autor do caso: 'A definir'.

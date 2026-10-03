@@ -550,6 +550,42 @@
                     }
                   }
                 }
+              },
+              "efeitos": {
+                "type": "object",
+                "description": "O que acontece na hora quando o aluno faz a conduta, no simulador com IA (e na avaliação do momento). Chave: texto exato do item da folha.",
+                "additionalProperties": {
+                  "type": "object",
+                  "required": [
+                    "texto"
+                  ],
+                  "properties": {
+                    "texto": {
+                      "type": "string"
+                    },
+                    "sinaisVitais": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "rotulo",
+                          "valor"
+                        ],
+                        "properties": {
+                          "rotulo": {
+                            "type": "string"
+                          },
+                          "valor": {
+                            "type": "string"
+                          },
+                          "alterado": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }

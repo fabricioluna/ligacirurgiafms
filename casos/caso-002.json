@@ -1,6 +1,6 @@
 {
   "id": "CASO-002",
-  "versao": "1.1",
+  "versao": "1.2",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -847,6 +847,39 @@
           "A tomografia de abdome é o exame de escolha para confirmar o volvo de sigmoide e procurar sinais de isquemia (ASCRS 2021; WSES 2023).",
           "Peritonite ou sinais de isquemia na tomografia indicam cirurgia de urgência, sem tentativa de descompressão endoscópica (ASCRS 2021)."
         ],
+        "efeitos": {
+          "Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético.": {
+            "texto": "Depois da hidratação e da analgesia, a cólica diminui um pouco.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "3"
+              }
+            ]
+          },
+          "Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese.": {
+            "texto": "A reposição de potássio foi iniciada depois de confirmada a diurese."
+          },
+          "Avaliação precoce pela equipe de cirurgia.": {
+            "texto": "A equipe de cirurgia foi chamada e vem avaliar o paciente."
+          },
+          "Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes.": {
+            "texto": "A sonda nasogástrica drena cerca de 200 mL de conteúdo gástrico."
+          },
+          "Prescrever neostigmina ou procinético diante de obstrução mecânica.": {
+            "texto": "A cólica fica mais forte e a distensão aumenta.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "7",
+                "alterado": true
+              }
+            ]
+          },
+          "Liberar dieta oral.": {
+            "texto": "Ele bebe um pouco de água, fica enjoado e vomita."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -960,6 +993,42 @@
         "justificativa": [
           "ASCRS 2021: descompressão endoscópica como tratamento inicial do volvo de sigmoide sem peritonite ou isquemia, com avaliação da viabilidade da mucosa durante o procedimento."
         ],
+        "efeitos": {
+          "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa.": {
+            "texto": "O aparelho passa o ponto de torção e sai uma grande quantidade de gás e fezes líquidas. A barriga murcha na hora.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "1"
+              }
+            ]
+          },
+          "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.": {
+            "texto": "Uma sonda retal ficou posicionada no sigmoide, drenando gases."
+          },
+          "Manter hidratação, correção eletrolítica e reavaliação clínica seriada.": {
+            "texto": "A hidratação e a correção eletrolítica continuam, com reavaliação programada."
+          },
+          "Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível.": {
+            "texto": "Pela retossigmoidoscopia rígida, a sonda retal passa o ponto de torção e sai muito gás. A distensão diminui.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "2"
+              }
+            ]
+          },
+          "Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo.": {
+            "texto": "A cólica fica muito mais forte, e a distensão não melhora.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "8",
+                "alterado": true
+              }
+            ]
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -1022,6 +1091,17 @@
         "justificativa": [
           "ASCRS 2021: sigmoidectomia na mesma internação após a descompressão bem-sucedida, pelo alto risco de recidiva."
         ],
+        "efeitos": {
+          "Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.": {
+            "texto": "A sigmoidectomia foi marcada para esta internação."
+          },
+          "Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia.": {
+            "texto": "Ele aceita bem a dieta líquida, sem distensão, e a sonda retal segue drenando."
+          },
+          "Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família.": {
+            "texto": "A clínica e a anestesia avaliaram o risco cirúrgico como aceitável. Ele e a filha concordam com a cirurgia."
+          }
+        },
         "modoLista": {
           "rotulos": {
             "Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.": "Indicar sigmoidectomia na mesma internação.",
@@ -1056,6 +1136,23 @@
         "justificativa": [
           "ASCRS 2021: peritonite ou sinais de isquemia indicam cirurgia de urgência, com ressecção do segmento acometido."
         ],
+        "efeitos": {
+          "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização.": {
+            "texto": "Depois do volume e do antibiótico, a pressão sobe para 100 x 62 mmHg, ainda com taquicardia.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Pressão arterial",
+                "valor": "100 x 62 mmHg",
+                "alterado": true
+              },
+              {
+                "rotulo": "Frequência cardíaca",
+                "valor": "114 bpm",
+                "alterado": true
+              }
+            ]
+          }
+        },
         "modoLista": {
           "derivados": [
             {

@@ -11,6 +11,7 @@
     "17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabela 'Textos mostrados na lista'). Conferir se descrevem a mesma conduta.",
     "Resposta padrão para segmento do exame físico que não existe no caso: 'Sem alterações nesse segmento.' Confirmar.",
     "Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.",
+    "Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.",
     "Autor do caso: 'A definir'."
   ],
   "CASO-002": [
@@ -22,6 +23,7 @@
     "Os momentos M3 e M4 não têm erro crítico na folha resposta. Avaliar se algum deve ser incluído.",
     "Conferir os dados das referências (autores, ano e número).",
     "Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.",
+    "Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.",
     "Autor do caso: 'A definir'."
   ],
   "CASO-003": [
@@ -34,6 +36,7 @@
     "A paciente é alérgica a dipirona. Hoje o simulador não avalia prescrição de medicamentos, então esse dado não pesa na nota. Avaliar se deve virar item da folha resposta.",
     "Conferir os dados da referência (autores, ano e número).",
     "Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.",
+    "Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.",
     "Autor do caso: 'A definir'."
   ]
 }

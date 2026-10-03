@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.1 |
+| Versão | 1.2 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -303,6 +303,16 @@ Peso: 20 pontos.
 
 - WSES 2017: a tomografia com contraste é o exame de escolha na suspeita de obstrução do cólon por câncer (Pisano et al., 2018).
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético. | Depois da hidratação e da analgesia, a cólica melhora, mas a dor do lado direito continua. | Dor (0 a 10): 4 |
+| Correção de distúrbios eletrolíticos e controle da glicemia. | A correção dos eletrólitos foi iniciada e a glicemia está sendo controlada. |  |
+| Avaliação precoce pela equipe de cirurgia. | A equipe de cirurgia foi chamada e vem avaliar a paciente. |  |
+| Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes. | A sonda nasogástrica drena cerca de 250 mL de líquido amarelado. |  |
+| Liberar dieta oral. | Ela toma um pouco de suco e vomita logo em seguida. |  |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Anamnese dirigida, incluindo mudança do hábito intestinal, sangramento, perda de peso e história familiar.": conta quando o aluno descobriu AN-05 (Hábito intestinal), AN-06 (Sangramento), AN-07 (Peso e apetite), AN-12 (História familiar).
@@ -359,6 +369,14 @@ Peso: 30 pontos.
 
 - WSES 2017 (Pisano et al., 2018): na obstrução do cólon esquerdo por câncer, a ressecção é o tratamento de escolha; o stent como ponte é alternativa em pacientes selecionados.
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Indicar cirurgia de urgência, pelo risco de perfuração do ceco em obstrução em alça fechada com dor na fossa ilíaca direita. | O centro cirúrgico foi avisado e a sala está sendo preparada. |  |
+| Ressuscitação volêmica, antibiótico profilático e reserva de sangue. | A ressuscitação volêmica e o antibiótico foram iniciados, e há reserva de sangue. | Frequência cardíaca: 92 bpm |
+| Demarcar o local de um possível estoma e obter consentimento que inclua a possibilidade de colostomia ou ileostomia. | O local de um possível estoma foi demarcado. A paciente assinou o consentimento, preocupada, mas ciente. |  |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Tomografia de tórax para estadiamento, sem atrasar a cirurgia.": conta quando o aluno descobriu EX-12 (Tomografia de tórax).
@@ -407,6 +425,13 @@ Peso: 30 pontos.
 **Justificativa**
 
 - WSES 2017 (Pisano et al., 2018): ressecção com princípios oncológicos; cirurgia de Hartmann ou anastomose primária, com ou sem estoma de proteção, conforme o risco.
+
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco. | A inspeção não mostra implantes no peritônio nem lesões no fígado. O ceco tem cor e brilho normais, com serosa íntegra. |  |
+| Sigmoidectomia oncológica, com ligadura vascular na origem, margens livres e linfadenectomia adequada. | O sigmoide foi ressecado com ligadura vascular na origem e margens de aspecto livre. |  |
 
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
@@ -496,6 +521,14 @@ Peso: 20 pontos.
 
 - Princípios de seguimento do câncer colorretal: discussão multidisciplinar, colonoscopia do cólon remanescente e avaliação para tratamento adjuvante.
 
+**O que acontece na hora quando o aluno faz a conduta**
+
+| Conduta | Efeito no paciente | Sinais vitais |
+| --- | --- | --- |
+| Encaminhar à oncologia e discutir o caso em reunião multidisciplinar, com o anatomopatológico e o estadiamento. | A consulta com a oncologia foi marcada e o caso entrou na pauta da reunião multidisciplinar. |  |
+| Programar colonoscopia completa do cólon remanescente em até seis meses, para afastar lesões sincrônicas. | A colonoscopia do cólon remanescente foi programada. |  |
+| Orientar colonoscopia de rastreio para os parentes de primeiro grau. | A paciente recebeu a orientação de rastreio com colonoscopia para os parentes de primeiro grau. |  |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Não prescrever profilaxia de tromboembolismo.": conta quando não marcou "Pós-operatório com realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo e deambulação.".
@@ -559,4 +592,5 @@ Pasta: `public/imagens/casos/caso-003/`. Cada imagem precisa de fonte e licença
 - A paciente é alérgica a dipirona. Hoje o simulador não avalia prescrição de medicamentos, então esse dado não pesa na nota. Avaliar se deve virar item da folha resposta.
 - Conferir os dados da referência (autores, ano e número).
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
+- Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um na tabela 'O que acontece na hora'.
 - Autor do caso: 'A definir'.

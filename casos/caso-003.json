@@ -1,6 +1,6 @@
 {
   "id": "CASO-003",
-  "versao": "1.1",
+  "versao": "1.2",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -795,6 +795,29 @@
         "justificativa": [
           "WSES 2017: a tomografia com contraste é o exame de escolha na suspeita de obstrução do cólon por câncer (Pisano et al., 2018)."
         ],
+        "efeitos": {
+          "Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético.": {
+            "texto": "Depois da hidratação e da analgesia, a cólica melhora, mas a dor do lado direito continua.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Dor (0 a 10)",
+                "valor": "4"
+              }
+            ]
+          },
+          "Correção de distúrbios eletrolíticos e controle da glicemia.": {
+            "texto": "A correção dos eletrólitos foi iniciada e a glicemia está sendo controlada."
+          },
+          "Avaliação precoce pela equipe de cirurgia.": {
+            "texto": "A equipe de cirurgia foi chamada e vem avaliar a paciente."
+          },
+          "Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes.": {
+            "texto": "A sonda nasogástrica drena cerca de 250 mL de líquido amarelado."
+          },
+          "Liberar dieta oral.": {
+            "texto": "Ela toma um pouco de suco e vomita logo em seguida."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -916,6 +939,23 @@
         "justificativa": [
           "WSES 2017 (Pisano et al., 2018): na obstrução do cólon esquerdo por câncer, a ressecção é o tratamento de escolha; o stent como ponte é alternativa em pacientes selecionados."
         ],
+        "efeitos": {
+          "Indicar cirurgia de urgência, pelo risco de perfuração do ceco em obstrução em alça fechada com dor na fossa ilíaca direita.": {
+            "texto": "O centro cirúrgico foi avisado e a sala está sendo preparada."
+          },
+          "Ressuscitação volêmica, antibiótico profilático e reserva de sangue.": {
+            "texto": "A ressuscitação volêmica e o antibiótico foram iniciados, e há reserva de sangue.",
+            "sinaisVitais": [
+              {
+                "rotulo": "Frequência cardíaca",
+                "valor": "92 bpm"
+              }
+            ]
+          },
+          "Demarcar o local de um possível estoma e obter consentimento que inclua a possibilidade de colostomia ou ileostomia.": {
+            "texto": "O local de um possível estoma foi demarcado. A paciente assinou o consentimento, preocupada, mas ciente."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -977,6 +1017,14 @@
         "justificativa": [
           "WSES 2017 (Pisano et al., 2018): ressecção com princípios oncológicos; cirurgia de Hartmann ou anastomose primária, com ou sem estoma de proteção, conforme o risco."
         ],
+        "efeitos": {
+          "Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco.": {
+            "texto": "A inspeção não mostra implantes no peritônio nem lesões no fígado. O ceco tem cor e brilho normais, com serosa íntegra."
+          },
+          "Sigmoidectomia oncológica, com ligadura vascular na origem, margens livres e linfadenectomia adequada.": {
+            "texto": "O sigmoide foi ressecado com ligadura vascular na origem e margens de aspecto livre."
+          }
+        },
         "modoLista": {
           "derivados": [
             {
@@ -1060,6 +1108,17 @@
         "justificativa": [
           "Princípios de seguimento do câncer colorretal: discussão multidisciplinar, colonoscopia do cólon remanescente e avaliação para tratamento adjuvante."
         ],
+        "efeitos": {
+          "Encaminhar à oncologia e discutir o caso em reunião multidisciplinar, com o anatomopatológico e o estadiamento.": {
+            "texto": "A consulta com a oncologia foi marcada e o caso entrou na pauta da reunião multidisciplinar."
+          },
+          "Programar colonoscopia completa do cólon remanescente em até seis meses, para afastar lesões sincrônicas.": {
+            "texto": "A colonoscopia do cólon remanescente foi programada."
+          },
+          "Orientar colonoscopia de rastreio para os parentes de primeiro grau.": {
+            "texto": "A paciente recebeu a orientação de rastreio com colonoscopia para os parentes de primeiro grau."
+          }
+        },
         "modoLista": {
           "derivados": [
             {

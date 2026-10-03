@@ -9,6 +9,7 @@ export interface RespostaPaciente {
   itens: { tipo: TipoDescoberta; id: string }[]
   respostaPadrao: string | null
   fala: string | null
+  foraDoRoteiro: boolean
 }
 
 export interface RespostaAvaliar {
@@ -55,7 +56,14 @@ async function chamar<T>(rota: string, sessao: string, corpo: unknown, tempoLimi
 
 export const perguntarPaciente = (
   sessao: string,
-  corpo: { casoId: string; caminho: string[]; texto: string; atalho?: Acao; historico?: { aluno: string; paciente: string }[] },
+  corpo: {
+    casoId: string
+    caminho: string[]
+    texto: string
+    atalho?: Acao
+    historico?: { aluno: string; paciente: string }[]
+    feitos?: string[]
+  },
 ) => chamar<RespostaPaciente>('paciente', sessao, corpo)
 
 export const interpretarHipotese = (sessao: string, corpo: { casoId: string; momento: string; texto: string }) =>

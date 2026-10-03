@@ -77,6 +77,9 @@ export function validarIntegridade(caso: Caso): Validacao {
       if (!categoriaDoItem(f, d.item)) erros.push(`Modo de lista do ${f.codigo}: o item "${d.item}" não existe na folha resposta.`)
       conferirCondicao(`Modo de lista do ${f.codigo}`, f, d.quando)
     }
+    for (const item of Object.keys(f.efeitos ?? {})) {
+      if (!categoriaDoItem(f, item)) erros.push(`Efeito do ${f.codigo}: o item "${item}" não existe na folha resposta.`)
+    }
     for (const item of Object.keys(f.modoLista?.rotulos ?? {})) {
       if (!categoriaDoItem(f, item)) erros.push(`Rótulo do ${f.codigo}: o item "${item}" não existe na folha resposta.`)
     }

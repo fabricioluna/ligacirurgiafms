@@ -1,6 +1,6 @@
 // Consultas ao caso: o que existe em cada momento, com os valores já atualizados.
 
-import type { Acao, Caso, Exame, ItemExameFisico, Momento, MomentoFolha, SinalVital } from './tipos.js'
+import type { Acao, Caso, Efeito, Exame, ItemExameFisico, Momento, MomentoFolha, SinalVital } from './tipos.js'
 
 export const ehDesfecho = (codigo: string) => /^D[0-9]+$/.test(codigo)
 
@@ -29,13 +29,20 @@ export function acoesDisponiveis(m: Momento): Acao[] {
   return m.acoesDisponiveis ?? ['anamnese', 'exameFisico', 'exames', 'conduta']
 }
 
-// Sinais vitais mais recentes ao longo do caminho, por rótulo.
-export function sinaisVitaisAtuais(caso: Caso, caminho: string[]): SinalVital[] {
+// Efeitos das condutas já feitas no momento, na ordem em que foram feitas.
+export function efeitosDe(caso: Caso, codigo: string, itens: string[]): (Efeito & { item: string })[] {
+  const f = caso.folhaResposta.momentos.find((m) => m.codigo === codigo)
+  return itens.flatMap((item) => (f?.efeitos?.[item] ? [{ item, ...f.efeitos[item] }] : []))
+}
+
+// Sinais vitais mais recentes ao longo do caminho, por rótulo; os efeitos das condutas do momento valem por último.
+export function sinaisVitaisAtuais(caso: Caso, caminho: string[], efeitos: Efeito[] = []): SinalVital[] {
   const porRotulo = new Map<string, SinalVital>()
   for (const s of caso.caso.apresentacaoInicial.sinaisVitais) porRotulo.set(s.rotulo, { ...s, alterado: s.alterado ?? false })
   for (const cod of caminho) {
     for (const s of momento(caso, cod).sinaisVitais ?? []) porRotulo.set(s.rotulo, { ...s, alterado: s.alterado ?? false })
   }
+  for (const e of efeitos) for (const s of e.sinaisVitais ?? []) porRotulo.set(s.rotulo, { ...s, alterado: s.alterado ?? false })
   return [...porRotulo.values()]
 }
 

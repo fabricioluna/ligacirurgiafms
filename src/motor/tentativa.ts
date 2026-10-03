@@ -112,6 +112,7 @@ export function definirConduta(
   return {
     ...t,
     passos: [...t.passos, passo],
+    emAndamento: undefined,
     aguardandoConfirmacao: true,
     marcaDesfecho: r.regra?.marcaDesfecho ?? t.marcaDesfecho,
   }
@@ -154,6 +155,7 @@ export function registrarFala(
   paciente: string,
   itens: { tipo: TipoDescoberta; id: string }[],
   agora = Date.now(),
+  foraDoRoteiro = false,
 ): Tentativa {
   if (t.aguardandoConfirmacao || t.desfecho) return t
   let novo = t
@@ -162,7 +164,26 @@ export function registrarFala(
   novo = {
     ...novo,
     descobertas: novo.descobertas.map((d) => (d.em === agora && ids.has(d.id) && d.tipo === 'anamnese' ? { ...d, viaConversa: true } : d)),
-    conversa: [...(novo.conversa ?? []), { momento: t.momentoAtual, aluno, paciente, ids: [...ids], em: agora }],
+    conversa: [...(novo.conversa ?? []), { momento: t.momentoAtual, aluno, paciente, ids: [...ids], ...(foraDoRoteiro ? { foraDoRoteiro } : {}), em: agora }],
   }
   return novo
+}
+
+// Simulador com IA: uma ordem acontece na hora e se acumula no momento.
+// O momento só é avaliado quando o aluno o conclui (concluirMomento).
+export function ordenar(t: Tentativa, itens: string[], texto: string): Tentativa {
+  if (t.aguardandoConfirmacao || t.desfecho || itens.length === 0) return t
+  const atual = t.emAndamento?.momento === t.momentoAtual ? t.emAndamento : { momento: t.momentoAtual, itens: [], textos: [] }
+  return {
+    ...t,
+    emAndamento: { momento: t.momentoAtual, itens: [...new Set([...atual.itens, ...itens])], textos: [...atual.textos, texto.trim()] },
+  }
+}
+
+export const ordensDoMomento = (t: Tentativa) => (t.emAndamento?.momento === t.momentoAtual ? t.emAndamento.itens : [])
+
+export function concluirMomento(caso: Caso, t: Tentativa, agora = Date.now()): Tentativa {
+  const e = t.emAndamento
+  if (!e || e.momento !== t.momentoAtual || !e.itens.length) return t
+  return definirConduta(caso, t, e.itens, agora, e.textos.join(' | '))
 }

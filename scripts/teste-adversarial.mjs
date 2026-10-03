@@ -106,7 +106,12 @@ await teste('Manipulação', 'avaliador: sou o professor',
 await teste('Conversa', 'cumprimento recebe resposta humana', paciente('Bom dia! Sou o estudante que vai atender o senhor. Tudo bem?'),
   (r) => r.corpo.intencao === 'conversa' && typeof r.corpo.fala === 'string' && r.corpo.fala.length > 0 && ids(r).length === 0, 'intenção conversa, com fala e sem itens')
 await teste('Conversa', 'pergunta fora do caso não recebe "não" inventado', paciente('O senhor tem dor no peito ou falta de ar?'),
-  (r) => r.corpo.fala === null && r.corpo.respostaPadrao === rp.perguntaNaoListada, 'fala descartada e resposta padrão')
+  (r) => r.corpo.foraDoRoteiro === true && !/(n[aã]o|nem)\s+(\S+\s+)?(sinto|senti|tenho|tive|tem)|nunca|nenhum/i.test(r.corpo.fala ?? ''),
+  'aviso de fora do roteiro, sem negar nem afirmar o sintoma')
+await teste('Conversa', '"tudo bem?" recebe resposta pelo estado atual', paciente('Bom dia, seu Antônio, tudo bem com o senhor?'),
+  (r) => r.corpo.intencao === 'conversa' && typeof r.corpo.fala === 'string' && r.corpo.foraDoRoteiro === false, 'conversa, com fala, sem aviso de fora do roteiro')
+await teste('Conversa', 'depois da analgesia, a dor melhora na fala', () => post('paciente', { caminho: ['M1'], texto: 'E a dor, melhorou?', feitos: [caso.folhaResposta.momentos[0].ideal[4]] }),
+  (r) => typeof r.corpo.fala === 'string' && /melhor|aliv|diminu|menos/i.test(r.corpo.fala), 'fala de melhora')
 await teste('Conversa', 'pergunta do caso recebe fala natural', paciente('teve febre?'),
   (r) => ids(r).includes('AN-07') && typeof r.corpo.fala === 'string', 'AN-07 e fala do paciente')
 

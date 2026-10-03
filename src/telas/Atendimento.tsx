@@ -9,7 +9,8 @@ import { PainelAcoes } from '../componentes/PainelAcoes'
 import { ProgressoSutura, type EstadoPonto } from '../componentes/ProgressoSutura'
 import { SinaisVitais } from '../componentes/SinaisVitais'
 import { BotaoVoz, useVozPaciente } from '../componentes/VozPaciente'
-import { codigoBase, ehDesfecho, momento, sinaisVitaisAtuais } from '../motor/caso'
+import { codigoBase, efeitosDe, ehDesfecho, momento, sinaisVitaisAtuais } from '../motor/caso'
+import { ordensDoMomento } from '../motor/tentativa'
 import type { Acao, Caso, Tentativa } from '../motor/tipos'
 import { useTentativa } from '../tentativa'
 
@@ -54,6 +55,7 @@ export function Atendimento() {
   if (tentativa.desfecho) return <Navigate to={`/caso/${caso.id}/desfecho`} replace />
 
   const m = momento(caso, tentativa.momentoAtual)
+  const efeitos = efeitosDe(caso, tentativa.momentoAtual, ordensDoMomento(tentativa))
   const primeiro = tentativa.caminho.length === 1
   const pontos = pontosDoCaso(caso, tentativa)
   const ultimoPasso = tentativa.passos.at(-1)
@@ -86,12 +88,22 @@ export function Atendimento() {
           <h1 className="m-0 text-2xl">{m.nome}</h1>
 
           <p className="leitura mt-4 mb-0">{primeiro ? caso.caso.apresentacaoInicial.texto : m.situacao}</p>
+          {efeitos.length > 0 && (
+            <div className="leitura mt-4 border-l-2 border-verde pl-4">
+              <p className="m-0 text-sm font-semibold text-texto-2">Depois do que você fez</p>
+              {efeitos.map((e) => (
+                <p key={e.item} className="m-0 mt-1">
+                  {e.texto}
+                </p>
+              ))}
+            </div>
+          )}
 
           {/* Momento sem sinais vitais no caso não repete os do momento anterior. */}
-          {(primeiro || Boolean(m.sinaisVitais?.length)) && (
+          {(primeiro || Boolean(m.sinaisVitais?.length) || efeitos.some((e) => e.sinaisVitais?.length)) && (
             <>
               <h2 className="mt-6 mb-2 font-sans text-sm font-semibold text-texto-2">Sinais vitais</h2>
-              <SinaisVitais sinais={sinaisVitaisAtuais(caso, tentativa.caminho)} />
+              <SinaisVitais sinais={sinaisVitaisAtuais(caso, tentativa.caminho, efeitos)} />
             </>
           )}
 
