@@ -1,9 +1,9 @@
-# Revisão do caso 001: ajustes feitos para a Fase 1
+# Caso 001: ajustes feitos e decisões pendentes
 
-Para: Dr. Rafael Lucena, professor e coordenador da liga
+Para quem for validar o conteúdo clínico do caso.
 Arquivo: `casos/caso-001.json`, versão 1.0 → 1.1
 
-Na Fase 1 o simulador funciona sem inteligência artificial. O aluno não escreve: ele pergunta, examina e pede exames clicando em listas, e define a conduta marcando itens numa lista. Para isso funcionar, precisei fazer alguns ajustes no arquivo do caso. **Nenhum texto clínico da folha resposta foi alterado.** Os ajustes estão abaixo, cada um com a pergunta que preciso que o senhor responda.
+Na Fase 1 o simulador funciona sem inteligência artificial. O aluno não escreve: ele pergunta, examina e pede exames clicando em listas, e define a conduta marcando itens numa lista. Para isso funcionar, precisei fazer alguns ajustes no arquivo do caso. **Nenhum texto clínico da folha resposta foi alterado.** Os ajustes estão abaixo, cada um com a decisão que ainda precisa ser tomada.
 
 ## 1. Como a conduta é avaliada
 

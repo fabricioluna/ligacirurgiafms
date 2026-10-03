@@ -34,4 +34,4 @@ O app mostra o crédito e a licença embaixo de cada imagem, inclusive em tela c
 ## Onde procurar
 
 - **Radiopaedia.org:** procure "adhesive small bowel obstruction", "small bowel obstruction closed loop" e "Gastrografin challenge". Os casos costumam ter a série completa de cortes.
-- **Imagens do próprio serviço**, se o Dr. Rafael tiver: precisam ser totalmente anonimizadas e ter a autorização registrada.
+- **Imagens de serviço próprio**, se houver: precisam ser totalmente anonimizadas e ter a autorização registrada.
