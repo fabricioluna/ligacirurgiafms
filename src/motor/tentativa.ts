@@ -7,7 +7,8 @@ import type { Caso, Descoberta, ModoSimulador, Passo, Tentativa, TipoDescoberta 
 
 export function novaTentativa(caso: Caso, nomeInformado = '', modo: ModoSimulador = 'estatico', agora = Date.now()): Tentativa {
   return {
-    id: `${agora.toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+    // Aleatório e impossível de adivinhar: é o que protege a tentativa no banco (sem login).
+    id: crypto.randomUUID(),
     casoId: caso.id,
     versaoCaso: caso.versao,
     modo,

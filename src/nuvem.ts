@@ -1,11 +1,12 @@
-// Firebase: login anônimo do aluno e gravação das tentativas e condutas não previstas.
+// Firebase: gravação das tentativas e das condutas não previstas, sem login.
 // Tudo aqui é opcional e silencioso: sem configuração, sem internet ou com erro, o simulador
 // segue funcionando normalmente, só não guarda na nuvem.
 // O Firebase é carregado depois da página, para não atrasar a abertura nem o modo sem internet.
 //
 // A configuração do Firebase web (VITE_FIREBASE_*) não é segredo: ela identifica o projeto.
-// Quem protege os dados são as regras em firestore.rules.
+// Quem protege os dados são as regras em firestore.rules: o navegador só grava, nunca lê.
 
+import { gravar, ler } from './armazenamento'
 import { calcularNota } from './motor/nota'
 import type { Caso, Tentativa } from './motor/tipos'
 
@@ -18,8 +19,18 @@ const config = {
 
 export const nuvemConfigurada = Boolean(config.apiKey && config.projectId && config.appId)
 
+// Identifica o aparelho (não a pessoa), para o histórico daquele aparelho.
+export function aparelhoId(): string {
+  const salvo = ler<string>('simulador:aparelho')
+  if (salvo) return salvo
+  const novo = crypto.randomUUID()
+  gravar('simulador:aparelho', novo)
+  return novo
+}
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
+
 type Conexao = {
-  uid: string
   fs: typeof import('firebase/firestore')
   db: import('firebase/firestore').Firestore
 }
@@ -31,22 +42,13 @@ function conectar(): Promise<Conexao | null> {
   if (!conexao) {
     conexao = (async () => {
       try {
-        const [{ initializeApp }, auth, fs] = await Promise.all([
-          import('firebase/app'),
-          import('firebase/auth'),
-          import('firebase/firestore'),
-        ])
-        const app = initializeApp(config)
-        const a = auth.getAuth(app)
-        const db = fs.getFirestore(app)
-        // Só para testes no computador: usa os emuladores locais do Firebase.
+        const [{ initializeApp }, fs] = await Promise.all([import('firebase/app'), import('firebase/firestore')])
+        const db = fs.getFirestore(initializeApp(config))
+        // Só para testes no computador: usa o emulador local do Firebase.
         if (import.meta.env.DEV && import.meta.env.VITE_FIREBASE_EMULADOR === '1') {
-          auth.connectAuthEmulator(a, 'http://127.0.0.1:9099', { disableWarnings: true })
           fs.connectFirestoreEmulator(db, '127.0.0.1', 8085)
         }
-        await a.authStateReady()
-        const usuario = a.currentUser ?? (await auth.signInAnonymously(a)).user
-        return { uid: usuario.uid, fs, db }
+        return { fs, db }
       } catch (e) {
         console.warn('[nuvem] sem conexão com o Firebase', e)
         conexao = null // tenta de novo na próxima gravação
@@ -57,13 +59,13 @@ function conectar(): Promise<Conexao | null> {
   return conexao
 }
 
-function dadosDaTentativa(caso: Caso, t: Tentativa, uid: string) {
+function dadosDaTentativa(caso: Caso, t: Tentativa) {
   const nota = calcularNota(caso, t.passos)
   return {
     casoId: t.casoId,
     versaoCaso: t.versaoCaso,
     modo: t.modo,
-    alunoUid: uid,
+    aparelhoId: aparelhoId(),
     nomeInformado: t.nomeInformado.slice(0, 80),
     iniciadaEm: t.iniciadaEm,
     finalizadaEm: t.finalizadaEm ?? null,
@@ -89,11 +91,13 @@ function dadosDaTentativa(caso: Caso, t: Tentativa, uid: string) {
 // Grava a tentativa (sempre o mesmo documento) e as condutas não previstas novas.
 // Os ids são fixos, então gravar de novo não duplica nada.
 export async function sincronizar(caso: Caso, t: Tentativa, naoPrevistasJaEnviadas: number): Promise<number> {
+  // Tentativas antigas, de antes do id aleatório, ficam só no aparelho.
+  if (!UUID.test(t.id)) return naoPrevistasJaEnviadas
   const c = await conectar()
   if (!c) return naoPrevistasJaEnviadas
-  const { fs, db, uid } = c
+  const { fs, db } = c
   try {
-    await fs.setDoc(fs.doc(db, 'tentativas', t.id), { ...dadosDaTentativa(caso, t, uid), atualizadaEm: fs.serverTimestamp() })
+    await fs.setDoc(fs.doc(db, 'tentativas', t.id), { ...dadosDaTentativa(caso, t), atualizadaEm: fs.serverTimestamp() })
   } catch (e) {
     console.warn('[nuvem] tentativa não gravada', e)
   }
@@ -106,7 +110,6 @@ export async function sincronizar(caso: Caso, t: Tentativa, naoPrevistasJaEnviad
         momento: n.momento,
         textoDoAluno: n.texto.slice(0, 400),
         tentativaId: t.id,
-        alunoUid: uid,
         revisada: false,
         em: fs.serverTimestamp(),
       })
