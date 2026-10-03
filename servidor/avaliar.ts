@@ -9,7 +9,8 @@ import { exigirIALigada } from './config.js'
 import type { ChamarIA } from './gemini.js'
 import { ErroIA } from './gemini.js'
 import { ErroPedido, textoDoAluno } from './http.js'
-import { SISTEMA_AVALIADOR } from './prompts.js'
+import { SISTEMA_AVALIADOR, SISTEMA_DIAGNOSTICO } from './prompts.js'
+import { todasAsHipoteses } from '../src/motor/diagnostico.js'
 
 export interface RespostaAvaliar {
   // Itens da folha (texto exato) que o aluno propôs.
@@ -67,10 +68,33 @@ export function interpretarAvaliar(caso: Caso, codigo: string, bruto: unknown): 
   return { itens, naoReconhecidos }
 }
 
+// Hipótese diagnóstica: a IA aponta quais hipóteses da lista do caso o texto do aluno propõe.
+export function hipotesesComId(caso: Caso) {
+  return todasAsHipoteses(caso).map((texto, i) => ({ id: `H${i + 1}`, texto }))
+}
+
+export function interpretarDiagnostico(caso: Caso, bruto: unknown): RespostaAvaliar {
+  if (!bruto || typeof bruto !== 'object' || !Array.isArray((bruto as { ids?: unknown }).ids)) throw new ErroIA('Saída da IA fora do formato')
+  const porId = new Map(hipotesesComId(caso).map((h) => [h.id, h.texto]))
+  const ids = (bruto as { ids: unknown[] }).ids.filter((x): x is string => typeof x === 'string' && porId.has(x))
+  return { itens: [...new Set(ids.map((x) => porId.get(x)!))], naoReconhecidos: [] }
+}
+
 export async function processarAvaliar(corpo: Record<string, unknown>, ia: ChamarIA): Promise<RespostaAvaliar> {
   const caso = await casoPublicado(corpo.casoId)
   if (!caso) throw new ErroPedido('Caso não encontrado.', 404)
   await exigirIALigada()
+  if (corpo.tipo === 'diagnostico') {
+    if (!caso.folhaResposta.diagnostico) throw new ErroPedido('Este caso não pede hipótese diagnóstica.')
+    const texto = textoDoAluno(corpo.texto)
+    const msg = [
+      'HIPÓTESES DO CASO (id | hipótese):',
+      ...hipotesesComId(caso).map((h) => `${h.id} | ${h.texto}`),
+      '',
+      `<aluno>${texto.replace(/<\/?aluno>/gi, '')}</aluno>`,
+    ].join('\n')
+    return interpretarDiagnostico(caso, await ia(SISTEMA_DIAGNOSTICO, msg))
+  }
   const codigo = corpo.momento
   if (typeof codigo !== 'string' || !caso.folhaResposta.momentos.some((m) => m.codigo === codigo)) {
     throw new ErroPedido('Momento inválido.')

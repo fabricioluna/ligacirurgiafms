@@ -4,7 +4,8 @@ import bruto from '../casos/caso-001.json'
 import type { Caso } from '../src/motor/tipos'
 import { momentoFolha } from '../src/motor/caso'
 import { interpretarPaciente, mensagemPaciente, processarPaciente } from '../servidor/paciente'
-import { interpretarAvaliar, itensComId, mensagemAvaliar, processarAvaliar } from '../servidor/avaliar'
+import { hipotesesComId, interpretarAvaliar, interpretarDiagnostico, itensComId, mensagemAvaliar, processarAvaliar } from '../servidor/avaliar'
+import { verificarFala } from '../servidor/verificarFala'
 import { funcao } from '../servidor/http'
 import { interpretarFeedback, mensagemFeedback, passosValidados, processarFeedback } from '../servidor/feedback'
 import { ErroIA, chamarGemini } from '../servidor/gemini'
@@ -202,5 +203,64 @@ describe('chamada ao Gemini', () => {
     await expect(chamarGemini('s', 'u')).rejects.toThrow(ErroIA)
     expect(fetchFalso).toHaveBeenCalledTimes(2)
     vi.unstubAllGlobals()
+  })
+})
+
+describe('fala do paciente', () => {
+  const febre = caso.caso.anamnese.find((a) => a.id === 'AN-07')!.resposta // "Não senti febre."
+  const fontes = [febre, caso.caso.apresentacaoInicial.texto, 'Antônio 66 anos']
+
+  it('aceita a mesma informação dita de outro jeito', () => {
+    expect(verificarFala('Febre não, doutor. Só essa dor que vem e volta.', fontes).ok).toBe(true)
+    expect(verificarFala('Bom dia, doutor. Pode me chamar de Antônio.', fontes).ok).toBe(true)
+    expect(verificarFala('Tenho 66 anos.', fontes).ok).toBe(true)
+  })
+
+  it('recusa fato clínico que não está nas fontes', () => {
+    expect(verificarFala('Não tive febre, mas estou com diarreia.', fontes).ok).toBe(false)
+    expect(verificarFala('Febre não. Tomo remédio pra pressão.', fontes).ok).toBe(false)
+    expect(verificarFala('Faz uns 3 dias que estou assim.', fontes).ok).toBe(false)
+    expect(verificarFala('Meu pai teve câncer.', fontes).ok).toBe(false)
+    expect(verificarFala('Acho que é obstrução, né doutor?', fontes).ok).toBe(false)
+  })
+
+  it('fala aprovada vai para o aluno; fala com invenção é descartada', () => {
+    const boa = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'pergunta', ids: ['AN-07'], fala: 'Febre não senti, doutor.' })
+    expect(boa.fala).toBe('Febre não senti, doutor.')
+    const ruim = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'pergunta', ids: ['AN-07'], fala: 'Febre não, mas tive diarreia ontem.' })
+    expect(ruim.fala).toBeNull()
+    expect(ruim.itens).toEqual([{ tipo: 'anamnese', id: 'AN-07' }])
+  })
+
+  it('pergunta sobre o que não está no caso nunca recebe um não inventado', () => {
+    const r = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'pergunta', ids: [], fala: 'Não sinto isso não, doutor.' })
+    expect(r.fala).toBeNull()
+    expect(r.respostaPadrao).toBe(caso.caso.respostaPadrao.perguntaNaoListada)
+  })
+
+  it('cumprimento vira conversa, sem item e sem resposta padrão', () => {
+    const r = interpretarPaciente(caso, 'M1', ['M1'], { intencao: 'conversa', ids: [], fala: 'Bom dia, doutor.' })
+    expect(r).toMatchObject({ intencao: 'conversa', itens: [], respostaPadrao: null, fala: 'Bom dia, doutor.' })
+  })
+
+  it('no intraoperatório o paciente não fala', () => {
+    const r = interpretarPaciente(caso, 'M4', ['M1', 'M2', 'M3', 'M4'], { intencao: 'conversa', ids: [], fala: 'Oi.' })
+    expect(r.fala).toBeNull()
+  })
+
+  it('a IA recebe quem é o paciente, a situação atual e a conversa anterior', () => {
+    const msg = mensagemPaciente(caso, 'M1', ['M1'], 'e a dor?', [{ aluno: 'bom dia', paciente: 'Bom dia, doutor.' }])
+    expect(msg).toContain('Antônio, 66 anos')
+    expect(msg).toContain(caso.caso.apresentacaoInicial.texto)
+    expect(msg).toContain('Paciente: Bom dia, doutor.')
+  })
+})
+
+describe('hipótese diagnóstica pela IA', () => {
+  it('traduz ids para as hipóteses do caso e ignora ids inventados', () => {
+    const lista = hipotesesComId(caso)
+    const r = interpretarDiagnostico(caso, { ids: ['H1', 'H99'] })
+    expect(r.itens).toEqual([lista[0].texto])
+    expect(lista[0].texto).toBe(caso.folhaResposta.diagnostico!.correto)
   })
 })

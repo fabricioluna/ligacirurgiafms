@@ -26,6 +26,10 @@ export function criarIaSimulada(palavrasPorId: Map<string, string[]>): ChamarIA 
       }
     }
 
+    if (sistema.includes('hipótese diagnóstica')) {
+      return { ids: ['H1'] }
+    }
+
     if (sistema.includes('folha resposta')) {
       // Avaliador: item reconhecido quando metade das palavras longas dele aparece no texto do aluno.
       const ids = linhas
@@ -53,6 +57,8 @@ export function criarIaSimulada(palavrasPorId: Map<string, string[]>): ChamarIA 
               ? 'pedido_exame'
               : 'pergunta'
     const tipoNaoListado = intencao === 'pedido_exame' && !ids.length ? (/raio|tomo|ultrass|resson|imagem/.test(aluno) ? 'imagem' : 'laboratorio') : null
-    return { intencao, ids, tipoNaoListado }
+    // Fala: a primeira resposta do caso que corresponde, sem reescrever.
+    const resposta = linhas.find((l) => l[0] === ids[0] && l.length >= 3)?.[2] ?? null
+    return { intencao, ids, tipoNaoListado, fala: intencao === 'pergunta' ? resposta : null }
   }
 }

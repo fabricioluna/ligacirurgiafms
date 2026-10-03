@@ -3,6 +3,7 @@ import { Navigate } from 'react-router'
 import { AvaliacaoMomento } from '../componentes/AvaliacaoMomento'
 import { CampoTexto } from '../componentes/CampoTexto'
 import { Descoberta } from '../componentes/Descoberta'
+import { FalaConversa } from '../componentes/FalaConversa'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { PainelAcoes } from '../componentes/PainelAcoes'
 import { ProgressoSutura, type EstadoPonto } from '../componentes/ProgressoSutura'
@@ -31,7 +32,7 @@ function pontosDoCaso(caso: Caso, t: Tentativa) {
 export function Atendimento() {
   const { caso, tentativa } = useTentativa()
   const [acao, setAcao] = useState<Acao | null>(null)
-  const voz = useVozPaciente(tentativa?.descobertas ?? [])
+  const voz = useVozPaciente(tentativa?.descobertas ?? [], tentativa?.conversa ?? [])
 
   const comIA = tentativa?.modo === 'ia'
 
@@ -59,7 +60,12 @@ export function Atendimento() {
   const animar = tentativa.aguardandoConfirmacao && ultimoPasso
     ? pontos.findIndex((p) => p.rotulo === momento(caso, codigoBase(ultimoPasso.momento)).nome)
     : undefined
-  const descobertas = [...tentativa.descobertas].reverse()
+  // Histórico: conversa com o paciente e laudos, do mais recente para o mais antigo.
+  // Descobertas reveladas numa conversa aparecem na fala do paciente, não repetidas.
+  const historico = [
+    ...(tentativa.conversa ?? []).map((f) => ({ chave: `f${f.em}`, momento: f.momento, em: f.em, f })),
+    ...tentativa.descobertas.filter((d) => !d.viaConversa).map((d) => ({ chave: `${d.id}-${d.momento}`, momento: d.momento, em: d.em, d })),
+  ].sort((a, b) => b.em - a.em)
 
   return (
     <div className="flex min-h-dvh flex-col">
@@ -97,18 +103,18 @@ export function Atendimento() {
             <h2 id="titulo-historico" className="m-0 font-sans text-sm font-semibold text-texto-2">
               O que você já descobriu
             </h2>
-            {descobertas.length === 0 ? (
+            {historico.length === 0 ? (
               <p className="mt-3 mb-0 text-texto-2">
                 Ainda nada. Use os atalhos para perguntar ao paciente, examinar e pedir exames antes de definir a conduta.
               </p>
             ) : (
               <ol className="leitura m-0 mt-4 list-none space-y-5 p-0">
-                {descobertas.map((d) => (
-                  <li key={`${d.id}-${d.momento}`}>
-                    {d.momento !== tentativa.momentoAtual && (
-                      <p className="m-0 mb-1 text-xs text-texto-2">Em: {momento(caso, d.momento).nome}</p>
+                {historico.map((h) => (
+                  <li key={h.chave}>
+                    {h.momento !== tentativa.momentoAtual && (
+                      <p className="m-0 mb-1 text-xs text-texto-2">Em: {momento(caso, h.momento).nome}</p>
                     )}
-                    <Descoberta d={d} casoId={caso.id} />
+                    {'f' in h ? <FalaConversa f={h.f} nome={caso.caso.paciente?.nome} /> : <Descoberta d={h.d} casoId={caso.id} />}
                   </li>
                 ))}
               </ol>

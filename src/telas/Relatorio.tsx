@@ -3,10 +3,12 @@
 import { Link, Navigate, useNavigate } from 'react-router'
 import { SeloClassificacao } from '../componentes/Classificacao'
 import { ComentarioPreceptor } from '../componentes/ComentarioPreceptor'
+import { DiscussaoCaso } from '../componentes/DiscussaoCaso'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { ProgressoSutura } from '../componentes/ProgressoSutura'
 import { codigoBase, desfecho, ehDesfecho, momento } from '../motor/caso'
 import { calcularNota } from '../motor/nota'
+import { ROTULO_DIAGNOSTICO } from '../motor/diagnostico'
 import { useTentativa } from '../tentativa'
 import { QUALIDADE } from './Desfecho'
 
@@ -24,7 +26,7 @@ export function Relatorio() {
   if (!tentativa?.desfecho) return <Navigate to={`/caso/${caso.id}`} replace />
 
   const t = tentativa
-  const nota = calcularNota(caso, t.passos)
+  const nota = calcularNota(caso, t.passos, t.diagnostico)
   const d = desfecho(caso, t.desfecho!)
   const q = d.qualidade ? QUALIDADE[d.qualidade] : null
   const folha = caso.folhaResposta
@@ -76,6 +78,11 @@ export function Relatorio() {
                 {formatarData(t.iniciadaEm)}
                 {t.finalizadaEm && <>. Duração: {duracao(t.finalizadaEm - t.iniciadaEm)}</>}.
               </p>
+              {nota.diagnostico && (
+                <p className="mt-3 mb-0 text-sm text-texto-2">
+                  Condutas: {nota.condutas ?? '–'} de 100. Hipótese diagnóstica: {t.diagnostico ? ROTULO_DIAGNOSTICO[t.diagnostico.classificacao].toLowerCase() : 'não registrada'} (vale {nota.diagnostico.peso}% da nota).
+                </p>
+              )}
               {pesoJogado < 100 && (
                 <p className="mt-3 mb-0 text-sm text-texto-2">
                   O caso terminou antes do último momento. A nota considera só os momentos que você jogou.
@@ -137,6 +144,8 @@ export function Relatorio() {
               </table>
             </div>
           </section>
+
+          <DiscussaoCaso caso={caso} t={t} />
 
           <section aria-labelledby="t-caminho">
             <h2 id="t-caminho" className="m-0 text-xl">Seu caminho e o caminho ideal</h2>

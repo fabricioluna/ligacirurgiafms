@@ -1,6 +1,6 @@
 {
   "id": "CASO-003",
-  "versao": "1.0",
+  "versao": "1.1",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -44,6 +44,11 @@
         }
       ],
       "pergunta": "Você é o médico de plantão. Como conduz o caso?"
+    },
+    "paciente": {
+      "nome": "Maria",
+      "idade": 68,
+      "jeito": "Professora aposentada, articulada e educada. Está assustada e pergunta muito; desconfia que seja algo grave por causa do pai. Responde com detalhes quando perguntam."
     },
     "anamnese": [
       {
@@ -708,6 +713,47 @@
       "Aplicar os princípios oncológicos mesmo na cirurgia de urgência e escolher a reconstrução conforme o risco.",
       "Conduzir o pós-operatório e o encaminhamento oncológico."
     ],
+    "diagnostico": {
+      "momento": "M1",
+      "correto": "Obstrução do cólon esquerdo (sigmoide) por neoplasia, em alça fechada, com risco de perfuração do ceco.",
+      "parciais": [
+        "Obstrução do cólon por neoplasia, sem considerar o risco do ceco.",
+        "Obstrução do cólon, sem definir a causa.",
+        "Obstrução intestinal, sem definir o nível nem a causa."
+      ],
+      "incorretos": [
+        "Volvo de sigmoide.",
+        "Diverticulite aguda complicada.",
+        "Obstrução de intestino delgado por bridas.",
+        "Apendicite aguda.",
+        "Pseudo-obstrução colônica (síndrome de Ogilvie)."
+      ],
+      "peso": 10,
+      "raciocinio": [
+        "Distensão progressiva com parada de eliminação de fezes e gases, ruídos metálicos e pouca participação do delgado indicam obstrução do cólon.",
+        "Meses de mudança do hábito intestinal, fezes afiladas, sangue escuro, perda de peso, anemia microcítica e pai com câncer de intestino apontam para neoplasia colorretal.",
+        "A tomografia mostra a lesão estenosante no sigmoide e a válvula ileocecal competente: o cólon funciona como alça fechada e o ceco é o ponto que mais distende.",
+        "A dor na fossa ilíaca direita sobre um ceco de 11,5 cm é o sinal de alerta de sofrimento do ceco."
+      ],
+      "diferenciais": [
+        {
+          "diagnostico": "Volvo de sigmoide",
+          "comoAfastar": "Não há torção do mesossigmoide; há uma lesão expansiva circunferencial."
+        },
+        {
+          "diagnostico": "Diverticulite complicada",
+          "comoAfastar": "Não há febre importante, coleção ou inflamação da gordura pericólica, e a história de meses com anemia e perda de peso favorece neoplasia."
+        },
+        {
+          "diagnostico": "Apendicite aguda",
+          "comoAfastar": "A dor na fossa ilíaca direita vem da distensão do ceco, numa obstrução distal confirmada na tomografia."
+        },
+        {
+          "diagnostico": "Obstrução de delgado por bridas",
+          "comoAfastar": "A distensão é do cólon, do ceco ao sigmoide, com delgado pouco distendido."
+        }
+      ]
+    },
     "momentos": [
       {
         "codigo": "M1",

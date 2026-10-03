@@ -79,6 +79,27 @@ export interface Desfecho {
   qualidade?: 'otimo' | 'bom' | 'ruim' | 'grave'
 }
 
+export interface Persona {
+  nome: string
+  idade: number
+  jeito: string
+  acompanhante?: string
+}
+
+// Hipótese diagnóstica pedida ao aluno antes da conduta do momento indicado.
+export interface DiagnosticoFolha {
+  momento: string
+  correto: string
+  parciais: string[]
+  incorretos: string[]
+  // Percentual da nota final que o diagnóstico vale (o resto vem das condutas).
+  peso: number
+  raciocinio: string[]
+  diferenciais: { diagnostico: string; comoAfastar: string }[]
+}
+
+export type ClassificacaoDiagnostico = 'correto' | 'parcial' | 'incorreto'
+
 export interface MomentoFolha {
   codigo: string
   ideal: string[]
@@ -110,6 +131,8 @@ export interface Caso {
       referencias?: string[]
     }
     apresentacaoInicial: { texto: string; sinaisVitais: SinalVital[]; pergunta: string }
+    // Quem é o paciente, para a IA falar no jeito dele. Não é informação clínica.
+    paciente?: Persona
     anamnese: ItemAnamnese[]
     exameFisico: ItemExameFisico[]
     exames: Exame[]
@@ -125,6 +148,7 @@ export interface Caso {
   }
   folhaResposta: {
     objetivos: string[]
+    diagnostico?: DiagnosticoFolha
     momentos: MomentoFolha[]
     caminhoIdeal: string
     pesos: Record<string, number>
@@ -149,6 +173,17 @@ export interface Descoberta {
   imagem?: Imagem
   // Texto que o aluno escreveu, no simulador com IA.
   pedido?: string
+  // Revelada numa conversa com a IA: a fala do paciente fica em Tentativa.conversa.
+  viaConversa?: boolean
+  em: number
+}
+
+// Simulador com IA: o que o aluno disse e o que o paciente respondeu, já conferido pelo servidor.
+export interface Fala {
+  momento: string
+  aluno: string
+  paciente: string
+  ids: string[]
   em: number
 }
 
@@ -189,6 +224,8 @@ export interface Tentativa {
   descobertas: Descoberta[]
   passos: Passo[]
   naoPrevistas: NaoPrevista[]
+  conversa?: Fala[]
+  diagnostico?: { texto: string; item: string; classificacao: ClassificacaoDiagnostico; em: number }
   aguardandoConfirmacao: boolean
   marcaDesfecho?: string
   desfecho?: string
@@ -198,6 +235,7 @@ export interface Tentativa {
 
 export interface ComentarioPreceptor {
   resumo: string
+  raciocinio?: string
   pontosFortes: string[]
   pontosACorrigir: string[]
   errosCriticos: string[]

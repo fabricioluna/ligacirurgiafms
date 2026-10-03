@@ -3,7 +3,8 @@ import { describe, expect, it } from 'vitest'
 import bruto from '../casos/caso-001.json'
 import type { Caso, Tentativa } from '../src/motor/tipos'
 import { avaliarConduta, opcoesDoMomento } from '../src/motor/avaliacao'
-import { definirConduta, idsRevelados, novaTentativa, revelar, seguir } from '../src/motor/tentativa'
+import { definirConduta, idsRevelados, novaTentativa, registrarDiagnostico, revelar, seguir } from '../src/motor/tentativa'
+import { precisaDiagnostico } from '../src/motor/diagnostico'
 import { calcularNota } from '../src/motor/nota'
 import { exameDisponivel, examesAtuais, momentoFolha } from '../src/motor/caso'
 
@@ -24,7 +25,10 @@ function condutaIdeal(t: Tentativa) {
   return folha(t.momentoAtual).ideal.filter((i) => opcoes.has(i))
 }
 
-const jogar = (t: Tentativa, selecionados: string[]) => seguir(definirConduta(caso, t, selecionados))
+// Registra a hipótese correta quando o momento pede, antes da conduta.
+const comDiagnostico = (t: Tentativa) =>
+  precisaDiagnostico(caso, t) ? registrarDiagnostico(caso, t, caso.folhaResposta.diagnostico!.correto, 'teste') : t
+const jogar = (t: Tentativa, selecionados: string[]) => seguir(definirConduta(caso, comDiagnostico(t), selecionados))
 
 const ate = (alvo: string) => {
   let t = revelarTudoDoM1(novaTentativa(caso))
@@ -37,12 +41,12 @@ describe('caminho ideal', () => {
     let t = revelarTudoDoM1(novaTentativa(caso))
     for (const esperado of ['M1', 'M2', 'M3', 'M4', 'M5']) {
       expect(t.momentoAtual).toBe(esperado)
-      t = definirConduta(caso, t, condutaIdeal(t))
+      t = definirConduta(caso, comDiagnostico(t), condutaIdeal(t))
       expect(t.passos.at(-1)!.classificacao, esperado).toBe('ideal')
       t = seguir(t)
     }
     expect(t.desfecho).toBe('D1')
-    expect(calcularNota(caso, t.passos)).toMatchObject({ final: 100, faixa: 'Excelente' })
+    expect(calcularNota(caso, t.passos, t.diagnostico)).toMatchObject({ final: 100, faixa: 'Excelente' })
   })
 })
 
@@ -65,7 +69,7 @@ describe('M1', () => {
   })
 
   it('dar alta leva a M3-ALT e termina em D4, mesmo conduzindo bem o resto', () => {
-    let t = revelarTudoDoM1(novaTentativa(caso))
+    let t = comDiagnostico(revelarTudoDoM1(novaTentativa(caso)))
     t = definirConduta(caso, t, [...condutaIdeal(t), folha('M1').errosCriticos[0]])
     expect(t.passos.at(-1)).toMatchObject({ classificacao: 'perigosa', regraAplicada: 'R1', proximo: 'M3-ALT' })
     t = seguir(t)
@@ -93,8 +97,8 @@ describe('M2 a M5', () => {
   it('cirurgia imediata no M2 termina em D2 e a nota conta só os momentos jogados', () => {
     const t = jogar(ate('M2'), [sub('M2', 0)])
     expect(t.desfecho).toBe('D2')
-    // M1 ideal (20 de 20) + M2 subótima (10 de 20) = 30 de 40
-    expect(calcularNota(caso, t.passos).final).toBe(75)
+    // Condutas: M1 ideal (20 de 20) + M2 subótima (10 de 20) = 75%. Diagnóstico correto vale 10% da nota: 75 x 0,9 + 100 x 0,1
+    expect(calcularNota(caso, t.passos, t.diagnostico).final).toBe(78)
   })
 
   it('conservador sem contraste é aceitável; sem prazo é subótima (R4)', () => {
@@ -139,5 +143,29 @@ describe('M2 a M5', () => {
     expect(opcoes.some((o) => o.item === folha('M1').errosCriticos[1])).toBe(false)
     expect(opcoes.find((o) => o.item === folha('M1').errosCriticos[0])!.rotulo).toBe('Tratar como gastroenterite e dar alta.')
     expect(opcoesDoMomento(caso, 'M1', 'x')).toEqual(opcoes)
+  })
+})
+
+describe('hipótese diagnóstica', () => {
+  const dx = caso.folhaResposta.diagnostico!
+
+  it('a conduta do M1 só é aceita depois da hipótese', () => {
+    const t = revelarTudoDoM1(novaTentativa(caso))
+    expect(definirConduta(caso, t, condutaIdeal(t)).passos).toHaveLength(0)
+    const comDx = registrarDiagnostico(caso, t, dx.correto, 'brida')
+    expect(definirConduta(caso, comDx, condutaIdeal(comDx)).passos).toHaveLength(1)
+  })
+
+  it('a hipótese é registrada uma vez e não muda', () => {
+    let t = registrarDiagnostico(caso, novaTentativa(caso), dx.incorretos[0], 'gastroenterite')
+    t = registrarDiagnostico(caso, t, dx.correto, 'brida')
+    expect(t.diagnostico?.classificacao).toBe('incorreto')
+  })
+
+  it('pesa 10% da nota: hipótese errada com condutas perfeitas dá 90', () => {
+    let t = registrarDiagnostico(caso, revelarTudoDoM1(novaTentativa(caso)), dx.incorretos[0], 'gastroenterite')
+    while (!t.desfecho) t = seguir(definirConduta(caso, t, condutaIdeal(t)))
+    expect(calcularNota(caso, t.passos, t.diagnostico).final).toBe(90)
+    expect(calcularNota(caso, t.passos, { ...t.diagnostico!, classificacao: 'parcial' }).final).toBe(95)
   })
 })

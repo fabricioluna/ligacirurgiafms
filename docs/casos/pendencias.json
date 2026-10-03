@@ -10,6 +10,7 @@
     "O texto do M3 passou a dizer 'a sonda, se mantida, drenou...', porque o aluno pode ter retirado a sonda no M2.",
     "17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabela 'Textos mostrados na lista'). Conferir se descrevem a mesma conduta.",
     "Resposta padrão para segmento do exame físico que não existe no caso: 'Sem alterações nesse segmento.' Confirmar.",
+    "Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.",
     "Autor do caso: 'A definir'."
   ],
   "CASO-002": [
@@ -20,6 +21,7 @@
     "Cirurgia de urgência sem tentar a descompressão (R4) termina no desfecho D5, de qualidade 'bom'. Confirmar.",
     "Os momentos M3 e M4 não têm erro crítico na folha resposta. Avaliar se algum deve ser incluído.",
     "Conferir os dados das referências (autores, ano e número).",
+    "Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.",
     "Autor do caso: 'A definir'."
   ],
   "CASO-003": [
@@ -31,6 +33,7 @@
     "Dar alta sem encaminhar à oncologia termina num desfecho próprio (D6). Confirmar.",
     "A paciente é alérgica a dipirona. Hoje o simulador não avalia prescrição de medicamentos, então esse dado não pesa na nota. Avaliar se deve virar item da folha resposta.",
     "Conferir os dados da referência (autores, ano e número).",
+    "Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.",
     "Autor do caso: 'A definir'."
   ]
 }

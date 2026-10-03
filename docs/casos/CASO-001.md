@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.2 |
+| Versão | 1.3 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -42,6 +42,12 @@ Pronto-socorro, 22 horas. O Sr. Antônio, 66 anos, aposentado, chega trazido pel
 | Dor (0 a 10) | 6 |
 
 **Pergunta ao aluno:** Você é o médico de plantão. Como conduz o caso?
+
+## O paciente
+
+Antônio, 66 anos. Acompanhante: a filha. Aposentado, de poucas palavras. Fala devagar, cansado e com dor, e chama o médico de doutor. Fica apreensivo quando ouve falar em cirurgia.
+
+No simulador com IA, o paciente fala nesse jeito, mas só com o que está escrito no caso. O servidor confere cada fala e descarta a que trouxer fato clínico novo.
 
 ## Anamnese
 
@@ -245,6 +251,41 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | D4 | grave | Retorno em choque séptico após alta indevida. Controle de danos, UTI e internação prolongada. Sobrevive, com complicações. |
 
 # Parte 2: folha resposta
+
+## Hipótese diagnóstica
+
+Pedida no M1, antes da conduta. Vale 10% da nota final: correta 100%, incompleta 50%, incorreta 0%.
+
+**Correta:** Obstrução de intestino delgado por bridas (aderências da laparotomia prévia), sem sinais de sofrimento de alça.
+
+**Incompletas**
+
+- Obstrução intestinal, sem definir o nível nem a causa.
+- Obstrução de intestino delgado, sem definir a causa.
+
+**Incorretas** (também aparecem como alternativas na lista do simulador estático)
+
+- Gastroenterite aguda.
+- Íleo paralítico por distúrbio eletrolítico.
+- Obstrução do cólon por neoplasia.
+- Hérnia inguinal encarcerada.
+- Pancreatite aguda.
+
+**Como chegar ao diagnóstico**
+
+- Dor em cólica, vômitos, distensão e parada de eliminação de gases fecham a síndrome de obstrução intestinal.
+- Vômitos que ficam biliosos cedo, distensão moderada e alças de delgado com níveis em degraus apontam para obstrução de delgado, e não do cólon.
+- A laparotomia prévia torna as bridas a causa mais provável. Os orifícios herniários livres afastam hérnia, e a ausência de massa e de sangramento torna neoplasia menos provável.
+- Sem febre, sem peritonite, com lactato normal e realce de parede preservado na tomografia, não há sinais de sofrimento de alça na admissão.
+
+**Diagnósticos diferenciais**
+
+| Diferencial | Como afastar |
+| --- | --- |
+| Hérnia encarcerada | Exame de todos os orifícios herniários e da cicatriz, que estão livres. |
+| Obstrução do cólon | Pouco gás no cólon, alças de delgado distendidas e ponto de transição no íleo distal na tomografia; sem alteração prévia do hábito intestinal nem sangramento. |
+| Gastroenterite aguda | Não há diarreia, e há parada de eliminação de gases, distensão e ruídos metálicos. |
+| Íleo paralítico | Ruídos aumentados e metálicos e ponto de transição na tomografia indicam obstrução mecânica. |
 
 O que se espera do aluno em cada momento. A classificação vem do item mais grave: um erro crítico pesa mais que vários acertos. Sem erro, quem cobre todos os itens ideais tem conduta ideal; quem cobre parte, aceitável.
 
@@ -663,4 +704,5 @@ Pasta: `public/imagens/casos/caso-001/`. Cada imagem precisa de fonte e licença
 - O texto do M3 passou a dizer 'a sonda, se mantida, drenou...', porque o aluno pode ter retirado a sonda no M2.
 - 17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabela 'Textos mostrados na lista'). Conferir se descrevem a mesma conduta.
 - Resposta padrão para segmento do exame físico que não existe no caso: 'Sem alterações nesse segmento.' Confirmar.
+- Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
 - Autor do caso: 'A definir'.

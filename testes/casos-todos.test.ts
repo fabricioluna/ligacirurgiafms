@@ -9,7 +9,8 @@ import type { Caso, Tentativa } from '../src/motor/tipos'
 import { avaliarConduta, opcoesDoMomento } from '../src/motor/avaliacao'
 import { exameDisponivel, momentoFolha, temaParaAluno } from '../src/motor/caso'
 import { calcularNota } from '../src/motor/nota'
-import { definirConduta, novaTentativa, revelar, seguir } from '../src/motor/tentativa'
+import { definirConduta, novaTentativa, registrarDiagnostico, revelar, seguir } from '../src/motor/tentativa'
+import { precisaDiagnostico } from '../src/motor/diagnostico'
 import { validarIntegridade } from '../src/motor/validacao'
 
 const casos = [c1, c2, c3].map((c) => c as unknown as Caso)
@@ -44,6 +45,7 @@ describe.each(casos.map((c) => [c.id, c] as const))('%s', (_id, caso) => {
     let t = revelarTudo(caso, novaTentativa(caso))
     let voltas = 0
     while (!t.desfecho && voltas++ < 12) {
+      if (precisaDiagnostico(caso, t)) t = registrarDiagnostico(caso, t, caso.folhaResposta.diagnostico!.correto, 'teste')
       t = definirConduta(caso, t, idealComoOpcao(caso, t.momentoAtual))
       expect(t.passos.at(-1)!.classificacao, t.momentoAtual).toBe('ideal')
       t = seguir(t)
@@ -51,7 +53,7 @@ describe.each(casos.map((c) => [c.id, c] as const))('%s', (_id, caso) => {
     }
     const d = caso.caso.desfechos.find((x) => x.codigo === t.desfecho)
     expect(d?.qualidade).toBe('otimo')
-    expect(calcularNota(caso, t.passos).final).toBe(100)
+    expect(calcularNota(caso, t.passos, t.diagnostico).final).toBe(100)
   })
 
   it('cada regra dispara quando a conduta que a aciona é escolhida', () => {
@@ -62,6 +64,14 @@ describe.each(casos.map((c) => [c.id, c] as const))('%s', (_id, caso) => {
         expect(res.proximo).toBe(r.vaiPara)
       }
     }
+  })
+
+  it('tem hipótese diagnóstica sem repetições, pedida num momento que existe', () => {
+    const dx = caso.folhaResposta.diagnostico!
+    expect(caso.caso.momentos.some((m) => m.codigo === dx.momento)).toBe(true)
+    const todas = [dx.correto, ...dx.parciais, ...dx.incorretos]
+    expect(new Set(todas).size).toBe(todas.length)
+    expect(dx.incorretos.length).toBeGreaterThanOrEqual(3)
   })
 
   it('o que aparece antes do caso não entrega o diagnóstico', () => {

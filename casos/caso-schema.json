@@ -410,6 +410,30 @@
               }
             }
           }
+        },
+        "paciente": {
+          "type": "object",
+          "description": "Quem é o paciente, para a IA falar no jeito dele no simulador com IA. Não é informação clínica e não entra na avaliação.",
+          "required": [
+            "nome",
+            "idade",
+            "jeito"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string"
+            },
+            "idade": {
+              "type": "integer"
+            },
+            "jeito": {
+              "type": "string",
+              "description": "Como a pessoa fala e se comporta."
+            },
+            "acompanhante": {
+              "type": "string"
+            }
+          }
         }
       }
     },
@@ -591,6 +615,72 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        },
+        "diagnostico": {
+          "type": "object",
+          "description": "Hipótese diagnóstica que o aluno registra antes da conduta do momento indicado.",
+          "required": [
+            "momento",
+            "correto",
+            "parciais",
+            "incorretos",
+            "peso",
+            "raciocinio",
+            "diferenciais"
+          ],
+          "properties": {
+            "momento": {
+              "type": "string"
+            },
+            "correto": {
+              "type": "string"
+            },
+            "parciais": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Hipóteses incompletas, mas no caminho certo."
+            },
+            "incorretos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Hipóteses erradas, usadas também como alternativas na lista do simulador estático."
+            },
+            "peso": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 50,
+              "description": "Percentual da nota final que o diagnóstico vale."
+            },
+            "raciocinio": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Como chegar ao diagnóstico, para a discussão no relatório."
+            },
+            "diferenciais": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "diagnostico",
+                  "comoAfastar"
+                ],
+                "properties": {
+                  "diagnostico": {
+                    "type": "string"
+                  },
+                  "comoAfastar": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           }
         }
       }

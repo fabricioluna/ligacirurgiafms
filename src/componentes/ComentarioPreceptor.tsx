@@ -29,7 +29,13 @@ export function ComentarioPreceptor() {
   const pedir = () => {
     pedido.current = true
     setEstado('carregando')
-    escreverComentario(t.id, { casoId: caso.id, desfecho: t.desfecho!, qtdNaoPrevistas: t.naoPrevistas.length, passos: t.passos })
+    escreverComentario(t.id, {
+      casoId: caso.id,
+      desfecho: t.desfecho!,
+      qtdNaoPrevistas: t.naoPrevistas.length,
+      passos: t.passos,
+      diagnostico: t.diagnostico?.item,
+    })
       .then((c) => {
         salvarComentario(c)
         setEstado('pronto')
@@ -72,6 +78,12 @@ export function ComentarioPreceptor() {
       {estado === 'pronto' && c && (
         <div className="leitura mt-4 space-y-5">
           <p className="m-0">{c.resumo}</p>
+          {c.raciocinio && (
+            <div>
+              <h3 className="m-0 font-sans text-base font-semibold">Como pensar este caso</h3>
+              <p className="m-0 mt-2">{c.raciocinio}</p>
+            </div>
+          )}
           <Lista titulo="O que foi bem conduzido" itens={c.pontosFortes} />
           <Lista titulo="O que custou tempo, risco ou recurso" itens={c.pontosACorrigir} />
           <Lista titulo="Erros críticos" itens={c.errosCriticos} destaque />

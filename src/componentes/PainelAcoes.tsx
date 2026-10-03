@@ -8,6 +8,8 @@ import { opcoesDoMomento } from '../motor/avaliacao'
 import type { Acao, Descoberta as TDescoberta } from '../motor/tipos'
 import { useTentativa } from '../tentativa'
 import { Descoberta } from './Descoberta'
+import { HipoteseDiagnostica } from './HipoteseDiagnostica'
+import { precisaDiagnostico } from '../motor/diagnostico'
 
 export const NOME_ACAO: Record<Acao, string> = {
   anamnese: 'Perguntar ao paciente',
@@ -82,7 +84,7 @@ export function PainelAcoes({ acao, setAcao, semBarra = false }: Props) {
         {/* As listas ficam montadas: fechar o painel não perde o que o aluno já marcou. */}
         {disponiveis.map((a) => (
           <div key={a + m.codigo} className={aberta === a ? 'flex min-h-0 flex-1 flex-col' : 'hidden'}>
-            {a === 'conduta' ? <ListaConduta /> : <ListaDescoberta tipo={a} />}
+            {a === 'conduta' ? (precisaDiagnostico(caso, tentativa!) ? <HipoteseDiagnostica /> : <ListaConduta />) : <ListaDescoberta tipo={a} />}
           </div>
         ))}
       </div>

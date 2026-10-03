@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.0 |
+| Versão | 1.1 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -41,6 +41,12 @@ Pronto-socorro, 15 horas. O Sr. José, 79 anos, mora com a esposa e tem doença 
 | Dor (0 a 10) | 4 |
 
 **Pergunta ao aluno:** Você é o médico de plantão. Como conduz o caso?
+
+## O paciente
+
+José, 79 anos. Acompanhante: a filha. Fala baixo e devagar por causa do Parkinson, com frases curtas. Às vezes a filha completa o que ele quer dizer. Fica sem graça por não ter voltado para operar da outra vez.
+
+No simulador com IA, o paciente fala nesse jeito, mas só com o que está escrito no caso. O servidor confere cada fala e descarta a que trouxer fato clínico novo.
 
 ## Anamnese
 
@@ -237,6 +243,41 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | D5 | bom | Cirurgia de urgência que a descompressão provavelmente evitaria. Boa evolução, mas com colostomia e uma segunda cirurgia para reconstruir o trânsito. |
 
 # Parte 2: folha resposta
+
+## Hipótese diagnóstica
+
+Pedida no M1, antes da conduta. Vale 10% da nota final: correta 100%, incompleta 50%, incorreta 0%.
+
+**Correta:** Volvo de sigmoide, sem sinais de isquemia ou perfuração.
+
+**Incompletas**
+
+- Obstrução do cólon, sem definir a causa.
+- Obstrução intestinal, sem definir o nível nem a causa.
+
+**Incorretas** (também aparecem como alternativas na lista do simulador estático)
+
+- Constipação intestinal com fecaloma.
+- Pseudo-obstrução colônica (síndrome de Ogilvie).
+- Obstrução de intestino delgado por bridas.
+- Gastroenterite aguda.
+- Isquemia mesentérica aguda.
+
+**Como chegar ao diagnóstico**
+
+- Distensão volumosa e assimétrica, parada de eliminação de gases e fezes, pouca dor e vômitos tardios sugerem obstrução do cólon.
+- Idoso com constipação crônica, doença neurológica, uso diário de laxante e um episódio anterior resolvido com sonda retal formam o perfil típico do volvo de sigmoide.
+- A radiografia com o sinal do grão de café sugere o volvo, e a tomografia o confirma com o sinal do redemoinho e o afilamento em bico.
+- Sem peritonite, com lactato normal e parede da alça com realce preservado, não há sinais de isquemia.
+
+**Diagnósticos diferenciais**
+
+| Diferencial | Como afastar |
+| --- | --- |
+| Pseudo-obstrução colônica (síndrome de Ogilvie) | Na tomografia há torção do mesossigmoide e afilamento em bico, que indicam obstrução mecânica; na pseudo-obstrução não há ponto de obstrução. |
+| Fecaloma | O toque retal mostra ampola vazia, sem fecaloma. |
+| Obstrução do cólon por neoplasia | Não há massa na tomografia, nem perda de peso ou sangramento na história. |
+| Obstrução de intestino delgado | A distensão é do cólon, com o delgado pouco envolvido, e não há cirurgia prévia. |
 
 O que se espera do aluno em cada momento. A classificação vem do item mais grave: um erro crítico pesa mais que vários acertos. Sem erro, quem cobre todos os itens ideais tem conduta ideal; quem cobre parte, aceitável.
 
@@ -573,4 +614,5 @@ Pasta: `public/imagens/casos/caso-002/`. Cada imagem precisa de fonte e licença
 - Cirurgia de urgência sem tentar a descompressão (R4) termina no desfecho D5, de qualidade 'bom'. Confirmar.
 - Os momentos M3 e M4 não têm erro crítico na folha resposta. Avaliar se algum deve ser incluído.
 - Conferir os dados das referências (autores, ano e número).
+- Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
 - Autor do caso: 'A definir'.

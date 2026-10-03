@@ -2,12 +2,13 @@
 
 import type { Acao, ComentarioPreceptor, Passo, TipoDescoberta } from './motor/tipos'
 
-export type Intencao = 'pergunta' | 'exame_fisico' | 'pedido_exame' | 'conduta' | 'fora_de_escopo'
+export type Intencao = 'pergunta' | 'conversa' | 'exame_fisico' | 'pedido_exame' | 'conduta' | 'fora_de_escopo'
 
 export interface RespostaPaciente {
   intencao: Intencao
   itens: { tipo: TipoDescoberta; id: string }[]
   respostaPadrao: string | null
+  fala: string | null
 }
 
 export interface RespostaAvaliar {
@@ -52,15 +53,20 @@ async function chamar<T>(rota: string, sessao: string, corpo: unknown, tempoLimi
   }
 }
 
-export const perguntarPaciente = (sessao: string, corpo: { casoId: string; caminho: string[]; texto: string; atalho?: Acao }) =>
-  chamar<RespostaPaciente>('paciente', sessao, corpo)
+export const perguntarPaciente = (
+  sessao: string,
+  corpo: { casoId: string; caminho: string[]; texto: string; atalho?: Acao; historico?: { aluno: string; paciente: string }[] },
+) => chamar<RespostaPaciente>('paciente', sessao, corpo)
+
+export const interpretarHipotese = (sessao: string, corpo: { casoId: string; momento: string; texto: string }) =>
+  chamar<RespostaAvaliar>('avaliar', sessao, { ...corpo, tipo: 'diagnostico' })
 
 export const interpretarConduta = (sessao: string, corpo: { casoId: string; momento: string; texto: string }) =>
   chamar<RespostaAvaliar>('avaliar', sessao, corpo)
 
 export const escreverComentario = (
   sessao: string,
-  corpo: { casoId: string; desfecho: string; qtdNaoPrevistas: number; passos: Passo[] },
+  corpo: { casoId: string; desfecho: string; qtdNaoPrevistas: number; passos: Passo[]; diagnostico?: string },
 ) =>
   chamar<ComentarioPreceptor>(
     'feedback',

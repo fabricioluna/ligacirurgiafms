@@ -1,6 +1,6 @@
 {
   "id": "CASO-002",
-  "versao": "1.0",
+  "versao": "1.1",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -44,6 +44,12 @@
         }
       ],
       "pergunta": "Você é o médico de plantão. Como conduz o caso?"
+    },
+    "paciente": {
+      "nome": "José",
+      "idade": 79,
+      "jeito": "Fala baixo e devagar por causa do Parkinson, com frases curtas. Às vezes a filha completa o que ele quer dizer. Fica sem graça por não ter voltado para operar da outra vez.",
+      "acompanhante": "a filha"
     },
     "anamnese": [
       {
@@ -759,6 +765,46 @@
       "Entender por que a sigmoidectomia deve ser feita na mesma internação após a descompressão.",
       "Escolher entre anastomose primária e cirurgia de Hartmann conforme o estado do paciente."
     ],
+    "diagnostico": {
+      "momento": "M1",
+      "correto": "Volvo de sigmoide, sem sinais de isquemia ou perfuração.",
+      "parciais": [
+        "Obstrução do cólon, sem definir a causa.",
+        "Obstrução intestinal, sem definir o nível nem a causa."
+      ],
+      "incorretos": [
+        "Constipação intestinal com fecaloma.",
+        "Pseudo-obstrução colônica (síndrome de Ogilvie).",
+        "Obstrução de intestino delgado por bridas.",
+        "Gastroenterite aguda.",
+        "Isquemia mesentérica aguda."
+      ],
+      "peso": 10,
+      "raciocinio": [
+        "Distensão volumosa e assimétrica, parada de eliminação de gases e fezes, pouca dor e vômitos tardios sugerem obstrução do cólon.",
+        "Idoso com constipação crônica, doença neurológica, uso diário de laxante e um episódio anterior resolvido com sonda retal formam o perfil típico do volvo de sigmoide.",
+        "A radiografia com o sinal do grão de café sugere o volvo, e a tomografia o confirma com o sinal do redemoinho e o afilamento em bico.",
+        "Sem peritonite, com lactato normal e parede da alça com realce preservado, não há sinais de isquemia."
+      ],
+      "diferenciais": [
+        {
+          "diagnostico": "Pseudo-obstrução colônica (síndrome de Ogilvie)",
+          "comoAfastar": "Na tomografia há torção do mesossigmoide e afilamento em bico, que indicam obstrução mecânica; na pseudo-obstrução não há ponto de obstrução."
+        },
+        {
+          "diagnostico": "Fecaloma",
+          "comoAfastar": "O toque retal mostra ampola vazia, sem fecaloma."
+        },
+        {
+          "diagnostico": "Obstrução do cólon por neoplasia",
+          "comoAfastar": "Não há massa na tomografia, nem perda de peso ou sangramento na história."
+        },
+        {
+          "diagnostico": "Obstrução de intestino delgado",
+          "comoAfastar": "A distensão é do cólon, com o delgado pouco envolvido, e não há cirurgia prévia."
+        }
+      ]
+    },
     "momentos": [
       {
         "codigo": "M1",

@@ -26,6 +26,7 @@ Como montar:
 - Itens da folha resposta (ideal, aceitaveis, subotimas, errosCriticos) são copiados como frases completas.
 - Nas regras, preencha "disparadaPor" com o texto EXATO dos itens da folha resposta daquele momento que acionam a regra. Se nenhum item corresponder, deixe "disparadaPor" vazio e registre a pendência.
 - Não crie o campo "modoLista".
+- "paciente" (nome, idade, jeito) e "folhaResposta.diagnostico" (hipótese correta, incompletas, incorretas, raciocínio, diferenciais e peso): copie se estiverem nos documentos. Se não estiverem, deixe esses campos de fora e registre a pendência.
 - Pesos: copie do documento. Se não existirem, deixe {} e registre a pendência.
 - Imagens: crie o objeto "imagem" quando o documento citar uma imagem, com "arquivo" no padrão img-<número>-<letra>.jpg, e "fonte" e "licenca" copiados do documento, ou "A definir" se não houver.
 - "tema" no formato "Área geral: diagnóstico", por exemplo "Abdome agudo obstrutivo: volvo de sigmoide". O aluno vê só a área geral antes do caso.

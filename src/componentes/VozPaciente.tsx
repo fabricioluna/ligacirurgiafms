@@ -4,7 +4,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { gravar, ler } from '../armazenamento'
-import type { Descoberta } from '../motor/tipos'
+import type { Descoberta, Fala } from '../motor/tipos'
 
 const CHAVE = 'simulador:voz'
 const suportado = () => typeof window !== 'undefined' && 'speechSynthesis' in window
@@ -14,15 +14,17 @@ function vozPortugues(): SpeechSynthesisVoice | undefined {
   return vozes.find((v) => v.lang === 'pt-BR') ?? vozes.find((v) => v.lang.startsWith('pt'))
 }
 
-export function useVozPaciente(descobertas: Descoberta[]) {
+export function useVozPaciente(descobertas: Descoberta[], conversa: Fala[] = []) {
   const [ligada, setLigada] = useState(() => suportado() && ler<boolean>(CHAVE) === true)
-  const vistas = useRef(descobertas.length)
+  const vistas = useRef({ d: descobertas.length, c: conversa.length })
 
   useEffect(() => {
-    const novas = descobertas.slice(vistas.current)
-    vistas.current = descobertas.length
+    const novasD = descobertas.slice(vistas.current.d)
+    const novasC = conversa.slice(vistas.current.c)
+    vistas.current = { d: descobertas.length, c: conversa.length }
     if (!ligada || !suportado()) return
-    const falas = novas.filter((d) => d.tipo === 'anamnese').map((d) => d.texto)
+    // Fala da conversa (simulador com IA) ou resposta do caso (lista); laudos não são lidos.
+    const falas = [...novasC.map((f) => f.paciente), ...novasD.filter((d) => d.tipo === 'anamnese' && !d.viaConversa).map((d) => d.texto)]
     if (!falas.length) return
     const s = window.speechSynthesis
     s.cancel()
@@ -32,7 +34,7 @@ export function useVozPaciente(descobertas: Descoberta[]) {
     if (v) u.voice = v
     u.rate = 0.95
     s.speak(u)
-  }, [descobertas, ligada])
+  }, [descobertas, conversa, ligada])
 
   useEffect(() => () => {
     if (suportado()) window.speechSynthesis.cancel()

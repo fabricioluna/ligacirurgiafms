@@ -4,7 +4,8 @@
 
 import { momento, momentoFolha, desfecho as buscarDesfecho, ehDesfecho, codigoBase } from '../src/motor/caso.js'
 import { calcularNota } from '../src/motor/nota.js'
-import type { Caso, Classificacao, Passo } from '../src/motor/tipos.js'
+import type { Caso, Classificacao, Passo, Tentativa } from '../src/motor/tipos.js'
+import { classificarDiagnostico } from '../src/motor/diagnostico.js'
 import { categoriaDoItem } from '../src/motor/avaliacao.js'
 import { casoPublicado } from './casos.js'
 import { exigirIALigada } from './config.js'
@@ -15,6 +16,7 @@ import { SISTEMA_FEEDBACK } from './prompts.js'
 
 export interface ComentarioPreceptor {
   resumo: string
+  raciocinio: string
   pontosFortes: string[]
   pontosACorrigir: string[]
   errosCriticos: string[]
@@ -59,8 +61,14 @@ export function passosValidados(caso: Caso, bruto: unknown): Passo[] {
   })
 }
 
-export function mensagemFeedback(caso: Caso, passos: Passo[], codigoDesfecho: string, qtdNaoPrevistas: number) {
-  const nota = calcularNota(caso, passos)
+export function mensagemFeedback(
+  caso: Caso,
+  passos: Passo[],
+  codigoDesfecho: string,
+  qtdNaoPrevistas: number,
+  diagnostico?: Tentativa['diagnostico'],
+) {
+  const nota = calcularNota(caso, passos, diagnostico)
   const d = buscarDesfecho(caso, codigoDesfecho)
   const fr = caso.folhaResposta
   const linhas = [
@@ -68,9 +76,20 @@ export function mensagemFeedback(caso: Caso, passos: Passo[], codigoDesfecho: st
     `TEMA: ${caso.caso.identificacao.tema}`,
     `NOTA FINAL: ${nota.final ?? 'sem nota'}${nota.faixa ? ` (${nota.faixa})` : ''}`,
     `DESFECHO ALCANÇADO: ${d.texto}${d.qualidade ? ` [qualidade: ${d.qualidade}]` : ''}`,
-    '',
-    'PASSOS DO ESTUDANTE:',
   ]
+  const dx = caso.folhaResposta.diagnostico
+  if (dx) {
+    linhas.push(
+      '',
+      `DIAGNÓSTICO DO CASO: ${dx.correto}`,
+      `HIPÓTESE DO ESTUDANTE: ${diagnostico ? `${diagnostico.item} (${diagnostico.classificacao})` : 'não registrada'}`,
+      'COMO CHEGAR AO DIAGNÓSTICO:',
+      ...dx.raciocinio.map((r) => `- ${r}`),
+      'DIAGNÓSTICOS DIFERENCIAIS:',
+      ...dx.diferenciais.map((x) => `- ${x.diagnostico}: ${x.comoAfastar}`),
+    )
+  }
+  linhas.push('', 'PASSOS DO ESTUDANTE:')
   passos.forEach((p, i) => {
     const m = momento(caso, p.momento)
     const folha = momentoFolha(caso, p.momento)
@@ -113,6 +132,7 @@ export function interpretarFeedback(bruto: unknown): ComentarioPreceptor {
   const itens = (v: unknown) => lista(v, 6).map((x) => limpar(x, 500)).filter(Boolean)
   return {
     resumo: limpar(s.resumo, 1200),
+    raciocinio: typeof s.raciocinio === 'string' ? limpar(s.raciocinio, 2500) : '',
     pontosFortes: itens(s.pontosFortes),
     pontosACorrigir: itens(s.pontosACorrigir),
     errosCriticos: itens(s.errosCriticos),
@@ -132,6 +152,10 @@ export async function processarFeedback(corpo: Record<string, unknown>, ia: Cham
   const qtd = typeof corpo.qtdNaoPrevistas === 'number' ? Math.max(0, Math.min(50, Math.floor(corpo.qtdNaoPrevistas))) : 0
   // Cada momento conta uma vez (o ALT substitui o original).
   if (new Set(passos.map((p) => codigoBase(p.momento))).size !== passos.length) throw new ErroPedido('Passos repetidos.')
-  const bruto = await ia(SISTEMA_FEEDBACK, mensagemFeedback(caso, passos, codigoDesfecho, qtd), { tempoLimiteMs: 20000, temperatura: 0.2 })
+  // Hipótese do aluno: só vale se for uma das hipóteses do caso.
+  const item = typeof corpo.diagnostico === 'string' ? corpo.diagnostico : ''
+  const classificacao = classificarDiagnostico(caso, item)
+  const diagnostico = classificacao ? { texto: item, item, classificacao, em: 0 } : undefined
+  const bruto = await ia(SISTEMA_FEEDBACK, mensagemFeedback(caso, passos, codigoDesfecho, qtd, diagnostico), { tempoLimiteMs: 20000, temperatura: 0.2 })
   return interpretarFeedback(bruto)
 }

@@ -1,6 +1,6 @@
 {
   "id": "CASO-001",
-  "versao": "1.2",
+  "versao": "1.3",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -43,6 +43,12 @@
         }
       ],
       "pergunta": "Você é o médico de plantão. Como conduz o caso?"
+    },
+    "paciente": {
+      "nome": "Antônio",
+      "idade": 66,
+      "jeito": "Aposentado, de poucas palavras. Fala devagar, cansado e com dor, e chama o médico de doutor. Fica apreensivo quando ouve falar em cirurgia.",
+      "acompanhante": "a filha"
     },
     "anamnese": [
       {
@@ -801,6 +807,46 @@
       "Avaliar a viabilidade da alça com uma pausa antes de ressecar e decidir entre anastomose e controle de danos.",
       "Conduzir o pós-operatório e reconhecer complicações."
     ],
+    "diagnostico": {
+      "momento": "M1",
+      "correto": "Obstrução de intestino delgado por bridas (aderências da laparotomia prévia), sem sinais de sofrimento de alça.",
+      "parciais": [
+        "Obstrução intestinal, sem definir o nível nem a causa.",
+        "Obstrução de intestino delgado, sem definir a causa."
+      ],
+      "incorretos": [
+        "Gastroenterite aguda.",
+        "Íleo paralítico por distúrbio eletrolítico.",
+        "Obstrução do cólon por neoplasia.",
+        "Hérnia inguinal encarcerada.",
+        "Pancreatite aguda."
+      ],
+      "peso": 10,
+      "raciocinio": [
+        "Dor em cólica, vômitos, distensão e parada de eliminação de gases fecham a síndrome de obstrução intestinal.",
+        "Vômitos que ficam biliosos cedo, distensão moderada e alças de delgado com níveis em degraus apontam para obstrução de delgado, e não do cólon.",
+        "A laparotomia prévia torna as bridas a causa mais provável. Os orifícios herniários livres afastam hérnia, e a ausência de massa e de sangramento torna neoplasia menos provável.",
+        "Sem febre, sem peritonite, com lactato normal e realce de parede preservado na tomografia, não há sinais de sofrimento de alça na admissão."
+      ],
+      "diferenciais": [
+        {
+          "diagnostico": "Hérnia encarcerada",
+          "comoAfastar": "Exame de todos os orifícios herniários e da cicatriz, que estão livres."
+        },
+        {
+          "diagnostico": "Obstrução do cólon",
+          "comoAfastar": "Pouco gás no cólon, alças de delgado distendidas e ponto de transição no íleo distal na tomografia; sem alteração prévia do hábito intestinal nem sangramento."
+        },
+        {
+          "diagnostico": "Gastroenterite aguda",
+          "comoAfastar": "Não há diarreia, e há parada de eliminação de gases, distensão e ruídos metálicos."
+        },
+        {
+          "diagnostico": "Íleo paralítico",
+          "comoAfastar": "Ruídos aumentados e metálicos e ponto de transição na tomografia indicam obstrução mecânica."
+        }
+      ]
+    },
     "momentos": [
       {
         "codigo": "M1",

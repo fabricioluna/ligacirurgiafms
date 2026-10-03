@@ -3,6 +3,7 @@
 
 import { avaliarConduta } from './avaliacao.js'
 import { ehDesfecho, exameFisicoAtual, examesAtuais } from './caso.js'
+import { classificarDiagnostico, precisaDiagnostico } from './diagnostico.js'
 import type { Caso, Descoberta, ModoSimulador, Passo, Tentativa, TipoDescoberta } from './tipos.js'
 
 export function novaTentativa(caso: Caso, nomeInformado = '', modo: ModoSimulador = 'estatico', agora = Date.now()): Tentativa {
@@ -92,6 +93,8 @@ export function definirConduta(
   textoDoAluno?: string,
 ): Tentativa {
   if (t.aguardandoConfirmacao || t.desfecho || selecionados.length === 0) return t
+  // A hipótese diagnóstica vem antes da conduta do momento indicado no caso.
+  if (precisaDiagnostico(caso, t)) return t
   const r = avaliarConduta(caso, t.momentoAtual, selecionados, idsRevelados(t))
   const passo: Passo = {
     momento: t.momentoAtual,
@@ -132,4 +135,34 @@ export function seguir(t: Tentativa, agora = Date.now()): Tentativa {
     momentoAtual: ultimo.proximo,
     caminho: [...t.caminho, ultimo.proximo],
   }
+}
+
+// Registra a hipótese diagnóstica (uma vez por tentativa).
+export function registrarDiagnostico(caso: Caso, t: Tentativa, item: string, texto: string, agora = Date.now()): Tentativa {
+  if (t.diagnostico || t.desfecho) return t
+  const classificacao = classificarDiagnostico(caso, item)
+  if (!classificacao) return t
+  return { ...t, diagnostico: { texto: texto.trim() || item, item, classificacao, em: agora } }
+}
+
+// Simulador com IA: guarda a troca de falas e revela os itens do caso que ela cobriu.
+// O que o paciente disse já foi conferido pelo servidor contra o caso.
+export function registrarFala(
+  caso: Caso,
+  t: Tentativa,
+  aluno: string,
+  paciente: string,
+  itens: { tipo: TipoDescoberta; id: string }[],
+  agora = Date.now(),
+): Tentativa {
+  if (t.aguardandoConfirmacao || t.desfecho) return t
+  let novo = t
+  for (const i of itens) novo = revelar(caso, novo, i.tipo, i.id, agora)
+  const ids = new Set(itens.map((i) => i.id))
+  novo = {
+    ...novo,
+    descobertas: novo.descobertas.map((d) => (d.em === agora && ids.has(d.id) && d.tipo === 'anamnese' ? { ...d, viaConversa: true } : d)),
+    conversa: [...(novo.conversa ?? []), { momento: t.momentoAtual, aluno, paciente, ids: [...ids], em: agora }],
+  }
+  return novo
 }

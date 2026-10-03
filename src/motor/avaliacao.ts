@@ -135,6 +135,8 @@ function regraAplicavel(
 export const terminaCaso = (proximo: string) => ehDesfecho(proximo)
 
 // Embaralhamento determinístico (mulberry32 sobre um hash da semente).
+export const embaralharEstavel = <T,>(lista: T[], semente: string) => embaralhar(lista, semente)
+
 function embaralhar<T>(lista: T[], semente: string): T[] {
   let h = 1779033703 ^ semente.length
   for (let i = 0; i < semente.length; i++) {

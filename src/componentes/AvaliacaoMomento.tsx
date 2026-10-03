@@ -6,6 +6,7 @@ import { ehDesfecho, momento, momentoFolha } from '../motor/caso'
 import type { Passo } from '../motor/tipos'
 import { useTentativa } from '../tentativa'
 import { SeloClassificacao, corDaClassificacao } from './Classificacao'
+import { ROTULO_DIAGNOSTICO } from '../motor/diagnostico'
 
 function Lista({ itens }: { itens: string[] }) {
   return (
@@ -18,7 +19,9 @@ function Lista({ itens }: { itens: string[] }) {
 }
 
 export function AvaliacaoMomento({ passo }: { passo: Passo }) {
-  const { caso, seguir } = useTentativa()
+  const { caso, seguir, tentativa } = useTentativa()
+  const dx = caso.folhaResposta.diagnostico
+  const hipotese = dx && dx.momento === passo.momento ? tentativa?.diagnostico : undefined
   const dialogo = useRef<HTMLDialogElement>(null)
   const folha = momentoFolha(caso, passo.momento)
   const regra = passo.regraAplicada ? caso.caso.regras.find((r) => r.codigo === passo.regraAplicada) : null
@@ -48,6 +51,18 @@ export function AvaliacaoMomento({ passo }: { passo: Passo }) {
         </div>
 
         <div className="leitura min-h-0 flex-1 space-y-6 overflow-y-auto px-5 py-5 sm:flex-none">
+          {hipotese && dx && (
+            <section className="border border-borda p-4">
+              <h3 className="m-0 font-sans text-base font-semibold">Hipótese diagnóstica</h3>
+              <p className="m-0 mt-1">
+                “{hipotese.texto}”:{' '}
+                <span className="font-semibold" style={{ color: hipotese.classificacao === 'correto' ? 'var(--c-ideal)' : hipotese.classificacao === 'parcial' ? 'var(--c-subotima)' : 'var(--c-perigosa)' }}>
+                  {ROTULO_DIAGNOSTICO[hipotese.classificacao].toLowerCase()}
+                </span>
+              </p>
+              {hipotese.classificacao !== 'correto' && <p className="m-0 mt-2 text-texto-2">O esperado: {dx.correto}</p>}
+            </section>
+          )}
           {passo.classificacao === 'perigosa' && (
             <section>
               <h3 className="m-0 mb-2 font-sans text-base font-semibold text-perigosa">

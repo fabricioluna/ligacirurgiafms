@@ -24,7 +24,7 @@ service cloud.firestore {
         return d.keys().hasOnly([
             'casoId', 'versaoCaso', 'modo', 'aparelhoId', 'nomeInformado', 'iniciadaEm', 'finalizadaEm',
             'caminho', 'passos', 'notaFinal', 'notaPorMomento', 'errosCriticos', 'desfecho',
-            'qtdNaoPrevistas', 'atualizadaEm'
+            'qtdNaoPrevistas', 'diagnostico', 'atualizadaEm'
           ])
           && texto(d.casoId, 20)
           && texto(d.versaoCaso, 20)

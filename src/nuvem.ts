@@ -60,7 +60,7 @@ function conectar(): Promise<Conexao | null> {
 }
 
 function dadosDaTentativa(caso: Caso, t: Tentativa) {
-  const nota = calcularNota(caso, t.passos)
+  const nota = calcularNota(caso, t.passos, t.diagnostico)
   return {
     casoId: t.casoId,
     versaoCaso: t.versaoCaso,
@@ -85,6 +85,7 @@ function dadosDaTentativa(caso: Caso, t: Tentativa) {
     errosCriticos: t.passos.flatMap((p) => p.errosCriticos),
     desfecho: t.desfecho ?? null,
     qtdNaoPrevistas: t.naoPrevistas.length,
+    diagnostico: t.diagnostico ? { texto: t.diagnostico.texto.slice(0, 400), classificacao: t.diagnostico.classificacao } : null,
   }
 }
 
@@ -96,10 +97,15 @@ export async function sincronizar(caso: Caso, t: Tentativa, naoPrevistasJaEnviad
   const c = await conectar()
   if (!c) return naoPrevistasJaEnviadas
   const { fs, db } = c
+  const dados = { ...dadosDaTentativa(caso, t), atualizadaEm: fs.serverTimestamp() }
   try {
-    await fs.setDoc(fs.doc(db, 'tentativas', t.id), { ...dadosDaTentativa(caso, t), atualizadaEm: fs.serverTimestamp() })
+    await fs.setDoc(fs.doc(db, 'tentativas', t.id), dados)
   } catch (e) {
-    console.warn('[nuvem] tentativa não gravada', e)
+    // Regras antigas no Firebase (sem o campo diagnostico): grava o resto.
+    if ((e as { code?: string }).code === 'permission-denied') {
+      const { diagnostico: _sem, ...semDiagnostico } = dados
+      await fs.setDoc(fs.doc(db, 'tentativas', t.id), semDiagnostico).catch((e2) => console.warn('[nuvem] tentativa não gravada', e2))
+    } else console.warn('[nuvem] tentativa não gravada', e)
   }
   let enviadas = naoPrevistasJaEnviadas
   for (let i = naoPrevistasJaEnviadas; i < t.naoPrevistas.length; i++) {

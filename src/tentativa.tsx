@@ -7,6 +7,8 @@ import { ehPrevia } from './dados/casos'
 import {
   definirConduta,
   novaTentativa,
+  registrarDiagnostico,
+  registrarFala,
   registrarNaoPrevista,
   registrarSemCorrespondencia,
   revelar,
@@ -37,6 +39,8 @@ interface ValorContexto {
   definirConduta: (selecionados: string[], textoDoAluno?: string) => void
   seguir: () => void
   salvarComentario: (c: ComentarioPreceptor) => void
+  registrarDiagnostico: (item: string, texto: string) => void
+  registrarFala: (aluno: string, paciente: string, itens: { tipo: TipoDescoberta; id: string }[]) => void
   // Contingência: a tentativa segue no simulador estático a partir daqui.
   seguirSemIA: () => void
 }
@@ -86,6 +90,8 @@ export function ProvedorTentativa({ caso, children }: { caso: Caso; children: Re
     definirConduta: (sel, texto) => atualizar((t) => definirConduta(caso, t, sel, Date.now(), texto)),
     seguir: () => atualizar((t) => seguir(t)),
     salvarComentario: (c) => atualizar((t) => ({ ...t, comentario: c })),
+    registrarDiagnostico: (item, texto) => atualizar((t) => registrarDiagnostico(caso, t, item, texto)),
+    registrarFala: (aluno, paciente, itens) => atualizar((t) => registrarFala(caso, t, aluno, paciente, itens)),
     seguirSemIA: () => atualizar((t) => ({ ...t, modo: 'estatico' })),
   }
   return <Contexto.Provider value={valor}>{children}</Contexto.Provider>

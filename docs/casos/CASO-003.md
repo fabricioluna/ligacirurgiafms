@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.0 |
+| Versão | 1.1 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -41,6 +41,12 @@ Pronto-socorro, 9 horas. Dona Maria, 68 anos, professora aposentada, procura ate
 | Dor (0 a 10) | 5 |
 
 **Pergunta ao aluno:** Você é o médico de plantão. Como conduz o caso?
+
+## O paciente
+
+Maria, 68 anos. Professora aposentada, articulada e educada. Está assustada e pergunta muito; desconfia que seja algo grave por causa do pai. Responde com detalhes quando perguntam.
+
+No simulador com IA, o paciente fala nesse jeito, mas só com o que está escrito no caso. O servidor confere cada fala e descarta a que trouxer fato clínico novo.
 
 ## Anamnese
 
@@ -214,6 +220,42 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | D6 | ruim | Boa recuperação cirúrgica, mas alta sem encaminhamento: a paciente só chega à oncologia quatro meses depois, com atraso no tratamento adjuvante. |
 
 # Parte 2: folha resposta
+
+## Hipótese diagnóstica
+
+Pedida no M1, antes da conduta. Vale 10% da nota final: correta 100%, incompleta 50%, incorreta 0%.
+
+**Correta:** Obstrução do cólon esquerdo (sigmoide) por neoplasia, em alça fechada, com risco de perfuração do ceco.
+
+**Incompletas**
+
+- Obstrução do cólon por neoplasia, sem considerar o risco do ceco.
+- Obstrução do cólon, sem definir a causa.
+- Obstrução intestinal, sem definir o nível nem a causa.
+
+**Incorretas** (também aparecem como alternativas na lista do simulador estático)
+
+- Volvo de sigmoide.
+- Diverticulite aguda complicada.
+- Obstrução de intestino delgado por bridas.
+- Apendicite aguda.
+- Pseudo-obstrução colônica (síndrome de Ogilvie).
+
+**Como chegar ao diagnóstico**
+
+- Distensão progressiva com parada de eliminação de fezes e gases, ruídos metálicos e pouca participação do delgado indicam obstrução do cólon.
+- Meses de mudança do hábito intestinal, fezes afiladas, sangue escuro, perda de peso, anemia microcítica e pai com câncer de intestino apontam para neoplasia colorretal.
+- A tomografia mostra a lesão estenosante no sigmoide e a válvula ileocecal competente: o cólon funciona como alça fechada e o ceco é o ponto que mais distende.
+- A dor na fossa ilíaca direita sobre um ceco de 11,5 cm é o sinal de alerta de sofrimento do ceco.
+
+**Diagnósticos diferenciais**
+
+| Diferencial | Como afastar |
+| --- | --- |
+| Volvo de sigmoide | Não há torção do mesossigmoide; há uma lesão expansiva circunferencial. |
+| Diverticulite complicada | Não há febre importante, coleção ou inflamação da gordura pericólica, e a história de meses com anemia e perda de peso favorece neoplasia. |
+| Apendicite aguda | A dor na fossa ilíaca direita vem da distensão do ceco, numa obstrução distal confirmada na tomografia. |
+| Obstrução de delgado por bridas | A distensão é do cólon, do ceco ao sigmoide, com delgado pouco distendido. |
 
 O que se espera do aluno em cada momento. A classificação vem do item mais grave: um erro crítico pesa mais que vários acertos. Sem erro, quem cobre todos os itens ideais tem conduta ideal; quem cobre parte, aceitável.
 
@@ -516,4 +558,5 @@ Pasta: `public/imagens/casos/caso-003/`. Cada imagem precisa de fonte e licença
 - Dar alta sem encaminhar à oncologia termina num desfecho próprio (D6). Confirmar.
 - A paciente é alérgica a dipirona. Hoje o simulador não avalia prescrição de medicamentos, então esse dado não pesa na nota. Avaliar se deve virar item da folha resposta.
 - Conferir os dados da referência (autores, ano e número).
+- Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
 - Autor do caso: 'A definir'.
