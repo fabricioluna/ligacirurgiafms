@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { contingenciaAtiva } from '../contingencia'
+import type { ModoSimulador } from '../motor/tipos'
 import { useNavigate } from 'react-router'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { DivisoriaSutura } from '../componentes/ProgressoSutura'
@@ -8,11 +10,13 @@ export function Abertura() {
   const { caso, tentativa, iniciar, descartar } = useTentativa()
   const navegar = useNavigate()
   const [nome, setNome] = useState(tentativa?.nomeInformado ?? '')
+  const [contingencia] = useState(contingenciaAtiva)
+  const [modo, setModo] = useState<ModoSimulador>(contingencia ? 'estatico' : tentativa?.modo ?? 'ia')
   const { titulo, tema, tempoEstimado } = caso.caso.identificacao
   const base = `/caso/${caso.id}`
 
   const comecar = () => {
-    iniciar(nome)
+    iniciar(nome, contingencia ? 'estatico' : modo)
     navegar(`${base}/atendimento`)
   }
 
@@ -68,6 +72,29 @@ export function Abertura() {
                     </button>
                   </p>
                 )}
+                <fieldset className="m-0 mb-6 border-0 p-0">
+                  <legend className="mb-3 p-0 font-medium">Como você quer conduzir o caso</legend>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <OpcaoModo
+                      valor="ia"
+                      atual={modo}
+                      onChange={setModo}
+                      titulo="Simulador com IA"
+                      texto="Você escreve com suas palavras, como num atendimento de verdade. Precisa de internet."
+                      desativado={contingencia}
+                    />
+                    <OpcaoModo
+                      valor="estatico"
+                      atual={contingencia ? 'estatico' : modo}
+                      onChange={setModo}
+                      titulo="Simulador estático"
+                      texto="Você escolhe perguntas, exames e condutas em listas. Funciona mesmo sem internet."
+                    />
+                  </div>
+                  {contingencia && (
+                    <p className="m-0 mt-3 text-sm text-texto-2">Modo de contingência ativo: só o simulador estático está disponível.</p>
+                  )}
+                </fieldset>
                 <label htmlFor="nome" className="block font-medium">
                   Seu nome <span className="font-normal text-texto-2">(opcional, só aparece no relatório)</span>
                 </label>
@@ -89,5 +116,37 @@ export function Abertura() {
       </main>
       <Rodape />
     </div>
+  )
+}
+
+function OpcaoModo(props: {
+  valor: ModoSimulador
+  atual: ModoSimulador
+  onChange: (m: ModoSimulador) => void
+  titulo: string
+  texto: string
+  desativado?: boolean
+}) {
+  const marcado = props.atual === props.valor && !props.desativado
+  return (
+    <label
+      className={`flex cursor-pointer gap-3 rounded-sm border-2 p-4 ${
+        props.desativado ? 'cursor-not-allowed border-borda opacity-50' : marcado ? 'border-verde bg-verde-suave' : 'border-borda hover:border-texto-2'
+      }`}
+    >
+      <input
+        type="radio"
+        name="modo"
+        value={props.valor}
+        checked={marcado}
+        disabled={props.desativado}
+        onChange={() => props.onChange(props.valor)}
+        className="mt-1 h-5 w-5 shrink-0 accent-[var(--verde)]"
+      />
+      <span>
+        <span className="block font-semibold">{props.titulo}</span>
+        <span className="mt-1 block text-sm text-texto-2">{props.texto}</span>
+      </span>
+    </label>
   )
 }

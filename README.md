@@ -9,7 +9,9 @@ npm install
 npm run dev
 ```
 
-Abra o endereço que aparece no terminal. Para testar no celular na mesma rede Wi-Fi: `npm run dev -- --host` e abra no celular o endereço "Network".
+Abra o endereço que aparece no terminal.
+
+Para o simulador com IA funcionar no computador, crie um arquivo `.env.local` na pasta do projeto, copiando o `.env.example`, e coloque a chave do Gemini em `GEMINI_API_KEY`. Esse arquivo nunca vai para o GitHub. Para testar as telas sem gastar chamadas, use `IA_SIMULADA=1` no lugar da chave. Para testar no celular na mesma rede Wi-Fi: `npm run dev -- --host` e abra no celular o endereço "Network".
 
 ## Antes de publicar
 
@@ -30,4 +32,6 @@ npm run build     # confere tipos e gera a versão de produção
 - `src/motor/`: a lógica do caso, sem tela. Avaliação, regras de evolução e nota.
 - `src/telas/` e `src/componentes/`: a interface.
 - `testes/`: testes automáticos do caso e do motor.
+- `servidor/` e `api/`: funções da Vercel. Só aqui existe a chave do Gemini.
+- `docs/IMAGENS-PENDENTES.md`: lista das imagens que faltam. `npm run imagens` mostra o que já está no lugar.
 - `docs/REVISAO-CASO-001.md`: ajustes no caso 001 que aguardam a revisão do professor.

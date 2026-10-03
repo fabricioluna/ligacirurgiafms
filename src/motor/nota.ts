@@ -2,8 +2,8 @@
 // se o caso termina cedo, os momentos não alcançados não entram na conta.
 // Conduta não prevista não pontua nem penaliza (fica fora da conta).
 
-import { codigoBase } from './caso'
-import type { Caso, Passo } from './tipos'
+import { codigoBase } from './caso.js'
+import type { Caso, Passo } from './tipos.js'
 
 export interface NotaMomento {
   momento: string

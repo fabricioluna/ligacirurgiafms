@@ -1,21 +1,23 @@
 // Ações sobre a tentativa. Funções puras: recebem a tentativa e devolvem uma nova.
 // É o app, e não a IA, quem muda o estado do caso.
 
-import { avaliarConduta } from './avaliacao'
-import { ehDesfecho, exameFisicoAtual, examesAtuais } from './caso'
-import type { Caso, Descoberta, Passo, Tentativa, TipoDescoberta } from './tipos'
+import { avaliarConduta } from './avaliacao.js'
+import { ehDesfecho, exameFisicoAtual, examesAtuais } from './caso.js'
+import type { Caso, Descoberta, ModoSimulador, Passo, Tentativa, TipoDescoberta } from './tipos.js'
 
-export function novaTentativa(caso: Caso, nomeInformado = '', agora = Date.now()): Tentativa {
+export function novaTentativa(caso: Caso, nomeInformado = '', modo: ModoSimulador = 'estatico', agora = Date.now()): Tentativa {
   return {
     id: `${agora.toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
     casoId: caso.id,
     versaoCaso: caso.versao,
+    modo,
     nomeInformado: nomeInformado.trim(),
     iniciadaEm: agora,
     momentoAtual: caso.caso.momentos[0].codigo,
     caminho: [caso.caso.momentos[0].codigo],
     descobertas: [],
     passos: [],
+    naoPrevistas: [],
     aguardandoConfirmacao: false,
   }
 }
@@ -42,8 +44,52 @@ export function revelar(caso: Caso, t: Tentativa, tipo: TipoDescoberta, id: stri
   return d ? { ...t, descobertas: [...t.descobertas, d] } : t
 }
 
+// Simulador com IA: registra os itens que o aluno pediu, com o texto dele.
+// O que aparece é sempre o texto do caso, nunca o da IA.
+export function revelarPedido(
+  caso: Caso,
+  t: Tentativa,
+  pedido: string,
+  itens: { tipo: TipoDescoberta; id: string }[],
+  agora = Date.now(),
+): Tentativa {
+  let novo = t
+  for (const i of itens) novo = revelar(caso, novo, i.tipo, i.id, agora)
+  const ultimo = novo.descobertas.at(-1)
+  if (novo !== t && ultimo) {
+    novo = { ...novo, descobertas: [...novo.descobertas.slice(0, -1), { ...ultimo, pedido }] }
+  }
+  return novo
+}
+
+// Pedido sem correspondência no caso: entra no histórico com a resposta padrão do caso.
+export function registrarSemCorrespondencia(
+  t: Tentativa,
+  tipo: TipoDescoberta,
+  pedido: string,
+  respostaPadrao: string,
+  agora = Date.now(),
+): Tentativa {
+  if (t.aguardandoConfirmacao || t.desfecho) return t
+  const n = t.descobertas.filter((d) => d.id.startsWith('NL-')).length + 1
+  const d: Descoberta = { tipo, id: `NL-${n}`, momento: t.momentoAtual, titulo: pedido, texto: respostaPadrao, pedido, em: agora }
+  return { ...t, descobertas: [...t.descobertas, d] }
+}
+
+export function registrarNaoPrevista(t: Tentativa, texto: string, agora = Date.now()): Tentativa {
+  const limpo = texto.trim()
+  if (!limpo) return t
+  return { ...t, naoPrevistas: [...t.naoPrevistas, { momento: t.momentoAtual, texto: limpo, em: agora }] }
+}
+
 // Avalia a conduta e deixa o resultado aguardando o aluno confirmar.
-export function definirConduta(caso: Caso, t: Tentativa, selecionados: string[], agora = Date.now()): Tentativa {
+export function definirConduta(
+  caso: Caso,
+  t: Tentativa,
+  selecionados: string[],
+  agora = Date.now(),
+  textoDoAluno?: string,
+): Tentativa {
   if (t.aguardandoConfirmacao || t.desfecho || selecionados.length === 0) return t
   const r = avaliarConduta(caso, t.momentoAtual, selecionados, idsRevelados(t))
   const passo: Passo = {
@@ -56,6 +102,7 @@ export function definirConduta(caso: Caso, t: Tentativa, selecionados: string[],
     faltaram: r.faltaram,
     regraAplicada: r.regra?.codigo ?? null,
     proximo: r.proximo,
+    ...(textoDoAluno ? { textoDoAluno } : {}),
     em: agora,
   }
   return {

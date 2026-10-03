@@ -203,8 +203,17 @@
                   },
                   "licenca": {
                     "type": "string"
+                  },
+                  "quantidade": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Série de cortes: arquivo termina em / e os arquivos se chamam 01.jpg, 02.jpg... até a quantidade."
                   }
-                }
+                },
+                "required": [
+                  "id",
+                  "arquivo"
+                ]
               },
               "palavrasChave": {
                 "type": "array",
@@ -235,6 +244,10 @@
             },
             "parecerEspecialista": {
               "type": "string"
+            },
+            "exameFisicoNaoListado": {
+              "type": "string",
+              "description": "Resposta quando o aluno pede um segmento do exame físico que não existe no caso."
             }
           }
         },

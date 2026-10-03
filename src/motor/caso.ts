@@ -1,6 +1,6 @@
 // Consultas ao caso: o que existe em cada momento, com os valores já atualizados.
 
-import type { Acao, Caso, Exame, ItemExameFisico, Momento, MomentoFolha, SinalVital } from './tipos'
+import type { Acao, Caso, Exame, ItemExameFisico, Momento, MomentoFolha, SinalVital } from './tipos.js'
 
 export const ehDesfecho = (codigo: string) => /^D[0-9]+$/.test(codigo)
 

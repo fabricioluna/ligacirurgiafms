@@ -2,24 +2,37 @@
 
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 import { apagar, gravar, ler } from './armazenamento'
-import { definirConduta, novaTentativa, revelar, seguir } from './motor/tentativa'
-import type { Caso, Tentativa, TipoDescoberta } from './motor/tipos'
+import {
+  definirConduta,
+  novaTentativa,
+  registrarNaoPrevista,
+  registrarSemCorrespondencia,
+  revelar,
+  revelarPedido,
+  seguir,
+} from './motor/tentativa'
+import type { Caso, ModoSimulador, Tentativa, TipoDescoberta } from './motor/tipos'
 
 const chave = (casoId: string) => `simulador:tentativa:${casoId}`
 
 export function tentativaSalva(caso: Caso): Tentativa | null {
   const t = ler<Tentativa>(chave(caso.id))
   // Tentativa de outra versão do caso pode não bater com o arquivo atual: descarta.
-  return t && t.versaoCaso === caso.versao ? t : null
+  if (!t || t.versaoCaso !== caso.versao) return null
+  // Tentativas salvas antes dos dois simuladores existirem.
+  return { ...t, modo: t.modo ?? 'estatico', naoPrevistas: t.naoPrevistas ?? [] }
 }
 
 interface ValorContexto {
   caso: Caso
   tentativa: Tentativa | null
-  iniciar: (nome: string) => void
+  iniciar: (nome: string, modo: ModoSimulador) => void
   descartar: () => void
   revelar: (tipo: TipoDescoberta, id: string) => void
-  definirConduta: (selecionados: string[]) => void
+  revelarPedido: (pedido: string, itens: { tipo: TipoDescoberta; id: string }[]) => void
+  semCorrespondencia: (tipo: TipoDescoberta, pedido: string, respostaPadrao: string) => void
+  naoPrevista: (texto: string) => void
+  definirConduta: (selecionados: string[], textoDoAluno?: string) => void
   seguir: () => void
 }
 
@@ -37,13 +50,16 @@ export function ProvedorTentativa({ caso, children }: { caso: Caso; children: Re
   const valor: ValorContexto = {
     caso,
     tentativa,
-    iniciar: (nome) => setTentativa(novaTentativa(caso, nome)),
+    iniciar: (nome, modo) => setTentativa(novaTentativa(caso, nome, modo)),
     descartar: () => {
       apagar(chave(caso.id))
       setTentativa(null)
     },
     revelar: (tipo, id) => atualizar((t) => revelar(caso, t, tipo, id)),
-    definirConduta: (sel) => atualizar((t) => definirConduta(caso, t, sel)),
+    revelarPedido: (pedido, itens) => atualizar((t) => revelarPedido(caso, t, pedido, itens)),
+    semCorrespondencia: (tipo, pedido, rp) => atualizar((t) => registrarSemCorrespondencia(t, tipo, pedido, rp)),
+    naoPrevista: (texto) => atualizar((t) => registrarNaoPrevista(t, texto)),
+    definirConduta: (sel, texto) => atualizar((t) => definirConduta(caso, t, sel, Date.now(), texto)),
     seguir: () => atualizar((t) => seguir(t)),
   }
   return <Contexto.Provider value={valor}>{children}</Contexto.Provider>

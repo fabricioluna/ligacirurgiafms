@@ -106,3 +106,4 @@ No intraoperatório (M4 e M4-ALT) e no pós-operatório (M5), só a conduta fica
 - **R9 (controle de danos em paciente estável):** vai direto para o D1, "Recuperação plena", sem passar pelo M5. Está certo?
 - **Imagens dos exames:** todas estão "A definir". O app mostra "Imagem pendente" com a legenda e o crédito.
 - **Autor do caso:** está como "A definir".
+- **Exame físico não listado:** o caso não define o que responder quando o aluno pede um segmento do exame físico que não existe (por exemplo, membros inferiores). Hoje o app responde "Esse segmento do exame físico não consta neste caso." Se quiser outro texto, ele entra em `respostaPadrao.exameFisicoNaoListado`.

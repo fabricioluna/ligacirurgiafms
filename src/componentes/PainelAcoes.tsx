@@ -22,9 +22,11 @@ const ehComputador = () => window.matchMedia('(min-width: 1024px)').matches
 interface Props {
   acao: Acao | null
   setAcao: (a: Acao | null) => void
+  // No simulador com IA, os atalhos ficam no campo de texto e o painel só mostra a lista.
+  semBarra?: boolean
 }
 
-export function PainelAcoes({ acao, setAcao }: Props) {
+export function PainelAcoes({ acao, setAcao, semBarra = false }: Props) {
   const { caso, tentativa } = useTentativa()
   const m = momento(caso, tentativa!.momentoAtual)
   const disponiveis = acoesDisponiveis(m)
@@ -45,7 +47,7 @@ export function PainelAcoes({ acao, setAcao }: Props) {
   return (
     <>
       {/* Barra de atalhos: fixa embaixo no celular, no topo do painel no computador. */}
-      <nav
+      {!semBarra && <nav
         aria-label="Ações"
         className="nao-imprimir fixed inset-x-0 bottom-0 z-30 border-t border-borda bg-fundo px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:static lg:z-auto lg:border-0 lg:bg-transparent lg:p-0"
       >
@@ -57,7 +59,7 @@ export function PainelAcoes({ acao, setAcao }: Props) {
         {disponiveis.length === 1 && (
           <p className="m-0 hidden pt-3 text-sm text-texto-2 lg:block">Neste momento, só a conduta está disponível.</p>
         )}
-      </nav>
+      </nav>}
 
       {aberta && (
         <div className="fixed inset-0 z-30 bg-black/60 lg:hidden" onClick={() => setAcao(null)} aria-hidden="true" />

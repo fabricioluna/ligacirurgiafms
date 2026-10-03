@@ -12,6 +12,8 @@ export interface Imagem {
   legenda?: string
   fonte?: string
   licenca?: string
+  // Série de cortes: 'arquivo' termina em '/' e os arquivos são 01.jpg, 02.jpg...
+  quantidade?: number
 }
 
 export interface ItemAnamnese {
@@ -139,13 +141,18 @@ export type TipoDescoberta = 'anamnese' | 'exameFisico' | 'exames'
 
 export interface Descoberta {
   tipo: TipoDescoberta
+  // Id do item do caso, ou 'NL-n' quando o pedido não existe no caso (resposta padrão).
   id: string
   momento: string
   titulo: string
   texto: string
   imagem?: Imagem
+  // Texto que o aluno escreveu, no simulador com IA.
+  pedido?: string
   em: number
 }
+
+export type ModoSimulador = 'estatico' | 'ia'
 
 export interface Passo {
   momento: string
@@ -157,6 +164,15 @@ export interface Passo {
   faltaram: string[]
   regraAplicada: string | null
   proximo: string
+  // Simulador com IA: o texto do aluno.
+  textoDoAluno?: string
+  em: number
+}
+
+// Conduta (ou trecho dela) que não corresponde a nenhum item da folha: registrada para o professor.
+export interface NaoPrevista {
+  momento: string
+  texto: string
   em: number
 }
 
@@ -164,6 +180,7 @@ export interface Tentativa {
   id: string
   casoId: string
   versaoCaso: string
+  modo: ModoSimulador
   nomeInformado: string
   iniciadaEm: number
   finalizadaEm?: number
@@ -171,6 +188,7 @@ export interface Tentativa {
   caminho: string[]
   descobertas: Descoberta[]
   passos: Passo[]
+  naoPrevistas: NaoPrevista[]
   aguardandoConfirmacao: boolean
   marcaDesfecho?: string
   desfecho?: string

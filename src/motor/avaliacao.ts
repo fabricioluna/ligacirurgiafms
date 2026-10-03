@@ -1,8 +1,8 @@
 // Avaliação de uma conduta no modo de lista, por correspondência direta com a folha resposta.
 // Nada aqui cria conteúdo: todo texto mostrado ao aluno sai da folha resposta ou das regras do caso.
 
-import { ehDesfecho, momento, momentoFolha } from './caso'
-import type { Caso, Classificacao, Condicao, MomentoFolha, Regra } from './tipos'
+import { ehDesfecho, momento, momentoFolha } from './caso.js'
+import type { Caso, Classificacao, Condicao, MomentoFolha, Regra } from './tipos.js'
 
 type Categoria = Exclude<Classificacao, 'nao_prevista'>
 

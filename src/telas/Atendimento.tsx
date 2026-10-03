@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router'
 import { AvaliacaoMomento } from '../componentes/AvaliacaoMomento'
+import { CampoTexto } from '../componentes/CampoTexto'
 import { Descoberta } from '../componentes/Descoberta'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { PainelAcoes } from '../componentes/PainelAcoes'
@@ -30,10 +31,13 @@ export function Atendimento() {
   const { caso, tentativa } = useTentativa()
   const [acao, setAcao] = useState<Acao | null>(null)
 
-  // No computador o painel começa aberto; no celular, fechado.
+  const comIA = tentativa?.modo === 'ia'
+
+  // Simulador estático: no computador o painel começa aberto; no celular, fechado.
   useEffect(() => {
-    if (window.matchMedia('(min-width: 1024px)').matches) setAcao((a) => a ?? 'anamnese')
-  }, [tentativa?.momentoAtual])
+    if (!comIA && window.matchMedia('(min-width: 1024px)').matches) setAcao((a) => a ?? 'anamnese')
+    if (comIA) setAcao(null)
+  }, [tentativa?.momentoAtual, comIA])
 
   useEffect(() => {
     if (tentativa?.aguardandoConfirmacao) setAcao(null)
@@ -63,7 +67,7 @@ export function Atendimento() {
         </div>
       </Cabecalho>
 
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 pt-6 pb-28 lg:grid lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-10 lg:pb-10">
+      <main className={`mx-auto w-full max-w-6xl flex-1 px-4 pt-6 ${comIA ? 'pb-48' : 'pb-28'} lg:grid lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-10 lg:pb-10`}>
         <div className="min-w-0">
           {m.tempo && <p className="m-0 mb-1 text-sm text-texto-2">{m.tempo}</p>}
           <h1 className="m-0 text-2xl">{m.nome}</h1>
@@ -106,7 +110,8 @@ export function Atendimento() {
         </div>
 
         <aside className="lg:sticky lg:top-24 lg:self-start" aria-label="Painel de ação">
-          <PainelAcoes acao={acao} setAcao={setAcao} />
+          {comIA && <CampoTexto key={tentativa.momentoAtual} abrirLista={setAcao} />}
+          <PainelAcoes acao={acao} setAcao={setAcao} semBarra={comIA} />
         </aside>
       </main>
 

@@ -1,5 +1,10 @@
 # Instruções da inteligência artificial
 
+> **Como está implementado (Fase 2):** a IA ficou com um papel ainda mais restrito do que o descrito abaixo, para que seja impossível ela inventar informação clínica.
+> - **Paciente:** a IA só identifica a intenção e aponta os ids do caso (AN-, EF-, EX-). O texto mostrado ao aluno é sempre o do caso, palavra por palavra. Sem correspondência, vale a resposta padrão do caso.
+> - **Avaliador:** a IA só aponta quais itens da folha resposta o texto do aluno propôs. Quem classifica e decide a evolução é o motor do caso, com as mesmas regras do simulador estático. Sem nenhum item reconhecido, a conduta é "não prevista", não avança o caso e fica registrada.
+> - As instruções em uso estão em `servidor/prompts.ts`.
+
 São três papéis separados, cada um em sua função serverless, cada um recebendo só o que precisa. Nenhum deles recebe a folha resposta inteira do caso: o paciente não pode saber o que é esperado, senão entrega a resposta ao aluno.
 
 Em todos, a temperatura deve ser baixa, e a saída precisa ser JSON. Valide o JSON recebido antes de usar: se vier fora do formato, mostre a mensagem de contingência em vez de improvisar.

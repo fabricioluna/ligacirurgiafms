@@ -49,7 +49,7 @@ export function Relatorio() {
 
   const refazer = () => {
     descartar()
-    iniciar(t.nomeInformado)
+    iniciar(t.nomeInformado, t.modo)
     navegar(`/caso/${caso.id}/atendimento`)
   }
 
@@ -70,6 +70,7 @@ export function Relatorio() {
               <h1 className="m-0 text-xl uppercase sm:text-2xl">{caso.caso.identificacao.titulo}</h1>
               <p className="mt-2 mb-0 text-sm text-texto-2">
                 {t.nomeInformado && <>{t.nomeInformado}. </>}
+                {t.modo === 'ia' ? 'Simulador com IA' : 'Simulador estático'}. 
                 {formatarData(t.iniciadaEm)}
                 {t.finalizadaEm && <>. Duração: {duracao(t.finalizadaEm - t.iniciadaEm)}</>}.
               </p>
@@ -172,6 +173,23 @@ export function Relatorio() {
                     <p className="m-0 text-sm text-texto-2">{momento(caso, c.momento).nome}</p>
                     <p className="m-0">{c.conduta}</p>
                     <p className="m-0 text-texto-2">Custo: {c.custo}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {t.naoPrevistas.length > 0 && (
+            <section aria-labelledby="t-nao-previstas">
+              <h2 id="t-nao-previstas" className="m-0 text-xl">Condutas não previstas</h2>
+              <p className="leitura mt-2 mb-0 text-texto-2">
+                Não contam ponto nem penalizam. Ficam registradas para o professor revisar e, se for o caso, incluir na folha resposta.
+              </p>
+              <ul className="leitura m-0 mt-4 list-none space-y-3 p-0">
+                {t.naoPrevistas.map((n, i) => (
+                  <li key={i}>
+                    <p className="m-0 text-sm text-texto-2">{momento(caso, n.momento).nome}</p>
+                    <p className="m-0">{n.texto}</p>
                   </li>
                 ))}
               </ul>
