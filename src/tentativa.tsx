@@ -12,7 +12,7 @@ import {
   revelarPedido,
   seguir,
 } from './motor/tentativa'
-import type { Caso, ModoSimulador, Tentativa, TipoDescoberta } from './motor/tipos'
+import type { Caso, ComentarioPreceptor, ModoSimulador, Tentativa, TipoDescoberta } from './motor/tipos'
 
 const chave = (casoId: string) => `simulador:tentativa:${casoId}`
 
@@ -35,6 +35,7 @@ interface ValorContexto {
   naoPrevista: (texto: string) => void
   definirConduta: (selecionados: string[], textoDoAluno?: string) => void
   seguir: () => void
+  salvarComentario: (c: ComentarioPreceptor) => void
 }
 
 const Contexto = createContext<ValorContexto | null>(null)
@@ -80,6 +81,7 @@ export function ProvedorTentativa({ caso, children }: { caso: Caso; children: Re
     naoPrevista: (texto) => atualizar((t) => registrarNaoPrevista(t, texto)),
     definirConduta: (sel, texto) => atualizar((t) => definirConduta(caso, t, sel, Date.now(), texto)),
     seguir: () => atualizar((t) => seguir(t)),
+    salvarComentario: (c) => atualizar((t) => ({ ...t, comentario: c })),
   }
   return <Contexto.Provider value={valor}>{children}</Contexto.Provider>
 }

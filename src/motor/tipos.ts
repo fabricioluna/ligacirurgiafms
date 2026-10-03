@@ -192,4 +192,14 @@ export interface Tentativa {
   aguardandoConfirmacao: boolean
   marcaDesfecho?: string
   desfecho?: string
+  // Simulador com IA: comentário do preceptor no relatório, guardado para não chamar a IA de novo.
+  comentario?: ComentarioPreceptor
+}
+
+export interface ComentarioPreceptor {
+  resumo: string
+  pontosFortes: string[]
+  pontosACorrigir: string[]
+  errosCriticos: string[]
+  oQueEstudar: string
 }

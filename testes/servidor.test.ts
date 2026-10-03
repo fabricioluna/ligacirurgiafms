@@ -6,6 +6,7 @@ import { momentoFolha } from '../src/motor/caso'
 import { interpretarPaciente, mensagemPaciente, processarPaciente } from '../servidor/paciente'
 import { interpretarAvaliar, itensComId, mensagemAvaliar, processarAvaliar } from '../servidor/avaliar'
 import { funcao } from '../servidor/http'
+import { interpretarFeedback, mensagemFeedback, passosValidados, processarFeedback } from '../servidor/feedback'
 import { ErroIA } from '../servidor/gemini'
 
 const caso = bruto as unknown as Caso
@@ -122,5 +123,51 @@ describe('embrulho http', () => {
     const r = await g.fetch(new Request('http://x', { method: 'POST', body: '{}', headers: { 'x-sessao': 'teste-503' } }))
     expect(r.status).toBe(503)
     expect(await r.text()).not.toContain('xyz')
+  })
+})
+
+describe('/api/feedback', () => {
+  const f1 = momentoFolha(caso, 'M1')
+  const passoM1 = {
+    momento: 'M1',
+    classificacao: 'perigosa',
+    selecionados: [f1.ideal[2], 'Texto inventado pelo navegador'],
+    errosCriticos: [f1.errosCriticos[0], 'Erro inventado'],
+    subotimas: [f1.subotimas![1].conduta],
+    faltaram: [f1.ideal[0]],
+    regraAplicada: 'R1',
+  }
+
+  it('descarta do pedido tudo o que não existe na folha resposta', () => {
+    const [p] = passosValidados(caso, [passoM1])
+    expect(p.selecionados).toEqual([f1.ideal[2]])
+    expect(p.errosCriticos).toEqual([f1.errosCriticos[0]])
+    expect(p.subotimas.map((s) => s.custo)).toEqual([f1.subotimas![1].custo])
+    expect(p.regraAplicada).toBe('R1')
+  })
+
+  it('a mensagem para a IA usa só o caso e não leva texto inventado', () => {
+    const msg = mensagemFeedback(caso, passosValidados(caso, [passoM1]), 'D4', 2)
+    expect(msg).not.toContain('inventad')
+    expect(msg).toContain(caso.folhaResposta.mensagensChave[0])
+    expect(msg).toContain(`Erro crítico: ${f1.errosCriticos[0]} Consequência para o paciente: ${caso.caso.regras.find((r) => r.codigo === 'R1')!.entao}`)
+    expect(msg).toContain('CONDUTAS NÃO PREVISTAS: 2')
+  })
+
+  it('rejeita desfecho inexistente, momento repetido e passos demais', async () => {
+    const nunca = async () => {
+      throw new Error('não deveria chamar a IA')
+    }
+    await expect(processarFeedback({ casoId: 'CASO-001', desfecho: 'D9', passos: [passoM1] }, nunca)).rejects.toThrow('Desfecho')
+    await expect(processarFeedback({ casoId: 'CASO-001', desfecho: 'D1', passos: [passoM1, passoM1] }, nunca)).rejects.toThrow('repetidos')
+    await expect(processarFeedback({ casoId: 'CASO-001', desfecho: 'D1', passos: Array(13).fill(passoM1) }, nunca)).rejects.toThrow('Passos')
+  })
+
+  it('confere o formato da resposta e tira travessões', () => {
+    expect(() => interpretarFeedback({ resumo: '' })).toThrow(ErroIA)
+    const c = interpretarFeedback({ resumo: 'Você conduziu bem — mas atrasou.', pontosFortes: ['a', 1], oQueEstudar: 'x' })
+    expect(c.resumo).toBe('Você conduziu bem, mas atrasou.')
+    expect(c.pontosFortes).toEqual(['a'])
+    expect(c.errosCriticos).toEqual([])
   })
 })

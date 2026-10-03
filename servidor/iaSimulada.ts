@@ -16,6 +16,16 @@ export function criarIaSimulada(palavrasPorId: Map<string, string[]>): ChamarIA 
     const aluno = normalizar(usuario.match(/<aluno>([\s\S]*)<\/aluno>/)?.[1] ?? '')
     const linhas = usuario.split('\n').map((l) => l.split(' | '))
 
+    if (sistema.includes('relatório final')) {
+      return {
+        resumo: 'Comentário de teste da IA simulada. Com a chave do Gemini, aqui aparece o comentário do preceptor.',
+        pontosFortes: ['Item de teste.'],
+        pontosACorrigir: [],
+        errosCriticos: [],
+        oQueEstudar: 'Revise as mensagens-chave do caso.',
+      }
+    }
+
     if (sistema.includes('folha resposta')) {
       // Avaliador: item reconhecido quando metade das palavras longas dele aparece no texto do aluno.
       const ids = linhas

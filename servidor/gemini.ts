@@ -4,12 +4,17 @@ export class ErroIA extends Error {}
 
 // Assinatura usada pelas funções: recebe instrução e mensagem, devolve o JSON já lido.
 // Nos testes, é trocada por uma IA simulada.
-export type ChamarIA = (sistema: string, usuario: string) => Promise<unknown>
+export type ChamarIA = (sistema: string, usuario: string, opcoes?: OpcoesIA) => Promise<unknown>
+
+export interface OpcoesIA {
+  tempoLimiteMs?: number
+  temperatura?: number
+}
 
 const MODELO_PADRAO = 'gemini-3.8-flash'
 const TEMPO_LIMITE_MS = 9000
 
-export const chamarGemini: ChamarIA = async (sistema, usuario) => {
+export const chamarGemini: ChamarIA = async (sistema, usuario, opcoes = {}) => {
   if (process.env.IA_SIMULADA === '1' && !process.env.VERCEL) {
     const { iaSimuladaDoCaso } = await import('./casos.js')
     return iaSimuladaDoCaso(sistema, usuario)
@@ -26,9 +31,9 @@ export const chamarGemini: ChamarIA = async (sistema, usuario) => {
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: sistema }] },
         contents: [{ role: 'user', parts: [{ text: usuario }] }],
-        generationConfig: { temperature: 0.1, responseMimeType: 'application/json' },
+        generationConfig: { temperature: opcoes.temperatura ?? 0.1, responseMimeType: 'application/json' },
       }),
-      signal: AbortSignal.timeout(TEMPO_LIMITE_MS),
+      signal: AbortSignal.timeout(opcoes.tempoLimiteMs ?? TEMPO_LIMITE_MS),
     })
   } catch (e) {
     throw new ErroIA(`Falha ao chamar o Gemini: ${(e as Error).name}`)

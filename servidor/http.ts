@@ -34,7 +34,7 @@ function dentroDoLimite(chave: string, agora = Date.now()) {
 const json = (corpo: unknown, status = 200) =>
   new Response(JSON.stringify(corpo), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } })
 
-export function funcao(processar: (corpo: Record<string, unknown>) => Promise<unknown>) {
+export function funcao(processar: (corpo: Record<string, unknown>) => Promise<unknown>, tamanhoMaximo = TAMANHO_MAXIMO) {
   return {
     async fetch(request: Request): Promise<Response> {
       if (request.method !== 'POST') return json({ erro: 'Use POST.' }, 405)
@@ -43,7 +43,7 @@ export function funcao(processar: (corpo: Record<string, unknown>) => Promise<un
       if (!dentroDoLimite(`${ip}|${sessao}`)) return json({ erro: 'Limite de chamadas atingido. Tente em alguns minutos.' }, 429)
 
       const bruto = await request.text()
-      if (bruto.length > TAMANHO_MAXIMO) return json({ erro: 'Pedido grande demais.' }, 413)
+      if (bruto.length > tamanhoMaximo) return json({ erro: 'Pedido grande demais.' }, 413)
       let corpo: unknown
       try {
         corpo = JSON.parse(bruto)

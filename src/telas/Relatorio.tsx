@@ -2,6 +2,7 @@
 
 import { Link, Navigate, useNavigate } from 'react-router'
 import { SeloClassificacao } from '../componentes/Classificacao'
+import { ComentarioPreceptor } from '../componentes/ComentarioPreceptor'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { ProgressoSutura } from '../componentes/ProgressoSutura'
 import { codigoBase, desfecho, ehDesfecho, momento } from '../motor/caso'
@@ -89,6 +90,8 @@ export function Relatorio() {
             {q && <p className="mt-3 mb-0 font-semibold" style={{ color: q.cor }}>{q.rotulo}</p>}
             <p className="leitura mt-1 mb-0">{d.texto}</p>
           </section>
+
+          {t.modo === 'ia' && <ComentarioPreceptor />}
 
           {erros.length > 0 && (
             <section aria-labelledby="t-erros" className="border-l-4 border-perigosa pl-5">
