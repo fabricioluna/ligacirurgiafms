@@ -7,7 +7,7 @@ import c2 from '../casos/caso-002.json'
 import c3 from '../casos/caso-003.json'
 import type { Caso, Tentativa } from '../src/motor/tipos'
 import { avaliarConduta, opcoesDoMomento } from '../src/motor/avaliacao'
-import { exameDisponivel, momentoFolha } from '../src/motor/caso'
+import { exameDisponivel, momentoFolha, temaParaAluno } from '../src/motor/caso'
 import { calcularNota } from '../src/motor/nota'
 import { definirConduta, novaTentativa, revelar, seguir } from '../src/motor/tentativa'
 import { validarIntegridade } from '../src/motor/validacao'
@@ -62,6 +62,15 @@ describe.each(casos.map((c) => [c.id, c] as const))('%s', (_id, caso) => {
         expect(res.proximo).toBe(r.vaiPara)
       }
     }
+  })
+
+  it('o que aparece antes do caso não entrega o diagnóstico', () => {
+    const { titulo, tema } = caso.caso.identificacao
+    expect(tema, 'tema no formato "Área geral: diagnóstico"').toContain(':')
+    const diagnostico = tema.split(':').slice(1).join(':').toLowerCase()
+    const palavras = (diagnostico.match(/[a-zà-ú]{5,}/g) ?? []).filter((p) => !['obstrução', 'abdome', 'agudo'].includes(p))
+    const antes = `${titulo} ${temaParaAluno(tema)}`.toLowerCase()
+    for (const p of palavras) expect(antes, `"${p}" aparece antes do caso`).not.toContain(p.slice(0, 6))
   })
 
   it('nenhuma opção da lista entrega a resposta pelo texto', () => {

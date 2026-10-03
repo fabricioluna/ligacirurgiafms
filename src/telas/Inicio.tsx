@@ -3,6 +3,7 @@ import logo from '../../assets/logoliga.jpg'
 import { useCasos } from '../dados/casos'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { tentativaSalva } from '../tentativa'
+import { temaParaAluno } from '../motor/caso'
 
 export function Inicio() {
   const { casos } = useCasos()
@@ -40,7 +41,7 @@ export function Inicio() {
               return (
                 <li key={c.id} className="flex flex-col border border-borda bg-superficie p-5">
                   <h3 className="m-0 text-xl uppercase">{titulo}</h3>
-                  <p className="mt-2 mb-0 text-sm text-texto-2">{tema}</p>
+                  <p className="mt-2 mb-0 text-sm text-texto-2">{temaParaAluno(tema)}</p>
                   <dl className="mt-4 mb-0 text-sm">
                     <div>
                       <dt className="text-texto-2">Tempo estimado</dt>

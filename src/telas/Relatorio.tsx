@@ -69,6 +69,7 @@ export function Relatorio() {
             </div>
             <div className="min-w-0">
               <h1 className="m-0 text-xl uppercase sm:text-2xl">{caso.caso.identificacao.titulo}</h1>
+              <p className="mt-2 mb-0 font-semibold">{caso.caso.identificacao.tema}</p>
               <p className="mt-2 mb-0 text-sm text-texto-2">
                 {t.nomeInformado && <>{t.nomeInformado}. </>}
                 {t.modo === 'ia' ? 'Simulador com IA' : 'Simulador estático'}. 
@@ -198,6 +199,13 @@ export function Relatorio() {
               </ul>
             </section>
           )}
+
+          <section aria-labelledby="t-objetivos">
+            <h2 id="t-objetivos" className="m-0 text-xl">O que este caso treinou</h2>
+            <ul className="leitura m-0 mt-4 space-y-2 pl-5">
+              {folha.objetivos.map((o) => <li key={o}>{o}</li>)}
+            </ul>
+          </section>
 
           <section aria-labelledby="t-mensagens">
             <h2 id="t-mensagens" className="m-0 text-xl">Para levar deste caso</h2>

@@ -50,6 +50,7 @@ React + Vite + Tailwind, hospedagem na Vercel, funções serverless da Vercel em
 - Cadastro: texto dos dois PDFs extraído no navegador (pdf.js), a IA monta o caso copiando os documentos, o servidor valida (`src/motor/validacao.ts` + schema), o professor joga a prévia e publica.
 - Interruptor "modo sem IA para todos" em `config/geral`: o servidor recusa chamadas de IA e a abertura do caso só oferece o estático.
 - Imagens ficam em `public/imagens/casos/<id>/`; o painel mostra quais faltam.
+- Nada antes do caso pode entregar a resposta: a abertura e a tela inicial mostram só a área geral do tema (antes dos dois-pontos, `temaParaAluno`); objetivos e diagnóstico só no relatório.
 
 ## Como trabalhar comigo
 

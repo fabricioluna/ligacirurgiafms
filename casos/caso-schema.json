@@ -47,7 +47,8 @@
               "type": "string"
             },
             "tema": {
-              "type": "string"
+              "type": "string",
+              "description": "'Área geral: diagnóstico'. Antes do caso o aluno vê só a área geral (antes dos dois-pontos); o diagnóstico aparece só no relatório."
             },
             "publico": {
               "type": "string"

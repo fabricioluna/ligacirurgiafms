@@ -79,3 +79,7 @@ export function exameFisicoAtual(caso: Caso, caminho: string[]): ItemExameFisico
   }
   return itens
 }
+
+// O tema tem duas partes: "Área geral: diagnóstico". Antes do caso, o aluno só vê a área geral;
+// o diagnóstico entregaria a resposta e só aparece no relatório.
+export const temaParaAluno = (tema: string) => tema.split(':')[0].trim()

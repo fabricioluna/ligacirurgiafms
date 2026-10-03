@@ -5,6 +5,7 @@ import type { ModoSimulador } from '../motor/tipos'
 import { useNavigate } from 'react-router'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { DivisoriaSutura } from '../componentes/ProgressoSutura'
+import { temaParaAluno } from '../motor/caso'
 import { useTentativa } from '../tentativa'
 
 export function Abertura() {
@@ -30,28 +31,22 @@ export function Abertura() {
       <main className="flex-1">
         <section className="textura border-b border-borda">
           <div className="mx-auto max-w-3xl px-4 py-10 sm:py-14">
-            <p className="m-0 text-sm text-texto-2">{tema}</p>
+            <p className="m-0 text-sm text-texto-2">{temaParaAluno(tema)}</p>
             <h1 className="mt-3 mb-0 text-2xl uppercase sm:text-3xl">{titulo}</h1>
             <p className="mt-4 mb-0 text-sm text-texto-2">{tempoEstimado}</p>
           </div>
         </section>
 
         <div className="mx-auto max-w-3xl px-4 py-8">
-          <h2 className="m-0 text-xl">Ao final deste caso, você deve conseguir</h2>
-          <ul className="leitura mt-4 mb-0 space-y-2 pl-5">
-            {caso.folhaResposta.objetivos.map((o) => (
-              <li key={o}>{o}</li>
-            ))}
-          </ul>
-
-          <DivisoriaSutura className="my-8" />
-
+          {/* Os objetivos de aprendizagem entregariam o raciocínio esperado: aparecem só no relatório. */}
           <h2 className="m-0 text-xl">Como funciona</h2>
           <ol className="leitura mt-4 mb-0 space-y-2 pl-5">
             <li>Em cada momento do caso, pergunte ao paciente, examine e peça exames. Tudo isso conta na avaliação.</li>
             <li>Quando estiver pronto, defina a conduta. É ela que faz o caso avançar, e o paciente evolui conforme sua decisão.</li>
             <li>Depois de cada conduta você vê a avaliação do momento. No fim, a nota e o caminho que o professor esperava.</li>
           </ol>
+
+          <DivisoriaSutura className="my-8" />
 
           <div className="mt-10 border border-borda bg-superficie p-5">
             {tentativa && !tentativa.desfecho ? (

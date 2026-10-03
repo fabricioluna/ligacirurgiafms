@@ -28,6 +28,8 @@ Como montar:
 - Não crie o campo "modoLista".
 - Pesos: copie do documento. Se não existirem, deixe {} e registre a pendência.
 - Imagens: crie o objeto "imagem" quando o documento citar uma imagem, com "arquivo" no padrão img-<número>-<letra>.jpg, e "fonte" e "licenca" copiados do documento, ou "A definir" se não houver.
+- "tema" no formato "Área geral: diagnóstico", por exemplo "Abdome agudo obstrutivo: volvo de sigmoide". O aluno vê só a área geral antes do caso.
+- "titulo" descreve a apresentação do paciente sem revelar o diagnóstico. Se o título do documento revelar o diagnóstico, copie-o assim mesmo e registre a pendência.
 - "publicado" é sempre false.
 
 Responda apenas com JSON neste formato:

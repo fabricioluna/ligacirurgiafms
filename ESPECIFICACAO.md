@@ -14,13 +14,13 @@ O caso tem momentos. Em cada momento o aluno pode perguntar ao paciente, examina
 
 ## Telas
 
-1. **Início.** Logo, nome do simulador, lista de casos disponíveis com tema e tempo estimado, aviso de ferramenta educacional e créditos.
-2. **Abertura do caso.** Título, objetivos de aprendizagem, como funciona em três linhas, botão para começar.
+1. **Início.** Logo, nome do simulador, lista de casos disponíveis com a área geral do tema e tempo estimado, aviso de ferramenta educacional e créditos.
+2. **Abertura do caso.** Título, área geral do tema (sem o diagnóstico), como funciona em três linhas, botão para começar. Os objetivos de aprendizagem e o diagnóstico ficam para o relatório final, porque entregariam a resposta.
 3. **Atendimento.** É a tela principal, e tem: o progresso em pontos de sutura, o texto da situação atual, os sinais vitais, o histórico do que já foi perguntado ou pedido, e o campo de ação. O campo de ação aceita texto livre, com quatro atalhos acima dele: perguntar ao paciente, examinar, pedir exame e definir conduta.
 4. **Resultado de exame.** Abre sobre a tela de atendimento, em bloco de laudo, com imagem quando houver.
 5. **Avaliação do momento.** Após cada conduta: a classificação, a explicação em até três frases e o que acontece com o paciente. O aluno confirma para seguir.
 6. **Desfecho.** O que aconteceu com o paciente.
-7. **Relatório final.** Nota, nota por momento, caminho percorrido ao lado do caminho ideal, erros críticos em destaque, mensagens-chave e referências. Botão para refazer e para baixar em PDF.
+7. **Relatório final.** Nota, diagnóstico do caso, objetivos de aprendizagem, nota por momento, caminho percorrido ao lado do caminho ideal, erros críticos em destaque, mensagens-chave e referências. Botão para refazer e para baixar em PDF.
 8. **Painel do professor.** Lista de tentativas com nota e tempo, condutas não previstas agrupadas por caso e momento, e a partir da Fase 3 o cadastro de casos.
 
 ## Como o app decide o que fazer com o que o aluno escreveu

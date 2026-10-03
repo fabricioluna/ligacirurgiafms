@@ -117,6 +117,9 @@ export function validarIntegridade(caso: Caso): Validacao {
     }
   }
 
+  if (!c.identificacao.tema.includes(':')) {
+    avisos.push('O tema não está no formato "Área geral: diagnóstico". Antes do caso o aluno vê o tema inteiro, o que pode entregar o diagnóstico.')
+  }
   if (!fr.mensagensChave.length) avisos.push('A folha resposta não tem mensagens-chave.')
   if (!(c.identificacao.referencias ?? []).length) avisos.push('O caso não tem referências.')
 
