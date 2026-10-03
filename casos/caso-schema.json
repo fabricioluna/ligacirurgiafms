@@ -3,46 +3,107 @@
   "title": "Caso do simulador de casos clínicos",
   "description": "Estrutura de um caso. Cada caso tem duas partes: 'caso', com o que existe para ser descoberto, e 'folhaResposta', com o que é esperado do aluno. A IA so pode usar informacao presente aqui.",
   "type": "object",
-  "required": ["id", "versao", "caso", "folhaResposta"],
+  "required": [
+    "id",
+    "versao",
+    "caso",
+    "folhaResposta"
+  ],
   "properties": {
-    "id": { "type": "string", "pattern": "^CASO-[0-9]{3}$" },
-    "versao": { "type": "string" },
-    "publicado": { "type": "boolean" },
+    "id": {
+      "type": "string",
+      "pattern": "^CASO-[0-9]{3}$"
+    },
+    "versao": {
+      "type": "string"
+    },
+    "publicado": {
+      "type": "boolean"
+    },
     "caso": {
       "type": "object",
-      "required": ["identificacao", "apresentacaoInicial", "anamnese", "exameFisico", "exames", "respostaPadrao", "momentos", "regras", "desfechos"],
+      "required": [
+        "identificacao",
+        "apresentacaoInicial",
+        "anamnese",
+        "exameFisico",
+        "exames",
+        "respostaPadrao",
+        "momentos",
+        "regras",
+        "desfechos"
+      ],
       "properties": {
         "identificacao": {
           "type": "object",
-          "required": ["titulo", "tema", "autor", "tempoEstimado"],
+          "required": [
+            "titulo",
+            "tema",
+            "autor",
+            "tempoEstimado"
+          ],
           "properties": {
-            "titulo": { "type": "string" },
-            "tema": { "type": "string" },
-            "publico": { "type": "string" },
-            "autor": { "type": "string" },
-            "revisor": { "type": "string" },
-            "tempoEstimado": { "type": "string" },
-            "referencias": { "type": "array", "items": { "type": "string" } }
+            "titulo": {
+              "type": "string"
+            },
+            "tema": {
+              "type": "string"
+            },
+            "publico": {
+              "type": "string"
+            },
+            "autor": {
+              "type": "string"
+            },
+            "revisor": {
+              "type": "string"
+            },
+            "tempoEstimado": {
+              "type": "string"
+            },
+            "referencias": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
         "apresentacaoInicial": {
           "type": "object",
-          "required": ["texto", "sinaisVitais", "pergunta"],
+          "required": [
+            "texto",
+            "sinaisVitais",
+            "pergunta"
+          ],
           "properties": {
-            "texto": { "type": "string" },
+            "texto": {
+              "type": "string"
+            },
             "sinaisVitais": {
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["rotulo", "valor"],
+                "required": [
+                  "rotulo",
+                  "valor"
+                ],
                 "properties": {
-                  "rotulo": { "type": "string" },
-                  "valor": { "type": "string" },
-                  "alterado": { "type": "boolean" }
+                  "rotulo": {
+                    "type": "string"
+                  },
+                  "valor": {
+                    "type": "string"
+                  },
+                  "alterado": {
+                    "type": "boolean"
+                  }
                 }
               }
             },
-            "pergunta": { "type": "string" }
+            "pergunta": {
+              "type": "string"
+            }
           }
         },
         "anamnese": {
@@ -50,12 +111,27 @@
           "description": "Cada item e um tema de pergunta com a resposta na voz do paciente. 'palavrasChave' serve ao modo de contingencia, sem IA.",
           "items": {
             "type": "object",
-            "required": ["id", "tema", "resposta"],
+            "required": [
+              "id",
+              "tema",
+              "resposta"
+            ],
             "properties": {
-              "id": { "type": "string" },
-              "tema": { "type": "string" },
-              "resposta": { "type": "string" },
-              "palavrasChave": { "type": "array", "items": { "type": "string" } }
+              "id": {
+                "type": "string"
+              },
+              "tema": {
+                "type": "string"
+              },
+              "resposta": {
+                "type": "string"
+              },
+              "palavrasChave": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -63,12 +139,27 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["id", "segmento", "achado"],
+            "required": [
+              "id",
+              "segmento",
+              "achado"
+            ],
             "properties": {
-              "id": { "type": "string" },
-              "segmento": { "type": "string" },
-              "achado": { "type": "string" },
-              "palavrasChave": { "type": "array", "items": { "type": "string" } }
+              "id": {
+                "type": "string"
+              },
+              "segmento": {
+                "type": "string"
+              },
+              "achado": {
+                "type": "string"
+              },
+              "palavrasChave": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -76,64 +167,155 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["id", "nome", "resultado"],
+            "required": [
+              "id",
+              "nome",
+              "resultado"
+            ],
             "properties": {
-              "id": { "type": "string", "pattern": "^EX-[0-9]{2}$" },
-              "nome": { "type": "string" },
-              "resultado": { "type": "string" },
-              "disponivelAPartirDe": { "type": "string" },
+              "id": {
+                "type": "string",
+                "pattern": "^EX-[0-9]{2}$"
+              },
+              "nome": {
+                "type": "string"
+              },
+              "resultado": {
+                "type": "string"
+              },
+              "disponivelAPartirDe": {
+                "type": "string"
+              },
               "imagem": {
                 "type": "object",
                 "properties": {
-                  "id": { "type": "string" },
-                  "arquivo": { "type": "string" },
-                  "legenda": { "type": "string" },
-                  "fonte": { "type": "string" },
-                  "licenca": { "type": "string" }
+                  "id": {
+                    "type": "string"
+                  },
+                  "arquivo": {
+                    "type": "string"
+                  },
+                  "legenda": {
+                    "type": "string"
+                  },
+                  "fonte": {
+                    "type": "string"
+                  },
+                  "licenca": {
+                    "type": "string"
+                  }
                 }
               },
-              "palavrasChave": { "type": "array", "items": { "type": "string" } }
+              "palavrasChave": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
         "respostaPadrao": {
           "type": "object",
           "description": "O que o sistema responde quando o aluno pede algo que nao existe no caso. Impede que a IA invente dados.",
-          "required": ["perguntaNaoListada", "laboratorioNaoListado", "imagemNaoListada"],
+          "required": [
+            "perguntaNaoListada",
+            "laboratorioNaoListado",
+            "imagemNaoListada"
+          ],
           "properties": {
-            "perguntaNaoListada": { "type": "string" },
-            "laboratorioNaoListado": { "type": "string" },
-            "imagemNaoListada": { "type": "string" },
-            "parecerEspecialista": { "type": "string" }
+            "perguntaNaoListada": {
+              "type": "string"
+            },
+            "laboratorioNaoListado": {
+              "type": "string"
+            },
+            "imagemNaoListada": {
+              "type": "string"
+            },
+            "parecerEspecialista": {
+              "type": "string"
+            }
           }
         },
         "momentos": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["codigo", "nome", "situacao", "pergunta"],
+            "required": [
+              "codigo",
+              "nome",
+              "situacao",
+              "pergunta"
+            ],
             "properties": {
-              "codigo": { "type": "string", "pattern": "^M[0-9]+(-ALT)?$" },
-              "nome": { "type": "string" },
-              "tempo": { "type": "string" },
-              "situacao": { "type": "string" },
-              "sinaisVitais": { "type": "array", "items": { "type": "object" } },
+              "codigo": {
+                "type": "string",
+                "pattern": "^M[0-9]+(-ALT)?$"
+              },
+              "nome": {
+                "type": "string"
+              },
+              "tempo": {
+                "type": "string"
+              },
+              "situacao": {
+                "type": "string"
+              },
+              "sinaisVitais": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
               "atualizaExames": {
                 "type": "array",
                 "description": "Resultados que mudam neste momento. Substituem o valor anterior.",
                 "items": {
                   "type": "object",
-                  "required": ["id", "resultado"],
+                  "required": [
+                    "id",
+                    "resultado"
+                  ],
                   "properties": {
-                    "id": { "type": "string" },
-                    "resultado": { "type": "string" },
-                    "imagem": { "type": "object" }
+                    "id": {
+                      "type": "string"
+                    },
+                    "resultado": {
+                      "type": "string"
+                    },
+                    "imagem": {
+                      "type": "object"
+                    }
                   }
                 }
               },
-              "atualizaExameFisico": { "type": "array", "items": { "type": "object" } },
-              "pergunta": { "type": "string" },
-              "proximo": { "type": "string", "description": "Momento seguinte quando a conduta e ideal ou aceitavel." }
+              "atualizaExameFisico": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "pergunta": {
+                "type": "string"
+              },
+              "proximo": {
+                "type": "string",
+                "description": "Momento seguinte quando a conduta e ideal ou aceitavel."
+              },
+              "acoesDisponiveis": {
+                "type": "array",
+                "description": "O que o aluno pode fazer neste momento. Ausente significa todas.",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "anamnese",
+                    "exameFisico",
+                    "exames",
+                    "conduta"
+                  ]
+                }
+              }
             }
           }
         },
@@ -142,14 +324,48 @@
           "description": "O que acontece quando o aluno decide fora do esperado. O app muda o estado do caso pela regra; a IA apenas indica qual se aplica.",
           "items": {
             "type": "object",
-            "required": ["codigo", "momento", "se", "entao", "vaiPara"],
+            "required": [
+              "codigo",
+              "momento",
+              "se",
+              "entao",
+              "vaiPara"
+            ],
             "properties": {
-              "codigo": { "type": "string" },
-              "momento": { "type": "string" },
-              "se": { "type": "string" },
-              "entao": { "type": "string" },
-              "vaiPara": { "type": "string", "description": "Codigo de momento ou de desfecho." },
-              "registrar": { "type": "boolean" }
+              "codigo": {
+                "type": "string"
+              },
+              "momento": {
+                "type": "string"
+              },
+              "se": {
+                "type": "string"
+              },
+              "entao": {
+                "type": "string"
+              },
+              "vaiPara": {
+                "type": "string",
+                "description": "Codigo de momento ou de desfecho."
+              },
+              "registrar": {
+                "type": "boolean"
+              },
+              "disparadaPor": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Itens da folha resposta (texto exato) que acionam esta regra."
+              },
+              "quando": {
+                "$ref": "#/definitions/condicao",
+                "description": "Condicao que aciona a regra sem depender de um item, por exemplo uma omissao."
+              },
+              "marcaDesfecho": {
+                "type": "string",
+                "description": "Se esta regra for aplicada, o caso termina neste desfecho, qualquer que seja o caminho depois."
+              }
             }
           }
         },
@@ -157,11 +373,27 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["codigo", "texto"],
+            "required": [
+              "codigo",
+              "texto"
+            ],
             "properties": {
-              "codigo": { "type": "string", "pattern": "^D[0-9]+$" },
-              "texto": { "type": "string" },
-              "qualidade": { "type": "string", "enum": ["otimo", "bom", "ruim", "grave"] }
+              "codigo": {
+                "type": "string",
+                "pattern": "^D[0-9]+$"
+              },
+              "texto": {
+                "type": "string"
+              },
+              "qualidade": {
+                "type": "string",
+                "enum": [
+                  "otimo",
+                  "bom",
+                  "ruim",
+                  "grave"
+                ]
+              }
             }
           }
         }
@@ -169,50 +401,153 @@
     },
     "folhaResposta": {
       "type": "object",
-      "required": ["objetivos", "momentos", "caminhoIdeal", "pesos", "escala", "mensagensChave"],
+      "required": [
+        "objetivos",
+        "momentos",
+        "caminhoIdeal",
+        "pesos",
+        "escala",
+        "mensagensChave"
+      ],
       "properties": {
-        "objetivos": { "type": "array", "items": { "type": "string" } },
+        "objetivos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "momentos": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["codigo", "ideal", "errosCriticos", "justificativa"],
+            "required": [
+              "codigo",
+              "ideal",
+              "errosCriticos",
+              "justificativa"
+            ],
             "properties": {
-              "codigo": { "type": "string" },
-              "ideal": { "type": "array", "items": { "type": "string" } },
-              "aceitaveis": { "type": "array", "items": { "type": "string" } },
+              "codigo": {
+                "type": "string"
+              },
+              "ideal": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "aceitaveis": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "subotimas": {
                 "type": "array",
                 "items": {
                   "type": "object",
-                  "required": ["conduta", "custo"],
+                  "required": [
+                    "conduta",
+                    "custo"
+                  ],
                   "properties": {
-                    "conduta": { "type": "string" },
-                    "custo": { "type": "string" }
+                    "conduta": {
+                      "type": "string"
+                    },
+                    "custo": {
+                      "type": "string"
+                    }
                   }
                 }
               },
-              "errosCriticos": { "type": "array", "items": { "type": "string" } },
-              "pontosDeRaciocinio": { "type": "array", "items": { "type": "string" } },
-              "justificativa": { "type": "array", "items": { "type": "string" } }
+              "errosCriticos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pontosDeRaciocinio": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "justificativa": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "modoLista": {
+                "type": "object",
+                "description": "Como o momento funciona no modo de lista (Fase 1 e contingencia).",
+                "properties": {
+                  "derivados": {
+                    "type": "array",
+                    "description": "Itens da folha que contam como escolhidos quando a condicao e verdadeira, sem o aluno marcar. Ficam fora da lista de opcoes, salvo tambemComoOpcao.",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "item",
+                        "quando"
+                      ],
+                      "properties": {
+                        "item": {
+                          "type": "string"
+                        },
+                        "quando": {
+                          "$ref": "#/definitions/condicao"
+                        },
+                        "tambemComoOpcao": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  },
+                  "rotulos": {
+                    "type": "object",
+                    "description": "Texto exibido na lista de opcoes, quando o texto da folha entrega a resposta. Chave: texto exato do item.",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           }
         },
-        "caminhoIdeal": { "type": "string" },
+        "caminhoIdeal": {
+          "type": "string"
+        },
         "pesos": {
           "type": "object",
           "description": "Peso de cada momento. A soma deve ser 100. Momento ALT usa o peso do momento que substitui.",
-          "additionalProperties": { "type": "number" }
+          "additionalProperties": {
+            "type": "number"
+          }
         },
         "escala": {
           "type": "object",
           "description": "Percentual do peso por classificacao.",
           "properties": {
-            "ideal": { "type": "number" },
-            "aceitavel": { "type": "number" },
-            "subotima": { "type": "number" },
-            "perigosa": { "type": "number" },
-            "nao_prevista": { "type": ["number", "null"] }
+            "ideal": {
+              "type": "number"
+            },
+            "aceitavel": {
+              "type": "number"
+            },
+            "subotima": {
+              "type": "number"
+            },
+            "perigosa": {
+              "type": "number"
+            },
+            "nao_prevista": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
           }
         },
         "faixas": {
@@ -220,14 +555,67 @@
           "items": {
             "type": "object",
             "properties": {
-              "de": { "type": "number" },
-              "ate": { "type": "number" },
-              "rotulo": { "type": "string" }
+              "de": {
+                "type": "number"
+              },
+              "ate": {
+                "type": "number"
+              },
+              "rotulo": {
+                "type": "string"
+              }
             }
           }
         },
-        "mensagensChave": { "type": "array", "items": { "type": "string" } },
-        "orientacoesFeedback": { "type": "array", "items": { "type": "string" } }
+        "mensagensChave": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orientacoesFeedback": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "condicao": {
+      "type": "object",
+      "description": "Condicao usada no modo de lista (sem IA). Todas as partes informadas precisam ser verdadeiras. Itens sao referenciados pelo texto exato da folha resposta; descobertas pelo id (AN-, EF-, EX-).",
+      "additionalProperties": false,
+      "properties": {
+        "selecionados": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Todos estes itens foram escolhidos pelo aluno."
+        },
+        "nenhumSelecionado": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Nenhum destes itens foi escolhido."
+        },
+        "revelados": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Todas estas informacoes foram descobertas pelo aluno."
+        },
+        "naoRevelados": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Nenhuma destas informacoes foi descoberta."
+        }
       }
     }
   }

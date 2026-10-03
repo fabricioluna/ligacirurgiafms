@@ -1,6 +1,6 @@
 # Identidade visual
 
-A referência é a logo da liga, em `assets/logo-liga-cirurgia.jpeg`: fundo quase preto, verde oliva ácido, branco sujo, textura de stencil e pichação, bisturi empunhado e marcas de sutura nas laterais. O tema escuro é o principal, porque é o da logo. O claro existe para leitura prolongada e para projeção em sala clara.
+A referência é a logo da liga, em `assets/logoliga.jpg`: fundo quase preto, verde oliva ácido, branco sujo, textura de stencil e pichação, bisturi empunhado e marcas de sutura nas laterais. O tema escuro é o principal, porque é o da logo. O claro existe para leitura prolongada e para projeção em sala clara.
 
 Um cuidado que vale mais que a estética: o conteúdo é clínico e precisa ser lido rápido, inclusive no celular. A textura e o peso gráfico ficam na moldura (cabeçalho, capa do caso, tela de resultado). A área onde o aluno lê e escreve é limpa, de alto contraste, sem ruído de fundo.
 

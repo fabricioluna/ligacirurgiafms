@@ -25,7 +25,7 @@ React + Vite + Tailwind, hospedagem na Vercel, funções serverless da Vercel em
 - `prompts-ia.md`: instruções dos três papéis de IA (paciente, avaliador, feedback).
 - `casos/caso-schema.json`: estrutura de um caso.
 - `casos/caso-001.json`: caso real completo, usado como referência e como semente.
-- `assets/logo-liga-cirurgia.jpeg`: logo da liga.
+- `assets/logoliga.jpg`: logo da liga.
 
 ## Como trabalhar comigo
 

@@ -1,6 +1,6 @@
 {
   "id": "CASO-001",
-  "versao": "1.0",
+  "versao": "1.1",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -18,75 +18,441 @@
     "apresentacaoInicial": {
       "texto": "Pronto-socorro, 22 horas. O Sr. Antônio, 66 anos, aposentado, chega trazido pela filha com dor abdominal em cólica há cerca de 18 horas, acompanhada de vômitos e de barriga inchada. Ele conta que não elimina gases desde a manhã.",
       "sinaisVitais": [
-        { "rotulo": "Pressão arterial", "valor": "128 x 78 mmHg" },
-        { "rotulo": "Frequência cardíaca", "valor": "98 bpm" },
-        { "rotulo": "Frequência respiratória", "valor": "18 irpm" },
-        { "rotulo": "Temperatura axilar", "valor": "36,8 °C" },
-        { "rotulo": "Saturação de oxigênio", "valor": "97% em ar ambiente" },
-        { "rotulo": "Dor (0 a 10)", "valor": "6" }
+        {
+          "rotulo": "Pressão arterial",
+          "valor": "128 x 78 mmHg"
+        },
+        {
+          "rotulo": "Frequência cardíaca",
+          "valor": "98 bpm"
+        },
+        {
+          "rotulo": "Frequência respiratória",
+          "valor": "18 irpm"
+        },
+        {
+          "rotulo": "Temperatura axilar",
+          "valor": "36,8 °C"
+        },
+        {
+          "rotulo": "Saturação de oxigênio",
+          "valor": "97% em ar ambiente"
+        },
+        {
+          "rotulo": "Dor (0 a 10)",
+          "valor": "6"
+        }
       ],
       "pergunta": "Você é o médico de plantão. Como conduz o caso?"
     },
     "anamnese": [
-      { "id": "AN-01", "tema": "Início e evolução da dor", "resposta": "Começou ontem à tarde, perto do umbigo. Vem e passa, e foi piorando.", "palavrasChave": ["quando começou", "início", "há quanto tempo", "evolução"] },
-      { "id": "AN-02", "tema": "Característica da dor", "resposta": "É uma cólica forte que aperta e depois alivia. Entre uma crise e outra fica um incômodo.", "palavrasChave": ["tipo de dor", "cólica", "característica", "irradia", "piora"] },
-      { "id": "AN-03", "tema": "Vômitos", "resposta": "Vomitei umas seis vezes. No começo era comida, agora sai um líquido esverdeado.", "palavrasChave": ["vômito", "vomitou", "náusea", "enjoo"] },
-      { "id": "AN-04", "tema": "Gases e fezes", "resposta": "Evacuei um pouco ontem de manhã. Gases, não solto desde hoje cedo.", "palavrasChave": ["evacuou", "fezes", "gases", "flatos", "intestino"] },
-      { "id": "AN-05", "tema": "Cirurgias prévias", "resposta": "Fui operado da barriga há uns 12 anos, por uma úlcera que furou. O corte foi grande, no meio da barriga.", "palavrasChave": ["cirurgia", "operado", "laparotomia", "cicatriz"] },
-      { "id": "AN-06", "tema": "Episódios semelhantes", "resposta": "Nunca tive isso antes.", "palavrasChave": ["antes", "episódio", "semelhante", "já aconteceu"] },
-      { "id": "AN-07", "tema": "Febre", "resposta": "Não senti febre.", "palavrasChave": ["febre", "calafrio"] },
-      { "id": "AN-08", "tema": "Doenças", "resposta": "Tenho pressão alta.", "palavrasChave": ["comorbidade", "doença", "hipertensão", "diabetes", "antecedente"] },
-      { "id": "AN-09", "tema": "Medicações", "resposta": "Tomo losartana todo dia.", "palavrasChave": ["medicação", "remédio", "uso de"] },
-      { "id": "AN-10", "tema": "Alergias", "resposta": "Não tenho alergia a remédio.", "palavrasChave": ["alergia"] },
-      { "id": "AN-11", "tema": "Hábito intestinal, peso e sangramento", "resposta": "Meu intestino sempre funcionou bem. Não emagreci e nunca vi sangue nas fezes.", "palavrasChave": ["emagreceu", "peso", "sangue", "melena", "hábito intestinal"] },
-      { "id": "AN-12", "tema": "Colonoscopia", "resposta": "Nunca fiz esse exame.", "palavrasChave": ["colonoscopia", "rastreio"] },
-      { "id": "AN-13", "tema": "Hérnias", "resposta": "Nunca reparei caroço na virilha nem na barriga.", "palavrasChave": ["hérnia", "caroço", "abaulamento"] },
-      { "id": "AN-14", "tema": "Tabagismo e álcool", "resposta": "Fumei até os 50 anos. Bebo pouco, só em festa.", "palavrasChave": ["fuma", "tabagismo", "álcool", "bebida"] },
-      { "id": "AN-15", "tema": "Urina", "resposta": "Hoje urinei pouco, e meio escuro.", "palavrasChave": ["urina", "diurese", "urinar"] }
+      {
+        "id": "AN-01",
+        "tema": "Início e evolução da dor",
+        "resposta": "Começou ontem à tarde, perto do umbigo. Vem e passa, e foi piorando.",
+        "palavrasChave": [
+          "quando começou",
+          "início",
+          "há quanto tempo",
+          "evolução"
+        ]
+      },
+      {
+        "id": "AN-02",
+        "tema": "Característica da dor",
+        "resposta": "É uma cólica forte que aperta e depois alivia. Entre uma crise e outra fica um incômodo.",
+        "palavrasChave": [
+          "tipo de dor",
+          "cólica",
+          "característica",
+          "irradia",
+          "piora"
+        ]
+      },
+      {
+        "id": "AN-03",
+        "tema": "Vômitos",
+        "resposta": "Vomitei umas seis vezes. No começo era comida, agora sai um líquido esverdeado.",
+        "palavrasChave": [
+          "vômito",
+          "vomitou",
+          "náusea",
+          "enjoo"
+        ]
+      },
+      {
+        "id": "AN-04",
+        "tema": "Gases e fezes",
+        "resposta": "Evacuei um pouco ontem de manhã. Gases, não solto desde hoje cedo.",
+        "palavrasChave": [
+          "evacuou",
+          "fezes",
+          "gases",
+          "flatos",
+          "intestino"
+        ]
+      },
+      {
+        "id": "AN-05",
+        "tema": "Cirurgias prévias",
+        "resposta": "Fui operado da barriga há uns 12 anos, por uma úlcera que furou. O corte foi grande, no meio da barriga.",
+        "palavrasChave": [
+          "cirurgia",
+          "operado",
+          "laparotomia",
+          "cicatriz"
+        ]
+      },
+      {
+        "id": "AN-06",
+        "tema": "Episódios semelhantes",
+        "resposta": "Nunca tive isso antes.",
+        "palavrasChave": [
+          "antes",
+          "episódio",
+          "semelhante",
+          "já aconteceu"
+        ]
+      },
+      {
+        "id": "AN-07",
+        "tema": "Febre",
+        "resposta": "Não senti febre.",
+        "palavrasChave": [
+          "febre",
+          "calafrio"
+        ]
+      },
+      {
+        "id": "AN-08",
+        "tema": "Doenças",
+        "resposta": "Tenho pressão alta.",
+        "palavrasChave": [
+          "comorbidade",
+          "doença",
+          "hipertensão",
+          "diabetes",
+          "antecedente"
+        ]
+      },
+      {
+        "id": "AN-09",
+        "tema": "Medicações",
+        "resposta": "Tomo losartana todo dia.",
+        "palavrasChave": [
+          "medicação",
+          "remédio",
+          "uso de"
+        ]
+      },
+      {
+        "id": "AN-10",
+        "tema": "Alergias",
+        "resposta": "Não tenho alergia a remédio.",
+        "palavrasChave": [
+          "alergia"
+        ]
+      },
+      {
+        "id": "AN-11",
+        "tema": "Hábito intestinal, peso e sangramento",
+        "resposta": "Meu intestino sempre funcionou bem. Não emagreci e nunca vi sangue nas fezes.",
+        "palavrasChave": [
+          "emagreceu",
+          "peso",
+          "sangue",
+          "melena",
+          "hábito intestinal"
+        ]
+      },
+      {
+        "id": "AN-12",
+        "tema": "Colonoscopia",
+        "resposta": "Nunca fiz esse exame.",
+        "palavrasChave": [
+          "colonoscopia",
+          "rastreio"
+        ]
+      },
+      {
+        "id": "AN-13",
+        "tema": "Hérnias",
+        "resposta": "Nunca reparei caroço na virilha nem na barriga.",
+        "palavrasChave": [
+          "hérnia",
+          "caroço",
+          "abaulamento"
+        ]
+      },
+      {
+        "id": "AN-14",
+        "tema": "Tabagismo e álcool",
+        "resposta": "Fumei até os 50 anos. Bebo pouco, só em festa.",
+        "palavrasChave": [
+          "fuma",
+          "tabagismo",
+          "álcool",
+          "bebida"
+        ]
+      },
+      {
+        "id": "AN-15",
+        "tema": "Urina",
+        "resposta": "Hoje urinei pouco, e meio escuro.",
+        "palavrasChave": [
+          "urina",
+          "diurese",
+          "urinar"
+        ]
+      }
     ],
     "exameFisico": [
-      { "id": "EF-01", "segmento": "Estado geral", "achado": "Regular, desidratado (2+/4+), mucosas secas, corado, anictérico, afebril.", "palavrasChave": ["estado geral", "ectoscopia", "hidratação"] },
-      { "id": "EF-02", "segmento": "Inspeção abdominal", "achado": "Abdome distendido, cicatriz mediana xifopúbica, ondas peristálticas discretas visíveis.", "palavrasChave": ["inspeção", "abdome", "cicatriz", "distensão"] },
-      { "id": "EF-03", "segmento": "Ausculta abdominal", "achado": "Ruídos hidroaéreos aumentados, de timbre metálico.", "palavrasChave": ["ausculta", "ruídos", "RHA", "peristalse"] },
-      { "id": "EF-04", "segmento": "Percussão", "achado": "Timpanismo difuso.", "palavrasChave": ["percussão", "timpanismo", "macicez"] },
-      { "id": "EF-05", "segmento": "Palpação", "achado": "Dor difusa, maior no mesogástrio, sem defesa, sem descompressão dolorosa, sem massas palpáveis.", "palavrasChave": ["palpação", "defesa", "blumberg", "descompressão", "massa"] },
-      { "id": "EF-06", "segmento": "Orifícios herniários", "achado": "Regiões inguinais, femorais, umbilical e cicatriz cirúrgica livres, sem abaulamentos.", "palavrasChave": ["hérnia", "orifícios herniários", "inguinal", "femoral", "umbilical"] },
-      { "id": "EF-07", "segmento": "Toque retal", "achado": "Ampola retal vazia, sem fecaloma, sem massas, sem sangue em dedo de luva.", "palavrasChave": ["toque retal", "ampola", "fecaloma"] },
-      { "id": "EF-08", "segmento": "Cardiovascular e respiratório", "achado": "Sem alterações.", "palavrasChave": ["cardíaco", "pulmonar", "respiratório", "ausculta cardíaca"] }
+      {
+        "id": "EF-01",
+        "segmento": "Estado geral",
+        "achado": "Regular, desidratado (2+/4+), mucosas secas, corado, anictérico, afebril.",
+        "palavrasChave": [
+          "estado geral",
+          "ectoscopia",
+          "hidratação"
+        ]
+      },
+      {
+        "id": "EF-02",
+        "segmento": "Inspeção abdominal",
+        "achado": "Abdome distendido, cicatriz mediana xifopúbica, ondas peristálticas discretas visíveis.",
+        "palavrasChave": [
+          "inspeção",
+          "abdome",
+          "cicatriz",
+          "distensão"
+        ]
+      },
+      {
+        "id": "EF-03",
+        "segmento": "Ausculta abdominal",
+        "achado": "Ruídos hidroaéreos aumentados, de timbre metálico.",
+        "palavrasChave": [
+          "ausculta",
+          "ruídos",
+          "RHA",
+          "peristalse"
+        ]
+      },
+      {
+        "id": "EF-04",
+        "segmento": "Percussão",
+        "achado": "Timpanismo difuso.",
+        "palavrasChave": [
+          "percussão",
+          "timpanismo",
+          "macicez"
+        ]
+      },
+      {
+        "id": "EF-05",
+        "segmento": "Palpação",
+        "achado": "Dor difusa, maior no mesogástrio, sem defesa, sem descompressão dolorosa, sem massas palpáveis.",
+        "palavrasChave": [
+          "palpação",
+          "defesa",
+          "blumberg",
+          "descompressão",
+          "massa"
+        ]
+      },
+      {
+        "id": "EF-06",
+        "segmento": "Orifícios herniários",
+        "achado": "Regiões inguinais, femorais, umbilical e cicatriz cirúrgica livres, sem abaulamentos.",
+        "palavrasChave": [
+          "hérnia",
+          "orifícios herniários",
+          "inguinal",
+          "femoral",
+          "umbilical"
+        ]
+      },
+      {
+        "id": "EF-07",
+        "segmento": "Toque retal",
+        "achado": "Ampola retal vazia, sem fecaloma, sem massas, sem sangue em dedo de luva.",
+        "palavrasChave": [
+          "toque retal",
+          "ampola",
+          "fecaloma"
+        ]
+      },
+      {
+        "id": "EF-08",
+        "segmento": "Cardiovascular e respiratório",
+        "achado": "Sem alterações.",
+        "palavrasChave": [
+          "cardíaco",
+          "pulmonar",
+          "respiratório",
+          "ausculta cardíaca"
+        ]
+      }
     ],
     "exames": [
-      { "id": "EX-01", "nome": "Hemograma", "resultado": "Hb 15,8 g/dL; Ht 47%; leucócitos 11.200/mm³ sem desvio; plaquetas 260.000/mm³.", "palavrasChave": ["hemograma", "hemoglobina", "leucócitos"] },
-      { "id": "EX-02", "nome": "Sódio, potássio e cloro", "resultado": "Na 136 mEq/L; K 3,2 mEq/L; Cl 94 mEq/L.", "palavrasChave": ["eletrólitos", "sódio", "potássio", "cloro"] },
-      { "id": "EX-03", "nome": "Ureia e creatinina", "resultado": "Ureia 58 mg/dL; creatinina 1,3 mg/dL.", "palavrasChave": ["ureia", "creatinina", "função renal"] },
-      { "id": "EX-04", "nome": "Gasometria venosa", "resultado": "pH 7,47; HCO3 30 mEq/L; BE +5.", "palavrasChave": ["gasometria", "ph", "bicarbonato"] },
-      { "id": "EX-05", "nome": "Lactato", "resultado": "1,6 mmol/L.", "palavrasChave": ["lactato"] },
-      { "id": "EX-06", "nome": "Amilase e lipase", "resultado": "Dentro da normalidade.", "palavrasChave": ["amilase", "lipase", "pancreatite"] },
-      { "id": "EX-07", "nome": "Coagulograma", "resultado": "Dentro da normalidade.", "palavrasChave": ["coagulograma", "inr", "ttpa"] },
-      { "id": "EX-08", "nome": "Proteína C reativa", "resultado": "12 mg/L.", "palavrasChave": ["pcr", "proteína c reativa"] },
-      { "id": "EX-09", "nome": "Glicemia", "resultado": "118 mg/dL.", "palavrasChave": ["glicemia", "glicose"] },
-      { "id": "EX-10", "nome": "Eletrocardiograma", "resultado": "Ritmo sinusal, sem alterações agudas.", "palavrasChave": ["ecg", "eletrocardiograma"] },
-      { "id": "EX-11", "nome": "Tipagem sanguínea", "resultado": "O positivo. Reserva disponível.", "palavrasChave": ["tipagem", "reserva de sangue", "hemoderivado"] },
+      {
+        "id": "EX-01",
+        "nome": "Hemograma",
+        "resultado": "Hb 15,8 g/dL; Ht 47%; leucócitos 11.200/mm³ sem desvio; plaquetas 260.000/mm³.",
+        "palavrasChave": [
+          "hemograma",
+          "hemoglobina",
+          "leucócitos"
+        ]
+      },
+      {
+        "id": "EX-02",
+        "nome": "Sódio, potássio e cloro",
+        "resultado": "Na 136 mEq/L; K 3,2 mEq/L; Cl 94 mEq/L.",
+        "palavrasChave": [
+          "eletrólitos",
+          "sódio",
+          "potássio",
+          "cloro"
+        ]
+      },
+      {
+        "id": "EX-03",
+        "nome": "Ureia e creatinina",
+        "resultado": "Ureia 58 mg/dL; creatinina 1,3 mg/dL.",
+        "palavrasChave": [
+          "ureia",
+          "creatinina",
+          "função renal"
+        ]
+      },
+      {
+        "id": "EX-04",
+        "nome": "Gasometria venosa",
+        "resultado": "pH 7,47; HCO3 30 mEq/L; BE +5.",
+        "palavrasChave": [
+          "gasometria",
+          "ph",
+          "bicarbonato"
+        ]
+      },
+      {
+        "id": "EX-05",
+        "nome": "Lactato",
+        "resultado": "1,6 mmol/L.",
+        "palavrasChave": [
+          "lactato"
+        ]
+      },
+      {
+        "id": "EX-06",
+        "nome": "Amilase e lipase",
+        "resultado": "Dentro da normalidade.",
+        "palavrasChave": [
+          "amilase",
+          "lipase",
+          "pancreatite"
+        ]
+      },
+      {
+        "id": "EX-07",
+        "nome": "Coagulograma",
+        "resultado": "Dentro da normalidade.",
+        "palavrasChave": [
+          "coagulograma",
+          "inr",
+          "ttpa"
+        ]
+      },
+      {
+        "id": "EX-08",
+        "nome": "Proteína C reativa",
+        "resultado": "12 mg/L.",
+        "palavrasChave": [
+          "pcr",
+          "proteína c reativa"
+        ]
+      },
+      {
+        "id": "EX-09",
+        "nome": "Glicemia",
+        "resultado": "118 mg/dL.",
+        "palavrasChave": [
+          "glicemia",
+          "glicose"
+        ]
+      },
+      {
+        "id": "EX-10",
+        "nome": "Eletrocardiograma",
+        "resultado": "Ritmo sinusal, sem alterações agudas.",
+        "palavrasChave": [
+          "ecg",
+          "eletrocardiograma"
+        ]
+      },
+      {
+        "id": "EX-11",
+        "nome": "Tipagem sanguínea",
+        "resultado": "O positivo. Reserva disponível.",
+        "palavrasChave": [
+          "tipagem",
+          "reserva de sangue",
+          "hemoderivado"
+        ]
+      },
       {
         "id": "EX-12",
         "nome": "Radiografias de abdome (ortostase e decúbito) e de tórax",
         "resultado": "Alças de delgado distendidas, até 4 cm, com níveis hidroaéreos em degraus. Pouco gás no cólon. Sem pneumoperitônio.",
-        "imagem": { "id": "IMG-001-A", "arquivo": "img-001-a.jpg", "legenda": "Radiografia de abdome em ortostase", "fonte": "A definir no Radiopaedia", "licenca": "CC BY-NC-SA, citar autor e rID" },
-        "palavrasChave": ["radiografia", "raio x", "rx de abdome"]
+        "imagem": {
+          "id": "IMG-001-A",
+          "arquivo": "img-001-a.jpg",
+          "legenda": "Radiografia de abdome em ortostase",
+          "fonte": "A definir no Radiopaedia",
+          "licenca": "CC BY-NC-SA, citar autor e rID"
+        },
+        "palavrasChave": [
+          "radiografia",
+          "raio x",
+          "rx de abdome"
+        ]
       },
       {
         "id": "EX-13",
         "nome": "Tomografia de abdome com contraste venoso",
         "resultado": "Alças de delgado distendidas até 4,2 cm, com ponto de transição no íleo distal, na pelve, sem lesão expansiva. Sinal das fezes no delgado proximal à transição. Alças distais colabadas. Realce parietal preservado, sem espessamento, sem pneumatose, sem líquido livre, mesentério sem edema, sem sinal do redemoinho. Conclusão: obstrução de delgado provavelmente por brida, sem sinais de sofrimento de alça.",
-        "imagem": { "id": "IMG-001-B", "arquivo": "img-001-b/", "legenda": "Série de 8 a 12 cortes axiais em torno do ponto de transição", "fonte": "A definir no Radiopaedia", "licenca": "CC BY-NC-SA, citar autor e rID" },
-        "palavrasChave": ["tomografia", "tc", "tc de abdome"]
+        "imagem": {
+          "id": "IMG-001-B",
+          "arquivo": "img-001-b/",
+          "legenda": "Série de 8 a 12 cortes axiais em torno do ponto de transição",
+          "fonte": "A definir no Radiopaedia",
+          "licenca": "CC BY-NC-SA, citar autor e rID"
+        },
+        "palavrasChave": [
+          "tomografia",
+          "tc",
+          "tc de abdome"
+        ]
       },
       {
         "id": "EX-14",
         "nome": "Radiografia de controle após contraste hidrossolúvel",
         "resultado": "Disponível apenas após a administração do contraste hidrossolúvel.",
         "disponivelAPartirDe": "M3",
-        "imagem": { "id": "IMG-001-C", "arquivo": "img-001-c.jpg", "legenda": "Radiografia de controle 24 horas após contraste hidrossolúvel", "fonte": "A definir", "licenca": "A definir" },
-        "palavrasChave": ["contraste hidrossolúvel", "gastrografina", "radiografia de controle"]
+        "imagem": {
+          "id": "IMG-001-C",
+          "arquivo": "img-001-c.jpg",
+          "legenda": "Radiografia de controle 24 horas após contraste hidrossolúvel",
+          "fonte": "A definir",
+          "licenca": "A definir"
+        },
+        "palavrasChave": [
+          "contraste hidrossolúvel",
+          "gastrografina",
+          "radiografia de controle"
+        ]
       }
     ],
     "respostaPadrao": {
@@ -105,14 +471,26 @@
       },
       {
         "codigo": "M2",
-        "nome": "Após a tomografia",
+        "nome": "Uma hora após a admissão",
         "tempo": "Cerca de 1 hora após a admissão.",
         "situacao": "A sonda nasogástrica, se passada, drenou 600 mL de conteúdo bilioso. A dor está em 4/10.",
         "sinaisVitais": [
-          { "rotulo": "Pressão arterial", "valor": "130 x 80 mmHg" },
-          { "rotulo": "Frequência cardíaca", "valor": "92 bpm" },
-          { "rotulo": "Temperatura axilar", "valor": "36,9 °C" },
-          { "rotulo": "Dor (0 a 10)", "valor": "4" }
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "130 x 80 mmHg"
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "92 bpm"
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "36,9 °C"
+          },
+          {
+            "rotulo": "Dor (0 a 10)",
+            "valor": "4"
+          }
         ],
         "pergunta": "Qual o plano a partir de agora?",
         "proximo": "M3"
@@ -123,20 +501,60 @@
         "tempo": "24 horas após o início do tratamento conservador.",
         "situacao": "A dor se tornou contínua, em 8/10, mais intensa no hipogástrio. O abdome está mais distendido, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa. A sonda drenou 1.400 mL em 24 horas e a diurese está em 0,4 mL/kg/h.",
         "sinaisVitais": [
-          { "rotulo": "Pressão arterial", "valor": "110 x 70 mmHg" },
-          { "rotulo": "Frequência cardíaca", "valor": "114 bpm", "alterado": true },
-          { "rotulo": "Temperatura axilar", "valor": "38,0 °C", "alterado": true },
-          { "rotulo": "Dor (0 a 10)", "valor": "8", "alterado": true }
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "110 x 70 mmHg"
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "114 bpm",
+            "alterado": true
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "38,0 °C",
+            "alterado": true
+          },
+          {
+            "rotulo": "Dor (0 a 10)",
+            "valor": "8",
+            "alterado": true
+          }
         ],
         "atualizaExames": [
-          { "id": "EX-01", "resultado": "Leucócitos 16.800/mm³ com 8% de bastões; Hb 15,1 g/dL." },
-          { "id": "EX-05", "resultado": "2,8 mmol/L." },
-          { "id": "EX-08", "resultado": "96 mg/L." },
-          { "id": "EX-14", "resultado": "Contraste retido em alças de delgado, sem chegar ao cólon." },
-          { "id": "EX-13", "resultado": "Espessamento parietal de segmento ileal de cerca de 15 cm, com redução do realce, edema mesentérico e pequena quantidade de líquido livre entre as alças. Sem pneumoperitônio.", "imagem": { "id": "IMG-001-D", "arquivo": "img-001-d.jpg", "legenda": "TC de controle com sinais de sofrimento de alça", "fonte": "A definir", "licenca": "A definir" } }
+          {
+            "id": "EX-01",
+            "resultado": "Leucócitos 16.800/mm³ com 8% de bastões; Hb 15,1 g/dL."
+          },
+          {
+            "id": "EX-05",
+            "resultado": "2,8 mmol/L."
+          },
+          {
+            "id": "EX-08",
+            "resultado": "96 mg/L."
+          },
+          {
+            "id": "EX-14",
+            "resultado": "Contraste retido em alças de delgado, sem chegar ao cólon."
+          },
+          {
+            "id": "EX-13",
+            "resultado": "Espessamento parietal de segmento ileal de cerca de 15 cm, com redução do realce, edema mesentérico e pequena quantidade de líquido livre entre as alças. Sem pneumoperitônio.",
+            "imagem": {
+              "id": "IMG-001-D",
+              "arquivo": "img-001-d.jpg",
+              "legenda": "TC de controle com sinais de sofrimento de alça",
+              "fonte": "A definir",
+              "licenca": "A definir"
+            }
+          }
         ],
         "atualizaExameFisico": [
-          { "id": "EF-05", "achado": "Dor contínua e intensa, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa." }
+          {
+            "id": "EF-05",
+            "achado": "Dor contínua e intensa, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa."
+          }
         ],
         "pergunta": "Qual a sua conduta?",
         "proximo": "M4"
@@ -146,14 +564,35 @@
         "nome": "Paciente em choque",
         "situacao": "O paciente está com extremidades frias e abdome com peritonite difusa. Creatinina em 2,1 mg/dL.",
         "sinaisVitais": [
-          { "rotulo": "Pressão arterial", "valor": "86 x 50 mmHg", "alterado": true },
-          { "rotulo": "Frequência cardíaca", "valor": "128 bpm", "alterado": true },
-          { "rotulo": "Temperatura axilar", "valor": "38,6 °C", "alterado": true }
+          {
+            "rotulo": "Pressão arterial",
+            "valor": "86 x 50 mmHg",
+            "alterado": true
+          },
+          {
+            "rotulo": "Frequência cardíaca",
+            "valor": "128 bpm",
+            "alterado": true
+          },
+          {
+            "rotulo": "Temperatura axilar",
+            "valor": "38,6 °C",
+            "alterado": true
+          }
         ],
         "atualizaExames": [
-          { "id": "EX-01", "resultado": "Leucócitos 21.000/mm³ com 14% de bastões." },
-          { "id": "EX-05", "resultado": "4,8 mmol/L." },
-          { "id": "EX-03", "resultado": "Ureia 92 mg/dL; creatinina 2,1 mg/dL." }
+          {
+            "id": "EX-01",
+            "resultado": "Leucócitos 21.000/mm³ com 14% de bastões."
+          },
+          {
+            "id": "EX-05",
+            "resultado": "4,8 mmol/L."
+          },
+          {
+            "id": "EX-03",
+            "resultado": "Ureia 92 mg/dL; creatinina 2,1 mg/dL."
+          }
         ],
         "pergunta": "Qual a sua conduta?",
         "proximo": "M4-ALT"
@@ -163,39 +602,183 @@
         "nome": "Intraoperatório",
         "situacao": "Paciente estável na anestesia, sem vasopressor, com lactato em 2,4 mmol/L. Na exploração há uma brida única entre a cicatriz e o mesentério do íleo, cerca de 60 cm da válvula ileocecal, estrangulando um segmento de aproximadamente 15 cm. Alças proximais distendidas e distais colabadas. Pequena quantidade de líquido serossanguinolento, sem odor fecal, sem perfuração. Após a secção da brida, o segmento está violáceo.",
         "pergunta": "Como conduz a cirurgia?",
-        "proximo": "M5"
+        "proximo": "M5",
+        "acoesDisponiveis": [
+          "conduta"
+        ]
       },
       {
         "codigo": "M4-ALT",
         "nome": "Intraoperatório em paciente instável",
         "situacao": "Paciente em uso de noradrenalina em dose crescente, temperatura de 35,4 °C, pH 7,18 e sangramento difuso em superfícies cruentas. Segmento ileal de cerca de 40 cm necrótico, com perfuração e conteúdo entérico livre na pelve.",
         "pergunta": "Como conduz a cirurgia?",
-        "proximo": "D3"
+        "proximo": "D3",
+        "acoesDisponiveis": [
+          "conduta"
+        ]
       },
       {
         "codigo": "M5",
         "nome": "Pós-operatório",
         "situacao": "Primeiro dia: estável, sonda com 300 mL, dor controlada. Terceiro dia: eliminou flatos, abdome menos distendido, aceita líquidos.",
         "pergunta": "Quais são a prescrição e os cuidados do pós-operatório?",
-        "proximo": "D1"
+        "proximo": "D1",
+        "acoesDisponiveis": [
+          "conduta"
+        ]
       }
     ],
     "regras": [
-      { "codigo": "R1", "momento": "M1", "se": "Dá alta, trata como gastroenterite ou não investiga a obstrução.", "entao": "O paciente retorna 24 horas depois, em estado grave.", "vaiPara": "M3-ALT", "registrar": true },
-      { "codigo": "R2", "momento": "M1", "se": "Não solicita tomografia e define o plano apenas com a radiografia.", "entao": "O caso segue sem os dados da tomografia.", "vaiPara": "M2", "registrar": true },
-      { "codigo": "R3", "momento": "M2", "se": "Indica cirurgia imediata sem sinais de sofrimento.", "entao": "Cirurgia encontra brida única e alça viável após a liberação.", "vaiPara": "D2", "registrar": true },
-      { "codigo": "R4", "momento": "M2", "se": "Mantém o tratamento conservador sem prazo, sem reavaliação ou sem contraste.", "entao": "O caso segue normalmente, com a decisão registrada.", "vaiPara": "M3", "registrar": true },
-      { "codigo": "R5", "momento": "M3", "se": "Mantém o tratamento conservador apesar dos sinais de sofrimento.", "entao": "Seis horas depois o paciente entra em choque.", "vaiPara": "M3-ALT", "registrar": true },
-      { "codigo": "R6", "momento": "M3", "se": "Solicita nova tomografia antes de operar.", "entao": "Recebe o resultado atualizado e segue para a cirurgia, com atraso registrado.", "vaiPara": "M4", "registrar": true },
-      { "codigo": "R7", "momento": "M4", "se": "Mantém o segmento inviável sem ressecar.", "entao": "No segundo dia de pós-operatório há peritonite por necrose da alça, com reoperação.", "vaiPara": "D3", "registrar": true },
-      { "codigo": "R8", "momento": "M4", "se": "Libera todas as aderências da cavidade.", "entao": "Ocorre enterotomia em alça proximal, reparada no ato.", "vaiPara": "M5", "registrar": true },
-      { "codigo": "R9", "momento": "M4", "se": "Opta por controle de danos em paciente estável.", "entao": "Reoperação programada desnecessária e internação mais longa.", "vaiPara": "D1", "registrar": true }
+      {
+        "codigo": "R1",
+        "momento": "M1",
+        "se": "Dá alta, trata como gastroenterite ou não investiga a obstrução.",
+        "entao": "O paciente retorna 24 horas depois, em estado grave.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta ou tratar como gastroenterite sem investigar a obstrução."
+        ],
+        "marcaDesfecho": "D4"
+      },
+      {
+        "codigo": "R2",
+        "momento": "M1",
+        "se": "Não solicita tomografia e define o plano apenas com a radiografia.",
+        "entao": "O caso segue sem os dados da tomografia.",
+        "vaiPara": "M2",
+        "registrar": true,
+        "quando": {
+          "naoRevelados": [
+            "EX-13"
+          ]
+        }
+      },
+      {
+        "codigo": "R3",
+        "momento": "M2",
+        "se": "Indica cirurgia imediata sem sinais de sofrimento.",
+        "entao": "Cirurgia encontra brida única e alça viável após a liberação.",
+        "vaiPara": "D2",
+        "registrar": true,
+        "disparadaPor": [
+          "Indicar cirurgia imediata sem sinais de sofrimento."
+        ]
+      },
+      {
+        "codigo": "R4",
+        "momento": "M2",
+        "se": "Mantém o tratamento conservador sem prazo, sem reavaliação ou sem contraste.",
+        "entao": "O caso segue normalmente, com a decisão registrada.",
+        "vaiPara": "M3",
+        "registrar": true,
+        "disparadaPor": [
+          "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada."
+        ]
+      },
+      {
+        "codigo": "R5",
+        "momento": "M3",
+        "se": "Mantém o tratamento conservador apesar dos sinais de sofrimento.",
+        "entao": "Seis horas depois o paciente entra em choque.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.",
+          "Repetir o contraste e aguardar."
+        ]
+      },
+      {
+        "codigo": "R6",
+        "momento": "M3",
+        "se": "Solicita nova tomografia antes de operar.",
+        "entao": "Recebe o resultado atualizado e segue para a cirurgia, com atraso registrado.",
+        "vaiPara": "M4",
+        "registrar": true,
+        "disparadaPor": [
+          "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.",
+          "Tomografia de controle antes da cirurgia, desde que não atrase a operação."
+        ]
+      },
+      {
+        "codigo": "R7",
+        "momento": "M4",
+        "se": "Mantém o segmento inviável sem ressecar.",
+        "entao": "No segundo dia de pós-operatório há peritonite por necrose da alça, com reoperação.",
+        "vaiPara": "D3",
+        "registrar": true,
+        "disparadaPor": [
+          "Manter o segmento inviável sem ressecar."
+        ]
+      },
+      {
+        "codigo": "R8",
+        "momento": "M4",
+        "se": "Libera todas as aderências da cavidade.",
+        "entao": "Ocorre enterotomia em alça proximal, reparada no ato.",
+        "vaiPara": "M5",
+        "registrar": true,
+        "disparadaPor": [
+          "Liberar todas as aderências da cavidade."
+        ]
+      },
+      {
+        "codigo": "R9",
+        "momento": "M4",
+        "se": "Opta por controle de danos em paciente estável.",
+        "entao": "Reoperação programada desnecessária e internação mais longa.",
+        "vaiPara": "D1",
+        "registrar": true,
+        "disparadaPor": [
+          "Optar por controle de danos em paciente estável."
+        ]
+      },
+      {
+        "codigo": "R10",
+        "momento": "M2",
+        "se": "Dá alta.",
+        "entao": "O paciente retorna 24 horas depois, em estado grave.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta."
+        ],
+        "marcaDesfecho": "D4"
+      },
+      {
+        "codigo": "R11",
+        "momento": "M3",
+        "se": "Dá alta.",
+        "entao": "O paciente retorna em choque.",
+        "vaiPara": "M3-ALT",
+        "registrar": true,
+        "disparadaPor": [
+          "Dar alta."
+        ],
+        "marcaDesfecho": "D4"
+      }
     ],
     "desfechos": [
-      { "codigo": "D1", "texto": "Recuperação plena. Alta no sexto dia de pós-operatório, aceitando dieta, com orientações sobre o risco de nova obstrução.", "qualidade": "otimo" },
-      { "codigo": "D2", "texto": "Boa evolução, mas com uma cirurgia que provavelmente seria evitada pelo tratamento conservador. Alta no quarto dia, com o risco de novas aderências criado pela própria cirurgia.", "qualidade": "bom" },
-      { "codigo": "D3", "texto": "Necrose extensa e perfuração. Controle de danos, internação em UTI e reoperação programada. Sobrevive após internação prolongada.", "qualidade": "ruim" },
-      { "codigo": "D4", "texto": "Retorno em choque séptico após alta indevida. Controle de danos, UTI e internação prolongada. Sobrevive, com complicações.", "qualidade": "grave" }
+      {
+        "codigo": "D1",
+        "texto": "Recuperação plena. Alta no sexto dia de pós-operatório, aceitando dieta, com orientações sobre o risco de nova obstrução.",
+        "qualidade": "otimo"
+      },
+      {
+        "codigo": "D2",
+        "texto": "Boa evolução, mas com uma cirurgia que provavelmente seria evitada pelo tratamento conservador. Alta no quarto dia, com o risco de novas aderências criado pela própria cirurgia.",
+        "qualidade": "bom"
+      },
+      {
+        "codigo": "D3",
+        "texto": "Necrose extensa e perfuração. Controle de danos, internação em UTI e reoperação programada. Sobrevive após internação prolongada.",
+        "qualidade": "ruim"
+      },
+      {
+        "codigo": "D4",
+        "texto": "Retorno em choque séptico após alta indevida. Controle de danos, UTI e internação prolongada. Sobrevive, com complicações.",
+        "qualidade": "grave"
+      }
     ]
   },
   "folhaResposta": {
@@ -226,10 +809,22 @@
           "Gasometria arterial em vez de venosa."
         ],
         "subotimas": [
-          { "conduta": "Solicitar contraste oral e atrasar a tomografia.", "custo": "Atraso diagnóstico e risco de vômito e aspiração." },
-          { "conduta": "Não repor potássio.", "custo": "Íleo mais prolongado e risco de arritmia." },
-          { "conduta": "Não passar sonda nasogástrica apesar de vômitos e distensão.", "custo": "Persistência dos vômitos e risco de aspiração." },
-          { "conduta": "Negar analgesia para não mascarar o quadro.", "custo": "Sofrimento desnecessário, sem ganho diagnóstico." }
+          {
+            "conduta": "Solicitar contraste oral e atrasar a tomografia.",
+            "custo": "Atraso diagnóstico e risco de vômito e aspiração."
+          },
+          {
+            "conduta": "Não repor potássio.",
+            "custo": "Íleo mais prolongado e risco de arritmia."
+          },
+          {
+            "conduta": "Não passar sonda nasogástrica apesar de vômitos e distensão.",
+            "custo": "Persistência dos vômitos e risco de aspiração."
+          },
+          {
+            "conduta": "Negar analgesia para não mascarar o quadro.",
+            "custo": "Sofrimento desnecessário, sem ganho diagnóstico."
+          }
         ],
         "errosCriticos": [
           "Dar alta ou tratar como gastroenterite sem investigar a obstrução.",
@@ -246,7 +841,108 @@
         "justificativa": [
           "A tomografia com contraste venoso confirma a obstrução, localiza o ponto de transição, sugere a causa e mostra sinais de isquemia (Bologna 2017).",
           "A descompressão com sonda e a correção hidroeletrolítica fazem parte do tratamento inicial de toda obstrução de delgado (Bologna 2017; Sabiston)."
-        ]
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Anamnese dirigida, incluindo cirurgia abdominal prévia, eliminação de gases e fezes e características dos vômitos.",
+              "quando": {
+                "revelados": [
+                  "AN-03",
+                  "AN-04",
+                  "AN-05"
+                ]
+              }
+            },
+            {
+              "item": "Exame físico completo, com inspeção da cicatriz, avaliação de todos os orifícios herniários e toque retal.",
+              "quando": {
+                "revelados": [
+                  "EF-01",
+                  "EF-02",
+                  "EF-03",
+                  "EF-04",
+                  "EF-05",
+                  "EF-06",
+                  "EF-07",
+                  "EF-08"
+                ]
+              }
+            },
+            {
+              "item": "Exames: hemograma, eletrólitos, função renal, gasometria, lactato e amilase ou lipase.",
+              "quando": {
+                "revelados": [
+                  "EX-01",
+                  "EX-02",
+                  "EX-03",
+                  "EX-04",
+                  "EX-05",
+                  "EX-06"
+                ]
+              }
+            },
+            {
+              "item": "Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.",
+              "quando": {
+                "revelados": [
+                  "EX-12",
+                  "EX-13"
+                ]
+              }
+            },
+            {
+              "item": "Ir direto para a tomografia sem radiografia prévia.",
+              "quando": {
+                "revelados": [
+                  "EX-13"
+                ],
+                "naoRevelados": [
+                  "EX-12"
+                ]
+              }
+            },
+            {
+              "item": "Não repor potássio.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Correção de distúrbios eletrolíticos, com reposição de potássio após confirmar diurese."
+                ]
+              }
+            },
+            {
+              "item": "Não passar sonda nasogástrica apesar de vômitos e distensão.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Jejum, sonda nasogástrica aberta para descompressão, acesso venoso e hidratação com cristaloide."
+                ]
+              }
+            },
+            {
+              "item": "Negar analgesia para não mascarar o quadro.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Controle de diurese, analgesia e antiemético."
+                ]
+              }
+            },
+            {
+              "item": "Não examinar os orifícios herniários.",
+              "quando": {
+                "naoRevelados": [
+                  "EF-06"
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Dar alta ou tratar como gastroenterite sem investigar a obstrução.": "Tratar como gastroenterite e dar alta.",
+            "Solicitar contraste oral e atrasar a tomografia.": "Solicitar tomografia com contraste oral.",
+            "Prescrever laxante ou procinético diante de obstrução mecânica.": "Prescrever laxante ou procinético.",
+            "Controlar a diurese por balanço hídrico em vez de sonda vesical, se o paciente urina espontaneamente.": "Controlar a diurese por balanço hídrico, sem sonda vesical.",
+            "Gasometria arterial em vez de venosa.": "Solicitar gasometria arterial."
+          }
+        }
       },
       {
         "codigo": "M2",
@@ -261,8 +957,14 @@
           "Tratamento conservador com reavaliação seriada e prazo definido, sem contraste hidrossolúvel."
         ],
         "subotimas": [
-          { "conduta": "Indicar cirurgia imediata sem sinais de sofrimento.", "custo": "Cirurgia provavelmente evitável e formação de novas aderências." },
-          { "conduta": "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada.", "custo": "Risco de atrasar o reconhecimento do sofrimento de alça." }
+          {
+            "conduta": "Indicar cirurgia imediata sem sinais de sofrimento.",
+            "custo": "Cirurgia provavelmente evitável e formação de novas aderências."
+          },
+          {
+            "conduta": "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada.",
+            "custo": "Risco de atrasar o reconhecimento do sofrimento de alça."
+          }
         ],
         "errosCriticos": [
           "Retirar a sonda e liberar dieta.",
@@ -276,7 +978,50 @@
         ],
         "justificativa": [
           "Bologna 2017: tratamento não operatório na ausência de estrangulamento e peritonite; contraste hidrossolúvel com papel diagnóstico e terapêutico; tratamento conservador por até 72 horas."
-        ]
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Tratamento conservador com reavaliação seriada e prazo definido, sem contraste hidrossolúvel.",
+              "quando": {
+                "selecionados": [
+                  "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento.",
+                  "Reavaliar clinicamente de forma seriada, com exame abdominal e sinais vitais.",
+                  "Definir o prazo máximo do tratamento conservador, de 72 horas, e os critérios para indicar cirurgia a qualquer momento."
+                ],
+                "nenhumSelecionado": [
+                  "Administrar contraste hidrossolúvel pela sonda e fazer radiografia de controle em até 24 horas."
+                ]
+              }
+            },
+            {
+              "item": "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada.",
+              "quando": {
+                "selecionados": [
+                  "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento."
+                ],
+                "nenhumSelecionado": [
+                  "Reavaliar clinicamente de forma seriada, com exame abdominal e sinais vitais."
+                ]
+              }
+            },
+            {
+              "item": "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada.",
+              "quando": {
+                "selecionados": [
+                  "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento."
+                ],
+                "nenhumSelecionado": [
+                  "Definir o prazo máximo do tratamento conservador, de 72 horas, e os critérios para indicar cirurgia a qualquer momento."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento.": "Indicar tratamento conservador.",
+            "Indicar cirurgia imediata sem sinais de sofrimento.": "Indicar cirurgia imediata."
+          }
+        }
       },
       {
         "codigo": "M3",
@@ -292,8 +1037,14 @@
           "Laparoscopia diagnóstica com conversão precoce se a visão ou a segurança forem prejudicadas."
         ],
         "subotimas": [
-          { "conduta": "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.", "custo": "Progressão da isquemia." },
-          { "conduta": "Operar sem ressuscitação ou sem antibiótico.", "custo": "Maior risco anestésico e infeccioso." }
+          {
+            "conduta": "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.",
+            "custo": "Progressão da isquemia."
+          },
+          {
+            "conduta": "Operar sem ressuscitação ou sem antibiótico.",
+            "custo": "Maior risco anestésico e infeccioso."
+          }
         ],
         "errosCriticos": [
           "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.",
@@ -306,7 +1057,38 @@
         ],
         "justificativa": [
           "Bologna 2017: sinais de estrangulamento, peritonite ou falha do tratamento conservador indicam cirurgia. O contraste que não chega ao cólon em até 24 horas prediz falha do tratamento conservador."
-        ]
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Indicar cirurgia de urgência, sem esperar completar 72 horas.",
+                  "Escolher a via: laparotomia, pela distensão e suspeita de isquemia, ou laparoscopia com equipe experiente e limiar baixo para conversão.",
+                  "Laparoscopia diagnóstica com conversão precoce se a visão ou a segurança forem prejudicadas."
+                ]
+              },
+              "tambemComoOpcao": true
+            },
+            {
+              "item": "Operar sem ressuscitação ou sem antibiótico.",
+              "quando": {
+                "selecionados": [
+                  "Indicar cirurgia de urgência, sem esperar completar 72 horas."
+                ],
+                "nenhumSelecionado": [
+                  "Ressuscitação volêmica, antibiótico, reserva de sangue e consentimento que inclua ressecção e possível estoma."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Reconhecer a falha do tratamento conservador e os sinais de sofrimento de alça: dor contínua, febre, taquicardia, defesa, leucocitose com desvio, lactato em elevação e contraste que não chegou ao cólon.": "Reconhecer a falha do tratamento conservador e os sinais de sofrimento de alça.",
+            "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.": "Repetir a tomografia e aguardar o resultado para decidir.",
+            "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.": "Manter o tratamento conservador até completar 72 horas."
+          }
+        }
       },
       {
         "codigo": "M3-ALT",
@@ -315,13 +1097,50 @@
           "Cirurgia de urgência, sem atrasar com novos exames.",
           "Antecipar a possibilidade de controle de danos e a necessidade de UTI."
         ],
-        "aceitaveis": ["Iniciar vasopressor se a hipotensão persistir após a reposição volêmica inicial."],
-        "subotimas": [
-          { "conduta": "Solicitar tomografia antes da cirurgia em paciente instável.", "custo": "Atraso com risco de morte." }
+        "aceitaveis": [
+          "Iniciar vasopressor se a hipotensão persistir após a reposição volêmica inicial."
         ],
-        "errosCriticos": ["Manter tratamento clínico sem indicar cirurgia.", "Não iniciar antibiótico."],
-        "pontosDeRaciocinio": ["Peritonite difusa, choque e lactato elevado indicam necrose e provável perfuração, com sepse de foco abdominal."],
-        "justificativa": ["Princípios de manejo da sepse de foco abdominal e da cirurgia de controle de danos em emergência não traumática."]
+        "subotimas": [
+          {
+            "conduta": "Solicitar tomografia antes da cirurgia em paciente instável.",
+            "custo": "Atraso com risco de morte."
+          }
+        ],
+        "errosCriticos": [
+          "Manter tratamento clínico sem indicar cirurgia.",
+          "Não iniciar antibiótico."
+        ],
+        "pontosDeRaciocinio": [
+          "Peritonite difusa, choque e lactato elevado indicam necrose e provável perfuração, com sepse de foco abdominal."
+        ],
+        "justificativa": [
+          "Princípios de manejo da sepse de foco abdominal e da cirurgia de controle de danos em emergência não traumática."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Manter tratamento clínico sem indicar cirurgia.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Cirurgia de urgência, sem atrasar com novos exames."
+                ]
+              },
+              "tambemComoOpcao": true
+            },
+            {
+              "item": "Não iniciar antibiótico.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Solicitar tomografia antes da cirurgia em paciente instável.": "Solicitar tomografia antes da cirurgia.",
+            "Manter tratamento clínico sem indicar cirurgia.": "Manter tratamento clínico."
+          }
+        }
       },
       {
         "codigo": "M4",
@@ -338,10 +1157,22 @@
           "Reoperação programada para nova avaliação, se a viabilidade ficar duvidosa."
         ],
         "subotimas": [
-          { "conduta": "Ressecar sem a pausa e sem reavaliar.", "custo": "Ressecção possivelmente maior que a necessária." },
-          { "conduta": "Liberar todas as aderências da cavidade.", "custo": "Risco de enterotomia e tempo cirúrgico maior." },
-          { "conduta": "Deixar dreno de rotina.", "custo": "Sem benefício comprovado e com desconforto." },
-          { "conduta": "Optar por controle de danos em paciente estável.", "custo": "Reoperação e internação desnecessárias." }
+          {
+            "conduta": "Ressecar sem a pausa e sem reavaliar.",
+            "custo": "Ressecção possivelmente maior que a necessária."
+          },
+          {
+            "conduta": "Liberar todas as aderências da cavidade.",
+            "custo": "Risco de enterotomia e tempo cirúrgico maior."
+          },
+          {
+            "conduta": "Deixar dreno de rotina.",
+            "custo": "Sem benefício comprovado e com desconforto."
+          },
+          {
+            "conduta": "Optar por controle de danos em paciente estável.",
+            "custo": "Reoperação e internação desnecessárias."
+          }
         ],
         "errosCriticos": [
           "Manter o segmento inviável sem ressecar.",
@@ -353,7 +1184,45 @@
         ],
         "justificativa": [
           "Bologna 2017: liberar apenas as aderências que causam a obstrução. Critérios clínicos de viabilidade intestinal conforme o Sabiston."
-        ]
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Ressecar sem a pausa e sem reavaliar.",
+              "quando": {
+                "selecionados": [
+                  "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa."
+                ],
+                "nenhumSelecionado": [
+                  "Fazer a pausa antes do passo irreversível: aquecer a alça com compressas mornas e reavaliar após 10 a 15 minutos."
+                ]
+              }
+            },
+            {
+              "item": "Manter o segmento inviável sem ressecar.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa.",
+                  "Anastomose manual ou mecânica.",
+                  "Reoperação programada para nova avaliação, se a viabilidade ficar duvidosa.",
+                  "Optar por controle de danos em paciente estável."
+                ]
+              }
+            },
+            {
+              "item": "Não revisar o restante do delgado.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Revisar todo o delgado, do ângulo de Treitz à válvula ileocecal."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Deixar dreno de rotina.": "Deixar dreno abdominal.",
+            "Optar por controle de danos em paciente estável.": "Optar por cirurgia de controle de danos."
+          }
+        }
       },
       {
         "codigo": "M4-ALT",
@@ -362,13 +1231,31 @@
           "Cirurgia abreviada: ressecar o segmento necrótico, controlar a contaminação, deixar as alças em descontinuidade e fazer fechamento temporário do abdome.",
           "Levar o paciente à UTI para estabilização e programar a reoperação em 24 a 48 horas."
         ],
-        "aceitaveis": ["Exteriorizar as extremidades em estoma, conforme a experiência da equipe."],
-        "subotimas": [
-          { "conduta": "Prolongar a cirurgia para resolver tudo em um só tempo.", "custo": "Piora da acidose, da hipotermia e da coagulopatia." }
+        "aceitaveis": [
+          "Exteriorizar as extremidades em estoma, conforme a experiência da equipe."
         ],
-        "errosCriticos": ["Fazer anastomose primária em paciente em choque com acidose grave."],
-        "pontosDeRaciocinio": ["No paciente instável, o objetivo da cirurgia passa a ser a sobrevivência, e não a reconstrução definitiva."],
-        "justificativa": ["Princípios do controle de danos em cirurgia de emergência não traumática."]
+        "subotimas": [
+          {
+            "conduta": "Prolongar a cirurgia para resolver tudo em um só tempo.",
+            "custo": "Piora da acidose, da hipotermia e da coagulopatia."
+          }
+        ],
+        "errosCriticos": [
+          "Fazer anastomose primária em paciente em choque com acidose grave."
+        ],
+        "pontosDeRaciocinio": [
+          "No paciente instável, o objetivo da cirurgia passa a ser a sobrevivência, e não a reconstrução definitiva."
+        ],
+        "justificativa": [
+          "Princípios do controle de danos em cirurgia de emergência não traumática."
+        ],
+        "modoLista": {
+          "derivados": [],
+          "rotulos": {
+            "Fazer anastomose primária em paciente em choque com acidose grave.": "Ressecar e fazer anastomose primária.",
+            "Prolongar a cirurgia para resolver tudo em um só tempo.": "Fazer a cirurgia definitiva em um só tempo."
+          }
+        }
       },
       {
         "codigo": "M5",
@@ -380,24 +1267,89 @@
           "Vigiar sinais de fístula e deiscência: febre, taquicardia, dor desproporcional ou saída de conteúdo entérico.",
           "Orientar o paciente sobre o risco de novos episódios de obstrução."
         ],
-        "aceitaveis": ["Retirar a sonda mais cedo se o paciente não tiver náuseas nem distensão."],
-        "subotimas": [
-          { "conduta": "Manter jejum prolongado sem motivo.", "custo": "Catabolismo e recuperação mais lenta." },
-          { "conduta": "Não prescrever profilaxia de tromboembolismo.", "custo": "Risco de trombose venosa e embolia pulmonar." }
+        "aceitaveis": [
+          "Retirar a sonda mais cedo se o paciente não tiver náuseas nem distensão."
         ],
-        "errosCriticos": ["Ignorar sinais de deiscência de anastomose."],
-        "pontosDeRaciocinio": ["O pós-operatório após ressecção intestinal exige vigilância ativa da anastomose nos primeiros dias."],
-        "justificativa": ["Princípios de cuidados pós-operatórios em cirurgia abdominal de urgência (Sabiston)."]
+        "subotimas": [
+          {
+            "conduta": "Manter jejum prolongado sem motivo.",
+            "custo": "Catabolismo e recuperação mais lenta."
+          },
+          {
+            "conduta": "Não prescrever profilaxia de tromboembolismo.",
+            "custo": "Risco de trombose venosa e embolia pulmonar."
+          }
+        ],
+        "errosCriticos": [
+          "Ignorar sinais de deiscência de anastomose."
+        ],
+        "pontosDeRaciocinio": [
+          "O pós-operatório após ressecção intestinal exige vigilância ativa da anastomose nos primeiros dias."
+        ],
+        "justificativa": [
+          "Princípios de cuidados pós-operatórios em cirurgia abdominal de urgência (Sabiston)."
+        ],
+        "modoLista": {
+          "derivados": [
+            {
+              "item": "Não prescrever profilaxia de tromboembolismo.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Profilaxia de tromboembolismo e deambulação precoce."
+                ]
+              }
+            },
+            {
+              "item": "Ignorar sinais de deiscência de anastomose.",
+              "quando": {
+                "nenhumSelecionado": [
+                  "Vigiar sinais de fístula e deiscência: febre, taquicardia, dor desproporcional ou saída de conteúdo entérico."
+                ]
+              }
+            }
+          ],
+          "rotulos": {
+            "Manter jejum prolongado sem motivo.": "Manter jejum prolongado."
+          }
+        }
       }
     ],
     "caminhoIdeal": "Reconhecer a obstrução de delgado e a provável brida, iniciar suporte com jejum, sonda, hidratação e correção eletrolítica, e confirmar com tomografia contrastada a ausência de sofrimento de alça (M1). Indicar tratamento conservador com contraste hidrossolúvel, reavaliação seriada e prazo definido (M2). Reconhecer, na reavaliação, os sinais de sofrimento e a falha do contraste, e indicar a cirurgia de urgência sem esperar o fim do prazo (M3). Liberar a brida, fazer a pausa para avaliar a viabilidade, ressecar o segmento inviável com anastomose primária e revisar todo o delgado (M4). Conduzir o pós-operatório com realimentação progressiva, profilaxia e vigilância de complicações (M5), chegando ao desfecho D1.",
-    "pesos": { "M1": 20, "M2": 20, "M3": 25, "M4": 25, "M5": 10 },
-    "escala": { "ideal": 100, "aceitavel": 80, "subotima": 50, "perigosa": 0, "nao_prevista": null },
+    "pesos": {
+      "M1": 20,
+      "M2": 20,
+      "M3": 25,
+      "M4": 25,
+      "M5": 10
+    },
+    "escala": {
+      "ideal": 100,
+      "aceitavel": 80,
+      "subotima": 50,
+      "perigosa": 0,
+      "nao_prevista": null
+    },
     "faixas": [
-      { "de": 85, "ate": 100, "rotulo": "Excelente" },
-      { "de": 70, "ate": 84, "rotulo": "Adequado" },
-      { "de": 50, "ate": 69, "rotulo": "Precisa revisar o tema" },
-      { "de": 0, "ate": 49, "rotulo": "Refazer o caso após estudo" }
+      {
+        "de": 85,
+        "ate": 100,
+        "rotulo": "Excelente"
+      },
+      {
+        "de": 70,
+        "ate": 84,
+        "rotulo": "Adequado"
+      },
+      {
+        "de": 50,
+        "ate": 69,
+        "rotulo": "Precisa revisar o tema"
+      },
+      {
+        "de": 0,
+        "ate": 49,
+        "rotulo": "Refazer o caso após estudo"
+      }
     ],
     "mensagensChave": [
       "Obstrução de delgado em paciente com laparotomia prévia sugere bridas, mas é a tomografia que afasta o sofrimento de alça.",
