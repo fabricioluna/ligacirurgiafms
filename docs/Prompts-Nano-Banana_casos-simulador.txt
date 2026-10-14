@@ -1,0 +1,217 @@
+PROMPTS PRONTOS PARA O NANO BANANA (GEMINI), CASOS DO SIMULADOR
+Simulador de Casos Clínicos, Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão
+Casos: 001 (bridas), 002 (volvo de sigmoide) e 003 (neoplasia de sigmoide)
+Versão 1, 14 de outubro de 2026
+
+Como usar: copie o texto de cada PROMPT inteiro e cole no Gemini. O bloco de estilo já está incluído em cada um.
+Etapa 1 gera a imagem limpa. Com a imagem aprovada, a etapa 2 acrescenta só os poucos rótulos em português. Revisem a grafia e a anatomia antes de usar.
+Se sair errado, use o texto de SE SAIR ERRADO, anexando a imagem.
+Prompts em inglês de propósito (obedecem melhor); os rótulos dentro das imagens estão em português.
+
+REGRAS DESTE LOTE
+1. Imagens de exame (radiografia, tomografia, endoscopia) NUNCA por IA. Veja a seção "IMAGENS DE EXAME" no fim: essas vêm do Radiopaedia.
+2. Estas ilustrações são do tipo "didático". Nenhuma pode aparecer antes de o aluno concluir o caso, a não ser as de exame físico (C1-1, C2-1, C3-1), que só mostram o que o texto do exame já descreve.
+3. Ilustração gerada por IA pode errar anatomia. Quem revisa cada imagem antes de entrar no app confere: lado do paciente (direito do paciente à esquerda da imagem), número de alças, texto dentro da imagem.
+4. Nome do arquivo: salvar como ilustracao-001-a.png, ilustracao-001-b.png etc. em public/imagens/casos/caso-00X/ (a numeração abaixo, C1-1 = caso 1, primeira imagem).
+5. Gerem primeiro a imagem do exame físico de cada caso (estilo mais simples), depois as demais. As que têm "anexar" usam a imagem anterior como referência de estilo.
+
+==============================================================================
+C1-1. ABDOME DISTENDIDO COM CICATRIZ MEDIANA (exame físico, EF-02)
+==============================================================================
+Caso: Caso 001, obstrução de delgado por bridas (paciente de 66 anos).
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:5, retrato.
+Onde entra: Aparece quando o aluno pede a inspeção abdominal. Não entrega o diagnóstico: só mostra o que o exame físico já descreve.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Front view of the torso of an elderly adult, cropped above the chest and at the level of the hips, no head, no face, no genitals visible, neutral body, no clothing. The abdomen is moderately and symmetrically distended and tense. A well-healed vertical midline laparotomy scar runs from just below the breastbone to the pubic region, a thin pale line with faint suture-mark dots on each side. Neutral medium skin tone, soft even studio lighting, no tubes, no devices. Aspect ratio 4:5, portrait.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Cicatriz mediana".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Cicatriz mediana". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the scar thinner and perfectly straight along the midline" ou "make the abdomen a little less distended".
+
+==============================================================================
+C1-2. OBSTRUÇÃO DE DELGADO POR BRIDA (relatório, após o desfecho)
+==============================================================================
+Caso: Caso 001, obstrução de delgado por bridas.
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:3.
+Onde entra: Só no relatório final, na discussão do caso. Nunca antes: mostra a causa.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Anterior view of a segment of small bowel obstructed at a single point by a thin pale fibrous adhesion band that stretches from the abdominal wall scar to the mesentery of the ileum and pinches the lumen like a string tied around a hose. Upstream of the band the bowel is dilated and tense, with a thin, slightly translucent wall through which greenish-amber fluid content is visible; downstream the bowel is collapsed and narrow. Healthy pink-tan wall with a faint olive-green tint and a smooth glistening surface. The mesentery is intact, with red arteries and blue veins visible. Two or three neighboring loops softly visible in the background. Aspect ratio 4:3.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Brida", "Alça dilatada", "Alça colapsada".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Brida", "Alça dilatada", "Alça colapsada". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the proximal bowel clearly more dilated than the distal bowel".
+
+==============================================================================
+C1-3. SEGMENTO ESTRANGULADO (relatório, achado cirúrgico)
+==============================================================================
+Caso: Caso 001, obstrução de delgado por bridas.
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:3.
+Onde entra: Relatório final, junto do achado da cirurgia (segmento violáceo após a secção da brida). Gere depois do C1-2 e anexe-o.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Use the attached image only as a reference for composition and style, with the same layout and angle. Anterior view of a segment of small bowel strangulated by a tight fibrous band that constricts the base of a loop together with its mesentery, like a rope tied around the neck of a balloon. The trapped loop, about 15 cm long, is swollen, glossy and dusky dark red to purple, with its wall edematous. At the neck, the band visibly squeezes the mesenteric vessels. Upstream the bowel is dilated, downstream it is collapsed. Serious and realistic, not gory, no blood spilling. Aspect ratio 4:3.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Brida", "Alça isquêmica".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Brida", "Alça isquêmica". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the band tighter around the base of the loop and make the trapped loop darker".
+
+==============================================================================
+C2-1. ABDOME MUITO DISTENDIDO E ASSIMÉTRICO, SEM CICATRIZ (exame físico, EF-02)
+==============================================================================
+Caso: Caso 002, volvo de sigmoide (paciente de 79 anos).
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:5, retrato.
+Onde entra: Aparece quando o aluno pede a inspeção abdominal.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Front view of the torso of a very elderly adult, cropped above the chest and at the level of the hips, no head, no face, no genitals visible, thin limbs, no clothing. The abdomen is massively distended and asymmetric, more bulging on the patient's left side (right side of the image) and in the upper abdomen, round and tense with stretched skin and a flattened navel. The skin is intact, with no scars at all. Neutral medium skin tone, soft even studio lighting, no tubes, no devices. The patient's right side is on the left of the image. Aspect ratio 4:5, portrait.
+
+Sem rótulos nesta imagem.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the distension more asymmetric, bulging more on the patient's left side".
+
+==============================================================================
+C2-2. VOLVO DE SIGMOIDE (relatório, após o desfecho)
+==============================================================================
+Caso: Caso 002, volvo de sigmoide.
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:3.
+Onde entra: Só no relatório final, na discussão do caso.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Anterior view of the abdomen with the abdominal wall removed, showing a sigmoid volvulus. A hugely dilated, gas-filled loop of sigmoid colon, amber-yellow with faint haustra and a taenia line, rises out of the pelvis like an inverted U shape toward the upper abdomen. At its base in the pelvis, the sigmoid mesocolon is twisted on itself like a wrung cloth, with the two limbs of the loop converging at the twisted pedicle. The mesenteric vessels spiral into the twist. The remaining colon is mildly dilated, the small bowel is mostly hidden. Serious and realistic, not gory. The patient's right side is on the left of the image. No other organs. Aspect ratio 4:3.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Sigmoide dilatado", "Torção do mesossigmoide".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Sigmoide dilatado", "Torção do mesossigmoide". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the twist of the mesentery at the base of the loop clearer, with the two limbs converging".
+
+==============================================================================
+C2-3. SIGMOIDE ISQUÊMICO (relatório, evolução desfavorável)
+==============================================================================
+Caso: Caso 002, volvo de sigmoide.
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:3.
+Onde entra: Relatório final, ramo em que o aluno demora ou não reconhece sinais de sofrimento. Gere depois do C2-2 e anexe-o.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Use the attached image only as a reference for composition and style, with the same layout and angle. Same view of the twisted sigmoid loop, now with signs of ischemia: the wall is dusky dark red to purple with blackish-green patches, thinned and edematous in places, glossy, with no blood spilling and no perforation. The twisted mesentery at the base is dark and congested. Serious and realistic, not gory. The patient's right side is on the left of the image. No other organs. Aspect ratio 4:3.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Segmento isquêmico".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Segmento isquêmico". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the dark areas more confined to the apex of the loop".
+
+==============================================================================
+C3-1. ABDOME DISTENDIDO COM CICATRIZ DE PFANNENSTIEL (exame físico, EF-02)
+==============================================================================
+Caso: Caso 003, obstrução do cólon esquerdo por neoplasia (paciente de 68 anos).
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:5, retrato.
+Onde entra: Aparece quando o aluno pede a inspeção abdominal.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Front view of the torso of an adult woman in her sixties, cropped above the chest and at the level of the upper thighs, no head, no face, no clothing, nothing explicit. The abdomen is markedly and symmetrically distended, round and tense, with the skin stretched and the navel flattened. A well-healed low transverse Pfannenstiel scar, a thin pale curved horizontal line just above the pubic hairline, with faint suture-mark dots. Neutral medium skin tone, soft even studio lighting, no tubes, no devices. Aspect ratio 4:5, portrait.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Cicatriz de Pfannenstiel".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Cicatriz de Pfannenstiel". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the scar a thin, perfectly horizontal curved line just above the pubic hairline".
+
+==============================================================================
+C3-2. TUMOR ESTENOSANTE DO SIGMOIDE COM CÓLON DISTENDIDO (relatório)
+==============================================================================
+Caso: Caso 003, obstrução do cólon esquerdo por neoplasia.
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 4:3.
+Onde entra: Só no relatório final, na discussão do caso.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Anterior view of the large intestine with the small bowel faintly suggested in the background. In the sigmoid colon there is a circumferential, firm, irregular grayish-pink tumor about 5 cm long that narrows the lumen like an apple core, shown with a window cut into the colon wall to reveal the narrowed lumen. The colon upstream of the tumor, from the cecum to the descending colon, is markedly dilated and gas-filled, amber-yellow with haustra; the segment below the tumor and the rectum are collapsed. Serious and realistic, not gory. The patient's right side is on the left of the image. No other organs. Aspect ratio 4:3.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Tumor estenosante", "Cólon distendido".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Tumor estenosante", "Cólon distendido". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the tumor a clear circumferential narrowing of the sigmoid and the colon above it much more dilated".
+
+==============================================================================
+C3-3. CECO DISTENDIDO COM VÁLVULA ILEOCECAL COMPETENTE (relatório, risco de perfuração)
+==============================================================================
+Caso: Caso 003, obstrução do cólon esquerdo por neoplasia.
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 1:1.
+Onde entra: Relatório final, na explicação da alça fechada e do risco de perfuração do ceco. Gere depois do C3-2 e anexe-o.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Use the attached image only as a reference for composition and style, with the same layout and angle. Anterior view of a massively distended cecum and ascending colon with the terminal ileum joining a tightly closed ileocecal valve, a window cut in the front wall of the cecum showing the two lips of the valve pressed together. The cecal wall is stretched, thin, tense and shiny, almost translucent, with a few whitish thinned patches, and the cecum is much wider than the rest of the colon, filled with gas. The ileum is normal and not dilated. Muted tissue tones, serious and realistic but not gory, no blood, no perforation. The patient's right side is on the left of the image. Aspect ratio 1:1.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Ceco distendido", "Válvula ileocecal".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Ceco distendido", "Válvula ileocecal". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the two lips of the valve tightly closed and the cecal wall thinner and more translucent".
+
+==============================================================================
+C3-4. PERFURAÇÃO DO CECO (relatório, evolução desfavorável)
+==============================================================================
+Caso: Caso 003, obstrução do cólon esquerdo por neoplasia.
+Estilo: Atlas anatômico semirrealista (Bloco A). Ilustração, e não foto.
+Proporção: 1:1.
+Onde entra: Relatório final, ramo em que há perfuração do ceco. Imagem forte: usar só no relatório, com o aviso de conteúdo clínico. Gere depois do C3-3 e anexe-o.
+
+--- PROMPT (etapa 1: imagem limpa) ---
+Professional medical education illustration for a surgery lecture. Clean, semi-realistic digital painting in the tradition of classic anatomical atlas plates: soft natural shading, thin refined outlines, anatomically careful proportions, subtle texture of living tissue. Muted natural tissue tones with small accents of olive green (#6E7D0C), amber (#996E05) and red (#B02E20). Plain light warm-white background (#F2F2EA), flat, with no gradient, no vignette and no shadow on the background. No watermark, no logo. Text rule: include no text at all, except the exact short labels listed at the end of the prompt, if any, written in Brazilian Portuguese with correct spelling and accents, in a clean sans-serif font, each with a thin leader line; never invent other words, letters or numbers. High resolution, crisp edges, centered composition with generous empty margins around the subject. Use the attached image only as a reference for composition and style, with the same layout and angle. Same view of the distended cecum, now with a small perforation in the thinned wall of the cecum, a ragged round opening about 1 cm with dark necrotic edges, and a little greenish-brown fecal fluid leaking out onto the surrounding tissue. Muted tissue tones, serious and realistic, restrained and clinical, not gory, no large amounts of blood. The patient's right side is on the left of the image. Aspect ratio 1:1.
+
+--- PROMPT (etapa 2: rótulos mínimos) ---
+Rótulos: "Perfuração".
+Keep the image exactly the same and add only these short labels in Brazilian Portuguese, in a clean sans-serif font, each with a thin leader line pointing to the matching structure: "Perfuração". Do not add any other text.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the perforation smaller and the leakage more restrained".
+
+##############################################################################
+IMAGENS DE EXAME (NÃO GERAR POR IA): buscar no Radiopaedia (CC BY-NC-SA, citar autor e rID)
+##############################################################################
+Nome do arquivo e o que procurar. Guardem o link, o autor e o rID para preencher "fonte" e "licenca" no caso.
+
+Caso 001 (bridas)
+- IMG-001-A, radiografia de abdome em ortostase: buscar "small bowel obstruction adhesions abdominal radiograph" (níveis hidroaéreos, alças de delgado dilatadas, pouco gás no cólon).
+- IMG-001-B, série de 8 a 12 cortes axiais de TC: buscar "adhesive small bowel obstruction transition point CT" (ponto de transição sem massa).
+- IMG-001-C, radiografia 24 h após contraste hidrossolúvel: buscar "water soluble contrast small bowel obstruction follow-through".
+- IMG-001-D, TC de controle com sofrimento de alça: buscar "strangulated small bowel obstruction CT" (edema de parede, líquido livre).
+
+Caso 002 (volvo de sigmoide)
+- IMG-002-A, radiografia com sinal do grão de café: buscar "sigmoid volvulus coffee bean sign radiograph".
+- IMG-002-B, TC axial e coronal com sinal do redemoinho: buscar "sigmoid volvulus whirl sign CT".
+- IMG-002-C, mucosa do sigmoide após descompressão: buscar "sigmoid volvulus endoscopic decompression" (se não houver, deixar o caso sem esta imagem e manter só a descrição em texto).
+- IMG-002-D, TC com sigmoide sem realce, pneumatose e pneumoperitônio: buscar "sigmoid volvulus ischemia pneumatosis pneumoperitoneum CT".
+
+Caso 003 (neoplasia de sigmoide)
+- IMG-003-A, radiografia com cólon distendido e ceco aumentado: buscar "large bowel obstruction colon cancer abdominal radiograph cecal dilatation".
+- IMG-003-B, TC axial e coronal com lesão estenosante no sigmoide: buscar "sigmoid colon cancer obstruction CT apple core".
+
+Dica: escolham imagens cuja descrição bata com a legenda do caso (olhem os achados do exame EX no documento do caso em docs/casos/) e que não tenham identificação do paciente nem texto que entregue o diagnóstico.
