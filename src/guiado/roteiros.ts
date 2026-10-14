@@ -3,8 +3,10 @@
 import type { Caso } from '../motor/tipos'
 import type { Roteiro } from './tipos'
 import { roteiro001 } from './roteiros/caso-001'
+import { roteiro002 } from './roteiros/caso-002'
+import { roteiro003 } from './roteiros/caso-003'
 
-const TODOS: Roteiro[] = [roteiro001]
+const TODOS: Roteiro[] = [roteiro001, roteiro002, roteiro003]
 
 export function roteiroDoCaso(caso: Caso): Roteiro | null {
   const r = TODOS.find((x) => x.casoId === caso.id)

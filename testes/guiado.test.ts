@@ -1,22 +1,24 @@
 // Modo guiado: o roteiro só pode apontar para itens que existem na folha resposta do caso.
 import { describe, expect, it } from 'vitest'
 import c1 from '../casos/caso-001.json'
+import c2 from '../casos/caso-002.json'
+import c3 from '../casos/caso-003.json'
 import type { Caso } from '../src/motor/tipos'
 import { ehDesfecho } from '../src/motor/caso'
 import { classificarItem, continuar, escolher, notaGuiada, novoEstado, passoDoRoteiro, rotuloDaOpcao, tambemCertas } from '../src/guiado/motor'
 import { roteiroDoCaso } from '../src/guiado/roteiros'
-import type { EstadoGuiado } from '../src/guiado/tipos'
+import type { EstadoGuiado, Roteiro } from '../src/guiado/tipos'
 
-const caso = c1 as unknown as Caso
-const roteiro = roteiroDoCaso(caso)!
+const casos = [c1, c2, c3].map((c) => c as unknown as Caso)
 
-// Joga um passo escolhendo, na ordem de preferência, só alternativas das classes pedidas.
-function jogar(escolha: (passo: string, itens: string[]) => string[]): EstadoGuiado {
+const avanca = (roteiro: Roteiro, passo: string, item: string) => passoDoRoteiro(roteiro, passo).opcoes.find((o) => o.item === item)?.vai !== undefined
+
+// Joga o caso inteiro; 'escolha' devolve, para cada passo, a fila de alternativas a tentar.
+function jogar(caso: Caso, roteiro: Roteiro, escolha: (passo: string, itens: string[]) => string[]): EstadoGuiado {
   let e = novoEstado(caso, roteiro, 'Teste', 1)
   for (let voltas = 0; voltas < 60 && !e.desfecho; voltas++) {
     const p = passoDoRoteiro(roteiro, e.passo)
-    const fila = escolha(e.passo, p.opcoes.map((o) => o.item))
-    for (const item of fila) {
+    for (const item of escolha(e.passo, p.opcoes.map((o) => o.item))) {
       e = escolher(caso, roteiro, e, item, 1)
       if (e.resposta?.avancou) break
     }
@@ -26,9 +28,31 @@ function jogar(escolha: (passo: string, itens: string[]) => string[]): EstadoGui
   return e
 }
 
-describe('roteiro do caso 001', () => {
+// Só alternativas ideais: as que mantêm o passo primeiro, depois uma que avança.
+const soIdeais = (caso: Caso, roteiro: Roteiro) => (passo: string, itens: string[]) => {
+  const ideais = itens.filter((i) => classificarItem(caso, passo, i) === 'ideal')
+  const avancam = ideais.filter((i) => avanca(roteiro, passo, i))
+  return [...ideais.filter((i) => !avancam.includes(i)), avancam[0]]
+}
+
+// Uma alternativa ideal que avança (ou, na falta, a primeira que avança).
+const primeiraQueAvanca = (caso: Caso, roteiro: Roteiro) => (passo: string, itens: string[]) => {
+  const avancam = itens.filter((i) => avanca(roteiro, passo, i))
+  return [avancam.find((i) => classificarItem(caso, passo, i) === 'ideal') ?? avancam[0]]
+}
+
+describe.each(casos.map((c) => [c.id, c] as const))('roteiro guiado de %s', (_id, caso) => {
+  const roteiro = roteiroDoCaso(caso)!
+
   it('existe e acompanha a versão do caso', () => {
+    expect(roteiro).not.toBeNull()
     expect(roteiro.versaoCaso).toBe(caso.versao)
+    expect(roteiro.passos[0].momento).toBe(caso.caso.momentos[0].codigo)
+  })
+
+  it('tem um passo para cada momento jogável e nenhum a mais', () => {
+    const jogaveis = caso.caso.momentos.filter((m) => caso.folhaResposta.momentos.some((f) => f.codigo === m.codigo)).map((m) => m.codigo)
+    expect(roteiro.passos.map((p) => p.momento).sort()).toEqual(jogaveis.sort())
   })
 
   for (const p of roteiro.passos) {
@@ -41,7 +65,7 @@ describe('roteiro do caso 001', () => {
         for (const o of p.opcoes) expect(() => classificarItem(caso, p.momento, o.item)).not.toThrow()
       })
 
-      it('tem alternativa certa, alternativa errada e ao menos uma que avança', () => {
+      it('tem alternativa certa, alternativa com custo e ao menos uma que avança', () => {
         const classes = p.opcoes.map((o) => classificarItem(caso, p.momento, o.item))
         expect(classes.some((c) => c === 'ideal')).toBe(true)
         expect(classes.some((c) => c === 'perigosa' || c === 'subotima')).toBe(true)
@@ -51,7 +75,7 @@ describe('roteiro do caso 001', () => {
       it('leva a momento ou desfecho que existem e segue as regras do caso', () => {
         for (const o of p.opcoes) {
           if (o.vai !== undefined) {
-            expect(ehDesfecho(o.vai) ? caso.caso.desfechos.some((d) => d.codigo === o.vai) : caso.caso.momentos.some((m) => m.codigo === o.vai)).toBe(true)
+            expect(ehDesfecho(o.vai) ? caso.caso.desfechos.some((d) => d.codigo === o.vai) : roteiro.passos.some((x) => x.momento === o.vai), o.vai).toBe(true)
           }
           const regra = caso.caso.regras.find((r) => r.momento === p.momento && r.disparadaPor?.includes(o.item))
           if (regra) {
@@ -64,50 +88,52 @@ describe('roteiro do caso 001', () => {
       })
 
       it('o erro crítico ou a conduta subótima sempre mostra uma consequência', () => {
-        let e = novoEstado(caso, roteiro, '', 1)
-        e = { ...e, passo: p.momento }
+        const e = { ...novoEstado(caso, roteiro, '', 1), passo: p.momento }
         for (const o of p.opcoes) {
           const c = classificarItem(caso, p.momento, o.item)
           if (c !== 'perigosa' && c !== 'subotima') continue
-          const depois = escolher(caso, roteiro, e, o.item, 1)
-          expect(depois.resposta?.consequencia, o.item).toBeTruthy()
+          expect(escolher(caso, roteiro, e, o.item, 1).resposta?.consequencia, o.item).toBeTruthy()
         }
       })
     })
   }
-})
 
-describe('percurso do caso 001 no modo guiado', () => {
-  it('só com alternativas ideais chega ao desfecho D1 com nota excelente', () => {
-    const e = jogar((passo, itens) => {
-      const ideais = itens.filter((i) => classificarItem(caso, passo, i) === 'ideal')
-      const avancam = ideais.filter((i) => passoDoRoteiro(roteiro, passo).opcoes.find((o) => o.item === i)?.vai !== undefined)
-      // ideais que só mantêm o passo vêm antes, e então uma que avança
-      return [...ideais.filter((i) => !avancam.includes(i)), avancam[0]]
-    })
+  it('só com alternativas ideais chega ao desfecho D1 com nota 100', () => {
+    const e = jogar(caso, roteiro, soIdeais(caso, roteiro))
     expect(e.desfecho).toBe('D1')
     const n = notaGuiada(caso, e)
     expect(n.final).toBe(100)
     expect(n.faixa).toBe('Excelente')
   })
 
-  it('dar alta já na admissão leva ao desfecho D4 passando pelo choque', () => {
-    const e = jogar((passo, itens) => {
-      if (passo === 'M1') return ['Dar alta ou tratar como gastroenterite sem investigar a obstrução.']
-      const ideal = itens.find((i) => classificarItem(caso, passo, i) === 'ideal' && passoDoRoteiro(roteiro, passo).opcoes.find((o) => o.item === i)?.vai)
-      return [ideal!]
-    })
-    expect(e.caminho).toEqual(['M1', 'M3-ALT', 'M4-ALT'])
+  it('dar alta na admissão passa pela piora e termina em D4, com nota baixa', () => {
+    const alta = roteiro.passos[0].opcoes.find((o) => o.marcaDesfecho === 'D4')!
+    const e = jogar(caso, roteiro, (passo, itens) => (passo === 'M1' ? [alta.item] : primeiraQueAvanca(caso, roteiro)(passo, itens)))
+    expect(e.caminho[1]).toBe('M3-ALT')
     expect(e.desfecho).toBe('D4')
     expect(notaGuiada(caso, e).final!).toBeLessThan(85)
   })
 
+  it('toda alternativa que avança termina o caso em algum momento (sem laço)', () => {
+    // Pior caminho possível: sempre a última alternativa que avança.
+    const e = jogar(caso, roteiro, (_p, itens) => [itens.filter((i) => avanca(roteiro, _p, i)).at(-1)!])
+    expect(e.desfecho).toBeTruthy()
+  })
+
+  it('não muda o estado depois do desfecho', () => {
+    const e = jogar(caso, roteiro, primeiraQueAvanca(caso, roteiro))
+    expect(escolher(caso, roteiro, e, passoDoRoteiro(roteiro, 'M1').opcoes[0].item, 3)).toBe(e)
+  })
+})
+
+describe('caminhos específicos do caso 001', () => {
+  const caso = c1 as unknown as Caso
+  const roteiro = roteiroDoCaso(caso)!
+
   it('cirurgia imediata sem sofrimento termina em D2', () => {
-    const e = jogar((passo, itens) => {
-      if (passo === 'M2') return ['Indicar cirurgia imediata sem sinais de sofrimento.']
-      const ideal = itens.find((i) => classificarItem(caso, passo, i) === 'ideal' && passoDoRoteiro(roteiro, passo).opcoes.find((o) => o.item === i)?.vai)
-      return [ideal!]
-    })
+    const e = jogar(caso, roteiro, (passo, itens) =>
+      passo === 'M2' ? ['Indicar cirurgia imediata sem sinais de sofrimento.'] : primeiraQueAvanca(caso, roteiro)(passo, itens),
+    )
     expect(e.desfecho).toBe('D2')
   })
 
@@ -122,7 +148,7 @@ describe('percurso do caso 001 no modo guiado', () => {
     expect(continuar(e).passo).toBe('M1')
   })
 
-  it('o erro conta na nota do passo e a alternativa certa que sobrou aparece no relatório', () => {
+  it('o erro conta na nota do passo e as alternativas certas que sobraram aparecem no relatório', () => {
     let e = novoEstado(caso, roteiro, '', 1)
     e = escolher(caso, roteiro, e, 'Prescrever laxante ou procinético diante de obstrução mecânica.', 1)
     e = escolher(caso, roteiro, e, 'Ir direto para a tomografia sem radiografia prévia.', 1)
@@ -131,10 +157,5 @@ describe('percurso do caso 001 no modo guiado', () => {
       'Jejum, sonda nasogástrica aberta para descompressão, acesso venoso e hidratação com cristaloide.',
       'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.',
     ])
-  })
-
-  it('não muda o estado depois do desfecho', () => {
-    const e = jogar((passo, itens) => [itens.find((i) => classificarItem(caso, passo, i) === 'ideal' && passoDoRoteiro(roteiro, passo).opcoes.find((o) => o.item === i)?.vai)!])
-    expect(escolher(caso, roteiro, e, passoDoRoteiro(roteiro, 'M1').opcoes[0].item, 3)).toBe(e)
   })
 })
