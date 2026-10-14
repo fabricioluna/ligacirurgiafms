@@ -7,6 +7,7 @@ import { Cabecalho, Rodape } from '../componentes/Moldura'
 import { DivisoriaSutura } from '../componentes/ProgressoSutura'
 import { temaParaAluno } from '../motor/caso'
 import { useTentativa } from '../tentativa'
+import { EntradaGuiada } from '../guiado/EntradaGuiada'
 
 export function Abertura() {
   const { caso, tentativa, iniciar, descartar } = useTentativa()
@@ -115,6 +116,8 @@ export function Abertura() {
               </>
             )}
           </div>
+
+          <EntradaGuiada caso={caso} nome={nome} />
         </div>
       </main>
       <Rodape />

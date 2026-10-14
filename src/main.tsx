@@ -9,6 +9,7 @@ import { Abertura } from './telas/Abertura'
 import { Atendimento } from './telas/Atendimento'
 import { Desfecho } from './telas/Desfecho'
 import { Relatorio } from './telas/Relatorio'
+import { TelaGuiada } from './guiado/TelaGuiada'
 
 // O painel do professor só carrega quando alguém abre /painel.
 const Painel = lazy(() => import('./painel/Painel'))
@@ -45,6 +46,7 @@ createRoot(document.getElementById('raiz')!).render(
         <Route path="/caso/:casoId" element={<RotaCaso />}>
           <Route index element={<Abertura />} />
           <Route path="atendimento" element={<Atendimento />} />
+          <Route path="guiado" element={<TelaGuiada />} />
           <Route path="desfecho" element={<Desfecho />} />
           <Route path="relatorio" element={<Relatorio />} />
         </Route>
