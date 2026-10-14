@@ -22,6 +22,7 @@ import {
   rotuloDaOpcao,
   tambemCertas,
 } from './motor'
+import { ilustracoesDoPasso, ilustracoesDoResultado, pastaDeIlustracoes, type Ilustracao } from './ilustracoes'
 import { roteiroDoCaso } from './roteiros'
 import type { EstadoGuiado, Roteiro } from './tipos'
 
@@ -54,6 +55,23 @@ const TITULO_RESPOSTA: Record<Classificacao, string> = {
 }
 
 const LETRAS = ['A', 'B', 'C', 'D', 'E', 'F']
+
+function Figura({ casoId, i }: { casoId: string; i: Ilustracao }) {
+  const [falhou, setFalhou] = useState(false)
+  if (falhou) return null // sem o arquivo, o caso continua sem a figura
+  return (
+    <figure className="m-0 mt-5">
+      <img
+        src={pastaDeIlustracoes(casoId) + i.arquivo}
+        alt={i.alt}
+        loading="lazy"
+        onError={() => setFalhou(true)}
+        className="block h-auto max-h-[28rem] w-full border border-borda bg-superficie object-contain"
+      />
+      <figcaption className="mt-2 text-sm text-texto-2">{i.legenda} Ilustração, não é imagem de exame.</figcaption>
+    </figure>
+  )
+}
 
 export function TelaGuiada() {
   const { caso } = useTentativa()
@@ -116,6 +134,9 @@ function Corpo(props: {
         {m.tempo && <p className="m-0 mb-1 text-sm text-texto-2">{m.tempo}</p>}
         <h1 className="m-0 text-2xl">{m.nome}</h1>
         <p className="leitura mt-4 mb-0">{primeiro ? caso.caso.apresentacaoInicial.texto : m.situacao}</p>
+        {ilustracoesDoPasso(caso.id, estado.passo).map((i) => (
+          <Figura key={i.arquivo} casoId={caso.id} i={i} />
+        ))}
 
         {efeitos.length > 0 && (
           <div className="leitura mt-4 border-l-2 border-verde pl-4">
@@ -244,6 +265,15 @@ function Resultado(props: { caso: Caso; roteiro: Roteiro; estado: EstadoGuiado; 
             <span className="text-texto-2"> / 100</span>
             {nota.faixa && <span className="ml-3 font-semibold text-verde-texto">{nota.faixa}</span>}
           </p>
+        )}
+
+        {ilustracoesDoResultado(caso.id, estado.caminho).length > 0 && (
+          <section aria-label="Ilustrações do caso" className="mt-8">
+            <h2 className="m-0 text-xl">O que estava acontecendo</h2>
+            {ilustracoesDoResultado(caso.id, estado.caminho).map((i) => (
+              <Figura key={i.arquivo} casoId={caso.id} i={i} />
+            ))}
+          </section>
         )}
 
         <h2 className="mt-10 mb-4 text-xl">Suas decisões</h2>

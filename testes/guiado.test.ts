@@ -6,6 +6,8 @@ import c3 from '../casos/caso-003.json'
 import type { Caso } from '../src/motor/tipos'
 import { ehDesfecho } from '../src/motor/caso'
 import { classificarItem, continuar, escolher, notaGuiada, novoEstado, passoDoRoteiro, rotuloDaOpcao, tambemCertas } from '../src/guiado/motor'
+import { existsSync } from 'node:fs'
+import { ilustracoesDoPasso, ilustracoesDoResultado, pastaDeIlustracoes, todasAsIlustracoes } from '../src/guiado/ilustracoes'
 import { roteiroDoCaso } from '../src/guiado/roteiros'
 import type { EstadoGuiado, Roteiro } from '../src/guiado/tipos'
 
@@ -157,5 +159,31 @@ describe('caminhos específicos do caso 001', () => {
       'Jejum, sonda nasogástrica aberta para descompressão, acesso venoso e hidratação com cristaloide.',
       'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.',
     ])
+  })
+})
+
+describe.each(casos.map((c) => [c.id, c] as const))('ilustrações de %s', (_id, caso) => {
+  const roteiro = roteiroDoCaso(caso)!
+
+  it('todo arquivo citado existe em public/imagens/casos', () => {
+    expect(todasAsIlustracoes(caso.id).length).toBeGreaterThan(0)
+    for (const i of todasAsIlustracoes(caso.id)) {
+      expect(existsSync('public' + pastaDeIlustracoes(caso.id) + i.arquivo), i.arquivo).toBe(true)
+      expect(i.alt.length).toBeGreaterThan(20)
+    }
+  })
+
+  it('só aparecem passos que existem, e nada que entregue o mecanismo antes do resultado', () => {
+    const passos = roteiro.passos.map((p) => p.momento)
+    for (const i of todasAsIlustracoes(caso.id)) expect(i.onde === 'resultado' || passos.includes(i.onde), i.arquivo).toBe(true)
+    // Durante o caso só aparece o abdome do paciente, na admissão.
+    for (const p of passos) expect(ilustracoesDoPasso(caso.id, p).length).toBe(p === 'M1' ? 1 : 0)
+  })
+
+  it('o resultado mostra o mecanismo e as figuras de piora só quando o caso piorou', () => {
+    const bom = ilustracoesDoResultado(caso.id, ['M1', 'M2', 'M3', 'M4', 'M5'])
+    const grave = ilustracoesDoResultado(caso.id, ['M1', 'M3-ALT', 'M4-ALT'])
+    expect(bom.length).toBeGreaterThan(0)
+    expect(grave.length).toBeGreaterThanOrEqual(bom.length)
   })
 })
