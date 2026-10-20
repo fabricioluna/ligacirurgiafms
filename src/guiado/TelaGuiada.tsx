@@ -27,6 +27,7 @@ import {
   tambemCertas,
 } from './motor'
 import { ilustracoesDoPasso, ilustracoesDoResultado, pastaDeIlustracoes, type Ilustracao } from './ilustracoes'
+import { DiagnosticoDoCaso, FechamentoDoCaso } from './AulaDoCaso'
 import { AchadosExameFisico, Prontuario, ResultadosExames } from './Prontuario'
 import { roteiroDoCaso } from './roteiros'
 import type { EstadoGuiado, Roteiro } from './tipos'
@@ -132,6 +133,8 @@ function Corpo(props: {
   const examesNovos = exames.filter((x) => x.novo).map((x) => x.exame)
   const examesAnteriores = exames.filter((x) => !x.novo).map((x) => x.exame)
   const efNovo = exameFisicoNovo(caso, estado)
+  // O efeito da escolha que acabou de ser feita já aparece na resposta.
+  const efeitosAnteriores = efeitos.filter((e) => e.item !== resposta?.item)
   const daResposta = examesDaResposta(caso, roteiro, estado)
 
   return (
@@ -155,10 +158,10 @@ function Corpo(props: {
           </div>
         )}
 
-        {efeitos.length > 0 && (
+        {efeitosAnteriores.length > 0 && (
           <div className="leitura mt-4 border-l-2 border-verde pl-4">
             <p className="m-0 text-sm font-semibold text-texto-2">Depois do que você fez</p>
-            {efeitos.map((e) => (
+            {efeitosAnteriores.map((e) => (
               <p key={e.item} className="m-0 mt-1">
                 {e.texto}
               </p>
@@ -329,7 +332,9 @@ function Resultado(props: { caso: Caso; roteiro: Roteiro; estado: EstadoGuiado; 
           </section>
         )}
 
-        <h2 className="mt-10 mb-4 text-xl">Suas decisões</h2>
+        <DiagnosticoDoCaso caso={caso} />
+
+        <h2 className="mt-12 mb-4 text-xl">Suas decisões, uma a uma</h2>
         <ol className="m-0 list-none space-y-8 p-0">
           {estado.caminho
             .filter((p) => estado.escolhas.some((x) => x.passo === p))
@@ -359,11 +364,23 @@ function Resultado(props: { caso: Caso; roteiro: Roteiro; estado: EstadoGuiado; 
                       </ul>
                     </div>
                   )}
-                  {f.justificativa.length > 0 && <p className="m-0 mt-3 text-sm text-texto-2">Por quê: {f.justificativa.join(' ')}</p>}
+                  {(f.pontosDeRaciocinio?.length ?? 0) > 0 && (
+                    <div className="mt-3">
+                      <p className="m-0 text-sm font-semibold text-texto-2">O raciocínio deste momento</p>
+                      <ul className="m-0 mt-1 space-y-1 pl-5">
+                        {f.pontosDeRaciocinio!.map((r) => (
+                          <li key={r}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {f.justificativa.length > 0 && <p className="m-0 mt-3 text-sm text-texto-2">Base: {f.justificativa.join(' ')}</p>}
                 </li>
               )
             })}
         </ol>
+
+        <FechamentoDoCaso caso={caso} />
 
         <div className="mt-10 flex flex-wrap gap-3">
           <button type="button" className="botao botao-principal" onClick={props.recomecar}>
