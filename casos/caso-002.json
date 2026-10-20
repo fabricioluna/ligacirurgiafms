@@ -381,8 +381,8 @@
           "id": "IMG-002-A",
           "arquivo": "img-002-a.jpg",
           "legenda": "Radiografia de abdome com o sinal do grão de café",
-          "fonte": "A definir no Radiopaedia",
-          "licenca": "CC BY-NC-SA, citar autor e rID"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "radiografia",
@@ -396,10 +396,10 @@
         "resultado": "Sigmoide muito distendido, com torção do mesossigmoide (sinal do redemoinho) e afilamento em bico nas duas extremidades da alça. Cólon proximal moderadamente distendido. Parede da alça com realce preservado, sem pneumatose, sem gás no sistema porta, sem pneumoperitônio e sem líquido livre. Conclusão: volvo de sigmoide sem sinais tomográficos de isquemia.",
         "imagem": {
           "id": "IMG-002-B",
-          "arquivo": "img-002-b/",
+          "arquivo": "img-002-b.jpg",
           "legenda": "Cortes axiais e reconstrução coronal mostrando o sinal do redemoinho",
-          "fonte": "A definir no Radiopaedia",
-          "licenca": "CC BY-NC-SA, citar autor e rID"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "tomografia",
@@ -416,8 +416,8 @@
           "id": "IMG-002-C",
           "arquivo": "img-002-c.jpg",
           "legenda": "Mucosa do sigmoide no ponto de torção, após a descompressão",
-          "fonte": "A definir",
-          "licenca": "A definir"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "retossigmoidoscopia",
@@ -575,8 +575,8 @@
               "id": "IMG-002-D",
               "arquivo": "img-002-d.jpg",
               "legenda": "Tomografia com sigmoide sem realce, pneumatose e pneumoperitônio",
-              "fonte": "A definir no Radiopaedia",
-              "licenca": "CC BY-NC-SA, citar autor e rID"
+              "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+              "licenca": "Uso didático, imagem sintética"
             }
           }
         ],

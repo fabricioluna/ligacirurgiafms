@@ -415,8 +415,8 @@
           "id": "IMG-001-A",
           "arquivo": "img-001-a.jpg",
           "legenda": "Radiografia de abdome em ortostase",
-          "fonte": "A definir no Radiopaedia",
-          "licenca": "CC BY-NC-SA, citar autor e rID"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "radiografia",
@@ -430,10 +430,10 @@
         "resultado": "Alças de delgado distendidas até 4,2 cm, com ponto de transição no íleo distal, na pelve, sem lesão expansiva. Sinal das fezes no delgado proximal à transição. Alças distais colabadas. Realce parietal preservado, sem espessamento, sem pneumatose, sem líquido livre, mesentério sem edema, sem sinal do redemoinho. Conclusão: obstrução de delgado provavelmente por brida, sem sinais de sofrimento de alça.",
         "imagem": {
           "id": "IMG-001-B",
-          "arquivo": "img-001-b/",
+          "arquivo": "img-001-b.jpg",
           "legenda": "Série de 8 a 12 cortes axiais em torno do ponto de transição",
-          "fonte": "A definir no Radiopaedia",
-          "licenca": "CC BY-NC-SA, citar autor e rID"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "tomografia",
@@ -450,8 +450,8 @@
           "id": "IMG-001-C",
           "arquivo": "img-001-c.jpg",
           "legenda": "Radiografia de controle 24 horas após contraste hidrossolúvel",
-          "fonte": "A definir",
-          "licenca": "A definir"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "contraste hidrossolúvel",
@@ -551,8 +551,8 @@
               "id": "IMG-001-D",
               "arquivo": "img-001-d.jpg",
               "legenda": "TC de controle com sinais de sofrimento de alça",
-              "fonte": "A definir",
-              "licenca": "A definir"
+              "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+              "licenca": "Uso didático, imagem sintética"
             }
           }
         ],

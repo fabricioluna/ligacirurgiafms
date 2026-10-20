@@ -411,8 +411,8 @@
           "id": "IMG-003-A",
           "arquivo": "img-003-a.jpg",
           "legenda": "Radiografia de abdome com distensão do cólon e ceco aumentado",
-          "fonte": "A definir no Radiopaedia",
-          "licenca": "CC BY-NC-SA, citar autor e rID"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "radiografia",
@@ -426,10 +426,10 @@
         "resultado": "Lesão expansiva circunferencial e estenosante no sigmoide, com cerca de 5 cm de extensão, e ponto de transição nesse nível. Cólon proximal distendido, com ceco de 11,5 cm, parede preservada, sem pneumatose e sem pneumoperitônio. Válvula ileocecal competente, delgado pouco distendido. Linfonodos pericólicos de até 1 cm. Fígado sem lesões focais. Sem líquido livre.",
         "imagem": {
           "id": "IMG-003-B",
-          "arquivo": "img-003-b/",
+          "arquivo": "img-003-b.jpg",
           "legenda": "Cortes axiais e reconstrução coronal com a lesão estenosante no sigmoide e o ceco distendido",
-          "fonte": "A definir no Radiopaedia",
-          "licenca": "CC BY-NC-SA, citar autor e rID"
+          "fonte": "Imagem simulada por inteligência artificial, sem paciente real",
+          "licenca": "Uso didático, imagem sintética"
         },
         "palavrasChave": [
           "tomografia",
