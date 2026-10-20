@@ -63,3 +63,8 @@ Eu desenvolvo por vibe coding e não reviso linha por linha. Então:
 - Faça commits pequenos, com mensagem clara em português.
 - Nunca suba chave, segredo ou arquivo `.env` para o repositório.
 - Ao terminar um passo, diga o que testar na prática, não só o que mudou no código.
+
+## Decisão da versão para avaliação
+
+- Para o aluno e o professor avaliarem, só o modo guiado está disponível. A abertura do caso leva direto a ele, e `/atendimento`, `/desfecho` e `/relatorio` redirecionam para a abertura.
+- O código dos modos com IA e estático continua no repositório (`src/telas/Atendimento.tsx`, `Relatorio.tsx`, `/api`), só sem rota nem botão. Para religar, restaurar as rotas em `src/main.tsx` e a escolha de modo na `Abertura.tsx` (ver o histórico do git).

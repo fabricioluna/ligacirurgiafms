@@ -1,14 +1,11 @@
 import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Link, Outlet, Route, Routes, useParams } from 'react-router'
+import { BrowserRouter, Link, Navigate, Outlet, Route, Routes, useParams } from 'react-router'
 import './estilos/index.css'
 import { atualizarCasos, buscarCaso, useCasos } from './dados/casos'
 import { ProvedorTentativa } from './tentativa'
 import { Inicio } from './telas/Inicio'
 import { Abertura } from './telas/Abertura'
-import { Atendimento } from './telas/Atendimento'
-import { Desfecho } from './telas/Desfecho'
-import { Relatorio } from './telas/Relatorio'
 import { TelaGuiada } from './guiado/TelaGuiada'
 
 // O painel do professor só carrega quando alguém abre /painel.
@@ -24,6 +21,11 @@ function RotaCaso() {
       <Outlet />
     </ProvedorTentativa>
   )
+}
+
+function RedirecionaAbertura() {
+  const { casoId = '' } = useParams()
+  return <Navigate to={`/caso/${casoId}`} replace />
 }
 
 function NaoEncontrado() {
@@ -45,10 +47,9 @@ createRoot(document.getElementById('raiz')!).render(
         <Route path="/" element={<Inicio />} />
         <Route path="/caso/:casoId" element={<RotaCaso />}>
           <Route index element={<Abertura />} />
-          <Route path="atendimento" element={<Atendimento />} />
           <Route path="guiado" element={<TelaGuiada />} />
-          <Route path="desfecho" element={<Desfecho />} />
-          <Route path="relatorio" element={<Relatorio />} />
+          {/* Modos antigos (IA e estático) desligados: links velhos voltam para a abertura do caso. */}
+          <Route path="*" element={<RedirecionaAbertura />} />
         </Route>
         <Route
           path="/painel/*"

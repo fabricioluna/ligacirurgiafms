@@ -2,7 +2,7 @@ import { Link } from 'react-router'
 import logo from '../../assets/logoliga.jpg'
 import { useCasos } from '../dados/casos'
 import { Cabecalho, Rodape } from '../componentes/Moldura'
-import { tentativaSalva } from '../tentativa'
+import { estadoGuiadoSalvo } from '../guiado/TelaGuiada'
 import { temaParaAluno } from '../motor/caso'
 
 export function Inicio() {
@@ -23,8 +23,8 @@ export function Inicio() {
             <div>
               <h1 className="m-0 text-3xl sm:text-[4rem]">Simulador de casos clínicos</h1>
               <p className="leitura mt-4 mb-0 text-texto-2">
-                Você recebe um paciente, decide o que perguntar, examinar e pedir, e define a conduta. O paciente evolui
-                conforme suas decisões, e no fim você vê a nota e o que o professor esperava em cada momento.
+                Você recebe um paciente e, em cada decisão, escolhe uma entre até 6 alternativas. O paciente evolui conforme
+                as suas escolhas, e no fim você vê a nota e o caminho esperado em cada momento.
               </p>
             </div>
           </div>
@@ -36,7 +36,7 @@ export function Inicio() {
           </h2>
           <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-2">
             {casos.map((c) => {
-              const salva = tentativaSalva(c)
+              const salva = estadoGuiadoSalvo(c)
               const { titulo, tema, tempoEstimado } = c.caso.identificacao
               return (
                 <li key={c.id} className="flex flex-col border border-borda bg-superficie p-5">
