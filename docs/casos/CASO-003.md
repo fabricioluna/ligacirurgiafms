@@ -315,6 +315,17 @@ Peso: 20 pontos.
 | Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes. | A sonda nasogástrica drena cerca de 250 mL de líquido amarelado. |  |
 | Liberar dieta oral. | Ela toma um pouco de suco e vomita logo em seguida. |  |
 
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Dar alta, ou prescrever laxante, sem investigar a obstrução. | Distensão progressiva, parada de fezes e gases há 48 horas e meses de mudança do hábito intestinal, fezes afiladas, sangue escuro e perda de 8 kg apontam para obstrução do cólon por câncer. Laxante sobre uma obstrução completa aumenta a pressão no cólon e pode perfurar o ceco, que já dói. A paciente precisa ficar internada, com suporte e tomografia. |
+| Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético. | Jejum, acesso venoso, cristaloide e correção eletrolítica tratam a desidratação e a piora da função renal. Três cuidados próprios desta paciente: ela é alérgica a dipirona, então a analgesia usa outro fármaco (por exemplo, paracetamol e opioide em dose baixa); a metformina deve ser suspensa, pela creatinina de 1,4 mg/dL, pelo jejum e pelo contraste iodado, com a glicemia controlada por insulina; e a anemia exige tipagem e reserva de sangue. |
+| Pedir enema opaco com bário. | O enema opaco mostraria a imagem em maçã mordida, mas atrasa o diagnóstico, o bário pode ficar impactado acima do tumor e, se o ceco perfurar, o bário no peritônio causa uma peritonite grave. A tomografia com contraste venoso mostra o nível e a causa da obstrução, mede o ceco, procura perfuração e já começa o estadiamento (WSES 2017). |
+| Exames: hemograma, eletrólitos, função renal, gasometria, lactato e glicemia. | Os exames mostram anemia microcítica (Hb 9,6 g/dL, VCM 74 fL), compatível com perda crônica de sangue por um tumor do cólon, desidratação com piora da função renal e hiperglicemia. O lactato ainda normal não afasta sofrimento do ceco, que se avalia pela clínica e pela tomografia. |
+| Prescrever preparo intestinal por via oral para colonoscopia. | Preparo intestinal por via oral numa obstrução completa do cólon enche de líquido um cólon que não esvazia: a distensão aumenta e o ceco, que já está sofrendo, pode perfurar. Colonoscopia com preparo é exame eletivo, para depois de resolvida a obstrução. |
+| Radiografias de abdome e tórax e tomografia de abdome e pelve com contraste venoso. | A radiografia mostra o cólon distendido do ceco ao sigmoide, com ceco de 11 cm. A tomografia mostra a lesão estenosante de 5 cm no sigmoide, a válvula ileocecal competente (o cólon vira uma alça fechada) e o ceco de 11,5 cm sem pneumatose nem perfuração, e já começa o estadiamento: linfonodos pericólicos, fígado sem lesões. É o exame de escolha (WSES 2017). |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Anamnese dirigida, incluindo mudança do hábito intestinal, sangramento, perda de peso e história familiar.": conta quando o aluno descobriu AN-05 (Hábito intestinal), AN-06 (Sangramento), AN-07 (Peso e apetite), AN-12 (História familiar).
@@ -379,6 +390,17 @@ Peso: 30 pontos.
 | Ressuscitação volêmica, antibiótico profilático e reserva de sangue. | A ressuscitação volêmica e o antibiótico foram iniciados, e há reserva de sangue. | Frequência cardíaca: 92 bpm |
 | Demarcar o local de um possível estoma e obter consentimento que inclua a possibilidade de colostomia ou ileostomia. | O local de um possível estoma foi demarcado. A paciente assinou o consentimento, preocupada, mas ciente. |  |
 
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Indicar stent colônico como ponte para a cirurgia, apesar da dor na fossa ilíaca direita. | O stent metálico autoexpansível como ponte para a cirurgia é alternativa em pacientes selecionados, em centros com experiência, sobretudo com alto risco cirúrgico (WSES 2017). Aqui, a dor na fossa ilíaca direita sobre um ceco de 11,5 cm sugere sofrimento do ceco: o stent adia a resolução e pode perfurar. Deu certo nesta história, mas o risco naquele momento era alto. |
+| Ressuscitação volêmica, antibiótico profilático e reserva de sangue. | Antes da cirurgia: corrigir a volemia e os eletrólitos, antibiótico profilático na indução cobrindo gram-negativos e anaeróbios (por exemplo, cefazolina com metronidazol), reserva de sangue pela anemia e glicemia controlada com insulina. |
+| Manter tratamento clínico, aguardando a resolução espontânea da obstrução. | A obstrução do cólon por tumor não se resolve sozinha, e com a válvula ileocecal competente o cólon é uma alça fechada: a pressão sobe no ceco até ele perfurar. A dor na fossa ilíaca direita já é o aviso. |
+| Indicar cirurgia de urgência, pelo risco de perfuração do ceco em obstrução em alça fechada com dor na fossa ilíaca direita. | Obstrução do cólon esquerdo por tumor, com válvula ileocecal competente, ceco de 11,5 cm e dor sobre ele: o ceco corre risco de perfurar. O risco cresce acima de 10 a 12 cm, e a dor local é o sinal de alerta. A cirurgia de urgência resolve a obstrução e trata o tumor no mesmo tempo. Antes: ressuscitação, antibiótico, reserva de sangue, demarcação do local de um possível estoma e consentimento que inclua colostomia ou ileostomia. |
+| Fazer apenas colostomia em alça, sem ressecar o tumor, em paciente com condição de ressecção. | A colostomia em alça descomprime o cólon, mas deixa o tumor no lugar, obriga a uma segunda cirurgia e atrasa o tratamento oncológico. Ela fica reservada para quem não tem condição de ressecção: instabilidade, doença irressecável ou risco muito alto. Esta paciente está estável e o tumor é ressecável. |
+| Dar alta. | A paciente tem obstrução completa do cólon, com ceco distendido e doloroso. Em casa, sem cirurgia, o ceco perfura, e ela voltaria com peritonite fecal. |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Tomografia de tórax para estadiamento, sem atrasar a cirurgia.": conta quando o aluno descobriu EX-12 (Tomografia de tórax).
@@ -435,6 +457,17 @@ Peso: 30 pontos.
 | Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco. | A inspeção não mostra implantes no peritônio nem lesões no fígado. O ceco tem cor e brilho normais, com serosa íntegra. |  |
 | Sigmoidectomia oncológica, com ligadura vascular na origem, margens livres e linfadenectomia adequada. | O sigmoide foi ressecado com ligadura vascular na origem e margens de aspecto livre. |  |
 
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco. | Antes de ressecar: inspecionar o peritônio (implantes), o fígado (metástases) e o tumor (invasão de órgãos vizinhos), o que define a cirurgia e o estadiamento. E avaliar o ceco: serosa íntegra, sem áreas violáceas nem lacerações, permite preservá-lo; ceco isquêmico ou com lacerações da serosa obrigaria a incluí-lo na ressecção, com colectomia subtotal. |
+| Ressecar o tumor sem princípios oncológicos, sem linfadenectomia. | Mesmo na urgência, a cirurgia do câncer de cólon é oncológica: ligadura dos vasos na origem, margens livres e linfadenectomia com pelo menos 12 linfonodos examinados. Sem isso, o estadiamento fica incompleto (a indicação de quimioterapia depende dos linfonodos) e o risco de recidiva aumenta. |
+| Fazer apenas colostomia em alça, deixando o tumor, numa paciente estável com tumor ressecável. | Com a paciente estável, o tumor ressecável e o ceco viável, deixar o tumor e fazer só a colostomia obriga a uma nova cirurgia e atrasa o tratamento oncológico, sem nenhum ganho de segurança. |
+| Sigmoidectomia oncológica, com ligadura vascular na origem, margens livres e linfadenectomia adequada. | Ressecção do sigmoide com ligadura da artéria mesentérica inferior, ou de seus ramos, na origem, margens livres e o mesocólon inteiro com os linfonodos. Isso trata o tumor, desfaz a obstrução e permite o estadiamento correto. Depois vem a decisão da reconstrução. |
+| Fazer anastomose primária colorretal, com ou sem ileostomia de proteção, já que a paciente está estável, sem contaminação e com o ceco viável. | Paciente estável, sem contaminação e com ceco viável: a ressecção com anastomose primária é preferida à cirurgia de Hartmann na obstrução do cólon esquerdo (WSES 2017). Uma ileostomia de proteção pode ser associada quando há fatores de risco para deiscência, como cólon muito distendido, anemia e diabetes, presentes nesta paciente. |
+| Fazer cirurgia de Hartmann, considerando a distensão do cólon e o diabetes. | A cirurgia de Hartmann evita a anastomose e é a escolha quando o risco é alto: instabilidade, contaminação, cólon em más condições ou comorbidades graves. Nesta paciente estável, ela funciona, mas deixa uma colostomia que exige nova cirurgia para reconstrução, e muitos pacientes nunca reconstroem o trânsito. |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Não avaliar a viabilidade do ceco.": conta quando não marcou "Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco.".
@@ -479,6 +512,17 @@ Peso: 30 pontos (usa o peso do M3).
 **Justificativa**
 
 - WSES 2017 (Pisano et al., 2018): na perfuração do ceco por obstrução distal, ressecção do segmento perfurado e do tumor, geralmente por colectomia subtotal, sem anastomose no paciente instável.
+
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Fazer anastomose primária em paciente em choque com peritonite fecal. | Pressão de 84 x 50 mmHg, lactato de 5,6 mmol/L e peritonite fecal difusa: uma anastomose nessas condições tem risco altíssimo de deiscência, e a deiscência nesse cenário é quase sempre fatal. O certo é ressecar sem anastomose, com colectomia subtotal e ileostomia terminal. |
+| Ressuscitação, antibiótico de amplo espectro e vasopressor se necessário. | Cristaloide em bolus, antibiótico de amplo espectro na primeira hora, noradrenalina se a pressão não responder ao volume, monitorização da diurese e do lactato. Tudo em paralelo com a cirurgia, nunca atrasando-a. |
+| Fazer apenas a sutura do ceco e uma colostomia, deixando o tumor. | Suturar um ceco perfurado, distendido e de parede fina tem alto risco de nova perfuração, e o tumor continua causando a obstrução. O tratamento é ressecar o ceco perfurado e o tumor. |
+| Colectomia subtotal com ileostomia terminal, ressecando o ceco perfurado e o tumor. | Com o ceco perfurado e o tumor no sigmoide, a colectomia subtotal resseca as duas lesões de uma vez, levando todo o cólon distendido e de viabilidade incerta. Em paciente em choque com peritonite fecal, sem anastomose: ileostomia terminal e fechamento do coto distal (WSES 2017). |
+| Cirurgia de controle de danos com fechamento temporário do abdome, se a paciente estiver instável. | Se a paciente estiver com hipotermia, acidose e coagulopatia, a cirurgia pode ser abreviada: ressecar, controlar a contaminação, deixar em descontinuidade com fechamento temporário do abdome e completar na reoperação, depois da estabilização na UTI. |
+| Lavar a cavidade e levar a paciente à UTI, considerando cirurgia abreviada se houver hipotermia, acidose e coagulopatia. | Lavar a contaminação fecal da cavidade e levar a paciente à UTI para ressuscitação, antibiótico e suporte. Se ela estiver com a tríade letal (hipotermia, acidose e coagulopatia), a cirurgia deve ser abreviada. |
 
 **Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
@@ -530,6 +574,17 @@ Peso: 20 pontos.
 | Encaminhar à oncologia e discutir o caso em reunião multidisciplinar, com o anatomopatológico e o estadiamento. | A consulta com a oncologia foi marcada e o caso entrou na pauta da reunião multidisciplinar. |  |
 | Programar colonoscopia completa do cólon remanescente em até seis meses, para afastar lesões sincrônicas. | A colonoscopia do cólon remanescente foi programada. |  |
 | Orientar colonoscopia de rastreio para os parentes de primeiro grau. | A paciente recebeu a orientação de rastreio com colonoscopia para os parentes de primeiro grau. |  |
+
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Dar alta sem encaminhar à oncologia. | O anatomopatológico mostra 3 de 16 linfonodos acometidos: é câncer de cólon estádio III, em que a quimioterapia adjuvante reduz a recidiva e aumenta a sobrevida, e funciona melhor quando começa nas primeiras semanas depois da cirurgia (idealmente até 6 a 8 semanas). Dar alta sem encaminhamento atrasa ou perde essa janela. |
+| Programar colonoscopia completa do cólon remanescente em até seis meses, para afastar lesões sincrônicas. | Como o tumor obstrutivo impediu a colonoscopia completa antes da cirurgia, o cólon remanescente precisa ser examinado em até seis meses para afastar tumores ou pólipos sincrônicos, presentes numa pequena parte dos pacientes. |
+| Não prescrever profilaxia de tromboembolismo. | Paciente oncológica, de 68 anos, depois de uma cirurgia abdominal maior: risco alto de tromboembolismo venoso. A profilaxia com heparina está indicada na internação e, na cirurgia abdominal por câncer, costuma ser estendida por cerca de quatro semanas depois da alta. |
+| Encaminhar à oncologia e discutir o caso em reunião multidisciplinar, com o anatomopatológico e o estadiamento. | Com estádio III, o caso é discutido em reunião multidisciplinar com o anatomopatológico e o estadiamento (fígado sem lesões, tórax sem nódulos, CEA de 14 ng/mL), e a oncologia avalia a quimioterapia adjuvante. O CEA elevado antes da cirurgia serve de referência para o seguimento: espera-se que normalize depois da ressecção. A família deve ser orientada: parentes de primeiro grau precisam de colonoscopia de rastreio. |
+| Completar o estadiamento com tomografia de tórax, se ainda não feita. | O estadiamento do câncer de cólon inclui tomografia de tórax, abdome e pelve. Aqui a tomografia de tórax já foi feita e não mostrou nódulos; se não tivesse sido, deveria ser completada antes da discussão do tratamento. |
+| Manter jejum prolongado sem motivo. | Com flatos no segundo dia e dieta aceita, não há motivo para jejum. A realimentação precoce, dentro dos protocolos de recuperação acelerada, reduz o catabolismo, ajuda no controle da glicemia e encurta a internação. |
 
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 

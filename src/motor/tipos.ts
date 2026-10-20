@@ -110,6 +110,8 @@ export interface MomentoFolha {
   justificativa: string[]
   // O que acontece na hora quando o aluno faz a conduta (chave: texto exato do item).
   efeitos?: Record<string, Efeito>
+  // Por que a conduta está certa ou errada, explicado ao aluno no modo guiado (chave: texto exato do item).
+  explicacoes?: Record<string, string>
   modoLista?: {
     derivados?: { item: string; quando: Condicao; tambemComoOpcao?: boolean }[]
     rotulos?: Record<string, string>

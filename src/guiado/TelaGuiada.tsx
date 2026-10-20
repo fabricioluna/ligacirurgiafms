@@ -19,6 +19,7 @@ import {
   exameFisicoNovo,
   examesDaResposta,
   examesVisiveis,
+  explicacaoDe,
   notaGuiada,
   novoEstado,
   passoDoRoteiro,
@@ -230,11 +231,17 @@ function Corpo(props: {
               <SeloClassificacao c={resposta.classificacao} grande />
               <span>{TITULO_RESPOSTA[resposta.classificacao]}</span>
             </p>
-            <p className="mt-3 mb-0">{resposta.consequencia ?? 'Era o que se esperava neste momento.'}</p>
+            {resposta.consequencia && <p className="mt-3 mb-0">{resposta.consequencia}</p>}
             {daResposta.length > 0 && (
               <div className="mt-4">
                 <p className="m-0 mb-2 text-sm font-semibold text-texto-2">Resultado</p>
                 <ResultadosExames casoId={caso.id} exames={daResposta} />
+              </div>
+            )}
+            {explicacaoDe(caso, estado.passo, resposta.item) && (
+              <div className="mt-4 border-t border-borda pt-4">
+                <p className="m-0 text-sm font-semibold text-texto-2">Por quê</p>
+                <p className="mt-1 mb-0">{explicacaoDe(caso, estado.passo, resposta.item)}</p>
               </div>
             )}
             {resposta.avancou ? (
@@ -337,7 +344,8 @@ function Resultado(props: { caso: Caso; roteiro: Roteiro; estado: EstadoGuiado; 
                     {feitas.map((x) => (
                       <li key={x.item} className="border-l-4 pl-3" style={{ borderColor: corDaClassificacao(x.classificacao) }}>
                         <SeloClassificacao c={x.classificacao} />
-                        <span className="mt-0.5 block">{rotuloDaOpcao(caso, p, x.item)}</span>
+                        <span className="mt-0.5 block font-semibold">{rotuloDaOpcao(caso, p, x.item)}</span>
+                        {explicacaoDe(caso, p, x.item) && <span className="mt-1 block text-texto-2">{explicacaoDe(caso, p, x.item)}</span>}
                       </li>
                     ))}
                   </ul>

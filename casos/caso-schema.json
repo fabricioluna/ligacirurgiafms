@@ -551,6 +551,13 @@
                   }
                 }
               },
+              "explicacoes": {
+                "type": "object",
+                "description": "Explicacao didatica de cada conduta: por que esta certa ou errada, o mecanismo e o que fazer no lugar. Mostrada ao aluno no modo guiado. Chave: texto exato do item da folha.",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
               "efeitos": {
                 "type": "object",
                 "description": "O que acontece na hora quando o aluno faz a conduta, no simulador com IA (e na avaliação do momento). Chave: texto exato do item da folha.",

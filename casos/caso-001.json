@@ -1072,6 +1072,14 @@
             "Controlar a diurese por balanço hídrico em vez de sonda vesical, se o paciente urina espontaneamente.": "Controlar a diurese por balanço hídrico, sem sonda vesical.",
             "Gasometria arterial em vez de venosa.": "Solicitar gasometria arterial."
           }
+        },
+        "explicacoes": {
+          "Dar alta ou tratar como gastroenterite sem investigar a obstrução.": "Dor em cólica, vômitos que ficaram biliosos, distensão e parada de eliminação de gases fecham a síndrome de obstrução intestinal. Não há diarreia, que seria esperada numa gastroenterite. Em paciente com laparotomia prévia, a hipótese principal é obstrução de delgado por bridas, e a alta sem investigação deixa a alça evoluir para estrangulamento, necrose e perfuração. Todo paciente com suspeita de obstrução fica internado, em jejum, com suporte e investigação por imagem.",
+          "Jejum, sonda nasogástrica aberta para descompressão, acesso venoso e hidratação com cristaloide.": "É o suporte inicial de toda obstrução de delgado. O jejum e a sonda nasogástrica aberta descomprimem o estômago e as alças proximais, aliviam náuseas e vômitos e reduzem o risco de aspiração. O cristaloide repõe o líquido perdido nos vômitos e sequestrado no lúmen: o paciente está desidratado, com urina escura e ureia elevada. Completam o suporte a analgesia, o antiemético, o controle da diurese e a reposição de potássio depois de confirmar que o paciente urina (Bologna 2017). A losartana deve ser suspensa enquanto houver hipovolemia e piora da função renal.",
+          "Solicitar contraste oral e atrasar a tomografia.": "O contraste oral, tomado por um paciente que vomita, aumenta o risco de vômito e aspiração e atrasa o exame que muda a conduta. A tomografia com contraste venoso já confirma a obstrução, localiza o ponto de transição, sugere a causa e procura sinais de sofrimento de alça: redução do realce, espessamento da parede, líquido livre, edema do mesentério, sinal do redemoinho e pneumatose. O contraste hidrossolúvel tem seu lugar depois, como teste diagnóstico e terapêutico do tratamento conservador.",
+          "Exames: hemograma, eletrólitos, função renal, gasometria, lactato e amilase ou lipase.": "Os exames medem a repercussão dos vômitos e do líquido sequestrado nas alças. Aqui mostram hemoconcentração, hipocalemia, hipocloremia com alcalose metabólica e ureia e creatinina elevadas pela desidratação. Leucocitose com desvio, lactato elevado e acidose metabólica falariam a favor de sofrimento de alça, mas nenhum deles, isolado, confirma ou exclui isquemia. Amilase ou lipase ajudam a afastar pancreatite, e o lactato normal da admissão serve de referência para a reavaliação.",
+          "Prescrever laxante ou procinético diante de obstrução mecânica.": "Na obstrução mecânica, laxantes e procinéticos aumentam a peristalse contra um ponto fechado: a cólica piora, os vômitos voltam e cresce o risco de distensão, isquemia e perfuração. Ruídos metálicos e ondas peristálticas visíveis são sinal de que o intestino está lutando contra a obstrução, e não de intestino preguiçoso.",
+          "Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.": "As radiografias confirmam rapidamente a obstrução (alças de delgado com mais de 3 cm, níveis hidroaéreos em degraus, pouco gás no cólon), e a de tórax procura pneumoperitônio. A tomografia com contraste venoso é o exame que muda a conduta: mostra o ponto de transição no íleo distal, sem massa, o que sugere brida, e a ausência de sinais de sofrimento, o que permite o tratamento conservador (Bologna 2017). Quando a radiografia atrasaria, ir direto à tomografia também é aceitável."
         }
       },
       {
@@ -1168,6 +1176,14 @@
             "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento.": "Indicar tratamento conservador.",
             "Indicar cirurgia imediata sem sinais de sofrimento.": "Indicar cirurgia imediata."
           }
+        },
+        "explicacoes": {
+          "Indicar cirurgia imediata sem sinais de sofrimento.": "Sem peritonite, sem sinais tomográficos de sofrimento e com lactato normal, a obstrução por brida se resolve sem cirurgia na maioria dos pacientes. Operar agora expõe o paciente a uma laparotomia que provavelmente seria evitada e cria novas aderências, que são a causa da próxima obstrução. A cirurgia imediata fica reservada para peritonite, estrangulamento, isquemia na tomografia ou falha do tratamento conservador (Bologna 2017).",
+          "Indicar tratamento conservador, pela ausência de peritonite e de sinais tomográficos de sofrimento.": "Sem peritonite, sem sinais tomográficos de sofrimento e com lactato normal, o tratamento não operatório da obstrução por aderências está indicado (Bologna 2017). Mas a decisão só fica completa com o plano: jejum, sonda, hidratação, contraste hidrossolúvel, reavaliação clínica seriada e um prazo máximo, com critérios claros para operar a qualquer momento.",
+          "Dar alta.": "A obstrução continua: a sonda drenou 600 mL de conteúdo bilioso, e a melhora da dor vem da descompressão e da analgesia, não da resolução. Em casa, sem sonda e sem vigilância, a brida pode estrangular a alça sem que ninguém perceba. A alta só vem depois da resolução clínica: eliminação de gases e fezes, abdome sem distensão e dieta aceita.",
+          "Administrar contraste hidrossolúvel pela sonda e fazer radiografia de controle em até 24 horas.": "O contraste hidrossolúvel (diatrizoato, de 50 a 150 mL pela sonda, que fica fechada por algumas horas) tem papel diagnóstico e terapêutico. Se aparece no cólon na radiografia feita em até 24 horas, a resolução sem cirurgia é muito provável; se não chega, o tratamento conservador tende a falhar e a cirurgia deve ser indicada. Por ser hiperosmolar, ele atrai água para o lúmen e pode ajudar a vencer a obstrução parcial, reduzindo a necessidade de cirurgia e o tempo de internação (Bologna 2017).",
+          "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada.": "Tratamento conservador não é espera passiva. Sem prazo máximo e sem reavaliação programada, os sinais de sofrimento de alça (dor que fica contínua, febre, taquicardia, defesa, leucocitose, lactato subindo) podem passar despercebidos, e a cirurgia acaba acontecendo quando já há necrose. As diretrizes falam em até 72 horas de tratamento conservador sem sinais de alarme, com exame do abdome e sinais vitais repetidos.",
+          "Tratamento conservador com reavaliação seriada e prazo definido, sem contraste hidrossolúvel.": "É o tratamento conservador correto, com prazo e reavaliação, só que sem o contraste hidrossolúvel. Funciona, mas perde a melhor ferramenta para prever, em 24 horas, quem vai precisar de cirurgia, e perde também o efeito terapêutico do contraste."
         }
       },
       {
@@ -1256,6 +1272,14 @@
             "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.": "Repetir a tomografia e aguardar o resultado para decidir.",
             "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.": "Manter o tratamento conservador até completar 72 horas."
           }
+        },
+        "explicacoes": {
+          "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento.": "As 72 horas são um limite máximo, não uma espera obrigatória. Dor que ficou contínua, febre, taquicardia, defesa localizada, leucocitose com desvio, lactato subindo e contraste que não chegou ao cólon indicam falha do tratamento conservador e provável sofrimento de alça. Cada hora de espera aumenta a extensão da necrose, a chance de perfuração e a mortalidade.",
+          "Indicar cirurgia de urgência, sem esperar completar 72 horas.": "A combinação de achados clínicos (dor contínua, defesa, febre, taquicardia), laboratoriais (leucocitose com desvio, lactato em elevação, PCR alta) e da radiografia (contraste retido no delgado) indica estrangulamento ou falha do tratamento conservador, e a cirurgia não espera o fim do prazo. Antes de entrar na sala: ressuscitação volêmica, antibiótico, reserva de sangue, consentimento que inclua ressecção e possível estoma, e aviso à anestesia para indução em sequência rápida com a sonda aberta.",
+          "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.": "Os achados clínicos e laboratoriais já bastam para indicar a cirurgia, e a nova tomografia só confirma o que já se sabe (aqui, espessamento da alça, redução do realce, edema do mesentério e líquido livre), atrasando a operação enquanto a isquemia avança. Em paciente estável, uma tomografia rápida pode ajudar a planejar a cirurgia, desde que não a adie.",
+          "Dar alta.": "O paciente tem sinais de sofrimento de alça: dor contínua, febre, taquicardia, defesa e leucocitose. Mandá-lo para casa é deixar a necrose evoluir para perfuração e choque séptico fora do hospital.",
+          "Reconhecer a falha do tratamento conservador e os sinais de sofrimento de alça: dor contínua, febre, taquicardia, defesa, leucocitose com desvio, lactato em elevação e contraste que não chegou ao cólon.": "É o raciocínio que sustenta a decisão. Nenhum sinal isolado confirma o estrangulamento, mas a combinação de dor contínua, febre, taquicardia, defesa, leucocitose com desvio, lactato em elevação e contraste que não chegou ao cólon é suficiente para indicar a cirurgia. Reconhecer é o primeiro passo; agora é preciso decidir a operação e preparar o paciente.",
+          "Laparoscopia diagnóstica com conversão precoce se a visão ou a segurança forem prejudicadas.": "Em centros com experiência, a laparoscopia pode ser usada na obstrução por brida única, com menos dor e menos aderências novas. Mas, com o abdome muito distendido e suspeita de isquemia, o espaço de trabalho é pequeno e o risco de lesar uma alça dilatada é maior: o limiar para converter em laparotomia deve ser baixo."
         }
       },
       {
@@ -1328,6 +1352,14 @@
             "Solicitar tomografia antes da cirurgia em paciente instável.": "Solicitar tomografia antes da cirurgia.",
             "Manter tratamento clínico sem indicar cirurgia.": "Manter tratamento clínico."
           }
+        },
+        "explicacoes": {
+          "Solicitar tomografia antes da cirurgia em paciente instável.": "O paciente está em choque, com peritonite difusa e lactato de 4,8 mmol/L: o diagnóstico de abdome agudo cirúrgico já está feito pelo exame clínico. Levar um paciente instável à tomografia atrasa o controle da fonte e o expõe a piorar longe da sala de emergência. A prioridade é ressuscitar e operar.",
+          "Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização.": "É o tratamento da sepse de foco abdominal, que começa antes da sala: cristaloide em bolus (cerca de 30 mL/kg na hipotensão), antibiótico de amplo espectro na primeira hora, cobrindo gram-negativos e anaeróbios, e monitorização da pressão, da diurese e do lactato. A ressuscitação acontece em paralelo com o preparo da cirurgia, sem atrasá-la.",
+          "Manter tratamento clínico sem indicar cirurgia.": "Peritonite difusa com choque é sinal de necrose e provável perfuração. Nenhum antibiótico controla uma fonte de contaminação que continua no abdome: sem cirurgia, o choque séptico progride para falência de múltiplos órgãos.",
+          "Cirurgia de urgência, sem atrasar com novos exames.": "O controle da fonte, ressecando a alça necrótica e contendo a contaminação, é o que trata a sepse de origem abdominal, e deve ser feito o mais cedo possível, com a ressuscitação acontecendo em paralelo. Novos exames não mudam a indicação.",
+          "Iniciar vasopressor se a hipotensão persistir após a reposição volêmica inicial.": "Se a pressão arterial média continua abaixo de 65 mmHg depois da reposição inicial, a noradrenalina é o vasopressor de primeira escolha. Ela não substitui o volume nem a cirurgia.",
+          "Antecipar a possibilidade de controle de danos e a necessidade de UTI.": "Paciente em choque séptico, com acidose e lactato alto, tem grande chance de chegar à sala com hipotermia, acidose e coagulopatia. Planejar desde já uma cirurgia abreviada e a vaga de UTI evita a tentação de fazer a reconstrução definitiva num paciente que não a tolera."
         }
       },
       {
@@ -1427,6 +1459,14 @@
             "Deixar dreno de rotina.": "Deixar dreno abdominal.",
             "Optar por controle de danos em paciente estável.": "Optar por cirurgia de controle de danos."
           }
+        },
+        "explicacoes": {
+          "Optar por controle de danos em paciente estável.": "Controle de danos é para o paciente que não tolera uma cirurgia longa: em choque, com hipotermia, acidose ou coagulopatia. Este paciente está estável, sem vasopressor, com lactato de 2,4 mmol/L e sem contaminação extensa, e pode receber a ressecção com anastomose no mesmo tempo. Deixar o abdome aberto acrescenta uma reoperação, mais dias de UTI e risco de fístula e de hérnia.",
+          "Fazer a pausa antes do passo irreversível: aquecer a alça com compressas mornas e reavaliar após 10 a 15 minutos.": "Ressecar intestino é o passo irreversível, e uma alça violácea logo depois de liberada pode recuperar a cor quando o fluxo volta. Por isso se para: compressas mornas por 10 a 15 minutos, com boa oxigenação e pressão, e reavaliação de cor, brilho, peristalse, pulso no mesentério e sangramento na borda. Aqui o segmento continua violáceo, sem brilho, sem peristalse e sem pulso: está inviável e precisa ser ressecado.",
+          "Manter o segmento inviável sem ressecar.": "Uma alça sem pulso, sem brilho e sem peristalse depois da pausa está necrótica. Deixá-la no abdome leva a perfuração, peritonite e sepse nos dias seguintes, com reoperação em condições muito piores.",
+          "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa.": "O segmento inviável é ressecado com margens bem perfundidas, que sangram na borda, e a anastomose primária é segura porque o paciente está estável e não há contaminação extensa. Antes de fechar, revise todo o delgado, do ângulo de Treitz à válvula ileocecal, aspire o líquido local e feche sem dreno de rotina.",
+          "Liberar todas as aderências da cavidade.": "As diretrizes recomendam liberar apenas as aderências que causam a obstrução (Bologna 2017). A adesiólise extensa aumenta o tempo cirúrgico e o risco de enterotomia (aqui, uma alça proximal foi lesada e precisou ser reparada), sem reduzir as recidivas.",
+          "Deixar o segmento e programar reoperação para reavaliar a viabilidade, sem ressecar agora.": "A reoperação programada (second look) serve quando a viabilidade é realmente duvidosa, por exemplo na isquemia mesentérica com grandes áreas limítrofes. Aqui, depois da pausa, a alça segue sem pulso, sem brilho e sem peristalse: não há dúvida. Adiar a ressecção mantém um segmento necrótico no abdome e acrescenta uma segunda anestesia."
         }
       },
       {
@@ -1460,6 +1500,14 @@
             "Fazer anastomose primária em paciente em choque com acidose grave.": "Ressecar e fazer anastomose primária.",
             "Prolongar a cirurgia para resolver tudo em um só tempo.": "Fazer a cirurgia definitiva em um só tempo."
           }
+        },
+        "explicacoes": {
+          "Fazer anastomose primária em paciente em choque com acidose grave.": "Com noradrenalina em dose crescente, 35,4 °C, pH 7,18 e sangramento difuso, o paciente está na tríade letal. Uma anastomose feita nessas condições, em alças edemaciadas e mal perfundidas e com contaminação entérica, tem alto risco de deiscência, e o tempo cirúrgico a mais piora a hipotermia, a acidose e a coagulopatia. Nesse cenário, a anastomose fica para a reoperação, com o paciente estabilizado.",
+          "Cirurgia abreviada: ressecar o segmento necrótico, controlar a contaminação, deixar as alças em descontinuidade e fazer fechamento temporário do abdome.": "É o controle de danos: ressecar o segmento necrótico, fechar as extremidades e deixá-las em descontinuidade, lavar a contaminação e fazer o fechamento temporário do abdome (por exemplo, com curativo a vácuo), no menor tempo possível. O objetivo da primeira cirurgia é a sobrevivência; a reconstrução fica para quando a fisiologia estiver corrigida.",
+          "Prolongar a cirurgia para resolver tudo em um só tempo.": "Cada hora a mais de cirurgia num paciente hipotérmico, acidótico e coagulopático piora as três coisas, num ciclo que se retroalimenta e aumenta a mortalidade. O princípio do controle de danos é parar cedo, corrigir a fisiologia na UTI e voltar depois para terminar.",
+          "Levar o paciente à UTI para estabilização e programar a reoperação em 24 a 48 horas.": "Na UTI se corrige o que está matando o paciente: reaquecimento ativo, ressuscitação guiada por metas para reverter a acidose, hemoderivados para a coagulopatia, antibiótico e vasopressor. Com a fisiologia restaurada, a reoperação em 24 a 48 horas reavalia as alças, faz a reconstrução (anastomose ou estoma) e fecha o abdome.",
+          "Exteriorizar as extremidades em estoma, conforme a experiência da equipe.": "Exteriorizar as extremidades como estoma também evita a anastomose no paciente instável, e é uma alternativa à descontinuidade com fechamento temporário, conforme a experiência da equipe. A desvantagem é que um estoma de delgado pode ter débito alto, com perda de líquido e eletrólitos.",
+          "Reconhecer a tríade letal: hipotermia, acidose e coagulopatia.": "Hipotermia (35,4 °C), acidose (pH 7,18) e coagulopatia (sangramento difuso nas superfícies cruentas) se agravam umas às outras e definem o paciente que não tolera uma cirurgia longa. Reconhecer a tríade é o que muda o objetivo da operação: da reconstrução definitiva para o controle de danos."
         }
       },
       {
@@ -1516,6 +1564,14 @@
           "rotulos": {
             "Manter jejum prolongado sem motivo.": "Manter jejum prolongado."
           }
+        },
+        "explicacoes": {
+          "Ignorar sinais de deiscência de anastomose.": "A deiscência da anastomose costuma aparecer entre o terceiro e o sétimo dia, e o atraso no diagnóstico é o que mais aumenta a mortalidade. Febre, taquicardia sem explicação, dor desproporcional, íleo que não resolve ou saída de conteúdo entérico pela ferida exigem investigação imediata, com tomografia, e muitas vezes reoperação.",
+          "Manter a sonda até a melhora do débito e dos sinais de trânsito, e então realimentar de forma progressiva.": "A sonda sai quando o débito cai e o trânsito volta (flatos, abdome menos distendido); a partir daí, a dieta é reintroduzida de forma progressiva. A prescrição se completa com analgesia multimodal poupando opioides, profilaxia de tromboembolismo, deambulação precoce, controle hidroeletrolítico e vigilância de complicações.",
+          "Manter jejum prolongado sem motivo.": "Manter jejum sem motivo depois que o trânsito voltou aumenta o catabolismo, atrasa a recuperação da função intestinal e prolonga a internação. A realimentação precoce é segura depois de ressecção de delgado com anastomose, desde que o paciente não tenha náuseas nem distensão.",
+          "Vigiar sinais de fístula e deiscência: febre, taquicardia, dor desproporcional ou saída de conteúdo entérico.": "Depois de uma ressecção intestinal, a vigilância ativa da anastomose nos primeiros dias faz parte da prescrição. Febre, taquicardia, dor desproporcional, piora do estado geral ou saída de conteúdo entérico levam a investigar deiscência e fístula de imediato.",
+          "Não prescrever profilaxia de tromboembolismo.": "Paciente de 66 anos, operado de urgência, com laparotomia e restrito ao leito, tem risco moderado a alto de trombose venosa profunda e embolia pulmonar. A profilaxia com heparina, junto com a deambulação precoce, está indicada, salvo sangramento ativo.",
+          "Retirar a sonda mais cedo se o paciente não tiver náuseas nem distensão.": "Sem náuseas, sem distensão e com débito baixo, retirar a sonda mais cedo é seguro e acelera a recuperação, na lógica dos protocolos de recuperação acelerada. Se as náuseas ou a distensão voltarem, a sonda é repassada."
         }
       }
     ],

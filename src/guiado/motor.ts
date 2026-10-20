@@ -24,6 +24,10 @@ export function rotuloDaOpcao(caso: Caso, momento: string, item: string): string
   return momentoFolha(caso, momento).modoLista?.rotulos?.[item] ?? item
 }
 
+export function explicacaoDe(caso: Caso, momento: string, item: string): string | null {
+  return momentoFolha(caso, momento).explicacoes?.[item] ?? null
+}
+
 export function efeitoDe(caso: Caso, momento: string, item: string): Efeito | undefined {
   return momentoFolha(caso, momento).efeitos?.[item]
 }

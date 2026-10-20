@@ -80,6 +80,9 @@ export function validarIntegridade(caso: Caso): Validacao {
     for (const item of Object.keys(f.efeitos ?? {})) {
       if (!categoriaDoItem(f, item)) erros.push(`Efeito do ${f.codigo}: o item "${item}" não existe na folha resposta.`)
     }
+    for (const item of Object.keys(f.explicacoes ?? {})) {
+      if (!categoriaDoItem(f, item)) erros.push(`Explicação do ${f.codigo}: o item "${item}" não existe na folha resposta.`)
+    }
     for (const item of Object.keys(f.modoLista?.rotulos ?? {})) {
       if (!categoriaDoItem(f, item)) erros.push(`Rótulo do ${f.codigo}: o item "${item}" não existe na folha resposta.`)
     }

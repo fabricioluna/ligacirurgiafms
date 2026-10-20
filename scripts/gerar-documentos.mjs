@@ -221,6 +221,10 @@ function documento(caso) {
         '',
       )
     }
+    const explicacoes = Object.entries(f.explicacoes ?? {})
+    if (explicacoes.length) {
+      L.push('**Explicação mostrada ao aluno no modo guiado**', '', tabela(['Conduta', 'Explicação'], explicacoes), '')
+    }
     const der = f.modoLista?.derivados ?? []
     if (der.length) {
       L.push('**Avaliado pelo que o aluno fez, e não por marcação na lista**', '')

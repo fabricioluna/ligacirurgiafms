@@ -341,6 +341,17 @@ Peso: 25 pontos.
 | Prescrever neostigmina ou procinético diante de obstrução mecânica. | A cólica fica mais forte e a distensão aumenta. | Dor (0 a 10): 7 |
 | Liberar dieta oral. | Ele bebe um pouco de água, fica enjoado e vomita. |  |
 
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Dar alta, ou tratar como constipação com laxante ou lavagem intestinal, sem investigar a obstrução. | Distensão volumosa e assimétrica, parada de eliminação de gases, vômitos e um episódio anterior resolvido com sonda retal não são constipação: são obstrução do cólon, com o volvo de sigmoide como principal hipótese. Laxante ou lavagem não desfazem a torção, e a alta deixa o volvo evoluir para isquemia e perfuração. |
+| Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético. | Jejum, acesso venoso, cristaloide e correção eletrolítica tratam a desidratação e a hipocalemia, que pioram o íleo. Atenção ao Parkinson: metoclopramida, bromoprida e haloperidol bloqueiam a dopamina e pioram a rigidez, por isso o antiemético preferido é a ondansetrona. A levodopa não deve ser suspensa durante o jejum, porque a retirada brusca pode causar rigidez grave e uma síndrome parecida com a neuroléptica maligna; combine com a equipe uma via alternativa assim que possível. |
+| Pedir enema opaco com bário para confirmar o diagnóstico. | O enema opaco pode mostrar o afilamento em bico de pássaro, mas atrasa o diagnóstico e, se houver isquemia ou perfuração, o bário que extravasa para o peritônio causa uma peritonite grave e difícil de tratar. A tomografia com contraste venoso confirma o volvo e, mais importante, procura sinais de isquemia antes de qualquer tentativa de descompressão (ASCRS 2021). |
+| Exames: hemograma, eletrólitos, função renal, gasometria e lactato. | Os exames medem a desidratação e procuram sinais de sofrimento do sigmoide: leucocitose com desvio, acidose metabólica e lactato elevado. Aqui são tranquilizadores (leucócitos sem desvio, lactato de 1,4 mmol/L), mas lactato normal não exclui isquemia: a decisão depende também do exame do abdome e da tomografia. A hipocalemia leve deve ser corrigida, porque piora o íleo. |
+| Prescrever neostigmina ou procinético diante de obstrução mecânica. | A neostigmina aumenta a contração do cólon e é usada na pseudo-obstrução colônica (síndrome de Ogilvie), em que não há ponto mecânico de obstrução. No volvo há uma torção: estimular o cólon contra a alça torcida piora a distensão e a dor e pode precipitar isquemia e perfuração. A obstrução mecânica é contraindicação à neostigmina. |
+| Radiografias de abdome e tórax e tomografia de abdome com contraste venoso. | A radiografia mostra o sinal do grão de café: uma alça de sigmoide enorme, em U invertido, subindo da pelve. A tomografia confirma o volvo pelo sinal do redemoinho (torção do mesossigmoide) e pelo afilamento em bico, e responde à pergunta mais importante: há isquemia ou perfuração? Sem pneumatose, sem gás portal, sem pneumoperitônio, sem líquido livre e com realce preservado da parede, a descompressão endoscópica pode ser tentada (ASCRS 2021; WSES 2023). |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Anamnese dirigida, incluindo hábito intestinal, episódios anteriores de distensão, eliminação de gases e fezes e vômitos.": conta quando o aluno descobriu AN-04 (Gases e fezes), AN-05 (Hábito intestinal), AN-06 (Episódios semelhantes).
@@ -407,6 +418,17 @@ Peso: 30 pontos.
 | Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível. | Pela retossigmoidoscopia rígida, a sonda retal passa o ponto de torção e sai muito gás. A distensão diminui. | Dor (0 a 10): 2 |
 | Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo. | A cólica fica muito mais forte, e a distensão não melhora. | Dor (0 a 10): 8 |
 
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica. | Sem peritonite e sem sinais de isquemia, a primeira escolha é a descompressão endoscópica, que desfaz a torção na maioria dos pacientes e transforma uma cirurgia de urgência, num cólon cheio e distendido, numa cirurgia programada na mesma internação, com o paciente preparado e mais chance de anastomose primária. A cirurgia de urgência tem morbimortalidade maior e mais chance de terminar em colostomia. |
+| Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa. | A retossigmoidoscopia flexível passa o ponto de torção com o mínimo de insuflação e desfaz o volvo, com saída de grande volume de gás e fezes. Tão importante quanto isso, permite ver a mucosa: mucosa rósea e com edema leve autoriza seguir; mucosa escura, ulcerada ou necrótica indica cirurgia de urgência. A descompressão resolve o episódio agudo na maioria dos pacientes (ASCRS 2021). |
+| Manter observação ou tratamento clínico sem descompressão. | O volvo não se desfaz sozinho com segurança: a alça torcida continua distendendo, a pressão na parede compromete a circulação e, com o mesossigmoide torcido, os vasos ficam estrangulados. A espera transforma um volvo viável num sigmoide necrótico e perfurado. |
+| Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce. | Deixar uma sonda retal no sigmoide por alguns dias mantém a descompressão e pode reduzir a recidiva precoce, mas a recomendação nas diretrizes é fraca (ASCRS 2021; WSES 2023). Deixar ou não deixar a sonda são condutas aceitáveis. O que realmente evita a recidiva é a sigmoidectomia. |
+| Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo. | A neostigmina trata a pseudo-obstrução, não a obstrução mecânica, e a lavagem não desfaz a torção com segurança: as duas aumentam a pressão dentro de uma alça fechada, com risco de isquemia e perfuração. O volvo se desfaz por endoscopia, sob visão, avaliando a mucosa. |
+| Dar alta. | O paciente continua com o volvo: distensão importante, sem eliminação de gases. Sem a descompressão, a torção evolui para isquemia, e em casa ele voltaria com peritonite. |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Não deixar sonda retal após a descompressão.": conta quando marcou "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa."; não marcou "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.".
@@ -459,6 +481,17 @@ Peso: 25 pontos.
 | Realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia, mantendo a sonda retal se ela foi deixada. | Ele aceita bem a dieta líquida, sem distensão, e a sonda retal segue drenando. |  |
 | Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família. | A clínica e a anestesia avaliaram o risco cirúrgico como aceitável. Ele e a filha concordam com a cirurgia. |  |
 
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Dar alta após a descompressão, sem programar a cirurgia definitiva. | Depois da descompressão endoscópica isolada, o volvo volta em mais da metade dos pacientes, muitas vezes já com isquemia e necessidade de cirurgia de urgência, com mortalidade maior. Este paciente já teve um episódio há oito meses. Tendo condição cirúrgica, a sigmoidectomia deve ser feita na mesma internação (ASCRS 2021). |
+| Realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia, mantendo a sonda retal se ela foi deixada. | Depois da descompressão, a dieta volta aos poucos e o paciente é preparado para a cirurgia: hidratação, potássio, avaliação nutricional (ele está emagrecido) e controle das comorbidades. No Parkinson, a levodopa precisa ser mantida nos horários certos, inclusive no dia da cirurgia, para evitar rigidez, disfagia e complicações respiratórias. |
+| Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada. | A descompressão resolve o episódio, não o problema: o sigmoide continua longo, redundante e com mesossigmoide de base estreita, pronto para torcer de novo. A sigmoidectomia na mesma internação, depois da otimização clínica, é o tratamento definitivo recomendado para quem tem condição cirúrgica (ASCRS 2021; WSES 2023). |
+| Programar a cirurgia só depois de uma nova recidiva. | Esperar uma nova torção é apostar que ela virá sem isquemia, e muitas vêm com o sigmoide já comprometido, num paciente mais velho e em pior condição, levando à cirurgia de urgência e à colostomia. Este paciente já teve duas torções: a hora de operar é agora. |
+| Colonoscopia do restante do cólon antes da cirurgia, para afastar outras lesões. | Avaliar o restante do cólon antes da cirurgia pode identificar uma neoplasia ou outra lesão que mude a extensão da ressecção, e as diretrizes sugerem fazê-lo quando possível. Não é obrigatória e não deve atrasar a cirurgia na mesma internação. |
+| Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família. | Idoso de 79 anos, com Parkinson, hipertensão e emagrecido: a avaliação clínica e anestésica estima o risco, otimiza as comorbidades e ajuda a decidir com o paciente e a família. É também a hora de explicar que operar agora evita uma cirurgia de urgência no futuro. |
+
 **Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 
 | Texto da folha | Texto na lista |
@@ -506,6 +539,17 @@ Peso: 25 pontos (usa o peso do M3).
 | --- | --- | --- |
 | Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização. | Depois do volume e do antibiótico, a pressão sobe para 100 x 62 mmHg, ainda com taquicardia. | Pressão arterial: 100 x 62 mmHg; Frequência cardíaca: 114 bpm |
 
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Manter tratamento clínico sem indicar cirurgia. | Peritonite, choque e, na tomografia, sigmoide sem realce, com pneumatose e gás livre na cavidade, significam necrose e perfuração. Sem retirar o sigmoide necrótico, a sepse não é controlada. |
+| Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização. | Cristaloide em bolus, antibiótico de amplo espectro na primeira hora (cobrindo gram-negativos e anaeróbios) e monitorização da diurese e do lactato. A ressuscitação acompanha o preparo da cirurgia e não deve atrasá-la. |
+| Tentar a descompressão endoscópica em paciente com peritonite. | Peritonite e sinais de isquemia ou perfuração contraindicam a descompressão endoscópica: insuflar e manipular um sigmoide necrótico pode ampliar a perfuração, e a demora atrasa o controle da fonte. O tratamento é cirúrgico (ASCRS 2021). |
+| Cirurgia de urgência, sem tentativa de descompressão endoscópica. | Com peritonite e choque, a laparotomia de urgência é o tratamento: ressecar o sigmoide necrótico sem desfazer a torção antes, para não liberar na circulação o conteúdo da alça isquêmica, controlar a contaminação e escolher a reconstrução pelo estado do paciente. |
+| Iniciar vasopressor se a hipotensão persistir após a reposição volêmica inicial. | Se a hipotensão persiste depois da reposição volêmica inicial, a noradrenalina é a primeira escolha para manter a pressão arterial média acima de 65 mmHg. Ela não substitui o volume nem a cirurgia. |
+| Antecipar a ressecção do sigmoide com colostomia terminal (cirurgia de Hartmann) e a necessidade de UTI. | Em paciente em choque com peritonite fecal, a ressecção com colostomia terminal e fechamento do coto retal (cirurgia de Hartmann) é a escolha mais segura, porque evita uma anastomose com alto risco de deiscência. Antecipar isso permite demarcar o estoma, obter o consentimento e garantir a vaga na UTI. |
+
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Manter tratamento clínico sem indicar cirurgia.": conta quando não marcou "Cirurgia de urgência, sem tentativa de descompressão endoscópica." (também aparece como opção).
@@ -547,6 +591,17 @@ Peso: 20 pontos.
 **Justificativa**
 
 - ASCRS 2021: sigmoidectomia com anastomose primária é o tratamento definitivo de escolha; procedimentos sem ressecção têm recidiva alta.
+
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Fazer apenas a detorção ou a fixação do sigmoide (sigmoidopexia), sem ressecar. | Desfazer a torção ou fixar o sigmoide deixa no lugar o sigmoide longo e redundante, e a recidiva é alta. Os procedimentos sem ressecção ficam para situações excepcionais. A sigmoidectomia é o tratamento definitivo de escolha (ASCRS 2021). |
+| Sigmoidectomia com ressecção de todo o segmento redundante. | Resseca-se todo o segmento redundante, até cólon descendente e reto de calibre e posição normais, para que não sobre alça capaz de torcer de novo. A doença é benigna, então não é preciso ressecção oncológica, mas as margens devem ser bem perfundidas e a anastomose, sem tensão. |
+| Fazer colostomia terminal (cirurgia de Hartmann) em paciente estável e sem contaminação. | A cirurgia de Hartmann é para o paciente instável, com contaminação ou com o cólon em más condições. Este paciente está estável, preparado e sem contaminação, e pode receber anastomose primária. A colostomia desnecessária exige uma segunda cirurgia para reconstruir o trânsito, que muitos idosos nunca chegam a fazer. |
+| Anastomose primária colorretal, já que o paciente está estável, preparado e sem contaminação. | Com o paciente estável, o cólon descomprimido e preparado e sem contaminação, a anastomose colorretal primária é segura e encerra o tratamento numa só cirurgia. No pós-operatório: realimentação precoce, analgesia multimodal, profilaxia de tromboembolismo, deambulação precoce e levodopa nos horários. |
+| Via laparoscópica, conforme a experiência da equipe. | A via laparoscópica é segura para a sigmoidectomia programada depois da descompressão, com menos dor e recuperação mais rápida, quando a equipe tem experiência. A via não muda o princípio: ressecar todo o segmento redundante. |
+| Não prescrever profilaxia de tromboembolismo. | Idoso, com cirurgia abdominal maior e mobilidade reduzida pelo Parkinson: risco alto de trombose venosa e embolia pulmonar. A profilaxia com heparina e a deambulação precoce estão indicadas, salvo sangramento. |
 
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
@@ -592,6 +647,17 @@ Peso: 20 pontos (usa o peso do M4).
 **Justificativa**
 
 - Princípios de manejo da sepse de foco abdominal e da cirurgia de Hartmann na peritonite fecal.
+
+**Explicação mostrada ao aluno no modo guiado**
+
+| Conduta | Explicação |
+| --- | --- |
+| Fazer anastomose primária em paciente em choque com contaminação fecal. | Em choque, com lactato de 5,2 mmol/L, noradrenalina e peritonite fecal, uma anastomose colorretal tem risco muito alto de deiscência, e uma deiscência nesse paciente costuma ser fatal. A conduta segura é a cirurgia de Hartmann, adiando a reconstrução para quando o paciente estiver recuperado. |
+| Ressecar todo o sigmoide necrótico, controlar a contaminação e lavar a cavidade. | O controle da fonte é ressecar todo o sigmoide necrótico, até tecido viável, sem desfazer a torção antes, e lavar a contaminação fecal da pelve. Em seguida vem a reconstrução, que no paciente em choque é a colostomia terminal (Hartmann). |
+| Prolongar a cirurgia com ressecções ampliadas desnecessárias. | Ressecções além do sigmoide necrótico não trazem benefício e aumentam o tempo cirúrgico, a perda de sangue e a piora do choque e da acidose. O objetivo é controlar a fonte e sair da sala. |
+| Fazer colostomia terminal com fechamento do coto retal (cirurgia de Hartmann), sem anastomose. | Ressecção do sigmoide, colostomia terminal e fechamento do coto retal evitam a anastomose num paciente em choque com peritonite fecal. A reconstrução do trânsito pode ser discutida meses depois, se o paciente se recuperar. |
+| Fazer apenas a detorção, sem ressecar o segmento necrótico. | O sigmoide está necrótico e perfurado: desfazer a torção não devolve a vida à alça e ainda pode liberar na circulação bactérias e toxinas acumuladas. Deixar o segmento necrótico no abdome mantém a fonte da sepse, e o choque se torna refratário. |
+| Cirurgia abreviada com fechamento temporário do abdome, se houver hipotermia, acidose e coagulopatia. | Se o paciente tiver hipotermia, acidose e coagulopatia, a cirurgia pode ser abreviada: ressecar o sigmoide, fechar as extremidades, fazer o fechamento temporário do abdome e completar a colostomia na reoperação, depois de estabilizar na UTI. |
 
 **Textos mostrados na lista do simulador estático** (para não entregar a resposta)
 

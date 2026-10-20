@@ -5,7 +5,7 @@ import c2 from '../casos/caso-002.json'
 import c3 from '../casos/caso-003.json'
 import type { Caso } from '../src/motor/tipos'
 import { desfecho as desfechoDoCaso, ehDesfecho, momento } from '../src/motor/caso'
-import { classificarItem, continuar, escolher, examesVisiveis, notaGuiada, novoEstado, passoDoRoteiro, rotuloDaOpcao, tambemCertas } from '../src/guiado/motor'
+import { classificarItem, continuar, escolher, examesVisiveis, explicacaoDe, notaGuiada, novoEstado, passoDoRoteiro, rotuloDaOpcao, tambemCertas } from '../src/guiado/motor'
 import { existsSync } from 'node:fs'
 import { ilustracoesDoPasso, ilustracoesDoResultado, pastaDeIlustracoes, todasAsIlustracoes } from '../src/guiado/ilustracoes'
 import { roteiroDoCaso } from '../src/guiado/roteiros'
@@ -87,6 +87,10 @@ describe.each(casos.map((c) => [c.id, c] as const))('roteiro guiado de %s', (_id
             expect(o.marcaDesfecho).toBeUndefined()
           }
         }
+      })
+
+      it('toda alternativa tem explicação didática', () => {
+        for (const o of p.opcoes) expect(explicacaoDe(caso, p.momento, o.item)?.length ?? 0, o.item).toBeGreaterThan(80)
       })
 
       it('o erro crítico ou a conduta subótima sempre mostra uma consequência', () => {
