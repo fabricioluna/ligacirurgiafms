@@ -1,0 +1,220 @@
+PROMPTS PARA IMAGENS DE EXAME SIMULADAS POR IA (NANO BANANA / GEMINI), CASOS DO SIMULADOR
+Simulador de Casos Clínicos, Liga Acadêmica de Cirurgia da Faculdade de Medicina do Sertão
+Casos: 001 (bridas), 002 (volvo de sigmoide) e 003 (neoplasia de sigmoide)
+Versão 1, 15 de outubro de 2026
+
+Estes prompts substituem a busca no Radiopaedia (seção "IMAGENS DE EXAME" do arquivo Prompts-Nano-Banana_casos-simulador.txt), já que os casos são fictícios.
+
+Como usar: copie o texto de cada PROMPT inteiro e cole no Gemini. Gere 3 a 4 variações de cada e fique com a mais convincente.
+Se sair errado, use o texto de SE SAIR ERRADO, anexando a imagem.
+Prompts em inglês de propósito (obedecem melhor). Nenhuma imagem leva texto: nada de nome, data, marcador R/L ou legenda dentro da imagem. A legenda fica no app.
+
+REGRAS DESTE LOTE
+1. São imagens SIMULADAS. No campo "fonte" de cada imagem no caso, escrever "Imagem simulada por inteligência artificial, sem paciente real" e em "licenca" o que for adequado (ex.: "Uso didático, imagem sintética").
+2. IA erra detalhes de radiologia (número de alças, lado, proporções). Quem revisa confere: lado do paciente (direito do paciente à esquerda da imagem, como na prática radiológica), e se o achado bate com o texto do exame (EX) do caso. Prefiram a variação que mostra o achado de forma clara, mesmo que menos "bonita".
+3. Nenhuma imagem pode aparecer antes do exame ser pedido. IMG-001-C e IMG-002-C só depois do procedimento; IMG-001-D e IMG-002-D só no ramo de evolução desfavorável.
+4. Nome do arquivo: img-001-a.jpg etc., em public/imagens/casos/caso-00X/. As séries (B de cada caso) são uma pasta img-001-b/ com um arquivo por corte; se preferirem, usem a imagem em grade única (ver observação em cada uma).
+5. Salvar em escala de cinza, JPG, lado maior de pelo menos 1200 px.
+
+BLOCO BASE (já incluído dentro de cada prompt, aqui só para referência)
+Radiograph or CT, grayscale only, authentic clinical look of a hospital PACS export, realistic noise and grain, no watermark, no logo, no patient name, no date, no ID, no letters, no numbers, no arrows, no annotations, no markers of any kind. Patient's right side on the left of the image.
+
+==============================================================================
+IMG-001-A. RADIOGRAFIA DE ABDOME EM ORTOSTASE, OBSTRUÇÃO DE DELGADO (caso 001)
+==============================================================================
+Achado do caso (EX): alças de delgado distendidas, até 4 cm, níveis hidroaéreos em degraus, pouco gás no cólon, sem pneumoperitônio.
+Proporção: 4:5, retrato.
+
+--- PROMPT ---
+Realistic plain frontal abdominal radiograph (AP upright), grayscale, authentic hospital PACS look with natural film grain and soft scatter, as in a real emergency department exam. Elderly adult patient, average build. The lower ribs, lumbar spine, pelvis and both hip joints are visible with normal bone density and a faint psoas outline. Multiple dilated small bowel loops up to about 4 cm in the central abdomen, arranged in a stepladder pattern, with several short air-fluid levels at different heights inside the loops, seen as sharp horizontal lines. Very little gas in the colon, the colon is collapsed and almost invisible, and the rectum has minimal gas. No free air under the diaphragm, no calcifications, no foreign bodies, no tubes, no lines, no devices, no clips. Normal bones, no fractures. Absolutely no text, letters, numbers, side markers, arrows, name or date anywhere in the image. The patient's right side is on the left of the image. Black background outside the body edges is not needed: show the full film rectangle with dark margins. Aspect ratio 4:5, portrait.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text and markers, make the small bowel loops more clearly dilated with more air-fluid levels, and make the colon nearly empty of gas".
+
+==============================================================================
+IMG-001-B. SÉRIE DE TC AXIAL, PONTO DE TRANSIÇÃO SEM MASSA (caso 001)
+==============================================================================
+Achado do caso (EX): delgado distendido até 4,2 cm, ponto de transição no íleo distal, na pelve, sem lesão expansiva; sinal das fezes no delgado proximal; alças distais colabadas; sem pneumatose, sem líquido livre, sem edema do mesentério, sem redemoinho.
+Observação: gerar UMA grade com 8 cortes (2 linhas x 4 colunas) e depois recortar em 8 arquivos, ou gerar a grade e usar como está. Proporção da grade: 16:9.
+
+--- PROMPT ---
+A montage of exactly 8 axial CT slices of the abdomen and pelvis with intravenous contrast, soft-tissue window, arranged as a clean grid of 2 rows by 4 columns with thin black gaps between the panels, grayscale, authentic hospital CT look with mild noise. The panels go from the mid abdomen down to the pelvis, in sequence. In the upper panels: multiple dilated small bowel loops up to about 4 cm with thin enhancing walls and fluid content, and in the most proximal loops a feces-like mottled gas and debris pattern (small bowel feces sign). In the middle panels the dilated loops funnel toward one point. In the lower pelvic panels: an abrupt change in caliber, a transition point in the distal ileum in the pelvis, where the dilated bowel suddenly becomes a small collapsed loop, with NO mass, NO thickened wall and NO tumor at the transition. Collapsed small bowel loops beyond it. The colon is collapsed. Mesenteric fat is clean, with no edema, no free fluid, no gas in the bowel wall, no swirl. Normal liver edge, kidneys, aorta and spine where visible. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of each panel, with the usual radiology orientation (anterior at the top). Aspect ratio 16:9.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text and numbers, make exactly 8 equal panels, and make the abrupt transition from dilated to collapsed bowel clearer in the two lowest right panels, without any mass".
+
+==============================================================================
+IMG-001-C. RADIOGRAFIA 24 H APÓS CONTRASTE HIDROSSOLÚVEL (caso 001)
+==============================================================================
+Achado esperado: contraste chegou ao cólon (obstrução parcial, evolução sem cirurgia). Confira o texto do EX-12 do caso e ajuste se ele disser outra coisa.
+Proporção: 4:5, retrato.
+
+--- PROMPT ---
+Realistic plain frontal abdominal radiograph (AP supine), grayscale, authentic hospital PACS look with film grain, taken 24 hours after oral water-soluble iodinated contrast. Elderly adult patient. Bright white contrast opacification is seen in the colon: ascending colon, transverse colon, descending colon and sigmoid, outlining haustral folds, and a small amount of contrast also remains in a few mildly dilated small bowel loops in the central abdomen, which are much less dilated than before. No air-fluid level images are needed as the film is supine. No free air, no tubes, no devices. Normal bones. Absolutely no text, letters, numbers, side markers, arrows, name or date anywhere. The patient's right side is on the left of the image. Aspect ratio 4:5, portrait.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text, and make the contrast fill the whole colon down to the sigmoid and rectum, with only mildly dilated small bowel".
+
+==============================================================================
+IMG-001-D. TC DE CONTROLE COM SOFRIMENTO DE ALÇA (caso 001)
+==============================================================================
+Achado do caso (EX-13): espessamento parietal de segmento ileal de cerca de 15 cm, redução do realce, edema mesentérico, pequena quantidade de líquido livre, sem pneumoperitônio.
+Proporção: 4:3.
+
+--- PROMPT ---
+Realistic single axial CT slice of the abdomen with intravenous contrast, soft-tissue window, grayscale, authentic hospital CT look with mild noise. Mid to lower abdomen. A segment of ileum with a thickened, edematous wall and reduced mucosal enhancement, appearing as a target-like wall with a low-density layer, clearly less bright than the neighboring loops. Surrounding mesenteric fat is hazy with a streaky, stranded, edematous look and congested mesenteric vessels. A small amount of free fluid between the bowel loops. The proximal loops are dilated. No free air, no gas in the bowel wall, no abscess. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of the image, anterior at the top. Aspect ratio 4:3.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text, make the wall thickening of one ileal segment more obvious with weaker enhancement, and add a thin crescent of free fluid between the loops".
+
+==============================================================================
+IMG-002-A. RADIOGRAFIA COM SINAL DO GRÃO DE CAFÉ (caso 002)
+==============================================================================
+Achado do caso (EX): alça de cólon muito distendida em U invertido, que sobe da pelve em direção ao quadrante superior direito; sem pneumoperitônio.
+Proporção: 4:5, retrato.
+
+--- PROMPT ---
+Realistic plain frontal abdominal radiograph (AP supine), grayscale, authentic hospital PACS look with film grain and soft scatter. Very elderly, thin adult patient with osteopenic bones. A single hugely dilated gas-filled loop of sigmoid colon in the shape of an inverted U (the classic coffee bean sign): a smooth, thin-walled, very large gas shadow arising from the pelvis and rising obliquely toward the right upper abdomen, reaching beyond the level of the liver shadow, with a clear dark central line (the apposed walls) running along its long axis like the cleft of a coffee bean. The two limbs of the loop converge toward the pelvis. The proximal colon is mildly dilated, small bowel gas is minimal, no free air under the diaphragm, no tubes, no devices. Absolutely no text, letters, numbers, side markers, arrows, name or date anywhere. The patient's right side is on the left of the image. Aspect ratio 4:5, portrait.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text, and make the central cleft line of the giant loop clearer, with the loop pointing toward the right upper abdomen".
+
+==============================================================================
+IMG-002-B. TC COM SINAL DO REDEMOINHO (caso 002)
+==============================================================================
+Achado do caso (EX): sigmoide muito distendido, torção do mesossigmoide (redemoinho), afilamento em bico nas duas extremidades; realce preservado, sem pneumatose, sem líquido livre.
+Observação: grade com 3 painéis, 2 axiais e 1 coronal. Proporção: 16:9.
+
+--- PROMPT ---
+A montage of exactly 3 CT panels with intravenous contrast, soft-tissue window, grayscale, authentic hospital CT look with mild noise, arranged side by side with thin black gaps. Left and middle panels: axial slices of the lower abdomen and pelvis showing a hugely distended gas-filled sigmoid loop, and in the middle panel at the level of the twist, the whirl sign: the sigmoid mesentery with its vessels twisted in a spiral swirl pattern, a rosette-like swirl of fat and converging vessels, with the two tapered bowel limbs entering the swirl. Right panel: coronal reconstruction showing the giant sigmoid loop rising from the pelvis to the upper abdomen, with the beak-shaped tapering of the two limbs at the twisted base in the pelvis. The loop wall enhances normally, thin, no gas in the wall, no free fluid, no free air. The proximal colon is moderately dilated. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of each panel, anterior at the top in axial. Aspect ratio 16:9.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text, make exactly 3 panels, and make the swirl of the twisted mesentery clearly visible in the middle panel".
+
+==============================================================================
+IMG-002-C. MUCOSA DO SIGMOIDE APÓS DESCOMPRESSÃO ENDOSCÓPICA (caso 002)
+==============================================================================
+Achado esperado: mucosa viável (rósea, sem necrose), com torção em espiral no ponto da descompressão. Confira o texto do EX do caso e ajuste se ele disser outra coisa.
+Proporção: 1:1 (visão circular de endoscópio).
+
+--- PROMPT ---
+Realistic endoscopic view (flexible sigmoidoscopy) inside the sigmoid colon, circular endoscope field of view with a black surround, authentic endoscopy video still look with moist glossy highlights and slight vignetting. The pink healthy mucosa with a fine vascular pattern and mild hyperemia is seen, the lumen ahead twists into a spiral, converging folds in a rosette pattern at the site of the volvulus torsion, a small amount of liquid stool. The mucosa is viable: pink, glistening, no black or dark purple areas, no ulcer, no necrosis, no blood. Absolutely no text, letters, numbers, overlays, arrows, patient name or date, no on-screen display. Aspect ratio 1:1.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all on-screen text and overlays, make the mucosa uniformly pink and healthy, and make the spiral twist of the folds clearer".
+
+==============================================================================
+IMG-002-D. TC COM SIGMOIDE SEM REALCE, PNEUMATOSE E PNEUMOPERITÔNIO (caso 002)
+==============================================================================
+Achado do caso (EX-11): sigmoide torcido com parede sem realce, pneumatose e gás livre na cavidade; líquido livre na pelve.
+Observação: grade com 2 painéis (axial e coronal). Proporção: 16:9.
+
+--- PROMPT ---
+A montage of exactly 2 CT panels with intravenous contrast, side by side with a thin black gap, grayscale, authentic hospital CT look with mild noise. Left panel: axial slice of the pelvis and lower abdomen showing a dilated twisted sigmoid loop whose wall does not enhance (dull gray, thin, with absent mucosal enhancement), with tiny linear and bubbly gas lucencies inside the bowel wall (pneumatosis intestinalis), and free fluid in the pelvis. Right panel: coronal reconstruction of the abdomen and pelvis showing the same giant sigmoid loop, and small collections of extraluminal free gas (pneumoperitoneum) as black bubbles beneath the anterior abdominal wall and between the loops; use a lung window look for the free gas so the black bubbles are very obvious. Mesenteric fat stranding around the twisted base. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of each panel, anterior at the top in axial. Aspect ratio 16:9.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text, make exactly 2 panels, make the bowel wall gas bubbles more evident in the left panel and the free air bubbles clearer under the abdominal wall in the right panel".
+
+==============================================================================
+IMG-003-A. RADIOGRAFIA COM CÓLON DISTENDIDO E CECO AUMENTADO (caso 003)
+==============================================================================
+Achado do caso (EX): cólon distendido do ceco ao sigmoide, ceco de cerca de 11 cm, pouco gás no reto, delgado pouco distendido, sem pneumoperitônio.
+Proporção: 4:5, retrato.
+
+--- PROMPT ---
+Realistic plain frontal abdominal radiograph (AP supine), grayscale, authentic hospital PACS look with film grain and soft scatter. Adult patient in her sixties. The colon is diffusely distended with gas along its whole frame: a very large round cecum of about 11 cm in the right lower abdomen, the ascending colon, a distended hepatic flexure, transverse colon and descending colon, outlining haustral markings that do not cross the full width of the bowel (typical colonic haustra), arranged around the periphery of the abdomen like a frame. A sharp cut-off of the gas column in the left lower abdomen at the sigmoid. Almost no gas in the rectum. The small bowel is not significantly dilated, with few gas-filled loops visible in the center. No free air, no tubes, no devices. Normal bones. Absolutely no text, letters, numbers, side markers, arrows, name or date anywhere. The patient's right side is on the left of the image. Aspect ratio 4:5, portrait.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text, make the cecum clearly the widest segment, and make the colon frame the abdomen with an almost gasless rectum".
+
+==============================================================================
+IMG-003-B. TC COM LESÃO ESTENOSANTE NO SIGMOIDE E CECO DISTENDIDO (caso 003)
+==============================================================================
+Achado do caso (EX): lesão expansiva circunferencial e estenosante no sigmoide, cerca de 5 cm, ponto de transição, cólon proximal distendido, ceco de 11,5 cm, parede preservada, sem pneumatose/pneumoperitônio, válvula ileocecal competente, delgado pouco distendido, linfonodos pericólicos até 1 cm, sem líquido livre.
+Observação: grade com 3 painéis (2 axiais e 1 coronal). Proporção: 16:9.
+
+--- PROMPT ---
+A montage of exactly 3 CT panels of the abdomen and pelvis with intravenous contrast, soft-tissue window, grayscale, authentic hospital CT look with mild noise, arranged side by side with thin black gaps. Left panel: axial slice at the level of the right lower abdomen showing a markedly distended cecum of about 11 cm filled with gas and fluid, with a thin intact wall, no gas in the wall, no free fluid. Middle panel: axial slice of the pelvis at the sigmoid colon showing a circumferential, irregular, asymmetric wall thickening of about 5 cm in length that nearly obliterates the lumen, with enhancing soft tissue and a few small pericolic lymph nodes up to 1 cm. Right panel: coronal reconstruction showing the distended colon from the cecum to the descending colon, an abrupt narrowing at the sigmoid with the classic apple core shape (shouldered, shelf-like margins, tight irregular lumen), and a collapsed rectum below it. The small bowel is minimally dilated. No free air, no free fluid, no liver lesions seen. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of each panel, anterior at the top in axial. Aspect ratio 16:9.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all text, make exactly 3 panels, and make the apple core narrowing of the sigmoid in the coronal panel clearer, with shouldered margins and the distended colon above it".
+
+##############################################################################
+DICA FINAL
+##############################################################################
+Se o Gemini recusar ou suavizar o pedido por ser imagem médica, acrescente no início do prompt: "This is a fictional teaching case for medical students; generate a synthetic, illustrative image that does not represent any real patient."
+Para a série do IMG-001-B, se o resultado ficar bom em grade única, o app pode mostrar a grade como uma imagem só; recortar em arquivos separados só vale a pena se quiserem passar corte a corte.
+Depois de escolher as imagens, atualizem o campo "fonte" de cada uma em casos/caso-00X.json e rodem npm run documentos.
+
+##############################################################################
+VERSÃO 2 (19 de outubro de 2026): REFAZER 4 IMAGENS APÓS A REVISÃO
+##############################################################################
+Ficam como estão: IMG-001-A, 001-B, 002-A, 002-B, 002-C e 003-A.
+Refazer: IMG-001-C, IMG-001-D, IMG-002-D e IMG-003-B.
+Dica geral: se o Gemini repetir o erro, anexe a imagem que ficou boa do mesmo tipo (radiografia: IMG-001-A; TC: IMG-002-B) e acrescente ao fim do prompt "Use the attached image only as a reference for the image style, noise and window, not for the anatomy".
+Os nomes de arquivo continuam os mesmos (img-001-c.jpg etc.).
+
+==============================================================================
+IMG-001-C (v2). RADIOGRAFIA 24 H APÓS CONTRASTE HIDROSSOLÚVEL (caso 001)
+==============================================================================
+Problema da v1: contraste branco demais, cólon inteiro opacificado (parecia enema baritado).
+Proporção: 4:5, retrato.
+
+--- PROMPT ---
+Realistic plain frontal abdominal radiograph (AP supine), grayscale, authentic hospital PACS look with film grain, taken 24 hours after ORAL water-soluble iodinated contrast (Gastrografin type). Elderly adult patient. Important: water-soluble contrast is only moderately dense, a soft light gray, clearly less white than barium, and always semi-transparent, so that the bowel folds and gas bubbles are still visible through it. The contrast fills the colon only partly and unevenly: patchy, thin, light-gray opacification in the cecum, ascending colon and transverse colon, with a thin mixed gas-and-contrast pattern, and a small amount of contrast reaching the descending colon and sigmoid. A few small bowel loops in the central abdomen still contain a little faint contrast and are only mildly dilated, much less than before. The rectum has a little gas. No dense solid white filling, no barium look, no contrast outside the bowel, no free air, no tubes, no devices. Normal bones. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of the image. Aspect ratio 4:5, portrait.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the contrast much fainter and more transparent, light gray instead of bright white, and let the colon gas show through it".
+
+==============================================================================
+IMG-001-D (v2). TC DE CONTROLE COM SOFRIMENTO DE ALÇA (caso 001)
+==============================================================================
+Problema da v1: parecia intussuscepção (anéis concêntricos). O caso descreve espessamento parietal do íleo (cerca de 15 cm), menos realce, edema do mesentério e pouco líquido livre.
+Proporção: 4:3.
+
+--- PROMPT ---
+Realistic single axial CT slice of the lower abdomen with intravenous contrast, portal venous phase, soft-tissue window, grayscale, authentic hospital CT look with mild noise. Several small bowel loops, some dilated with fluid. One group of ileal loops in the center-right of the abdomen shows circumferential, smooth wall thickening with a low-density (edematous) submucosal layer and clearly weaker mucosal enhancement than the neighboring normal loops, so these loops look duller and grayer. Do NOT show a target-in-target, a bowel-within-bowel image, concentric rings or a spiral: the thickened loops are separate, side by side, each one a simple ring with a thick gray wall. The mesenteric fat next to these loops is hazy and streaky (mesenteric edema) with mildly engorged mesenteric vessels. A small amount of free fluid, dark gray, in thin collections between the loops and in the pelvis. The loops upstream are dilated. No free air, no gas in the bowel wall, no mass. Normal psoas muscles, iliac bones and vessels. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of the image, anterior at the top. Aspect ratio 4:3.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove the concentric ring pattern: show separate simple thick-walled loops with weaker enhancement, and add more fluid between the loops".
+
+==============================================================================
+IMG-002-D (v2). TC COM SIGMOIDE SEM REALCE, PNEUMATOSE E PNEUMOPERITÔNIO (caso 002)
+==============================================================================
+Problema da v1: a parede da alça ainda aparecia realçada e o líquido livre da pelve não aparecia.
+Proporção: 16:9, 2 painéis.
+
+--- PROMPT ---
+A montage of exactly 2 CT panels with intravenous contrast, side by side with one thin black gap, grayscale, authentic hospital CT look with mild noise. Both panels show the same patient with a hugely dilated, twisted sigmoid loop with ischemia. Key point: the wall of the sigmoid loop is thin and gray, with NO mucosal enhancement at all: it is the same dull gray as the bowel fluid, clearly darker than the enhancing wall of the nearby small bowel and colon, and it is hard to tell apart from the content. Tiny black gas bubbles and thin black lines run inside this gray wall (pneumatosis). Left panel: axial slice of the pelvis and lower abdomen, with the dilated twisted loop, hazy stranded mesentery, and a clear collection of dark-gray free fluid in the pelvis behind the bladder and around the loops. Right panel: coronal reconstruction of the abdomen and pelvis with the same giant loop, with several separate round black bubbles of free air (pneumoperitoneum) beneath the anterior abdominal wall and next to the liver, clearly outside the bowel, and free fluid in the pelvis. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of each panel, anterior at the top in the axial panel. Aspect ratio 16:9.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make the wall of the twisted loop completely non-enhancing, thin and dull gray, and add more free fluid in the pelvis".
+
+==============================================================================
+IMG-003-B (v2). TC COM LESÃO ESTENOSANTE NO SIGMOIDE (caso 003)
+==============================================================================
+Problema da v1: 5 painéis em vez de 3, e a lesão do sigmoide não aparecia claramente.
+Proporção: 16:9, 3 painéis.
+
+--- PROMPT ---
+A montage of exactly 3 CT panels (three, not more) of the abdomen and pelvis with intravenous contrast, soft-tissue window, grayscale, authentic hospital CT look with mild noise, side by side with thin black gaps, each panel the same size. Left panel: axial slice at the level of the right lower abdomen with a markedly distended cecum of about 11 cm, filled with gas and stool, thin intact wall, no gas in the wall, no free fluid. Middle panel: axial slice of the pelvis at the sigmoid colon showing a short segment of the sigmoid, about 5 cm long, with circumferential, irregular, asymmetric wall thickening of soft-tissue density, enhancing, that almost closes the lumen to a tiny gas-filled channel; small pericolic lymph nodes of up to 1 cm next to it. The tumor must be clearly visible as a bulky gray soft-tissue mass in the wall. Right panel: coronal reconstruction showing the colon distended with gas from the cecum to the descending colon, an abrupt narrowing at the sigmoid with the apple core appearance (shouldered edges, tight irregular lumen, short segment), and a collapsed rectum below it. The small bowel is only minimally dilated. No free air, no free fluid. Absolutely no text, letters, numbers, side markers, arrows, name or date. The patient's right side is on the left of each panel, anterior at the top in axial panels. Aspect ratio 16:9.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but make exactly 3 panels, and make the thickened wall tumor of the sigmoid in the middle panel bigger and clearer, almost closing the lumen".
+
+##############################################################################
+VERSÃO 3 (19 de outubro de 2026): CORREÇÃO FINAL DA IMG-001-D
+##############################################################################
+Problema da v2: as alças espessadas do lado direito da imagem têm camadas concêntricas e dobradas (lembram intussuscepção) e quase não há líquido livre.
+Proporção: 4:3.
+
+--- OPÇÃO 1: EDITAR A IMAGEM ATUAL (anexe a img-001-d.jpg e cole) ---
+Edit this CT image. Keep the patient, the bones, the muscles, the right-sided dilated fluid-filled small bowel loops and the overall image style exactly the same. Change only the loops on the left side of the image (patient's left): replace the folded, layered, concentric-ring loops with 3 or 4 separate, simple, round to oval small bowel loops lying side by side, each one a plain ring with a smooth, uniformly thick, gray, edematous wall of about 6 to 8 mm and a small collapsed lumen, with weak mucosal enhancement, clearly duller than the other loops. No loop may be inside another loop, no target sign, no spiral, no layered rings, no folds. Make the mesenteric fat between and around these loops hazy and streaky, with mildly engorged vessels. Add a clear, moderate amount of dark-gray free fluid between the loops, along the pelvic sidewall and in the pelvis, and a thin rim of fluid around the thickened loops. No free air, no gas in the wall, no mass. Add no text, letters, numbers or markers.
+
+--- OPÇÃO 2: GERAR DO ZERO ---
+Realistic single axial CT slice of the lower abdomen with intravenous contrast, portal venous phase, soft-tissue window, grayscale, authentic hospital CT look with mild noise. Patient's right side on the left of the image, anterior at the top. On the patient's right side and anterior abdomen, several dilated small bowel loops filled with fluid and a little gas, with thin enhancing walls. On the patient's left side, a group of 3 or 4 separate ileal loops lying side by side, each one a simple round or oval ring with a smooth, uniformly thickened, edematous gray wall, with weak mucosal enhancement, clearly duller and grayer than the other loops, and a small collapsed lumen. Each loop is single and separate: no loop inside another, no target sign, no concentric rings, no spiral, no folded layers. The mesenteric fat around them is hazy and streaky (mesenteric edema) with mildly engorged vessels. A clear, moderate amount of dark-gray free fluid lies between the loops, along the left pelvic sidewall and in the pelvis. No free air, no gas in the bowel wall, no mass. Normal psoas muscles, iliac bones, aorta and iliac vessels. Absolutely no text, letters, numbers, side markers, arrows, name or date. Aspect ratio 4:3.
+
+--- SE AINDA SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all layered or concentric rings in the loops on the left. Each loop must be a single plain ring with a thick gray wall. Add more free fluid between the loops".
+
+COMO CONFERIR ESTA IMAGEM: as alças espessadas devem ser anéis simples e separados, cada um com parede cinza grossa e sem "alça dentro de alça"; deve haver líquido livre visível entre as alças e na pelve.
