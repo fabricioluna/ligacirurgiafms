@@ -722,3 +722,8 @@ Pasta: `public/imagens/casos/caso-002/`. Cada imagem precisa de fonte e licença
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
 - Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um nas tabelas 'O que acontece com o paciente na hora' da folha resposta.
 - Autor do caso: 'A definir'.
+- As 108 explicações das alternativas do modo guiado (por que cada conduta está certa ou errada) foram escritas pelo desenvolvimento a partir das diretrizes citadas. Conferir cada uma nas tabelas 'Explicação mostrada ao aluno no modo guiado' da folha resposta.
+- Revisão de outubro de 2026: deixar ou não deixar a sonda retal após a descompressão passaram a aceitáveis (antes: ideal e subótima), pela recomendação fraca da ASCRS 2021 e da WSES 2023. Confirmar.
+- Revisão de outubro de 2026: novos desfechos de óbito no M4-ALT: D6 para anastomose primária em choque (R11) e D7 para detorção sem ressecar o sigmoide necrótico (R12). Confirmar.
+- Revisão de outubro de 2026: o resultado da retossigmoidoscopia e da radiografia de controle não citam mais a sonda retal, que passou a ser opcional; o item de realimentação do M3 diz 'mantendo a sonda retal se ela foi deixada'.
+- As explicações orientam, no Parkinson: não suspender a levodopa no jejum e evitar metoclopramida, bromoprida e haloperidol, preferindo ondansetrona. Confirmar.

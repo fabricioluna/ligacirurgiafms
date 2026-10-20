@@ -828,9 +828,14 @@ Pasta: `public/imagens/casos/caso-001/`. Cada imagem precisa de fonte e licença
 - R9 (controle de danos em paciente estável) agora segue para o pós-operatório (M5) em vez de terminar direto em D1.
 - R12 foi criada: no choque (M3-ALT), não indicar cirurgia leva ao intraoperatório com atraso, sem desfecho próprio. Avaliar se precisa de um desfecho pior.
 - M2 foi renomeado de 'Após a tomografia' para 'Definição do plano', porque o aluno pode chegar nele sem ter pedido a tomografia.
-- O texto do M3 passou a dizer 'a sonda, se mantida, drenou...', porque o aluno pode ter retirado a sonda no M2.
 - 17 opções da lista do simulador estático usam um texto neutro diferente do texto da folha (tabelas 'Textos mostrados na lista do simulador estático' da folha resposta). Conferir se descrevem a mesma conduta.
 - Resposta padrão para segmento do exame físico que não existe no caso: 'Sem alterações nesse segmento.' Confirmar.
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
 - Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um nas tabelas 'O que acontece com o paciente na hora' da folha resposta.
 - Autor do caso: 'A definir'.
+- As 108 explicações das alternativas do modo guiado (por que cada conduta está certa ou errada) foram escritas pelo desenvolvimento a partir das diretrizes citadas. Conferir cada uma nas tabelas 'Explicação mostrada ao aluno no modo guiado' da folha resposta.
+- Revisão de outubro de 2026: as situações do M2 e do M3 foram reescritas para o caminho fixo do modo guiado (a sonda nasogástrica aparece como passada e mantida).
+- Revisão de outubro de 2026: 'Reoperação programada para nova avaliação' no M4 passou de aceitável a subótima (R13), porque depois da pausa a alça está claramente inviável. Confirmar.
+- Revisão de outubro de 2026: a tomografia de controle antes da cirurgia (aceitável no M3) deixou de registrar atraso; só a repetição que atrasa a cirurgia (subótima) registra.
+- Revisão de outubro de 2026: novo desfecho D5 (óbito) para anastomose primária no paciente em choque (R14). A cirurgia prolongada no paciente instável (R15) mantém o desfecho D3, com piora da hipotermia e da acidose. Confirmar.
+- A explicação do M1 orienta suspender a losartana na hipovolemia com piora da função renal. Confirmar.

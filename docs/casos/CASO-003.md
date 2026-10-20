@@ -651,3 +651,7 @@ Pasta: `public/imagens/casos/caso-003/`. Cada imagem precisa de fonte e licença
 - Hipótese diagnóstica, diferenciais e o jeito do paciente foram escritos pelo desenvolvimento. Conferir a hipótese correta, as incompletas, as incorretas, o raciocínio e os diferenciais. O peso do diagnóstico é 10% da nota.
 - Os efeitos imediatos das condutas (o que acontece com o paciente na hora, inclusive mudança de sinais vitais) foram escritos pelo desenvolvimento. Conferir cada um nas tabelas 'O que acontece com o paciente na hora' da folha resposta.
 - Autor do caso: 'A definir'.
+- As 108 explicações das alternativas do modo guiado (por que cada conduta está certa ou errada) foram escritas pelo desenvolvimento a partir das diretrizes citadas. Conferir cada uma nas tabelas 'Explicação mostrada ao aluno no modo guiado' da folha resposta.
+- Revisão de outubro de 2026: o item 'Escolher a reconstrução pela condição da paciente' do M3 foi trocado por uma decisão concreta: anastomose primária com ou sem ileostomia de proteção (ideal), com a cirurgia de Hartmann como aceitável. Confirmar.
+- Revisão de outubro de 2026: novo desfecho D7 (óbito) para anastomose primária em choque com peritonite fecal no M3-ALT (R10). Confirmar.
+- As explicações orientam suspender a metformina (creatinina de 1,4 mg/dL, jejum e contraste iodado) e usar insulina, e evitar dipirona pela alergia. Confirmar.

@@ -68,3 +68,9 @@ Eu desenvolvo por vibe coding e não reviso linha por linha. Então:
 
 - Para o aluno e o professor avaliarem, só o modo guiado está disponível. A abertura do caso leva direto a ele, e `/atendimento`, `/desfecho` e `/relatorio` redirecionam para a abertura.
 - O código dos modos com IA e estático continua no repositório (`src/telas/Atendimento.tsx`, `Relatorio.tsx`, `/api`), só sem rota nem botão. Para religar, restaurar as rotas em `src/main.tsx` e a escolha de modo na `Abertura.tsx` (ver o histórico do git).
+- Modo guiado (outubro de 2026): o prontuário (história e exame físico) aparece na admissão; os exames só aparecem quando o aluno os pede (`revela` da alternativa) ou quando a reavaliação do momento os traz (`resultados` do passo). Cada exame mostra o valor do momento em que foi visto.
+- Cada alternativa do modo guiado tem explicação didática em `folhaResposta.momentos[].explicacoes` (chave: texto exato do item). Um teste exige explicação para toda alternativa.
+- Alternativas de preparo (suporte, exames, reconhecer) não têm `vai`: só a decisão faz o caso avançar. Óbito usa `prevalece` para valer mesmo depois de uma alta indevida.
+- Documento para o professor revisar cada caso: `npm run documentos:revisao` gera `docs/casos/word/CASO-NNN-revisao.docx` (Node 22.6+, lê os roteiros em TypeScript).
+- Imagens de exame ficam com no máximo 2000 px no lado maior, em JPEG, para carregar rápido no celular.
+

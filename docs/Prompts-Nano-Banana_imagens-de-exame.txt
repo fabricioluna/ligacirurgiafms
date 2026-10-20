@@ -218,3 +218,19 @@ Realistic single axial CT slice of the lower abdomen with intravenous contrast, 
 "Keep everything the same, but remove all layered or concentric rings in the loops on the left. Each loop must be a single plain ring with a thick gray wall. Add more free fluid between the loops".
 
 COMO CONFERIR ESTA IMAGEM: as alças espessadas devem ser anéis simples e separados, cada um com parede cinza grossa e sem "alça dentro de alça"; deve haver líquido livre visível entre as alças e na pelve.
+
+##############################################################################
+VERSÃO 4 (19 de outubro de 2026): CORREÇÃO DA IMG-001-C
+##############################################################################
+Problema das versões anteriores: o prompt pedia o contraste chegando ao cólon, mas o caso descreve o oposto.
+Resultado do caso no M3: "Contraste retido em alças de delgado, sem chegar ao cólon." É o sinal de falha do
+tratamento conservador que leva à cirurgia. A imagem precisa mostrar contraste SÓ no delgado dilatado, e cólon vazio.
+Proporção: 4:5, retrato. Salvar como public/imagens/casos/caso-001/img-001-c.jpg.
+
+--- PROMPT ---
+Realistic plain frontal abdominal radiograph (AP supine), grayscale, authentic hospital PACS look with natural film grain, taken 24 hours after oral water-soluble iodinated contrast given through a nasogastric tube, in a patient whose small bowel obstruction did NOT resolve. Elderly adult patient. The contrast is moderately dense, light gray to white, and is seen ONLY inside multiple dilated small bowel loops (about 4 cm wide) in the central and left abdomen, outlining the thin circular folds (valvulae conniventes) that cross the full width of the loops, in a stacked, coiled pattern. Absolutely NO contrast in the colon: the cecum, ascending colon, transverse colon, descending colon, sigmoid and rectum are empty, collapsed and almost invisible, with no haustral outline and no contrast at all in the right lower abdomen or in the pelvis. A little gas in the stomach. No free air, no tubes except a thin nasogastric tube going down the left upper abdomen into the stomach, no other devices. Normal bones. Absolutely no text, letters, numbers, side markers, arrows, name or date anywhere. The patient's right side is on the left of the image. Aspect ratio 4:5, portrait.
+
+--- SE SAIR ERRADO (anexe a imagem e cole) ---
+"Keep everything the same, but remove all contrast from the colon and the rectum. The contrast must stay only inside the dilated small bowel loops in the center of the abdomen, with thin folds crossing the whole width of each loop".
+
+COMO CONFERIR: contraste só em alças de delgado dilatadas, com pregas finas que atravessam toda a alça; nenhum contraste no cólon, no ceco ou no reto.
