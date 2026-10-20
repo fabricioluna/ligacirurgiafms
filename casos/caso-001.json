@@ -1,6 +1,6 @@
 {
   "id": "CASO-001",
-  "versao": "1.4",
+  "versao": "1.5",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -479,7 +479,7 @@
         "codigo": "M2",
         "nome": "Definição do plano",
         "tempo": "Cerca de 1 hora após a admissão.",
-        "situacao": "A sonda nasogástrica, se passada, drenou 600 mL de conteúdo bilioso. A dor está em 4/10.",
+        "situacao": "Uma hora depois da admissão, o paciente está mais confortável. A sonda nasogástrica aberta já drenou 600 mL de conteúdo bilioso, e a dor está em 4/10.",
         "sinaisVitais": [
           {
             "rotulo": "Pressão arterial",
@@ -505,7 +505,7 @@
         "codigo": "M3",
         "nome": "Reavaliação após 24 horas",
         "tempo": "24 horas após o início do tratamento conservador.",
-        "situacao": "A dor se tornou contínua, em 8/10, mais intensa no hipogástrio. O abdome está mais distendido, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa. A sonda nasogástrica, se mantida, drenou 1.400 mL em 24 horas e a diurese está em 0,4 mL/kg/h.",
+        "situacao": "A dor se tornou contínua, em 8/10, mais intensa no hipogástrio. O abdome está mais distendido, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa. A sonda nasogástrica drenou 1.400 mL em 24 horas e a diurese está em 0,4 mL/kg/h.",
         "sinaisVitais": [
           {
             "rotulo": "Pressão arterial",
@@ -702,8 +702,7 @@
         "vaiPara": "M4",
         "registrar": true,
         "disparadaPor": [
-          "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.",
-          "Tomografia de controle antes da cirurgia, desde que não atrase a operação."
+          "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia."
         ]
       },
       {
@@ -773,6 +772,36 @@
         "disparadaPor": [
           "Manter tratamento clínico sem indicar cirurgia."
         ]
+      },
+      {
+        "codigo": "R13",
+        "momento": "M4",
+        "se": "Deixa o segmento inviável para reavaliar em reoperação programada.",
+        "entao": "Na reoperação, 24 horas depois, o segmento está necrótico e é ressecado com anastomose. O paciente passa por uma segunda anestesia e fica mais tempo internado.",
+        "vaiPara": "M5",
+        "disparadaPor": [
+          "Deixar o segmento e programar reoperação para reavaliar a viabilidade, sem ressecar agora."
+        ]
+      },
+      {
+        "codigo": "R14",
+        "momento": "M4-ALT",
+        "se": "Faz anastomose primária em paciente em choque com acidose grave.",
+        "entao": "A cirurgia se estende para confeccionar a anastomose, e o paciente chega à UTI mais frio, mais acidótico e com dose maior de noradrenalina.",
+        "vaiPara": "D5",
+        "disparadaPor": [
+          "Fazer anastomose primária em paciente em choque com acidose grave."
+        ]
+      },
+      {
+        "codigo": "R15",
+        "momento": "M4-ALT",
+        "se": "Prolonga a cirurgia para resolver tudo em um só tempo.",
+        "entao": "A cirurgia dura mais duas horas. O paciente chega à UTI com 34,6 °C, pH 7,10 e sangramento difuso, e precisa de transfusão maciça antes da reoperação.",
+        "vaiPara": "D3",
+        "disparadaPor": [
+          "Prolongar a cirurgia para resolver tudo em um só tempo."
+        ]
       }
     ],
     "desfechos": [
@@ -794,6 +823,11 @@
       {
         "codigo": "D4",
         "texto": "Retorno em choque séptico após alta indevida. Controle de danos, UTI e internação prolongada. Sobrevive, com complicações.",
+        "qualidade": "grave"
+      },
+      {
+        "codigo": "D5",
+        "texto": "Óbito. A anastomose feita em choque, com acidose e hipotermia, abre no terceiro dia de pós-operatório. O paciente evolui com peritonite, choque séptico refratário e falência de múltiplos órgãos, e morre na UTI.",
         "qualidade": "grave"
       }
     ]
@@ -1307,8 +1341,7 @@
           "Aspirar o líquido local, sem lavagem com grandes volumes, e fechar sem dreno de rotina."
         ],
         "aceitaveis": [
-          "Anastomose manual ou mecânica.",
-          "Reoperação programada para nova avaliação, se a viabilidade ficar duvidosa."
+          "Anastomose manual ou mecânica."
         ],
         "subotimas": [
           {
@@ -1326,6 +1359,10 @@
           {
             "conduta": "Optar por controle de danos em paciente estável.",
             "custo": "Reoperação e internação desnecessárias."
+          },
+          {
+            "conduta": "Deixar o segmento e programar reoperação para reavaliar a viabilidade, sem ressecar agora.",
+            "custo": "Depois da pausa, a alça segue sem pulso, sem brilho e sem peristaltismo: não há dúvida sobre a viabilidade. Adiar a ressecção mantém um segmento necrótico no abdome e acrescenta uma segunda anestesia."
           }
         ],
         "errosCriticos": [
@@ -1372,7 +1409,7 @@
                 "nenhumSelecionado": [
                   "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa.",
                   "Anastomose manual ou mecânica.",
-                  "Reoperação programada para nova avaliação, se a viabilidade ficar duvidosa.",
+                  "Deixar o segmento e programar reoperação para reavaliar a viabilidade, sem ressecar agora.",
                   "Optar por controle de danos em paciente estável."
                 ]
               }

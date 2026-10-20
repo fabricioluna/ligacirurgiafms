@@ -1,5 +1,6 @@
 // Ilustrações dos casos no modo guiado (geradas no Nano Banana, prompts em docs/Prompts-Nano-Banana_casos-simulador.txt).
-// O abdome do paciente aparece na admissão; as de mecanismo só no resultado, para não entregar o diagnóstico antes.
+// O abdome do paciente aparece na admissão e o achado cirúrgico no momento da cirurgia, quando o texto já o descreve.
+// As de mecanismo ficam só no resultado, para não entregar o diagnóstico antes. O resultado repete as da cirurgia.
 // Arquivos em public/imagens/casos/<id em minúsculas>/. Ficam fora do JSON do caso para não mudar a versão dele.
 
 export interface Ilustracao {
@@ -11,9 +12,6 @@ export interface Ilustracao {
   // Só no resultado: depende do caminho percorrido.
   quando?: (caminho: string[]) => boolean
 }
-
-const passouPorGravidade = (caminho: string[]) => caminho.includes('M3-ALT') || caminho.includes('M4-ALT')
-const chegouNaCirurgia = (caminho: string[]) => caminho.includes('M4') || caminho.includes('M4-ALT')
 
 const ILUSTRACOES: Record<string, Ilustracao[]> = {
   'CASO-001': [
@@ -31,8 +29,7 @@ const ILUSTRACOES: Record<string, Ilustracao[]> = {
     },
     {
       arquivo: 'ilustracao-001-c.jpg',
-      onde: 'resultado',
-      quando: chegouNaCirurgia,
+      onde: 'M4',
       legenda: 'Brida estrangulando a base de uma alça e seu mesentério: alça isquêmica.',
       alt: 'Ilustração de uma brida apertando a base de uma alça de delgado e seu mesentério, com a alça escura e inchada.',
     },
@@ -52,8 +49,7 @@ const ILUSTRACOES: Record<string, Ilustracao[]> = {
     },
     {
       arquivo: 'ilustracao-002-c.jpg',
-      onde: 'resultado',
-      quando: passouPorGravidade,
+      onde: 'M4-ALT',
       legenda: 'Volvo de sigmoide com isquemia: segmento escuro, com áreas necróticas.',
       alt: 'Ilustração do sigmoide torcido, com a parede roxa e áreas enegrecidas por isquemia.',
     },
@@ -67,7 +63,7 @@ const ILUSTRACOES: Record<string, Ilustracao[]> = {
     },
     {
       arquivo: 'ilustracao-003-b.jpg',
-      onde: 'resultado',
+      onde: 'M3',
       legenda: 'Tumor estenosante do sigmoide, com o cólon acima dele distendido.',
       alt: 'Ilustração do intestino grosso com um tumor que estreita o sigmoide e o cólon antes dele muito dilatado.',
     },
@@ -79,8 +75,7 @@ const ILUSTRACOES: Record<string, Ilustracao[]> = {
     },
     {
       arquivo: 'ilustracao-003-d.jpg',
-      onde: 'resultado',
-      quando: (caminho) => caminho.includes('M3-ALT'),
+      onde: 'M3-ALT',
       legenda: 'Perfuração do ceco.',
       alt: 'Ilustração do ceco distendido com uma perfuração e saída de conteúdo.',
     },
@@ -97,6 +92,9 @@ export function ilustracoesDoPasso(casoId: string, passo: string): Ilustracao[] 
   return todasAsIlustracoes(casoId).filter((i) => i.onde === passo)
 }
 
+// No resultado: as de mecanismo e as da cirurgia pela qual o aluno passou (a da admissão não se repete).
 export function ilustracoesDoResultado(casoId: string, caminho: string[]): Ilustracao[] {
-  return todasAsIlustracoes(casoId).filter((i) => i.onde === 'resultado' && (i.quando?.(caminho) ?? true))
+  return todasAsIlustracoes(casoId).filter((i) =>
+    i.onde === 'resultado' ? (i.quando?.(caminho) ?? true) : i.onde !== caminho[0] && caminho.includes(i.onde),
+  )
 }

@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.4 |
+| Versão | 1.5 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -131,7 +131,7 @@ Situação: a apresentação inicial.
 
 *Cerca de 1 hora após a admissão.*
 
-A sonda nasogástrica, se passada, drenou 600 mL de conteúdo bilioso. A dor está em 4/10.
+Uma hora depois da admissão, o paciente está mais confortável. A sonda nasogástrica aberta já drenou 600 mL de conteúdo bilioso, e a dor está em 4/10.
 
 | Sinal vital | Valor |
 | --- | --- |
@@ -150,7 +150,7 @@ A sonda nasogástrica, se passada, drenou 600 mL de conteúdo bilioso. A dor est
 
 *24 horas após o início do tratamento conservador.*
 
-A dor se tornou contínua, em 8/10, mais intensa no hipogástrio. O abdome está mais distendido, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa. A sonda nasogástrica, se mantida, drenou 1.400 mL em 24 horas e a diurese está em 0,4 mL/kg/h.
+A dor se tornou contínua, em 8/10, mais intensa no hipogástrio. O abdome está mais distendido, com defesa localizada no hipogástrio e descompressão dolorosa duvidosa. A sonda nasogástrica drenou 1.400 mL em 24 horas e a diurese está em 0,4 mL/kg/h.
 
 | Sinal vital | Valor |
 | --- | --- |
@@ -233,13 +233,16 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | R3 | M2 | Indica cirurgia imediata sem sinais de sofrimento. | Cirurgia encontra brida única e alça viável após a liberação. | D2 (desfecho bom) | "Indicar cirurgia imediata sem sinais de sofrimento." |
 | R4 | M2 | Mantém o tratamento conservador sem prazo, sem reavaliação ou sem contraste. | O caso segue normalmente, com a decisão registrada. | M3 (Reavaliação após 24 horas) | "Manter o tratamento conservador sem prazo definido ou sem reavaliação programada." |
 | R5 | M3 | Mantém o tratamento conservador apesar dos sinais de sofrimento. | Seis horas depois o paciente entra em choque. | M3-ALT (Paciente em choque) | "Manter o tratamento conservador até completar 72 horas apesar dos sinais de sofrimento." ou "Repetir o contraste e aguardar." |
-| R6 | M3 | Solicita nova tomografia antes de operar. | Recebe o resultado atualizado e segue para a cirurgia, com atraso registrado. | M4 (Intraoperatório) | "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia." ou "Tomografia de controle antes da cirurgia, desde que não atrase a operação." |
+| R6 | M3 | Solicita nova tomografia antes de operar. | Recebe o resultado atualizado e segue para a cirurgia, com atraso registrado. | M4 (Intraoperatório) | "Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia." |
 | R7 | M4 | Mantém o segmento inviável sem ressecar. | No segundo dia de pós-operatório há peritonite por necrose da alça, com reoperação. | D3 (desfecho ruim) | "Manter o segmento inviável sem ressecar." |
 | R8 | M4 | Libera todas as aderências da cavidade. | Ocorre enterotomia em alça proximal, reparada no ato. | M5 (Pós-operatório) | "Liberar todas as aderências da cavidade." |
 | R9 | M4 | Opta por controle de danos em paciente estável. | Reoperação programada desnecessária e internação mais longa. O paciente segue para o pós-operatório. | M5 (Pós-operatório) | "Optar por controle de danos em paciente estável." |
 | R10 | M2 | Dá alta. | O paciente retorna 24 horas depois, em estado grave. | M3-ALT (Paciente em choque); o caso termina em D4 | "Dar alta." |
 | R11 | M3 | Dá alta. | O paciente retorna em choque. | M3-ALT (Paciente em choque); o caso termina em D4 | "Dar alta." |
 | R12 | M3-ALT | Mantém tratamento clínico sem indicar cirurgia. | O choque piora e a cirurgia acontece com atraso. | M4-ALT (Intraoperatório em paciente instável) | "Manter tratamento clínico sem indicar cirurgia." |
+| R13 | M4 | Deixa o segmento inviável para reavaliar em reoperação programada. | Na reoperação, 24 horas depois, o segmento está necrótico e é ressecado com anastomose. O paciente passa por uma segunda anestesia e fica mais tempo internado. | M5 (Pós-operatório) | "Deixar o segmento e programar reoperação para reavaliar a viabilidade, sem ressecar agora." |
+| R14 | M4-ALT | Faz anastomose primária em paciente em choque com acidose grave. | A cirurgia se estende para confeccionar a anastomose, e o paciente chega à UTI mais frio, mais acidótico e com dose maior de noradrenalina. | D5 (desfecho grave) | "Fazer anastomose primária em paciente em choque com acidose grave." |
+| R15 | M4-ALT | Prolonga a cirurgia para resolver tudo em um só tempo. | A cirurgia dura mais duas horas. O paciente chega à UTI com 34,6 °C, pH 7,10 e sangramento difuso, e precisa de transfusão maciça antes da reoperação. | D3 (desfecho ruim) | "Prolongar a cirurgia para resolver tudo em um só tempo." |
 
 ## Desfechos
 
@@ -249,6 +252,7 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | D2 | bom | Boa evolução, mas com uma cirurgia que provavelmente seria evitada pelo tratamento conservador. Alta no quarto dia, com o risco de novas aderências criado pela própria cirurgia. |
 | D3 | ruim | Necrose extensa e perfuração. Controle de danos, internação em UTI e reoperação programada. Sobrevive após internação prolongada. |
 | D4 | grave | Retorno em choque séptico após alta indevida. Controle de danos, UTI e internação prolongada. Sobrevive, com complicações. |
+| D5 | grave | Óbito. A anastomose feita em choque, com acidose e hipotermia, abre no terceiro dia de pós-operatório. O paciente evolui com peritonite, choque séptico refratário e falência de múltiplos órgãos, e morre na UTI. |
 
 # Parte 2: folha resposta
 
@@ -562,7 +566,6 @@ Peso: 25 pontos.
 **Aceitável**
 
 - Anastomose manual ou mecânica.
-- Reoperação programada para nova avaliação, se a viabilidade ficar duvidosa.
 
 **Subótimo**
 
@@ -572,6 +575,7 @@ Peso: 25 pontos.
 | Liberar todas as aderências da cavidade. | Risco de enterotomia e tempo cirúrgico maior. |
 | Deixar dreno de rotina. | Sem benefício comprovado e com desconforto. |
 | Optar por controle de danos em paciente estável. | Reoperação e internação desnecessárias. |
+| Deixar o segmento e programar reoperação para reavaliar a viabilidade, sem ressecar agora. | Depois da pausa, a alça segue sem pulso, sem brilho e sem peristaltismo: não há dúvida sobre a viabilidade. Adiar a ressecção mantém um segmento necrótico no abdome e acrescenta uma segunda anestesia. |
 
 **Erro crítico**
 
@@ -599,7 +603,7 @@ Peso: 25 pontos.
 **Avaliado pelo que o aluno fez, e não por marcação na lista**
 
 - "Ressecar sem a pausa e sem reavaliar.": conta quando marcou "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa."; não marcou "Fazer a pausa antes do passo irreversível: aquecer a alça com compressas mornas e reavaliar após 10 a 15 minutos.".
-- "Manter o segmento inviável sem ressecar.": conta quando não marcou "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa." nem "Anastomose manual ou mecânica." nem "Reoperação programada para nova avaliação, se a viabilidade ficar duvidosa." nem "Optar por controle de danos em paciente estável.".
+- "Manter o segmento inviável sem ressecar.": conta quando não marcou "Ressecar o segmento inviável com margens viáveis e fazer anastomose primária, já que o paciente está estável e sem contaminação extensa." nem "Anastomose manual ou mecânica." nem "Deixar o segmento e programar reoperação para reavaliar a viabilidade, sem ressecar agora." nem "Optar por controle de danos em paciente estável.".
 - "Não revisar o restante do delgado.": conta quando não marcou "Revisar todo o delgado, do ângulo de Treitz à válvula ileocecal.".
 
 **Textos mostrados na lista do simulador estático** (para não entregar a resposta)

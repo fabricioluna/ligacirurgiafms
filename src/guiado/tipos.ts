@@ -11,12 +11,19 @@ export interface OpcaoGuiada {
   // Sem 'vai', o aluno continua no mesmo passo e escolhe de novo.
   vai?: string
   marcaDesfecho?: string
+  // Desfecho que vale mesmo se o caminho já tinha marcado outro (ex.: óbito depois de uma alta indevida).
+  prevalece?: boolean
+  // Exames (ids EX-) cujo resultado o aluno passa a ver depois de escolher esta alternativa.
+  revela?: string[]
 }
 
 export interface PassoGuiado {
   momento: string
   // Ordem em que as alternativas aparecem (misturadas de propósito).
   opcoes: OpcaoGuiada[]
+  // Exames que chegam sozinhos ao entrar no passo (reavaliação da equipe), com o valor deste momento.
+  // 'seEscolheu': só aparece se o aluno escolheu esse item antes (ex.: a radiografia depois do contraste).
+  resultados?: { id: string; seEscolheu?: string }[]
 }
 
 export interface Roteiro {
@@ -39,6 +46,7 @@ export interface Resposta {
   consequencia: string | null
   avancou: boolean
   destino?: string
+  prevalece?: boolean
 }
 
 export interface EstadoGuiado {

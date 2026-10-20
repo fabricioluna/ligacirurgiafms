@@ -4,8 +4,8 @@ import c1 from '../casos/caso-001.json'
 import c2 from '../casos/caso-002.json'
 import c3 from '../casos/caso-003.json'
 import type { Caso } from '../src/motor/tipos'
-import { ehDesfecho } from '../src/motor/caso'
-import { classificarItem, continuar, escolher, notaGuiada, novoEstado, passoDoRoteiro, rotuloDaOpcao, tambemCertas } from '../src/guiado/motor'
+import { desfecho as desfechoDoCaso, ehDesfecho, momento } from '../src/motor/caso'
+import { classificarItem, continuar, escolher, examesVisiveis, notaGuiada, novoEstado, passoDoRoteiro, rotuloDaOpcao, tambemCertas } from '../src/guiado/motor'
 import { existsSync } from 'node:fs'
 import { ilustracoesDoPasso, ilustracoesDoResultado, pastaDeIlustracoes, todasAsIlustracoes } from '../src/guiado/ilustracoes'
 import { roteiroDoCaso } from '../src/guiado/roteiros'
@@ -122,6 +122,38 @@ describe.each(casos.map((c) => [c.id, c] as const))('roteiro guiado de %s', (_id
     expect(e.desfecho).toBeTruthy()
   })
 
+  it('os exames revelados existem e todo exame visível tem resultado de verdade', () => {
+    const ids = new Set(caso.caso.exames.map((x) => x.id))
+    for (const p of roteiro.passos) {
+      for (const id of [...(p.resultados ?? []).map((r) => r.id), ...p.opcoes.flatMap((o) => o.revela ?? [])]) expect(ids.has(id), id).toBe(true)
+      for (const r of p.resultados ?? []) if (r.seEscolheu) expect(roteiro.passos.some((x) => x.opcoes.some((o) => o.item === r.seEscolheu)), r.seEscolheu).toBe(true)
+    }
+    // Em qualquer caminho jogado, nenhum exame visível pode mostrar o texto provisório do caso.
+    for (const estrategia of [soIdeais(caso, roteiro), primeiraQueAvanca(caso, roteiro)]) {
+      let e = novoEstado(caso, roteiro, '', 1)
+      for (let voltas = 0; voltas < 60 && !e.desfecho; voltas++) {
+        const p = passoDoRoteiro(roteiro, e.passo)
+        for (const item of estrategia(e.passo, p.opcoes.map((o) => o.item))) {
+          e = escolher(caso, roteiro, e, item, 1)
+          for (const x of examesVisiveis(caso, roteiro, e)) expect(x.exame.resultado, x.exame.id).not.toMatch(/^Disponível apenas/)
+          if (e.resposta?.avancou) break
+        }
+        e = continuar(e, 2)
+      }
+    }
+  })
+
+  it('anastomose no paciente em choque termina em óbito, mesmo depois de uma alta indevida', () => {
+    const alta = roteiro.passos[0].opcoes.find((o) => o.marcaDesfecho === 'D4')!
+    const ultimo = roteiro.passos.find((p) => p.opcoes.some((o) => o.prevalece))!
+    const anastomose = ultimo.opcoes.find((o) => o.prevalece && /anastomose/.test(o.item))!
+    const e = jogar(caso, roteiro, (passo, itens) =>
+      passo === 'M1' ? [alta.item] : passo === ultimo.momento ? [anastomose.item] : primeiraQueAvanca(caso, roteiro)(passo, itens),
+    )
+    expect(e.desfecho).toBe(anastomose.vai)
+    expect(desfechoDoCaso(caso, e.desfecho!).texto).toMatch(/^Óbito/)
+  })
+
   it('não muda o estado depois do desfecho', () => {
     const e = jogar(caso, roteiro, primeiraQueAvanca(caso, roteiro))
     expect(escolher(caso, roteiro, e, passoDoRoteiro(roteiro, 'M1').opcoes[0].item, 3)).toBe(e)
@@ -153,12 +185,49 @@ describe('caminhos específicos do caso 001', () => {
   it('o erro conta na nota do passo e as alternativas certas que sobraram aparecem no relatório', () => {
     let e = novoEstado(caso, roteiro, '', 1)
     e = escolher(caso, roteiro, e, 'Prescrever laxante ou procinético diante de obstrução mecânica.', 1)
-    e = escolher(caso, roteiro, e, 'Ir direto para a tomografia sem radiografia prévia.', 1)
-    expect(notaGuiada(caso, e).final).toBe(40)
+    e = escolher(caso, roteiro, e, 'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.', 1)
+    expect(notaGuiada(caso, e).final).toBe(50)
     expect(tambemCertas(caso, e, roteiro, 'M1')).toEqual([
       'Jejum, sonda nasogástrica aberta para descompressão, acesso venoso e hidratação com cristaloide.',
-      'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.',
+      'Exames: hemograma, eletrólitos, função renal, gasometria, lactato e amilase ou lipase.',
     ])
+  })
+})
+
+describe('exames no caso 001', () => {
+  const caso = c1 as unknown as Caso
+  const roteiro = roteiroDoCaso(caso)!
+  const contraste = 'Administrar contraste hidrossolúvel pela sonda e fazer radiografia de controle em até 24 horas.'
+  const semContraste = 'Tratamento conservador com reavaliação seriada e prazo definido, sem contraste hidrossolúvel.'
+  const ateM3 = (m2: string) => {
+    let e = novoEstado(caso, roteiro, '', 1)
+    e = continuar(escolher(caso, roteiro, e, 'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.', 1))
+    return continuar(escolher(caso, roteiro, e, m2, 1))
+  }
+
+  it('a tomografia pedida na admissão aparece no momento seguinte, com a imagem', () => {
+    let e = novoEstado(caso, roteiro, '', 1)
+    e = continuar(escolher(caso, roteiro, e, 'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.', 1))
+    const v = examesVisiveis(caso, roteiro, e)
+    expect(v.map((x) => x.exame.id)).toEqual(['EX-12', 'EX-13'])
+    expect(v.every((x) => x.novo && x.exame.imagem)).toBe(true)
+  })
+
+  it('a radiografia do contraste só aparece para quem deu o contraste, já com o resultado da reavaliação', () => {
+    const com = examesVisiveis(caso, roteiro, ateM3(contraste)).find((x) => x.exame.id === 'EX-14')
+    expect(com?.exame.resultado).toMatch(/sem chegar ao cólon/)
+    expect(com?.exame.imagem?.id).toBe('IMG-001-C')
+    expect(examesVisiveis(caso, roteiro, ateM3(semContraste)).some((x) => x.exame.id === 'EX-14')).toBe(false)
+  })
+
+  it('a tomografia de controle só aparece para quem pede para repetir a tomografia', () => {
+    let e = ateM3(contraste)
+    const tc = () => examesVisiveis(caso, roteiro, e).find((x) => x.exame.id === 'EX-13')!
+    expect(tc().novo).toBe(false)
+    expect(tc().exame.imagem?.id).toBe('IMG-001-B')
+    e = escolher(caso, roteiro, e, 'Repetir a tomografia ou aguardar novos exames, atrasando a cirurgia.', 1)
+    expect(tc().novo).toBe(true)
+    expect(tc().exame.imagem?.id).toBe('IMG-001-D')
   })
 })
 
@@ -176,14 +245,21 @@ describe.each(casos.map((c) => [c.id, c] as const))('ilustrações de %s', (_id,
   it('só aparecem passos que existem, e nada que entregue o mecanismo antes do resultado', () => {
     const passos = roteiro.passos.map((p) => p.momento)
     for (const i of todasAsIlustracoes(caso.id)) expect(i.onde === 'resultado' || passos.includes(i.onde), i.arquivo).toBe(true)
-    // Durante o caso só aparece o abdome do paciente, na admissão.
-    for (const p of passos) expect(ilustracoesDoPasso(caso.id, p).length).toBe(p === 'M1' ? 1 : 0)
+    // Durante o caso: o abdome na admissão e o achado cirúrgico só quando o texto do momento já descreve a cirurgia.
+    expect(ilustracoesDoPasso(caso.id, 'M1').length).toBe(1)
+    for (const p of passos.slice(1)) {
+      if (ilustracoesDoPasso(caso.id, p).length) expect(momento(caso, p).situacao, p).toMatch(/laparotomia|exploração/i)
+    }
   })
 
-  it('o resultado mostra o mecanismo e as figuras de piora só quando o caso piorou', () => {
-    const bom = ilustracoesDoResultado(caso.id, ['M1', 'M2', 'M3', 'M4', 'M5'])
-    const grave = ilustracoesDoResultado(caso.id, ['M1', 'M3-ALT', 'M4-ALT'])
-    expect(bom.length).toBeGreaterThan(0)
-    expect(grave.length).toBeGreaterThanOrEqual(bom.length)
+  it('o resultado mostra o mecanismo e repete a figura da cirurgia só para quem passou por ela', () => {
+    const passos = roteiro.passos.map((p) => p.momento)
+    for (const caminho of [passos.filter((p) => !p.endsWith('-ALT')), ['M1', ...passos.filter((p) => p.endsWith('-ALT'))]]) {
+      const r = ilustracoesDoResultado(caso.id, caminho)
+      expect(r.some((i) => i.onde === 'resultado')).toBe(true)
+      for (const i of todasAsIlustracoes(caso.id).filter((x) => x.onde !== 'resultado' && x.onde !== 'M1')) {
+        expect(r.includes(i), i.arquivo).toBe(caminho.includes(i.onde))
+      }
+    }
   })
 })

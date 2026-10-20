@@ -1,6 +1,6 @@
 {
   "id": "CASO-003",
-  "versao": "1.2",
+  "versao": "1.3",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -670,6 +670,16 @@
         "disparadaPor": [
           "Dar alta sem encaminhar à oncologia."
         ]
+      },
+      {
+        "codigo": "R10",
+        "momento": "M3-ALT",
+        "se": "Faz anastomose primária em paciente em choque com peritonite fecal.",
+        "entao": "A anastomose é feita em paciente com pressão de 84 x 50 mmHg, lactato de 5,6 mmol/L e peritonite fecal difusa.",
+        "vaiPara": "D7",
+        "disparadaPor": [
+          "Fazer anastomose primária em paciente em choque com peritonite fecal."
+        ]
       }
     ],
     "desfechos": [
@@ -702,6 +712,11 @@
         "codigo": "D6",
         "texto": "Boa recuperação cirúrgica, mas alta sem encaminhamento: a paciente só chega à oncologia quatro meses depois, com atraso no tratamento adjuvante.",
         "qualidade": "ruim"
+      },
+      {
+        "codigo": "D7",
+        "texto": "Óbito. A anastomose feita em choque, com peritonite fecal, abre no quarto dia de pós-operatório. A paciente evolui com nova peritonite, choque séptico refratário e falência de múltiplos órgãos, e morre na UTI.",
+        "qualidade": "grave"
       }
     ]
   },
@@ -991,7 +1006,7 @@
         "ideal": [
           "Sigmoidectomia oncológica, com ligadura vascular na origem, margens livres e linfadenectomia adequada.",
           "Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco.",
-          "Escolher a reconstrução pela condição da paciente: anastomose primária, com ou sem ileostomia de proteção, se estável e sem contaminação; ou cirurgia de Hartmann, se o risco for alto."
+          "Fazer anastomose primária colorretal, com ou sem ileostomia de proteção, já que a paciente está estável, sem contaminação e com o ceco viável."
         ],
         "aceitaveis": [
           "Fazer cirurgia de Hartmann, considerando a distensão do cólon e o diabetes."

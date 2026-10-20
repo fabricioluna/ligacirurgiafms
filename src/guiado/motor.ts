@@ -1,7 +1,7 @@
 // Motor do modo guiado. Puro e testado: quem muda o estado é sempre ele.
 
-import { codigoBase, ehDesfecho, momentoFolha } from '../motor/caso.js'
-import type { Caso, Classificacao, Efeito } from '../motor/tipos.js'
+import { codigoBase, ehDesfecho, examesAtuais, exameFisicoAtual, momento, momentoFolha } from '../motor/caso.js'
+import type { Caso, Classificacao, Efeito, Exame, ItemExameFisico } from '../motor/tipos.js'
 import type { EstadoGuiado, OpcaoGuiada, PassoGuiado, Resposta, Roteiro } from './tipos.js'
 
 export function passoDoRoteiro(roteiro: Roteiro, momento: string): PassoGuiado {
@@ -64,6 +64,7 @@ export function escolher(caso: Caso, roteiro: Roteiro, e: EstadoGuiado, item: st
     consequencia: consequenciaDe(caso, e.passo, item),
     avancou: opcao.vai !== undefined,
     destino: opcao.vai,
+    ...(opcao.prevalece ? { prevalece: true } : {}),
   }
   return {
     ...e,
@@ -78,7 +79,8 @@ export function continuar(e: EstadoGuiado, agora = Date.now()): EstadoGuiado {
   const destino = e.resposta?.destino
   if (!e.resposta?.avancou || destino === undefined) return { ...e, resposta: undefined }
   if (ehDesfecho(destino)) {
-    return { ...e, resposta: undefined, desfecho: e.marcaDesfecho ?? destino, finalizadaEm: agora }
+    const final = e.resposta.prevalece ? destino : (e.marcaDesfecho ?? destino)
+    return { ...e, resposta: undefined, desfecho: final, finalizadaEm: agora }
   }
   return { ...e, resposta: undefined, passo: destino, caminho: [...e.caminho, destino] }
 }
@@ -119,4 +121,45 @@ export function tambemCertas(caso: Caso, e: EstadoGuiado, roteiro: Roteiro, pass
   return passoDoRoteiro(roteiro, passo)
     .opcoes.map((o) => o.item)
     .filter((i) => !feitas.has(i) && ['ideal', 'aceitavel'].includes(classificarItem(caso, passo, i)))
+}
+
+// Exames que o aluno já viu até aqui. Cada um mostra o resultado do momento em que foi pedido ou trazido
+// pela reavaliação: um exame repetido depois (ex.: nova tomografia) só muda se o aluno pedir de novo.
+// 'novo': chegou neste passo, pela escolha feita agora, pela reavaliação do passo ou pela decisão que trouxe o aluno até aqui.
+export function examesVisiveis(caso: Caso, roteiro: Roteiro, e: EstadoGuiado): { exame: Exame; novo: boolean }[] {
+  const escolhidos = new Set(e.escolhas.map((x) => x.item))
+  const quando = new Map<string, number>() // id -> índice do passo (no caminho) em que foi visto por último
+  const novos = new Set<string>()
+  const anterior = e.caminho.length - 2
+  e.caminho.forEach((passo, i) => {
+    const p = passoDoRoteiro(roteiro, passo)
+    const agora = i === e.caminho.length - 1
+    const incluir = (id: string, novo: boolean) => {
+      quando.delete(id)
+      quando.set(id, i)
+      if (novo) novos.add(id)
+    }
+    for (const r of p.resultados ?? []) if (!r.seEscolheu || escolhidos.has(r.seEscolheu)) incluir(r.id, agora)
+    for (const x of e.escolhas.filter((y) => y.passo === passo)) {
+      const o = p.opcoes.find((y) => y.item === x.item)
+      for (const id of o?.revela ?? []) incluir(id, agora || (i === anterior && o?.vai !== undefined))
+    }
+  })
+  return [...quando].flatMap(([id, i]) => {
+    const exame = examesAtuais(caso, e.caminho.slice(0, i + 1)).find((x) => x.id === id)
+    return exame ? [{ exame, novo: novos.has(id) }] : []
+  })
+}
+
+// Exames revelados pela última escolha do passo atual (aparecem junto da resposta).
+export function examesDaResposta(caso: Caso, roteiro: Roteiro, e: EstadoGuiado): Exame[] {
+  if (!e.resposta) return []
+  const ids = new Set(passoDoRoteiro(roteiro, e.passo).opcoes.find((o) => o.item === e.resposta!.item)?.revela ?? [])
+  return examesVisiveis(caso, roteiro, e).flatMap((x) => (ids.has(x.exame.id) ? [x.exame] : []))
+}
+
+// Achados do exame físico que mudaram no momento atual.
+export function exameFisicoNovo(caso: Caso, e: EstadoGuiado): ItemExameFisico[] {
+  const ids = new Set((momento(caso, e.passo).atualizaExameFisico ?? []).map((u) => u.id))
+  return exameFisicoAtual(caso, e.caminho).filter((x) => ids.has(x.id))
 }

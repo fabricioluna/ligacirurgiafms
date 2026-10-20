@@ -1,5 +1,6 @@
 // Roteiro guiado do caso 002 (volvo de sigmoide).
 // Só aponta itens da folha resposta; as consequências e os destinos vêm das regras do caso.
+// Alternativas de preparo (suporte, exames, sonda retal) não encerram o passo: só a decisão avança.
 
 import type { Roteiro } from '../tipos'
 
@@ -12,28 +13,29 @@ export const roteiro002: Roteiro = {
       opcoes: [
         { item: 'Dar alta, ou tratar como constipação com laxante ou lavagem intestinal, sem investigar a obstrução.', vai: 'M3-ALT', marcaDesfecho: 'D4' },
         { item: 'Jejum, acesso venoso, hidratação com cristaloide, analgesia e antiemético.' },
-        { item: 'Pedir enema opaco com bário para confirmar o diagnóstico.', vai: 'M2' },
+        { item: 'Pedir enema opaco com bário para confirmar o diagnóstico.', vai: 'M2', revela: ['EX-10'] },
+        { item: 'Exames: hemograma, eletrólitos, função renal, gasometria e lactato.', revela: ['EX-01', 'EX-02', 'EX-03', 'EX-04', 'EX-05'] },
         { item: 'Prescrever neostigmina ou procinético diante de obstrução mecânica.', vai: 'M3-ALT' },
-        { item: 'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.', vai: 'M2' },
-        { item: 'Sonda nasogástrica para descompressão gástrica, se houver vômitos persistentes.' },
+        { item: 'Radiografias de abdome e tórax e tomografia de abdome com contraste venoso.', vai: 'M2', revela: ['EX-10', 'EX-11'] },
       ],
     },
     {
       momento: 'M2',
       opcoes: [
         { item: 'Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica.', vai: 'D5' },
-        { item: 'Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa.' },
-        { item: 'Não deixar sonda retal após a descompressão.', vai: 'M3' },
-        { item: 'Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.', vai: 'M3' },
+        { item: 'Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa.', vai: 'M3' },
+        { item: 'Manter observação ou tratamento clínico sem descompressão.', vai: 'M3-ALT' },
+        { item: 'Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.' },
         { item: 'Prescrever neostigmina ou fazer lavagem intestinal para desfazer o volvo.', vai: 'M3-ALT' },
         { item: 'Dar alta.', vai: 'M3-ALT', marcaDesfecho: 'D4' },
       ],
     },
     {
       momento: 'M3',
+      resultados: [{ id: 'EX-12' }, { id: 'EX-13' }, { id: 'EX-01' }, { id: 'EX-02' }],
       opcoes: [
         { item: 'Dar alta após a descompressão, sem programar a cirurgia definitiva.', vai: 'D2' },
-        { item: 'Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia.' },
+        { item: 'Realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia, mantendo a sonda retal se ela foi deixada.' },
         { item: 'Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.', vai: 'M4' },
         { item: 'Programar a cirurgia só depois de uma nova recidiva.', vai: 'D2' },
         { item: 'Colonoscopia do restante do cólon antes da cirurgia, para afastar outras lesões.' },
@@ -42,6 +44,7 @@ export const roteiro002: Roteiro = {
     },
     {
       momento: 'M3-ALT',
+      resultados: [{ id: 'EX-01' }, { id: 'EX-05' }, { id: 'EX-11' }],
       opcoes: [
         { item: 'Manter tratamento clínico sem indicar cirurgia.', vai: 'M4-ALT' },
         { item: 'Ressuscitação volêmica imediata, antibiótico de amplo espectro e monitorização.' },
@@ -65,11 +68,11 @@ export const roteiro002: Roteiro = {
     {
       momento: 'M4-ALT',
       opcoes: [
-        { item: 'Fazer anastomose primária em paciente em choque com contaminação fecal.', vai: 'D3' },
+        { item: 'Fazer anastomose primária em paciente em choque com contaminação fecal.', vai: 'D6', prevalece: true },
         { item: 'Ressecar todo o sigmoide necrótico, controlar a contaminação e lavar a cavidade.' },
         { item: 'Prolongar a cirurgia com ressecções ampliadas desnecessárias.', vai: 'D3' },
         { item: 'Fazer colostomia terminal com fechamento do coto retal (cirurgia de Hartmann), sem anastomose.', vai: 'D3' },
-        { item: 'Fazer apenas a detorção, sem ressecar o segmento necrótico.', vai: 'D3' },
+        { item: 'Fazer apenas a detorção, sem ressecar o segmento necrótico.', vai: 'D7', prevalece: true },
         { item: 'Cirurgia abreviada com fechamento temporário do abdome, se houver hipotermia, acidose e coagulopatia.', vai: 'D3' },
       ],
     },

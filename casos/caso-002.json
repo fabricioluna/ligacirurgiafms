@@ -1,6 +1,6 @@
 {
   "id": "CASO-002",
-  "versao": "1.2",
+  "versao": "1.3",
   "publicado": true,
   "caso": {
     "identificacao": {
@@ -456,7 +456,7 @@
         "codigo": "M2",
         "nome": "Definição da conduta",
         "tempo": "Cerca de 2 horas após a admissão.",
-        "situacao": "O paciente segue estável, com distensão importante e dor 4/10. A sonda nasogástrica, se passada, drenou 200 mL de conteúdo gástrico.",
+        "situacao": "O paciente segue estável, com distensão importante e dor 4/10.",
         "sinaisVitais": [
           {
             "rotulo": "Pressão arterial",
@@ -482,7 +482,7 @@
         "codigo": "M3",
         "nome": "Após a descompressão",
         "tempo": "No dia seguinte.",
-        "situacao": "Após a retossigmoidoscopia, o paciente eliminou grande quantidade de gases e fezes pela sonda retal. O abdome está flácido, pouco distendido e indolor. Aceita líquidos e está sem vômitos.",
+        "situacao": "Após a retossigmoidoscopia, o paciente eliminou grande quantidade de gases e fezes. O abdome está flácido, pouco distendido e indolor. Aceita líquidos e está sem vômitos.",
         "sinaisVitais": [
           {
             "rotulo": "Pressão arterial",
@@ -504,11 +504,11 @@
         "atualizaExames": [
           {
             "id": "EX-12",
-            "resultado": "Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose. Sonda retal deixada no sigmoide."
+            "resultado": "Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose."
           },
           {
             "id": "EX-13",
-            "resultado": "Redução importante da distensão do cólon, com a sonda retal bem posicionada. Sem pneumoperitônio."
+            "resultado": "Redução importante da distensão do cólon. Sem pneumoperitônio."
           },
           {
             "id": "EX-01",
@@ -727,6 +727,26 @@
         "disparadaPor": [
           "Manter tratamento clínico sem indicar cirurgia."
         ]
+      },
+      {
+        "codigo": "R11",
+        "momento": "M4-ALT",
+        "se": "Faz anastomose primária em paciente em choque com contaminação fecal.",
+        "entao": "A anastomose é feita sobre um cólon edemaciado, em paciente com noradrenalina em dose crescente e lactato de 5,2 mmol/L.",
+        "vaiPara": "D6",
+        "disparadaPor": [
+          "Fazer anastomose primária em paciente em choque com contaminação fecal."
+        ]
+      },
+      {
+        "codigo": "R12",
+        "momento": "M4-ALT",
+        "se": "Faz apenas a detorção, sem ressecar o segmento necrótico.",
+        "entao": "Desfeita a torção, o sigmoide continua negro, sem pulso e perfurado, e é deixado na cavidade.",
+        "vaiPara": "D7",
+        "disparadaPor": [
+          "Fazer apenas a detorção, sem ressecar o segmento necrótico."
+        ]
       }
     ],
     "desfechos": [
@@ -754,6 +774,16 @@
         "codigo": "D5",
         "texto": "Cirurgia de urgência que a descompressão provavelmente evitaria. Boa evolução, mas com colostomia e uma segunda cirurgia para reconstruir o trânsito.",
         "qualidade": "bom"
+      },
+      {
+        "codigo": "D6",
+        "texto": "Óbito. A anastomose feita em choque, com peritonite fecal, abre no quarto dia de pós-operatório. O paciente evolui com nova peritonite fecal, choque séptico refratário e falência de múltiplos órgãos, e morre na UTI.",
+        "qualidade": "grave"
+      },
+      {
+        "codigo": "D7",
+        "texto": "Óbito. O sigmoide necrótico ficou dentro do abdome. Nas horas seguintes, o choque séptico se agrava apesar do antibiótico e do vasopressor, e o paciente morre antes da reoperação.",
+        "qualidade": "grave"
       }
     ]
   },
@@ -964,20 +994,17 @@
         "ideal": [
           "Indicar a descompressão endoscópica, pela ausência de peritonite e de sinais tomográficos de isquemia.",
           "Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa.",
-          "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.",
           "Manter hidratação, correção eletrolítica e reavaliação clínica seriada."
         ],
         "aceitaveis": [
-          "Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível."
+          "Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível.",
+          "Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.",
+          "Não deixar sonda retal após a descompressão."
         ],
         "subotimas": [
           {
             "conduta": "Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica.",
             "custo": "Cirurgia de urgência com maior morbidade e maior chance de colostomia, quando a descompressão resolveria o quadro agudo."
-          },
-          {
-            "conduta": "Não deixar sonda retal após a descompressão.",
-            "custo": "Maior risco de recidiva precoce do volvo."
           }
         ],
         "errosCriticos": [
@@ -1067,7 +1094,7 @@
         "codigo": "M3",
         "ideal": [
           "Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.",
-          "Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia.",
+          "Realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia, mantendo a sonda retal se ela foi deixada.",
           "Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família."
         ],
         "aceitaveis": [
@@ -1095,7 +1122,7 @@
           "Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.": {
             "texto": "A sigmoidectomia foi marcada para esta internação."
           },
-          "Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia.": {
+          "Realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia, mantendo a sonda retal se ela foi deixada.": {
             "texto": "Ele aceita bem a dieta líquida, sem distensão, e a sonda retal segue drenando."
           },
           "Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família.": {

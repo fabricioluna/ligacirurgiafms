@@ -16,6 +16,9 @@ import {
   efeitosDoPasso,
   escolhasDoPasso,
   escolher,
+  exameFisicoNovo,
+  examesDaResposta,
+  examesVisiveis,
   notaGuiada,
   novoEstado,
   passoDoRoteiro,
@@ -23,6 +26,7 @@ import {
   tambemCertas,
 } from './motor'
 import { ilustracoesDoPasso, ilustracoesDoResultado, pastaDeIlustracoes, type Ilustracao } from './ilustracoes'
+import { AchadosExameFisico, Prontuario, ResultadosExames } from './Prontuario'
 import { roteiroDoCaso } from './roteiros'
 import type { EstadoGuiado, Roteiro } from './tipos'
 
@@ -123,6 +127,11 @@ function Corpo(props: {
   const resposta = estado.resposta
   const travado = Boolean(resposta?.avancou)
   const sinais = sinaisVitaisAtuais(caso, estado.caminho, efeitos)
+  const exames = examesVisiveis(caso, roteiro, estado)
+  const examesNovos = exames.filter((x) => x.novo).map((x) => x.exame)
+  const examesAnteriores = exames.filter((x) => !x.novo).map((x) => x.exame)
+  const efNovo = exameFisicoNovo(caso, estado)
+  const daResposta = examesDaResposta(caso, roteiro, estado)
 
   return (
     <div className="flex min-h-dvh flex-col">
@@ -137,6 +146,13 @@ function Corpo(props: {
         {ilustracoesDoPasso(caso.id, estado.passo).map((i) => (
           <Figura key={i.arquivo} casoId={caso.id} i={i} />
         ))}
+
+        {efNovo.length > 0 && (
+          <div className="mt-4 border-l-2 border-subotima pl-4">
+            <p className="m-0 text-sm font-semibold text-texto-2">Exame físico agora</p>
+            <AchadosExameFisico itens={efNovo} />
+          </div>
+        )}
 
         {efeitos.length > 0 && (
           <div className="leitura mt-4 border-l-2 border-verde pl-4">
@@ -154,6 +170,15 @@ function Corpo(props: {
             <h2 className="mt-6 mb-2 font-sans text-sm font-semibold text-texto-2">Sinais vitais</h2>
             <SinaisVitais sinais={sinais} />
           </>
+        )}
+
+        {primeiro && <Prontuario caso={caso} caminho={estado.caminho} aberto />}
+
+        {examesNovos.length > 0 && (
+          <section aria-label="Resultados de exames" className="mt-6">
+            <h2 className="m-0 mb-3 font-sans text-sm font-semibold text-texto-2">Resultados de exames</h2>
+            <ResultadosExames casoId={caso.id} exames={examesNovos} novos={new Set(examesNovos.map((x) => x.id))} />
+          </section>
         )}
 
         <p className="mt-8 mb-0 font-titulo text-xl font-semibold text-verde-texto">
@@ -206,6 +231,12 @@ function Corpo(props: {
               <span>{TITULO_RESPOSTA[resposta.classificacao]}</span>
             </p>
             <p className="mt-3 mb-0">{resposta.consequencia ?? 'Era o que se esperava neste momento.'}</p>
+            {daResposta.length > 0 && (
+              <div className="mt-4">
+                <p className="m-0 mb-2 text-sm font-semibold text-texto-2">Resultado</p>
+                <ResultadosExames casoId={caso.id} exames={daResposta} />
+              </div>
+            )}
             {resposta.avancou ? (
               <button type="button" className="botao botao-principal mt-5 w-full sm:w-auto" onClick={() => setEstado(continuar(estado))}>
                 Continuar
@@ -214,6 +245,21 @@ function Corpo(props: {
               <p className="m-0 mt-4 text-sm text-texto-2">O caso ainda não avançou. Escolha outra alternativa.</p>
             )}
           </div>
+        )}
+
+        {!primeiro && (
+          <section aria-label="Prontuário" className="mt-10">
+            <h2 className="m-0 font-sans text-sm font-semibold text-texto-2">Prontuário do paciente</h2>
+            <Prontuario caso={caso} caminho={estado.caminho} aberto={false} />
+            {examesAnteriores.length > 0 && (
+              <details className="mt-3 border border-borda bg-superficie">
+                <summary className="cursor-pointer px-4 py-3 font-semibold">Exames anteriores ({examesAnteriores.length})</summary>
+                <div className="border-t border-borda p-3">
+                  <ResultadosExames casoId={caso.id} exames={examesAnteriores} />
+                </div>
+              </details>
+            )}
+          </section>
         )}
 
         <div className="mt-10">

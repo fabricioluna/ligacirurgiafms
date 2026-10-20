@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.2 |
+| Versão | 1.3 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -128,7 +128,7 @@ Situação: a apresentação inicial.
 
 *Cerca de 2 horas após a admissão.*
 
-O paciente segue estável, com distensão importante e dor 4/10. A sonda nasogástrica, se passada, drenou 200 mL de conteúdo gástrico.
+O paciente segue estável, com distensão importante e dor 4/10.
 
 | Sinal vital | Valor |
 | --- | --- |
@@ -147,7 +147,7 @@ O paciente segue estável, com distensão importante e dor 4/10. A sonda nasogá
 
 *No dia seguinte.*
 
-Após a retossigmoidoscopia, o paciente eliminou grande quantidade de gases e fezes pela sonda retal. O abdome está flácido, pouco distendido e indolor. Aceita líquidos e está sem vômitos.
+Após a retossigmoidoscopia, o paciente eliminou grande quantidade de gases e fezes. O abdome está flácido, pouco distendido e indolor. Aceita líquidos e está sem vômitos.
 
 | Sinal vital | Valor |
 | --- | --- |
@@ -156,8 +156,8 @@ Após a retossigmoidoscopia, o paciente eliminou grande quantidade de gases e fe
 | Temperatura axilar | 36,6 °C |
 | Dor (0 a 10) | 1 |
 
-- Resultado novo de EX-12: Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose. Sonda retal deixada no sigmoide.
-- Resultado novo de EX-13: Redução importante da distensão do cólon, com a sonda retal bem posicionada. Sem pneumoperitônio.
+- Resultado novo de EX-12: Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose.
+- Resultado novo de EX-13: Redução importante da distensão do cólon. Sem pneumoperitônio.
 - Resultado novo de EX-01: Hb 12,9 g/dL; leucócitos 9.100/mm³ sem desvio; plaquetas 231.000/mm³.
 - Resultado novo de EX-02: Na 139 mEq/L; K 3,9 mEq/L; Cl 101 mEq/L.
 - Achado novo de EF-02: Abdome pouco distendido e simétrico.
@@ -231,6 +231,8 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | R8 | M4 | Faz detorção ou fixação sem ressecar o sigmoide. | Recidiva do volvo meses depois. | D2 (desfecho ruim) | "Fazer apenas a detorção ou a fixação do sigmoide (sigmoidopexia), sem ressecar." |
 | R9 | M4 | Faz colostomia terminal em paciente estável e sem contaminação. | Boa evolução, mas com estoma e nova cirurgia para reconstrução do trânsito. | D5 (desfecho bom) | "Fazer colostomia terminal (cirurgia de Hartmann) em paciente estável e sem contaminação." |
 | R10 | M3-ALT | Mantém tratamento clínico sem indicar cirurgia. | O choque piora e a cirurgia acontece com atraso. | M4-ALT (Laparotomia de urgência) | "Manter tratamento clínico sem indicar cirurgia." |
+| R11 | M4-ALT | Faz anastomose primária em paciente em choque com contaminação fecal. | A anastomose é feita sobre um cólon edemaciado, em paciente com noradrenalina em dose crescente e lactato de 5,2 mmol/L. | D6 (desfecho grave) | "Fazer anastomose primária em paciente em choque com contaminação fecal." |
+| R12 | M4-ALT | Faz apenas a detorção, sem ressecar o segmento necrótico. | Desfeita a torção, o sigmoide continua negro, sem pulso e perfurado, e é deixado na cavidade. | D7 (desfecho grave) | "Fazer apenas a detorção, sem ressecar o segmento necrótico." |
 
 ## Desfechos
 
@@ -241,6 +243,8 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | D3 | ruim | Necrose e perfuração do sigmoide. Cirurgia de Hartmann de urgência, internação em UTI e colostomia. Sobrevive após internação prolongada. |
 | D4 | grave | Retorno com peritonite após alta indevida. Cirurgia de Hartmann de urgência, UTI e colostomia. Sobrevive, com complicações. |
 | D5 | bom | Cirurgia de urgência que a descompressão provavelmente evitaria. Boa evolução, mas com colostomia e uma segunda cirurgia para reconstruir o trânsito. |
+| D6 | grave | Óbito. A anastomose feita em choque, com peritonite fecal, abre no quarto dia de pós-operatório. O paciente evolui com nova peritonite fecal, choque séptico refratário e falência de múltiplos órgãos, e morre na UTI. |
+| D7 | grave | Óbito. O sigmoide necrótico ficou dentro do abdome. Nas horas seguintes, o choque séptico se agrava apesar do antibiótico e do vasopressor, e o paciente morre antes da reoperação. |
 
 # Parte 2: folha resposta
 
@@ -363,19 +367,19 @@ Peso: 30 pontos.
 
 - Indicar a descompressão endoscópica, pela ausência de peritonite e de sinais tomográficos de isquemia.
 - Realizar retossigmoidoscopia flexível para desfazer a torção e avaliar a viabilidade da mucosa.
-- Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.
 - Manter hidratação, correção eletrolítica e reavaliação clínica seriada.
 
 **Aceitável**
 
 - Retossigmoidoscopia rígida com passagem de sonda retal, se a flexível não estiver disponível.
+- Deixar sonda retal para manter a descompressão e reduzir a recidiva precoce.
+- Não deixar sonda retal após a descompressão.
 
 **Subótimo**
 
 | Conduta | Custo |
 | --- | --- |
 | Indicar cirurgia de urgência sem sinais de isquemia, sem tentar a descompressão endoscópica. | Cirurgia de urgência com maior morbidade e maior chance de colostomia, quando a descompressão resolveria o quadro agudo. |
-| Não deixar sonda retal após a descompressão. | Maior risco de recidiva precoce do volvo. |
 
 **Erro crítico**
 
@@ -424,7 +428,7 @@ Peso: 25 pontos.
 **Ideal**
 
 - Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada.
-- Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia.
+- Realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia, mantendo a sonda retal se ela foi deixada.
 - Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família.
 
 **Aceitável**
@@ -452,7 +456,7 @@ Peso: 25 pontos.
 | Conduta | Efeito no paciente | Sinais vitais |
 | --- | --- | --- |
 | Indicar sigmoidectomia na mesma internação, pelo alto risco de recidiva após a descompressão isolada. | A sigmoidectomia foi marcada para esta internação. |  |
-| Manter a sonda retal, realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia. | Ele aceita bem a dieta líquida, sem distensão, e a sonda retal segue drenando. |  |
+| Realimentar de forma progressiva e otimizar as condições clínicas antes da cirurgia, mantendo a sonda retal se ela foi deixada. | Ele aceita bem a dieta líquida, sem distensão, e a sonda retal segue drenando. |  |
 | Avaliação clínica e anestésica do risco cirúrgico e discussão da cirurgia com o paciente e a família. | A clínica e a anestesia avaliaram o risco cirúrgico como aceitável. Ele e a filha concordam com a cirurgia. |  |
 
 **Textos mostrados na lista do simulador estático** (para não entregar a resposta)
@@ -637,7 +641,7 @@ Pasta: `public/imagens/casos/caso-002/`. Cada imagem precisa de fonte e licença
 | --- | --- | --- | --- | --- | --- | --- |
 | No lugar | IMG-002-A | img-002-a.jpg | EX-10 Radiografias de abdome (ortostase e decúbito) e de tórax | Quando o aluno pede o exame, em qualquer momento | Alça de cólon muito distendida, em forma de U invertido, que sobe da pelve em direção ao quadrante superior direito (sinal do grão de café). Sem pneumoperitônio na radiografia de tórax. | Imagem simulada por inteligência artificial, sem paciente real; Uso didático, imagem sintética |
 | No lugar | IMG-002-B | img-002-b.jpg | EX-11 Tomografia de abdome com contraste venoso | Quando o aluno pede o exame, em qualquer momento | Sigmoide muito distendido, com torção do mesossigmoide (sinal do redemoinho) e afilamento em bico nas duas extremidades da alça. Cólon proximal moderadamente distendido. Parede da alça com realce preservado, sem pneumatose, sem gás no sistema porta, sem pneumoperitônio e sem líquido livre. Conclusão: volvo de sigmoide sem sinais tomográficos de isquemia. | Imagem simulada por inteligência artificial, sem paciente real; Uso didático, imagem sintética |
-| No lugar | IMG-002-C | img-002-c.jpg | EX-12 Retossigmoidoscopia flexível com descompressão | Quando o aluno pede o exame, a partir do M3 | Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose. Sonda retal deixada no sigmoide. | Imagem simulada por inteligência artificial, sem paciente real; Uso didático, imagem sintética |
+| No lugar | IMG-002-C | img-002-c.jpg | EX-12 Retossigmoidoscopia flexível com descompressão | Quando o aluno pede o exame, a partir do M3 | Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose. | Imagem simulada por inteligência artificial, sem paciente real; Uso didático, imagem sintética |
 | No lugar | IMG-002-D | img-002-d.jpg | EX-11 Tomografia de abdome com contraste venoso (atualizado) | Quando o aluno repete o exame no M3-ALT (Paciente com peritonite) | Sigmoide torcido com parede sem realce, pneumatose e gás livre na cavidade. Líquido livre na pelve. | Imagem simulada por inteligência artificial, sem paciente real; Uso didático, imagem sintética |
 
 # Decisões pendentes de validação

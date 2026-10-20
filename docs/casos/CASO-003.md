@@ -8,7 +8,7 @@
 | Público | Graduação e ligas acadêmicas |
 | Tempo estimado | 15 a 20 minutos |
 | Autor | A definir |
-| Versão | 1.2 |
+| Versão | 1.3 |
 | Situação | Conteúdo clínico aguardando validação (ver "Decisões pendentes" no fim) |
 
 ## Resumo
@@ -207,6 +207,7 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | R7 | M2 | Faz apenas colostomia em alça, sem ressecar o tumor. | A obstrução se resolve, mas o tumor continua no lugar e uma nova cirurgia é necessária. | D5 (desfecho ruim) | "Fazer apenas colostomia em alça, sem ressecar o tumor, em paciente com condição de ressecção." |
 | R8 | M3 | Faz apenas colostomia em alça, deixando o tumor. | A obstrução se resolve, mas o tumor continua no lugar e uma nova cirurgia é necessária. | D5 (desfecho ruim) | "Fazer apenas colostomia em alça, deixando o tumor, numa paciente estável com tumor ressecável." |
 | R9 | M4 | Dá alta sem encaminhar à oncologia. | A paciente só chega à oncologia quatro meses depois. | D6 (desfecho ruim) | "Dar alta sem encaminhar à oncologia." |
+| R10 | M3-ALT | Faz anastomose primária em paciente em choque com peritonite fecal. | A anastomose é feita em paciente com pressão de 84 x 50 mmHg, lactato de 5,6 mmol/L e peritonite fecal difusa. | D7 (desfecho grave) | "Fazer anastomose primária em paciente em choque com peritonite fecal." |
 
 ## Desfechos
 
@@ -218,6 +219,7 @@ O que acontece quando o aluno decide fora do esperado. Quando mais de uma regra 
 | D4 | grave | Retorno com perfuração após alta indevida. Colectomia subtotal com ileostomia de urgência, UTI e internação prolongada. Sobrevive, com complicações e atraso no tratamento oncológico. |
 | D5 | ruim | Colostomia sem ressecção do tumor. Nova cirurgia semanas depois para a ressecção, com atraso no tratamento oncológico. |
 | D6 | ruim | Boa recuperação cirúrgica, mas alta sem encaminhamento: a paciente só chega à oncologia quatro meses depois, com atraso no tratamento adjuvante. |
+| D7 | grave | Óbito. A anastomose feita em choque, com peritonite fecal, abre no quarto dia de pós-operatório. A paciente evolui com nova peritonite, choque séptico refratário e falência de múltiplos órgãos, e morre na UTI. |
 
 # Parte 2: folha resposta
 
@@ -399,7 +401,7 @@ Peso: 30 pontos.
 
 - Sigmoidectomia oncológica, com ligadura vascular na origem, margens livres e linfadenectomia adequada.
 - Inspecionar a cavidade, o fígado e o peritônio, e avaliar a viabilidade do ceco.
-- Escolher a reconstrução pela condição da paciente: anastomose primária, com ou sem ileostomia de proteção, se estável e sem contaminação; ou cirurgia de Hartmann, se o risco for alto.
+- Fazer anastomose primária colorretal, com ou sem ileostomia de proteção, já que a paciente está estável, sem contaminação e com o ceco viável.
 
 **Aceitável**
 

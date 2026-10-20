@@ -32,7 +32,7 @@
 | --- | --- | --- | --- | --- |
 | No lugar | IMG-002-A | img-002-a.jpg | Quando o aluno pede o exame, em qualquer momento | Alça de cólon muito distendida, em forma de U invertido, que sobe da pelve em direção ao quadrante superior direito (sinal do grão de café). Sem pneumoperitônio na radiografia de tórax. |
 | No lugar | IMG-002-B | img-002-b.jpg | Quando o aluno pede o exame, em qualquer momento | Sigmoide muito distendido, com torção do mesossigmoide (sinal do redemoinho) e afilamento em bico nas duas extremidades da alça. Cólon proximal moderadamente distendido. Parede da alça com realce preservado, sem pneumatose, sem gás no sistema porta, sem pneumoperitônio e sem líquido livre. Conclusão: volvo de sigmoide sem sinais tomográficos de isquemia. |
-| No lugar | IMG-002-C | img-002-c.jpg | Quando o aluno pede o exame, a partir do M3 | Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose. Sonda retal deixada no sigmoide. |
+| No lugar | IMG-002-C | img-002-c.jpg | Quando o aluno pede o exame, a partir do M3 | Ponto de torção a 25 cm da margem anal, ultrapassado com facilidade, com saída de grande volume de gás e fezes líquidas e redução imediata da distensão. Mucosa com edema leve e enantema, sem áreas violáceas, sem úlceras e sem necrose. |
 | No lugar | IMG-002-D | img-002-d.jpg | Quando o aluno repete o exame no M3-ALT (Paciente com peritonite) | Sigmoide torcido com parede sem realce, pneumatose e gás livre na cavidade. Líquido livre na pelve. |
 
 ## CASO-003: obstrução do cólon esquerdo por neoplasia
